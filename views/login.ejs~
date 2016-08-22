@@ -1,0 +1,55 @@
+<!-- views/login.ejs -->
+<!doctype html>
+<html>
+<head>
+	<title>GreenLight Essentials</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	<style>
+		body 		{ padding-top:80px; }
+	</style>
+</head>
+<body style="background-color:#424242;">
+<h1 style="z-index:9999;position:fixed;color:#A9F5A9;width:100%;background-color: #1C1C1C;height:70px;top:0px;padding:0px;margin:0px">
+
+<div align="center" >
+<div style='text-align:left;width:93%;position:relative;top:25px'>
+
+<a href="/welcome" style="color:inherit;
+  text-decoration: none;z-index:99999;">
+  <img src='public/gle.png' height='44'></a></div></div></h1>
+<div class="container" >
+
+<div class="col-sm-6 col-sm-offset-3" >
+
+	<h1 style="color:#A9F5A9"><span class="fa fa-sign-in"></span> Login</h1>
+
+	<!-- show any messages that come back with authentication -->
+	<% if (message.length > 0) { %>
+		<div class="alert alert-danger"><%= message %></div>
+	<% } %>
+
+	<!-- LOGIN FORM -->
+	<form action="/login" method="post">
+		<div class="form-group">
+			<label style="color:#A9F5A9">Email</label>
+			<input type="text" class="form-control" name="email">
+		</div>
+		<div class="form-group">
+			<label style="color:#A9F5A9">Password</label>
+			<input type="password" class="form-control" name="password">
+		</div>
+
+		<button  type="submit" style="height:50px">Login</button>
+	</form>
+
+	<hr>
+
+	<p style="color:#A9F5A9">Need an account? <a href="/signup">Signup</a></p>
+	<p style="color:#A9F5A9">Or go <a href="/">home</a>.</p>
+
+</div>
+
+</div>
+</body>
+</html>

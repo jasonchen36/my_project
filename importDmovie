@@ -1,0 +1,180 @@
+// server.js
+
+// set up ======================================================================
+// get all the tools we need
+var express  = require('express');
+
+var app      = express();
+
+var port     = process.env.PORT || 3030;
+var mongoose = require('mongoose');
+var passport = require('passport');
+var flash    = require('connect-flash');
+var bodyParser = require('body-parser');
+var cookieParser=require("cookie-parser");
+var session = require('express-session')
+var configDB = require('./config/database.js');
+
+// configuration ===============================================================
+mongoose.connect(configDB.url); // connect to our database
+
+
+require('./config/passport')(passport); // pass passport for configuration
+
+
+///some app.js
+var fs = require('fs')
+var dmoviestream = fs.createReadStream(__dirname+"/visual.csv");
+
+var csv = require("fast-csv");
+
+var dmoviefull_data=[];
+csv
+ .fromStream(dmoviestream, {headers : true})
+ .on("data", function(data){
+     dmoviefull_data.push(data);
+ })
+ .on("end", function(){
+     console.log("done loading dmovie data1");
+
+
+
+
+
+
+     console.log(dmoviefull_data[0])
+
+     var dmovie       		= require('./app/models/dmovie');
+
+     for(i in dmoviefull_data){
+     	new_dmovie= new dmovie;
+     	new_dmovie.title=dmoviefull_data[i].title
+
+     	new_dmovie.keywords=dmoviefull_data[i].keywords.split(',')
+     	new_dmovie.actors=dmoviefull_data[i].actors.split(',')
+          new_dmovie.techrole=dmoviefull_data[i].techrole.split(',')
+
+     	new_dmovie.x=dmoviefull_data[i].x
+     	new_dmovie.y=dmoviefull_data[i].y
+
+     	new_dmovie.ap=dmoviefull_data[i].ap
+     	new_dmovie.op=dmoviefull_data[i].op
+
+     	new_dmovie.year=dmoviefull_data[i].year
+
+
+     	if(dmoviefull_data[i].Action=="yes"){
+     	new_dmovie.Action=true}
+     	else{new_dmovie.Action=false}
+
+
+     	if(dmoviefull_data[i].Comedy=="yes"){
+     	new_dmovie.Comedy=true}
+     	else{new_dmovie.Comedy=false}
+
+     	if(dmoviefull_data[i].Crime=="yes"){
+     	new_dmovie.Crime=true}
+     	else{new_dmovie.Crime=false}	
+
+     	if(dmoviefull_data[i].Drama=="yes"){
+     	new_dmovie.Drama=true}
+     	else{new_dmovie.Drama=false}
+
+
+
+     	if(dmoviefull_data[i].Thriller=="yes"){
+     	new_dmovie.Thriller=true}
+     	else{new_dmovie.Thriller=false}	
+
+
+     	if(dmoviefull_data[i].Mystery=="yes"){
+     	new_dmovie.Mystery=true}
+     	else{new_dmovie.Mystery=false}
+
+     	if(dmoviefull_data[i].Romance=="yes"){
+     	new_dmovie.Romance=true}
+     	else{new_dmovie.Romance=false}
+
+
+     	if(dmoviefull_data[i].War=="yes"){
+     	new_dmovie.War=true}
+     	else{new_dmovie.War=false}
+
+
+     	if(dmoviefull_data[i].Adventure=="yes"){
+     	new_dmovie.Adventure=true}
+     	else{new_dmovie.Adventure=false}
+
+     	if(dmoviefull_data[i].Biography=="yes"){
+     	new_dmovie.Biography=true}
+     	else{new_dmovie.Biography=false}
+
+     	if(dmoviefull_data[i].Horror=="yes"){
+     	new_dmovie.Horror=true}
+     	else{new_dmovie.Horror=false}
+
+
+          if(dmoviefull_data[i].Documentary=="yes"){
+          new_dmovie.Documentary=true}
+          else{new_dmovie.Documentary=false}
+
+
+     	if(dmoviefull_data[i].Music=="yes"){
+     	new_dmovie.Music=true}
+     	else{new_dmovie.Music=false}
+
+
+     	
+
+    	
+    	if(dmoviefull_data[i].Musical=="yes"){
+     	new_dmovie.Musical=true}
+     	else{new_dmovie.Musical=false}
+
+     if(dmoviefull_data[i].Animation=="yes"){
+          new_dmovie.Animation=true}
+          else{new_dmovie.Animation=false}
+
+     if(dmoviefull_data[i].SciFi=="yes"){
+          new_dmovie.SciFi=true}
+          else{new_dmovie.SciFi=false}
+
+     if(dmoviefull_data[i].Western=="yes"){
+          new_dmovie.Western=true}
+          else{new_dmovie.Western=false}
+
+     if(dmoviefull_data[i].Historical=="yes"){
+          new_dmovie.Historical=true}
+          else{new_dmovie.Historical=false}
+    
+    	if(dmoviefull_data[i].Sport=="yes"){
+     	new_dmovie.Sport=true}
+     	else{new_dmovie.Sport=false}
+
+     if(dmoviefull_data[i].Fantasy=="yes"){
+          new_dmovie.Fantasy=true}
+          else{new_dmovie.Fantasy=false}
+
+     if(dmoviefull_data[i].Family=="yes"){
+          new_dmovie.Family=true}
+          else{new_dmovie.Family=false}
+
+
+
+
+
+     	new_dmovie.save()
+
+
+     }
+
+
+console.log('done with database')
+
+ });
+
+
+
+
+
+//var dmovie       		= require('./app/models/dmovie');

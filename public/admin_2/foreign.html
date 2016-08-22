@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+       <link rel="shortcut icon" href="/everyone/small_logo.png">
+
+        <title>Greenlight Essentials</title>
+
+        
+
+
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-reset.css" rel="stylesheet">
+
+        <!--Animation css-->
+        <link href="css/animate.css" rel="stylesheet">
+
+        <!--Icon-fonts css-->
+        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href="assets/ionicon/css/ionicons.min.css" rel="stylesheet" />
+
+        <!-- Plugin Css-->
+        <link rel="stylesheet" href="assets/magnific-popup/magnific-popup.css" />
+        <link rel="stylesheet" href="assets/jquery-datatables-editable/datatables.css" />
+
+        <!-- Custom styles for this template -->
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/helper.css" rel="stylesheet">
+        
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+        <!--[if lt IE 9]>
+          <script src="js/html5shiv.js"></script>
+          <script src="js/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+
+
+   <body style="min-width:480px">
+
+        <!-- Aside Start-->
+        <aside class="left-panel">
+
+            <!-- brand -->
+            <div class="logo">
+                <a href="/welcome" class="logo-expanded">
+                    <img src='/everyone/small_logo.png' height='70px'>
+                    <span class="nav-label" style="font-weight:300"> <p style="color:#A9F5A9">Greenlight</p> <p style="position:relative;top:-15px">Essentials</p></span>
+                </a>
+            </div>
+            <!-- / brand -->
+        
+            <!-- Navbar Start -->
+            <nav class="navigation">
+                <ul class="list-unstyled">
+
+
+                    
+
+                    <li class="has-submenu"><a href="foreign.html"><i class="ion-film-marker"></i> <span class="nav-label">This Project</span></a>
+                                                    <ul class="list-unstyled" >
+
+                                                                       
+
+                                                                           <li class='last' ><a href="foreign.html"><i class="ion-earth"></i> <span class="nav-label">Foreign Sales</span></a>
+
+                                                         </li>
+
+                                            
+                                                 
+                                                            
+                                                       
+                                 
+                    <li class="has-submenu"><a href="waterfall.html"><i class="ion-person-stalker"></i> <span class="nav-label">Waterfall Schedule</span></a>
+                       
+                    </li>
+                    <li class="has-submenu"><a href="production.html"><i class="ion-videocamera"></i> <span class="nav-label">Production Financing</span></a>
+                       
+                    </li>
+                   
+                   
+                        </li>
+                        </ul>
+
+                                    <li class="has-submenu"><a href="foreign.html"><i class="ion-film-marker"></i> <span class="nav-label">Other Projects</span></a>
+                                    
+                                         <ul class="list-unstyled" >
+
+                                                                       
+
+                                        <li class='last' ><a href=""><i class="ion-film-marker"></i> <span class="nav-label">Project 2</span></a>
+
+                                                         </li>
+                                        <li class='last' ><a href=""><i class="ion-film-marker"></i> <span class="nav-label">Project 3</span></a>
+
+                                                         </li>
+
+                                                         </ul>
+
+
+                                    </li>
+                    
+                </ul>
+            </nav>
+                
+        </aside>
+        <!-- Aside Ends-->
+
+
+        <!--Main Content Start -->
+        <section class="content">
+            
+            <!-- Header -->
+            <header class="top-head container-fluid">
+                <button type="button" class="navbar-toggle pull-left">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+                <!-- Search -->
+               
+                
+                <!-- Right navbar -->
+                <ul class="list-inline navbar-right top-menu top-right-menu">  
+                    <!-- mesages -->  
+                  
+                        
+                       
+                    <!-- /Notification -->
+
+                    <!-- user login dropdown start-->
+                    <li class="dropdown text-center">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+
+                            <span class="username"> </span> <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu extended pro-menu fadeInUp animated" tabindex="5003" style="overflow: hidden; outline: none;">
+ 
+                            <li><a onclick="logout()"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->       
+                </ul>
+                <!-- End right navbar -->
+
+            </header>
+            <!-- Header Ends -->
+
+
+            <!-- Page Content Start -->
+            <!-- ================== -->
+
+            <div class="wraper container-fluid">
+                <div class="page-title"> 
+                    <h3 class="title">Foreign Sales</h3> 
+                </div>
+
+
+                <div class="panel">
+                            
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="m-b-30">
+                                    <button id="addToTable" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-bordered table-striped" id="datatable-editable">
+                            <thead>
+                                <tr>
+                                    <th>Country</th>
+                                    <th>Ask</th>
+                                    <th>Take</th>
+                                    <th>Actual</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="gradeX">
+                                    <td>United Kingdom</td>
+                                    <td>$100,000</td>
+                                    <td>$40,000</td>
+                                    <td>$80,000</td>
+                                    
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+
+                                 <tr class="gradeX">
+                                    <td>France</td>
+                                    <td>$80,000</td>
+                                    <td>$30,000</td>
+                                    <td>$50,000</td>
+                                    
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+
+                                 <tr class="gradeX">
+                                    <td>Italy</td>
+                                    <td>$20,000</td>
+                                    <td>$6,000</td>
+                                    <td>Not Yet Sold</td>
+                                    
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+
+                                 <tr class="gradeX">
+                                    <td>South Korea</td>
+                                    <td>$90,000</td>
+                                    <td>$50,000</td>
+                                    <td>$30,000</td>
+                                    
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+
+                                 <tr class="gradeX">
+                                    <td>Australia</td>
+                                    <td>$70,000</td>
+                                    <td>$20,000</td>
+                                    <td>Not Yet Sold</td>
+                                    
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+
+                                 <tr class="gradeX">
+                                    <td>Mexico</td>
+                                    <td>$40,000</td>
+                                    <td>$20,000</td>
+                                    <td>Waiting For Producer Approval</td>
+                                    
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+                              
+                               
+                               
+                            </tbody>
+                        </table>
+
+                        <h4><b>Total Ask: $400,000</b></h4>
+                        <h4><b>Total Take: $146,000</b></h4>
+
+                        </br>
+
+                        <h3><b>Total Actual: $160,000</b></h3>
+                    </div>
+                    <!-- end: page -->
+
+                </div> <!-- end Panel -->
+
+
+            </div>
+            <!-- Page Content Ends -->
+            <!-- ================== -->
+
+            <!-- Footer Start -->
+            <footer class="footer">
+                2016 © Greenlight Essentials Inc.
+            </footer>
+            <!-- Footer Ends -->
+
+
+
+        </section>
+        <!-- Main Content Ends -->
+
+
+        <!-- MODAL -->
+        <div id="dialog" class="modal-block mfp-hide">
+            <section class="panel panel-info panel-color">
+                <header class="panel-heading">
+                    <h2 class="panel-title">Are you sure?</h2>
+                </header>
+                <div class="panel-body">
+                    <div class="modal-wrapper">
+                        <div class="modal-text">
+                            <p>Are you sure that you want to delete this row?</p>
+                        </div>
+                    </div>
+
+                    <div class="row m-t-20">
+                        <div class="col-md-12 text-right">
+                            <button id="dialogConfirm" class="btn btn-primary">Confirm</button>
+                            <button id="dialogCancel" class="btn btn-default">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+        </div>
+
+        
+
+
+
+        <!-- js placed at the end of the document so the pages load faster -->
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/pace.min.js"></script>
+        <script src="js/modernizr.min.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+
+
+        <script src="js/jquery.app.js"></script>
+
+        <!-- Examples -->
+        <script src="assets/magnific-popup/magnific-popup.js"></script>
+        <script src="assets/jquery-datatables-editable/jquery.dataTables.js"></script> 
+        <script src="assets/datatables/dataTables.bootstrap.js"></script>
+        <script src="assets/jquery-datatables-editable/datatables.editable.init.js"></script>
+
+    
+
+    </body>
+</html>

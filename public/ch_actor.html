@@ -1,0 +1,899 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" id="themeCSS" href="public/jQRangeSlider-5.7.0/css/classic.css"> 
+<script src="/public/d3.min.js"></script>
+
+
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <script src="public/jQRangeSlider-5.7.0/lib/jquery.mousewheel.min.js"></script>
+    <script src="public/jQRangeSlider-5.7.0/jQAllRangeSliders-min.js"></script>
+<script src="public/cloudlayout.js"></script>
+
+    <script type="text/javascript" src="public/jquery.tipsy.js"></script>
+    <link href="public/tipsy.css" rel="stylesheet" type="text/css" />
+   
+
+      <link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.core.css" type="text/css" />
+    <link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.tags.css" type="text/css" />
+    <link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.autocomplete.css" type="text/css" />
+    <link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.focus.css" type="text/css" />
+    <link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.prompt.css" type="text/css" />
+    <link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.arrow.css" type="text/css" />
+    <script src="public/jquery-textext-master/src/js/textext.core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="public/jquery-textext-master/src/js/textext.plugin.tags.js" type="text/javascript" charset="utf-8"></script>
+    <script src="public/jquery-textext-master/src/js/textext.plugin.autocomplete.js" type="text/javascript" charset="utf-8"></script>
+    <script src="public/jquery-textext-master/src/js/textext.plugin.suggestions.js" type="text/javascript" charset="utf-8"></script>
+    <script src="public/jquery-textext-master/src/js/textext.plugin.filter.js" type="text/javascript" charset="utf-8"></script>
+    <script src="public/jquery-textext-master/src/js/textext.plugin.focus.js" type="text/javascript" charset="utf-8"></script>
+    <script src="public/jquery-textext-master/src/js/textext.plugin.prompt.js" type="text/javascript" charset="utf-8"></script>
+    <script src="public/jquery-textext-master/src/js/textext.plugin.ajax.js" type="text/javascript" charset="utf-8"></script>
+    <script src="public/jquery-textext-master/src/js/textext.plugin.arrow.js" type="text/javascript" charset="utf-8"></script>
+
+
+		<script type="text/javascript" src="http://d3js.org/d3.hexbin.v0.min.js"></script>	
+	 
+<title> Analytic Terminal </title>
+<style>
+
+
+
+body {
+        font-family:"Lucida Grande","Droid Sans",Arial,Helvetica,sans-serif;
+		margin:0;
+		padding:0;
+
+		
+    }
+
+.myButton {
+	background-color:#d9534f;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:9px 21px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton:hover {
+	background-color:#d43f3a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+    .tipsy { font-size: 14px;}
+    .legend {
+        border: 1px solid #555555;
+        border-radius: 5px 5px 5px 5px;
+        font-size: 1.8em;
+        margin: 0px;
+        padding: 8px;
+    }
+    .bld {
+        font-weight: bold;
+    }
+	
+	.filter_options {
+        
+        border: 1px solid #555555;
+        border-radius:5px;
+        font-size: .9em;
+		color:white;
+        margin: 10px;
+        padding: 10px;
+		width:400px;
+		position:relative;
+		top:0px;
+		left:-2%;
+		z-index:7999;
+		height:-600px;
+		background-color:#2E2E2E;
+		
+    }
+
+	.myButton2 {
+	background-color:#b8b8b8;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:17px;
+	padding:21px 17px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton2:hover {
+	background-color:#949194;
+}
+.myButton2:active {
+	position:relative;
+	top:1px;
+}
+
+
+	p {
+    font-size: 100%;
+	}
+	div {
+    font-size: 90%;
+	}
+	.tabs li {
+				white-space: nowrap;
+				
+			}
+
+			.tabs a {
+				padding:5px 10px;
+				display:inline-block;
+				
+				background:#fff;
+				color:#000;
+				text-decoration:none;
+				z-index:999;
+			
+			}
+
+			.tabs a.active {
+				background:#000000;
+				color:#fff;
+				z-index:999
+			}
+
+.land {
+  fill: #222;
+}
+
+.county-boundary {
+  fill: none;
+  stroke: #fff;
+  stroke-width: .5px;
+}
+
+.state-boundary {
+  fill: none;
+  stroke: #fff;
+}
+
+.hexagons path {
+  stroke: #40B640;
+  stroke-width:3px;
+}
+
+
+.chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+			
+			
+
+</style>
+</head>
+<body  class='pos_right'  style="background-color: #6E6E6E;padding:0px;margin:0px">
+<h1 style="z-index:9999;position:fixed;top:-0px;color:#A9F5A9;width:100%;background-color: #1C1C1C;height:70px;padding:0px;margin:0px">
+
+
+<a href="/" style="color:inherit;
+  text-decoration: none;z-index:99999;">
+  <img src='/everyone/glessentials.png' height='70px'></a>
+
+<div align="center" >
+<div style='text-align:left;width:93%;position:relative;top:25px'>
+
+</div></div>
+<p style="position:relative;width:auto;display:inline-block;float:right;font-size:0.4em;top:-45px;left:-20px;color:#A9F5A9">© 2015 Si Chang Zhang. All Rights Reserved. </p>
+
+</h1>
+
+
+
+
+<div style="position:relative;width:60%;left:50px;top:100px">
+
+<div style="position:relative;width:50%;left:;top:px;z-index:99;color:black"><h3 style='position:relative;top:10px;color:white;font-size:1.4em'> Actor Names: </h3>
+
+<div style="position:relative;display:">
+
+<textarea id="atextarea" style='width:500px;'class="example2"  rows="1"></textarea> <br>
+
+</div>
+<script type="text/javascript">
+
+var asaglist;
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                asaglist=allText;
+            }
+        }
+    }
+    rawFile.send(null);
+}
+  readTextFile('public/name_list.txt');
+  
+  
+  $('#atextarea').textext({
+    plugins : 'autocomplete suggestions tags filter',
+
+    suggestions: asaglist.split(',')
+  });
+  
+
+
+</script>
+  
+</div>
+
+
+<div id="option">
+    <a name="update" style="position:relative;display:inline-block;left:550px;top:-45px;z-index:109;"
+class="myButton"
+    
+           onclick="update()"> UPDATE </a>
+
+
+
+       </div >
+</div>
+</div>
+
+
+<div style="position:relative;top:;width:45%;height:300px">
+<div class="bo_graph" style="background-color:white;position:relative;top:150px;left:50px;z-index:109;border-radius: 15px 15px 15px 15px;">
+<p style="position:relative;font-size:1.4em;font-weight:bold;text-align:center;top:30px">Total Chinese Box Office Gross</p>
+      <bo style="background_color:white"></bo>
+       </div>
+       </div>
+
+
+
+
+
+
+
+<div style="position:relative;display:inline;top:-170px;height:300px">
+<div class="main_graph2" style="background-color:white;position:relative;width:45%;left:50%;z-index:109;border-radius: 15px 15px 15px 15px;">
+<p style="position:relative;font-size:1.4em;font-weight:bold;text-align:center;top:30px">Total Chinese Annualized Box Office Market Share </p>
+      <ms style="background_color:white"></ms>
+       </div>
+       </div>
+
+
+<div style="position:relative;top:;width:45%;height:300px">
+<div class="boavg_graph" style="background-color:white;position:relative;top:10px;left:50px;z-index:109;border-radius: 15px 15px 15px 15px;">
+<p style="position:relative;font-size:1.4em;font-weight:bold;text-align:center;top:30px">Average Chinese Box Office Gross</p>
+      <boavg style="background_color:white"></boavg>
+       </div>
+       </div>
+
+
+
+
+<div class="bobr_graph" style="background-color:white;position:relative;top:500px;width:45%;left:50px;z-index:109;border-radius: 15px 15px 15px 15px;">
+<p style="position:relative;font-size:1.3em;font-weight:bold;text-align:center;top:30px">Box Office Gross Breakdown</p>
+<bobr style="background_color:white"></bobr>
+       </div>
+
+<div style="position:relative;display:inline;top:-530px;height:300px">
+<div class="msavg" style="background-color:white;position:relative;width:45%;left:50%;z-index:109;border-radius: 15px 15px 15px 15px;">
+<p style="position:relative;font-size:1.4em;font-weight:bold;text-align:center;top:30px">Average Chinese Annualized Box Office Market Share </p>
+      <msavg style="background_color:white"></msavg>
+       </div>
+       </div>
+
+<div class="msbr" style="background-color:white;position:relative;width:45%;left:50%;z-index:109;border-radius: 15px 15px 15px 15px;">
+<p style="position:relative;font-size:1.3em;font-weight:bold;text-align:center;top:30px">Box Office Market Share Breakdown</p>
+<msbr style="background_color:white"></msbr>
+       </div>
+       
+
+
+
+
+
+
+<script>
+filters={}
+ww=$(window).width()
+hh=1*25+140
+
+
+var svg_bo = d3.select("body").select('bo').append("svg")
+    .attr("width", ww*0.5)
+    .attr("height", hh);
+
+
+
+
+var svg_ms = d3.select("body").select('ms').append("svg")
+    .attr("width", ww*0.5-70)
+    .attr("height", hh);
+
+var svg_boavg = d3.select("body").select('boavg').append("svg")
+    .attr("width", ww*0.5-70)
+    .attr("height", hh);
+
+
+var svg_bobr = d3.select("body").select('bobr').append("svg")
+    .attr("width", ww*0.5-70)
+    .attr("height", hh);
+
+
+var svg_msavg = d3.select("body").select('msavg').append("svg")
+    .attr("width", ww*0.5-70)
+    .attr("height", hh);
+
+
+var svg_msbr = d3.select("body").select('msbr').append("svg")
+    .attr("width", ww*0.5-70)
+    .attr("height", hh);
+
+function update(){
+
+
+var atextarea = $('textarea.example2:last');
+      filters['actors']=JSON.parse(atextarea.textext()[0].hiddenInput().val());
+
+      //console.log(filters)
+
+
+
+
+
+
+
+//console.log(filters)
+
+
+
+var worker= new Worker("public/ch_works.js")
+
+
+
+      //$.ajax({
+            //url: "./filters",
+            //data: filters,
+            
+            //type: 'POST',
+            //data: filters,
+            //success: function(data){
+ worker.onmessage=function(data){ 
+
+  var dataj=JSON.parse(data.data)
+
+  
+  data_bo=dataj.success.data_bo
+
+//  data_bo=dataj.success.d_ms
+
+    d_br=dataj.success.d_br
+    d_ms=dataj.success.d_ms
+
+
+    d_bo_avg=dataj.success.d_bo_avg
+
+    d_ms_avg=dataj.success.d_ms_avg
+
+    d_ms_br=dataj.success.d_ms_br
+
+//console.log(d_ms_br)
+  //  console.log(data_bo)
+
+ww=$(window).width()
+hh=data_bo.length*25+140
+
+
+d3.select("body").select("bo").select("svg").remove();
+
+d3.select("body").select("ms").select("svg").remove();
+
+
+
+
+var svg_ms = d3.select("body").select('ms').append("svg")
+    .attr("width", ww*0.5-70)
+    .attr("height", hh);
+
+
+var svg_bo = d3.select("body").select('bo').append("svg")
+    .attr("width", ww*0.5-70)
+    .attr("height", hh);
+
+
+
+
+
+
+
+
+
+
+var income=svg_bo.selectAll("bar")
+      .data(data_bo)
+    .enter()
+
+
+  var i_max_val = d3.max(data_bo, function(d) {
+          return d[1];
+          });
+
+  //console.log(d3_male_demo_data)
+
+
+  var margin = {top: 50, right: 20, bottom: 10, left: 65}
+
+
+
+var ix = d3.scale.linear()
+    .domain([0, i_max_val])
+    .range([0, ww*0.5-70-300]);
+
+//console.log(iob_data)
+
+function addCommas(nStr) {
+    nStr += '';
+    x = nStr.split('.');
+    x1 = x[0];
+    x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+    return x1 + x2;
+}
+
+
+    income.append("rect")
+      .style("fill", "#99ff99")
+      .attr("x", 180+"px")
+      .attr("width", "0px")
+      .attr("y", function (d,i) {return i*25+50 +"px"})
+      .attr("height", 23 +"px")
+      .transition()
+      .duration(700)
+      .attr("width", function(d) {return ix(d[1])+"px"})
+     // .html(function(d) {return "<div>"+String(d[1])+"</div>"})
+
+     income.append("text")
+     .attr("x", 185+"px")
+      .attr("y", function (d,i) {return i*25+65 +"px"})
+      .attr("dy", ".25em")
+      .style("fill","black")
+      .text(function (d) {return "\xA5"+addCommas(String(d[1]))})
+      .transition()
+      .duration(700)
+      .attr("x", function(d) {return ix(d[1])+185+"px"})
+
+
+      income.append("text")
+     .attr("x", function(d) {return 20+"px"})
+      .attr("y", function (d,i) {return i*25+65 +"px"})
+      .attr("dy", ".25em")
+      .style("fill","black")
+      .text(function (d) {return d[0]})
+
+
+
+//////////////////////////bobr
+
+movie_list=[]
+
+act_len=0
+for (i in d_br){
+  film=d_br[i]
+  act_len+=1
+  for (j in film){
+    movie_list.push(film[j][1])
+  }
+
+}
+
+var ix = d3.scale.linear()
+    .domain([0, d3.max(movie_list)])
+    .range([0, ww*0.3-40-300]);
+
+
+br_h=movie_list.length*25+act_len*80+40
+
+
+
+//console.log(br_h)
+
+avg_hh=d_bo_avg.length*25+140
+
+$(".boavg_graph").css("top",-150+"px")
+
+d3.select("body").select("boavg").select("svg").remove();
+
+
+var svg_boavg = d3.select("body").select('boavg').append("svg")
+    .attr("width", ww*0.5-70)
+    .attr("height", avg_hh);
+
+
+
+
+$(".bobr_graph").css("top",hh-370+"px")
+
+d3.select("body").select("bobr").select("svg").remove();
+
+var svg_bobr = d3.select("body").select('bobr').append("svg")
+    .attr("width", ww*0.5-70)
+    .attr("height", br_h);
+
+
+
+d3.select("body").select("msavg").select("svg").remove();
+$(".msavg").css("top",-br_h+"px")
+
+var svg_msavg = d3.select("body").select('msavg').append("svg")
+    .attr("width", ww*0.5-70)
+    .attr("height", avg_hh);
+
+
+d3.select("body").select("msbr").select("svg").remove();
+
+var svg_msbr = d3.select("body").select('msbr').append("svg")
+    .attr("width", ww*0.5-70)
+    .attr("height", br_h);
+
+$(".msbr").css("top",hh-490-avg_hh-br_h+"px")
+
+
+
+
+
+
+
+icounter=0
+
+
+
+
+
+     for (i in d_br){
+      
+      br_data=d_br[i]
+
+      var br_movies=svg_bobr.append("g").selectAll("bar")
+      .data(br_data)
+    .enter()
+
+    br_movies.append("rect")
+      .style("fill", "#99ff99")
+      .attr("x", 380+"px")
+      .attr("width", "0px")
+      .attr("y", function (d,i) {return i*25+50+icounter +"px"})
+      .attr("height", 23 +"px")
+      .transition()
+      .duration(700)
+      .attr("width", function(d) {return ix(d[1])+"px"})
+
+      //console.log(br_data)
+
+    //  var br_svg=
+
+
+     br_movies.append("text")
+     .attr("x","385px")
+      .attr("y", function (d,i) {return i*25+65+icounter +"px"})
+      .attr("dy", ".25em")
+      .style("fill","black")
+      .text(function (d) {return "\xA5"+addCommas(String(d[1]))})
+      .transition()
+      .duration(700)
+      .attr("x", function(d) {return ix(d[1])+385+"px"})
+
+
+      br_movies.append("text")
+     .attr("x", function(d) {return 20+"px"})
+      .attr("y", function (d,i) {return i*25+65+icounter +"px"})
+      .attr("dy", ".25em")
+      .style("fill","black")
+      .text(function (d) {return d[0]})
+
+      br_movies.append("text")
+     .attr("x", function(d) {return 20+"px"})
+      .attr("y", function (d,i) {return 25+icounter +"px"})
+      .attr("dy", ".25em")
+      .style("fill","black")
+      .text(i)
+
+
+
+
+    icounter+=br_data.length*25+80
+
+     }
+
+
+/////////////market share
+
+var income=svg_ms.selectAll("bar")
+      .data(d_ms)
+    .enter()
+
+
+  var i_max_val = d3.max(d_ms, function(d) {
+          return d[1];
+          });
+
+  //console.log(d3_male_demo_data)
+
+
+  var margin = {top: 50, right: 20, bottom: 10, left: 65}
+
+
+
+var i_msx = d3.scale.linear()
+    .domain([0, i_max_val])
+    .range([0, ww*0.5-70-300]);
+
+//console.log(iob_data)
+
+    income.append("rect")
+      .style("fill", "red")
+      .attr("x", 180+"px")
+      .attr("width","0px")
+      .attr("y", function (d,i) {return i*25+50 +"px"})
+      .attr("height", 23 +"px")
+      .transition()
+      .duration(700)
+      .attr("width", function(d) {return i_msx(d[1])+"px"})
+     // .html(function(d) {return "<div>"+String(d[1])+"</div>"})
+
+     income.append("text")
+     .attr("x", "185px")
+      .attr("y", function (d,i) {return i*25+65 +"px"})
+      .attr("dy", ".25em")
+      .style("fill","black")
+      .text(function (d) {return Math.round(d[1]*10000)/100+"%"})
+      .transition()
+      .duration(700)
+      .attr("x", function(d) {return i_msx(d[1])+185+"px"})
+
+
+      income.append("text")
+     .attr("x", function(d) {return 20+"px"})
+      .attr("y", function (d,i) {return i*25+65 +"px"})
+      .attr("dy", ".25em")
+      .style("fill","black")
+      .text(function (d) {return d[0]})
+        
+        
+
+
+////////avg
+
+
+var income=svg_boavg.selectAll("bar")
+      .data(d_bo_avg)
+    .enter()
+
+
+  var i_max_val = d3.max(d_bo_avg, function(d) {
+          return d[1];
+          });
+
+  //console.log(d3_male_demo_data)
+
+
+  var margin = {top: 50, right: 20, bottom: 10, left: 65}
+
+
+
+var ix = d3.scale.linear()
+    .domain([0, i_max_val])
+    .range([0, ww*0.5-70-300]);
+
+//console.log(iob_data)
+
+function addCommas(nStr) {
+    nStr += '';
+    x = nStr.split('.');
+    x1 = x[0];
+    x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+    return x1 + x2;
+}
+
+
+    income.append("rect")
+      .style("fill", "#99ff99")
+      .attr("x", 180+"px")
+      .attr("width", "0px")
+      .attr("y", function (d,i) {return i*25+50 +"px"})
+      .attr("height", 23 +"px")
+      .transition()
+      .duration(700)
+      .attr("width", function(d) {return ix(d[1])+"px"})
+     // .html(function(d) {return "<div>"+String(d[1])+"</div>"})
+
+     income.append("text")
+     .attr("x", 185+"px")
+      .attr("y", function (d,i) {return i*25+65 +"px"})
+      .attr("dy", ".25em")
+      .style("fill","black")
+      .text(function (d) {return "\xA5"+addCommas(String(Math.round(d[1]*1)/1))})
+      .transition()
+      .duration(700)
+      .attr("x", function(d) {return ix(d[1])+185+"px"})
+
+
+      income.append("text")
+     .attr("x", function(d) {return 20+"px"})
+      .attr("y", function (d,i) {return i*25+65 +"px"})
+      .attr("dy", ".25em")
+      .style("fill","black")
+      .text(function (d) {return d[0]})
+
+
+
+      var income=svg_msavg.selectAll("bar")
+      .data(d_ms_avg)
+    .enter()
+
+
+  var i_max_val = d3.max(d_ms_avg, function(d) {
+          return d[1];
+          });
+
+  //console.log(d3_male_demo_data)
+
+
+  var margin = {top: 50, right: 20, bottom: 10, left: 65}
+
+
+
+var ix = d3.scale.linear()
+    .domain([0, i_max_val])
+    .range([0, ww*0.5-70-300]);
+
+
+
+    income.append("rect")
+      .style("fill", "red")
+      .attr("x", 180+"px")
+      .attr("width", "0px")
+      .attr("y", function (d,i) {return i*25+50 +"px"})
+      .attr("height", 23 +"px")
+      .transition()
+      .duration(700)
+      .attr("width", function(d) {return ix(d[1])+"px"})
+     // .html(function(d) {return "<div>"+String(d[1])+"</div>"})
+
+     income.append("text")
+     .attr("x", 185+"px")
+      .attr("y", function (d,i) {return i*25+65 +"px"})
+      .attr("dy", ".25em")
+      .style("fill","black")
+      .text(function (d) {return Math.round(d[1]*10000)/100+"%"})
+      .transition()
+      .duration(700)
+      .attr("x", function(d) {return ix(d[1])+185+"px"})
+
+
+      income.append("text")
+     .attr("x", function(d) {return 20+"px"})
+      .attr("y", function (d,i) {return i*25+65 +"px"})
+      .attr("dy", ".25em")
+      .style("fill","black")
+      .text(function (d) {return d[0]})
+
+
+
+      ///////msbr
+
+      jcounter=0
+
+
+
+
+
+     for (i in d_ms_br){
+      
+      br_data=d_ms_br[i]
+
+      var br_movies=svg_msbr.append("g").selectAll("bar")
+      .data(br_data)
+    .enter()
+
+    br_movies.append("rect")
+      .style("fill", "red")
+      .attr("x", 380+"px")
+      .attr("width", "0px")
+      .attr("y", function (d,i) {return i*25+50+jcounter +"px"})
+      .attr("height", 23 +"px")
+      .transition()
+      .duration(700)
+      .attr("width", function(d) {return i_msx(d[1])+"px"})
+
+      //console.log(br_data)
+
+    //  var br_svg=
+
+
+     br_movies.append("text")
+     .attr("x","385px")
+      .attr("y", function (d,i) {return i*25+65+jcounter +"px"})
+      .attr("dy", ".25em")
+      .style("fill","black")
+      .text(function (d) {return Math.round(d[1]*10000)/100+"%"})
+      .transition()
+      .duration(700)
+      .attr("x", function(d) {return i_msx(d[1])+385+"px"})
+
+
+      br_movies.append("text")
+     .attr("x", function(d) {return 20+"px"})
+      .attr("y", function (d,i) {return i*25+65+jcounter +"px"})
+      .attr("dy", ".25em")
+      .style("fill","black")
+      .text(function (d) {return d[0]})
+
+      br_movies.append("text")
+     .attr("x", function(d) {return 20+"px"})
+      .attr("y", function (d,i) {return 25+jcounter +"px"})
+      .attr("dy", ".25em")
+      .style("fill","black")
+      .text(i)
+
+
+
+
+    jcounter+=br_data.length*25+80
+
+     }
+
+
+        
+        
+    }
+  
+
+
+      
+  
+  
+        
+  worker.postMessage(filters)
+
+    }
+
+</script>
+
+
+</body>
+
+	
+
+</html>

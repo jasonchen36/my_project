@@ -1,0 +1,3117 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" id="themeCSS" href="public/jQRangeSlider-5.7.0/css/classic.css"> 
+<script src="/public/d3.min.js"></script>
+
+
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="public/jQRangeSlider-5.7.0/lib/jquery.mousewheel.min.js"></script>
+		<script src="public/jQRangeSlider-5.7.0/jQAllRangeSliders-min.js"></script>
+<script src="public/cloudlayout.js"></script>
+
+    <script type="text/javascript" src="public/jquery.tipsy.js"></script>
+    <link href="public/tipsy.css" rel="stylesheet" type="text/css" />
+	 
+
+	 		<link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.core.css" type="text/css" />
+		<link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.tags.css" type="text/css" />
+		<link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.autocomplete.css" type="text/css" />
+		<link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.focus.css" type="text/css" />
+		<link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.prompt.css" type="text/css" />
+		<link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.arrow.css" type="text/css" />
+		<script src="public/jquery-textext-master/src/js/textext.core.js" type="text/javascript" charset="utf-8"></script>
+		<script src="public/jquery-textext-master/src/js/textext.plugin.tags.js" type="text/javascript" charset="utf-8"></script>
+		<script src="public/jquery-textext-master/src/js/textext.plugin.autocomplete.js" type="text/javascript" charset="utf-8"></script>
+		<script src="public/jquery-textext-master/src/js/textext.plugin.suggestions.js" type="text/javascript" charset="utf-8"></script>
+		<script src="public/jquery-textext-master/src/js/textext.plugin.filter.js" type="text/javascript" charset="utf-8"></script>
+		<script src="public/jquery-textext-master/src/js/textext.plugin.focus.js" type="text/javascript" charset="utf-8"></script>
+		<script src="public/jquery-textext-master/src/js/textext.plugin.prompt.js" type="text/javascript" charset="utf-8"></script>
+		<script src="public/jquery-textext-master/src/js/textext.plugin.ajax.js" type="text/javascript" charset="utf-8"></script>
+		<script src="public/jquery-textext-master/src/js/textext.plugin.arrow.js" type="text/javascript" charset="utf-8"></script>
+	 
+<title> Analytic Terminal </title>
+<style>
+
+
+
+body {
+        font-family:"Lucida Grande","Droid Sans",Arial,Helvetica,sans-serif;
+		margin:0;
+		padding:0;
+
+		
+    }
+
+.myButton {
+	background-color:#d9534f;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:9px 21px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton:hover {
+	background-color:#d43f3a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+.myButton3 {
+	background-color:#d9534f;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:9px 21px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton3:hover {
+	background-color:#d43f3a;
+}
+.myButton3:active {
+	position:relative;
+	top:1px;
+}
+
+
+    .tipsy { font-size: 14px;}
+    .legend {
+        border: 1px solid #555555;
+        border-radius: 5px 5px 5px 5px;
+        font-size: 1.8em;
+        margin: 0px;
+        padding: 8px;
+    }
+    .bld {
+        font-weight: bold;
+    }
+	
+	.filter_options {
+        
+        border: 1px solid #555555;
+        border-radius:5px;
+        font-size: .9em;
+		color:white;
+        margin: 10px;
+        padding: 10px;
+		width:400px;
+		position:relative;
+		top:0px;
+		left:-2%;
+		z-index:7999;
+		height:-600px;
+		background-color:#2E2E2E;
+		
+    }
+
+	.myButton2 {
+	background-color:#b8b8b8;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:17px;
+	padding:21px 17px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton2:hover {
+	background-color:#949194;
+}
+.myButton2:active {
+	position:relative;
+	top:1px;
+}
+
+
+	p {
+    font-size: 100%;
+	}
+	div {
+    font-size: 90%;
+	}
+	.tabs li {
+				white-space: nowrap;
+				
+			}
+
+			.tabs a {
+				padding:5px 10px;
+				display:inline-block;
+				
+				background:#fff;
+				color:#000;
+				text-decoration:none;
+				z-index:999;
+			
+			}
+
+			.tabs a.active {
+				background:#000000;
+				color:#fff;
+				z-index:999
+			}
+			
+
+
+
+</style>
+</head>
+<body  class='pos_right'  style="background-color: #6E6E6E;padding:0px;margin:0px">
+<h1 style="z-index:9999;position:fixed;color:#A9F5A9;width:100%;background-color: #1C1C1C;height:70px;padding:0px;margin:0px">
+
+
+<a href="/" style="color:inherit;
+  text-decoration: none;z-index:99999;">
+  <img src='/everyone/glessentials.png' height='70px'></a>
+
+<div align="center" >
+<div style='text-align:left;width:93%;position:relative;top:25px'>
+
+</div></div>
+<p style="position:relative;width:auto;display:inline-block;float:right;font-size:0.4em;top:-45px;left:-20px;color:#A9F5A9">© 2015 Si Chang Zhang. All Rights Reserved. </p>
+
+</h1>
+<h2 style="z-index:9999;position:fixed;width:100%;top:70px;color:#1C1C1C;background-color: #A9F5A9;padding:0px;margin:0px;height:40px">
+<div align="center" >
+<div style='text-align:left;width:93%;position:relative;top:15px'>
+Box Office Analytic Terminal - Domestic (U.S. & Canada) Total Box-Office Revenue vs. Marketing Spending</div></div>
+
+
+<div>
+
+
+<div id="option">
+    <a name="logoutButton" 
+	
+			style="position:relative;left:93%;top:-20px;z-index:999;"
+class="myButton"
+    
+           onclick="logout()" >Logout</a>
+		   </div >
+
+
+		   <div id="option">
+    <a name="MIButton" 
+	
+class="myButton3"
+    			style="position:relative;display:inline-block;left:83%;top:-53px;z-index:999;"
+
+           onclick="geo_data()" >Market Intel</a>
+		   </div >
+</h2>
+
+<div align="center" class='level0' style='position:relative;top:110px'>
+
+<div class='level1'  style='text-align:left; display:inline-block;width:93%;height:100vh; background-color: ;border-radius: 5px 5px 5px 5px'>
+<div class='sPanel' style='background-color='>
+
+<div class="filter_options">
+
+
+<h2 style='position:absolute;top:-20px;left:35%'>Selection Panel</h2>
+
+
+
+
+<h3>Select by Genre:  </h3>
+<div style="position:relative;top:0px;left:-4px;width:50%;font-size:1.2em">
+<input class="filter_button" id="a_button" type="checkbox"  >Action &nbsp&nbsp&nbsp </input><br>
+
+<input class="filter_button" id="ad_button" type="checkbox" >Adventure</input><br>
+
+<input class="filter_button" id="ani_button" type="checkbox" >Animation</input><br>
+
+<input class="filter_button" id="bio_button" type="checkbox" >Biography&nbsp&nbsp</input><br>
+<input class="filter_button" id="c_button" type="checkbox" >Comedy&nbsp </input><br>
+<input class="filter_button" id="cri_button" type="checkbox" >Crime&nbsp&nbsp&nbsp&nbsp&nbsp</input><br>
+
+<input class="filter_button" id="dra_button" type="checkbox" >Drama&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</input><br>
+
+<input class="filter_button" id="F_button" type="checkbox" >Family&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </input><br>
+<input class="filter_button" id="fanta_button" type="checkbox" >Fantasy</input><br>
+
+<input class="filter_button" id="hist_button" type="checkbox" >Historical&nbsp&nbsp&nbsp</input><br>
+
+
+
+
+<input class="filter_button" id="doc_button" type="checkbox" >Documentary</input><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div style="position:absolute;top:49px;left:105px;width:50%;font-size:1.2em">
+<input class="filter_button" id="an_button" type="checkbox" >Not Action</input><br>
+<input class="filter_button" id="adn_button" type="checkbox" >Not Adventure</input><br>
+<input class="filter_button" id="anin_button" type="checkbox" >Not Animation</input><br>
+<input class="filter_button" id="bion_button" type="checkbox" >Not Biography</input><br>
+<input class="filter_button" id="cn_button" type="checkbox" >Not Comedy</input><br>
+<input class="filter_button" id="crin_button" type="checkbox" >Not Crime</input><br>
+
+<input class="filter_button" id="dran_button" type="checkbox" >Not Drama&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</input><br>
+<input class="filter_button" id="Fn_button" type="checkbox" >Not Family</input><br>
+<input class="filter_button" id="fantan_button" type="checkbox" >Not Fantasy</input><br>
+<input class="filter_button" id="histn_button" type="checkbox" >Not Historical</input><br>
+<input class="filter_button" id="docn_button" type="checkbox" >Not Documentary</input><br>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+<div style="position:absolute;top:49px;left:215px;width:50%;font-size:1.2em">
+
+<input class="filter_button" id="hor_button" type="checkbox" >Horror&nbsp&nbsp&nbsp&nbsp</input><br>
+
+<input class="filter_button" id="mus_button" type="checkbox" >Music&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</input><br>
+
+<input class="filter_button" id="musl_button" type="checkbox" >Musical&nbsp&nbsp&nbsp</input><br>
+<input class="filter_button" id="myst_button" type="checkbox" >Mystery&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </input><br>
+
+<input class="filter_button" id="rom_button" type="checkbox" >Romance</input><br>
+<input class="filter_button" id="sci_button" type="checkbox" >SciFi&nbsp&nbsp&nbsp&nbsp&nbsp</input><br>
+<input class="filter_button" id="Sport_button" type="checkbox" >Sport&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</input><br>
+
+
+<input class="filter_button" id="thr_button" type="checkbox" >Thriller&nbsp&nbsp&nbsp</input><br>
+<input class="filter_button" id="War_button" type="checkbox" >War&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </input><br>
+<input class="filter_button" id="west_button" type="checkbox" >Western</input><br>
+
+</div>
+
+<div style="position:absolute;top:49px;left:288px;width:50%;font-size:1.2em">
+
+<input class="filter_button" id="horn_button" type="checkbox" >Not Horror</input><br>
+<input class="filter_button" id="musn_button" type="checkbox" >Not Music</input><br>
+<input class="filter_button" id="musln_button" type="checkbox" >Not Musical</input><br>
+<input class="filter_button" id="mystn_button" type="checkbox" >Not Mystery</input><br>
+
+<input class="filter_button" id="romn_button" type="checkbox" >Not Romance</input><br>
+<input class="filter_button" id="scin_button" type="checkbox" >Not SciFi</input><br>
+<input class="filter_button" id="Sportn_button" type="checkbox" >Not Sport</input><br>
+
+
+
+<input class="filter_button" id="thrn_button" type="checkbox" >Not Thriller</input><br>
+<input class="filter_button" id="Warn_button" type="checkbox" >Not War</input><br>
+<input class="filter_button" id="westn_button" type="checkbox" >Not Western</input><br>
+
+
+
+
+</div>
+
+<div style="position:relative;width:70%;left:;top:px;z-index:9999;color:black"><h3 style='position:relative;top:10px;color:white;font-size:1.4em'>Select by Actors: </h3>
+
+
+
+<textarea id="atextarea" style=''class="example2"  rows="1"></textarea> <br>
+
+	
+<script type="text/javascript">
+
+var asaglist;
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                asaglist=allText;
+            }
+        }
+    }
+    rawFile.send(null);
+}
+	readTextFile('public/csvActor.txt');
+	
+	
+	$('#atextarea').textext({
+		plugins : 'autocomplete suggestions tags filter',
+
+		suggestions: asaglist.split(',')
+	});
+	
+
+
+</script>
+	
+</div>
+  
+ 
+<div id='pselect'style="position:relative;width:70%;left:px;top:0px;z-index:9998;color:black"><h3 style='position:relative;top:10px;color:white;font-size:1.4em'>Select by Attributes: </h3>
+
+<div id='aselect'>
+
+<p style='color:white;font-size:9pt'>Movies with ALL of the following attributes:</p>
+<textarea id="textarea" style=''class="example"  rows="1"></textarea> <br>
+
+<div id="option">
+    <a name="logoutButton" 
+	
+			style="display:inline-block;height:13px;z-index:999;"
+class="myButton"
+    
+           onclick="aso()" >Switch to Advanced Attribute Select</a>
+		   </div >
+</div>
+
+
+
+	
+<script type="text/javascript">
+var saglist;
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                saglist=allText;
+            }
+        }
+    }
+    rawFile.send(null);
+}
+	readTextFile('public/suggestionlist.txt');
+	
+	
+	$('#textarea').textext({
+		plugins : 'autocomplete suggestions tags filter',
+
+		suggestions: saglist.split(',')
+	});
+	
+
+
+</script>
+	
+</div>
+
+
+
+<div style="position:relative;width:70%;left:;top:px;z-index:9997;color:black"><h3 style='position:relative;top:10px;color:white;font-size:1.4em'>Select by Directors: </h3>
+<textarea id="dtextarea" style=''class="example3"  rows="1"></textarea> <br>
+
+	
+<script type="text/javascript">
+
+var dsaglist;
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                dsaglist=allText;
+            }
+        }
+    }
+    rawFile.send(null);
+}
+	readTextFile('public/csvdirector.txt');
+	
+	
+	$('#dtextarea').textext({
+		plugins : 'autocomplete suggestions tags filter',
+
+		suggestions: dsaglist.split(',')
+	});
+
+
+
+
+	
+
+
+</script>
+	
+</div>
+
+
+
+<div style=";position:relative;top:20px">
+<h3 class='xrange' style="color:white;position:relative;width:30%;height:30px;left:1%;top:px">Marketing Spending (in million):</h3>
+<div id="xslider" style="color:black;width:50%;position:relative;left:130px;top:-43px;z-index:999">  </div>
+</div>
+
+
+<div style=";position:relative;top:20px">
+<h3 class='yrange' style="color:white;position:relative;width:30%;height:30px;left:1%;top:px">Release Year:</h3>
+<div id="yslider" style="color:black;width:50%;position:relative;left:130px;top:-43px;z-index:99">  </div>
+</div>
+<div id="show_demo" style="position:relative;top:5%;z-index:999">
+    <a name="logoutButton" 
+	
+class="myButton"
+			style="display:inline-block;height:13px;z-index:99999;"
+
+    
+           onclick="show_demo()" >Show Demographics Focus</a>
+		   </div >
+
+
+		<div id="hide_demo" style="display:none;position:relative;top:5%;z-index:999">
+    <a name="logoutButton" 
+	
+			style="display:inline-block;height:13px;z-index:99999;"
+class="myButton"
+    
+           onclick="hide_demo()" >Hide Demographics Focus</a>
+		   </div >
+
+
+<div id='demo_select' style='position:relative;height:1px;visibility:hidden;width:;display:;'>
+
+<div style=';position:relative;top:20px'>
+<h3 class='men_ratio_range' style='color:white;position:relative;width:30%;height:30px;left:1%;top:px'>Men Ratio:</h3>
+<div id='men_ratio_slider' style='color:black;width:50%;position:relative;left:130px;top:-43px;z-index:999'>  </div>
+</div>
+
+<div style=';position:relative;top:20px'>
+<h3 class='men_18_24_ratio_range' style='color:white;position:relative;width:30%;height:30px;left:1%;top:px'>Men 18-24 Ratio:</h3>
+<div id='men_18_24_ratio_slider' style='color:black;width:30%;position:relative;left:130px;top:-43px;z-index:999'>  </div>
+</div>
+
+<div style=';position:relative;top:20px'>
+<h3 class='men_25_34_ratio_range' style='color:white;position:relative;width:30%;height:30px;left:1%;top:px'>Men 25-34 Ratio:</h3>
+<div id='men_25_34_ratio_slider' style='color:black;width:30%;position:relative;left:130px;top:-43px;z-index:999'>  </div>
+</div>
+
+<div style=';position:relative;top:20px'>
+<h3 class='men_34_44_ratio_range' style='color:white;position:relative;width:30%;height:30px;left:1%;top:px'>Men 35-44 Ratio:</h3>
+<div id='men_34_44_ratio_slider' style='color:black;width:30%;position:relative;left:130px;top:-43px;z-index:999'>  </div>
+</div>
+
+<div style=';position:relative;top:20px'>
+<h3 class='men_44_54_ratio_range' style='color:white;position:relative;width:30%;height:30px;left:1%;top:px'>Men 45-54 Ratio:</h3>
+<div id='men_44_54_ratio_slider' style='color:black;width:30%;position:relative;left:130px;top:-43px;z-index:999'>  </div>
+</div>
+
+<div style=';position:relative;top:20px'>
+<h3 class='men_55_64_ratio_range' style='color:white;position:relative;width:30%;height:30px;left:1%;top:px'>Men 55-64 Ratio:</h3>
+<div id='men_55_64_ratio_slider' style='color:black;width:30%;position:relative;left:130px;top:-43px;z-index:999'>  </div>
+</div>
+
+
+<div style=';position:relative;top:20px'>
+<h3 class='men_65_ratio_range' style='color:white;position:relative;width:30%;height:30px;left:1%;top:px'>Men 65+ Ratio:</h3>
+<div id='men_65_ratio_slider' style='color:black;width:30%;position:relative;left:130px;top:-43px;z-index:999'>  </div>
+</div>
+
+
+<div style=';position:relative;top:20px'>
+<h3 class='women_ratio_range' style='color:white;position:relative;width:30%;height:30px;left:1%;top:px'>Women Ratio:</h3>
+<div id='women_ratio_slider' style='color:black;width:50%;position:relative;left:130px;top:-43px;z-index:999'>  </div>
+</div>
+
+
+<div style=';position:relative;top:20px'>
+<h3 class='women_18_24_ratio_range' style='color:white;position:relative;width:30%;height:30px;left:1%;top:px'>Women 18-24 Ratio:</h3>
+<div id='women_18_24_ratio_slider' style='color:black;width:30%;position:relative;left:130px;top:-43px;z-index:999'>  </div>
+</div>
+
+<div style=';position:relative;top:20px'>
+<h3 class='women_25_34_ratio_range' style='color:white;position:relative;width:30%;height:30px;left:1%;top:px'>Women 25-34 Ratio:</h3>
+<div id='women_25_34_ratio_slider' style='color:black;width:30%;position:relative;left:130px;top:-43px;z-index:999'>  </div>
+</div>
+
+<div style=';position:relative;top:20px'>
+<h3 class='women_34_44_ratio_range' style='color:white;position:relative;width:30%;height:30px;left:1%;top:px'>Women 35-44 Ratio:</h3>
+<div id='women_34_44_ratio_slider' style='color:black;width:30%;position:relative;left:130px;top:-43px;z-index:999'>  </div>
+</div>
+
+
+<div style=';position:relative;top:20px'>
+<h3 class='women_44_54_ratio_range' style='color:white;position:relative;width:30%;height:30px;left:1%;top:px'>Women 44-54 Ratio:</h3>
+<div id='women_44_54_ratio_slider' style='color:black;width:30%;position:relative;left:130px;top:-43px;z-index:999'>  </div>
+</div>
+
+<div style=';position:relative;top:20px'>
+<h3 class='women_55_64_ratio_range' style='color:white;position:relative;width:30%;height:30px;left:1%;top:px'>Women 55-64 Ratio:</h3>
+<div id='women_55_64_ratio_slider' style='color:black;width:30%;position:relative;left:130px;top:-43px;z-index:999'>  </div>
+</div>
+
+
+<div style=';position:relative;top:20px'>
+<h3 class='women_65_ratio_range' style='color:white;position:relative;width:30%;height:30px;left:1%;top:px'>Women 65+ Ratio:</h3>
+<div id='women_65_ratio_slider' style='color:black;width:30%;position:relative;left:130px;top:-43px;z-index:999'>  </div>
+</div>
+
+</div>
+
+
+<div style="position:relative;width:70%;left:;top:px;z-index:9997;color:black"><h3 style='position:relative;top:10px;color:white;font-size:1.4em'>Select by location: </h3>
+<textarea id="location_textarea" style=''class="location_textarea"  rows="1"></textarea> <br>
+
+	
+<script type="text/javascript">
+
+
+	
+	
+
+
+
+
+	d3.json("public/geo_data/total_location.json", function(error, data){
+		keys=[]
+		for (i in data){
+			keys.push(i)
+		}
+
+			$('#location_textarea').textext({
+		plugins : 'autocomplete suggestions tags filter',
+
+		suggestions: keys
+	});
+		
+		
+	})
+	
+
+
+</script>
+	
+</div>
+
+
+<div style=";position:relative;top:20px">
+<h3 class='loc_range' style="color:white;position:relative;width:30%;height:30px;left:1%;top:px">Location Focus:</h3>
+<div id="loc_slider" style="color:black;width:50%;position:relative;left:130px;top:-43px;z-index:99">  </div>
+</div>
+
+</div>
+
+
+
+
+<div style=";position:relative;top:20px">
+<h3 class='focusrange' style="color:white;position:relative;width:100px;height:30px;left:1%;top:px">Focus Range:</h3>
+<div id="slider" style="width:200px;position:relative;left:130px;top:-43px;z-index:999">  </div>
+</div>
+
+<!--<div style=";position:relative;top:20px">
+<h3 class='attr_range' style="color:white;position:relative;width:10%;height:30px;left:1%;top:px">Percentage Range:</h3>
+<div id="attr_slider" style="width:15%;position:relative;left:130px;top:-43px;z-index:999">  </div>
+</div>-->
+		   
+		   <div id="option">
+    <a name="updateButton" 
+			style="visibility:visible;position:relative;font-size:20pt;left:120px;top:-7px;z-index:999;"
+           class="myButton2"
+           onclick="updateData()" >Update</a>
+		   </div >
+		   
+		   
+		   <div id="tabs-1" style="position:relative;top:20px;border-radius:5px;background-color:#000000;width:400px;left:-1.5%;height:800px">
+				<ul class='tabs' style="list-style:;">
+				    <li style="display: inline;"><a style="position:relative;top:-23px" href='#tab2' >Actors</a></li>
+    <li style="display: inline;"><a style="position:relative;top:-23px" href='#tab1' >Attributes</a></li>
+
+	<li style="display: inline;"><a style="position:relative;top:-23px" href='#tab3' >Directors</a></li>
+
+  </ul>
+		
+        <div id="tab1">
+<p style="position:relative;width:auto;display:inline-block;float:right;font-size:1.2em;left:-5px;top:-39px;color:#A9F5A9">© 2015 Si Chang Zhang</p>
+		   <div class="word_graph_parent" style="position:relative;top:0px">
+		   <div class="word_graph" style="position:relative;width:500px;top:-150px;left:-80px;z-index:1">
+
+		   <p style="position:relative;width:50%;top:130px;left:20%;font-size:1.7em;color:#A9F5A9">
+		   <b>Common Attributes of Selected Movies (Click to lock):</b></p>
+
+		   <div id="rbutton">
+    <button name="reportbutton" 
+    		id="attribute_button"
+			style="visibility:hidden;position:relative;left:20%;top:130px;z-index:999;height:30px;color:black;background-color:#C0C0C0"
+           type="button" 
+           value="Update" 
+           onclick="attribute_report()" />generate attribute report
+		   </div >
+
+
+		   </div>
+<div>
+    <div class="legend" style="position:absolute;width:90%;top:640px;left:10px;color:#A9F5A9;">
+        Attributes are listed by frequency from higher to lower.
+		Attributes with percentages above the benchmark average are brighter.  
+		Attributes with percentages below the benchmark average are darker.
+    </div>
+
+</div>
+
+</div>
+<div style="position:absolute;width:100%;top:775px">
+<p style="position:relative;width:auto;display:inline-block;float:right;font-size:1.3em;left:-5px;color:#A9F5A9">© 2015 Si Chang Zhang</p>
+</div>
+</div>
+
+ <div id="tab2">
+<p style="position:relative;width:auto;display:inline-block;float:right;font-size:1.2em;left:-5px;top:-39px;color:#A9F5A9">© 2015 Si Chang Zhang</p>
+ <div>
+
+ <div class="actor_graph_parent" style="position:relative;top:0">
+  <div class="actor_graph" style="position:relative;width:500px;top:-150px;left:-80px;z-index:1">
+
+		   <p style="position:relative;width:50%;top:130px;left:20%;font-size:1.9em;color:#A9F5A9">
+		   <b>Top Credited Actors of Selected Movies (Click to lock):</b></p>
+<div id="rbutton">
+    <button name="reportbutton" 
+    		id="actor_button"
+			style="visibility:hidden;position:relative;left:20%;top:130px;z-index:999;height:30px;color:black;background-color:#C0C0C0"
+           type="button" 
+           value="Update" 
+           onclick="actor_report()" />generate actor report
+		   </div >
+		   </div>
+ 
+<div>
+   <div class="legend" style="position:absolute;width: 90%;top:640px;left:10px;color:#A9F5A9;font-size:2em">
+               Actors are listed by frequency from higher to lower.
+		Actors with percentages above the benchmark average are brighter.  
+		Actors with percentages below the benchmark average are darker.
+    </div>
+</div>
+ </div>   
+</div> 
+<div style="position:absolute;width:100%;top:775px">
+<p style="position:relative;width:auto;display:inline-block;float:right;font-size:1.3em;left:-5px;color:#A9F5A9">© 2015 Si Chang Zhang</p>
+</div>
+	  </div>
+	  
+	   <div id="tab3">
+<p style="position:relative;width:auto;display:inline-block;float:right;font-size:1.2em;left:-5px;top:-39px;color:#A9F5A9">© 2015 Si Chang Zhang</p>
+ <div>
+ <div class="dp_graph_parent" style="position:relative;top:">
+  <div class="dp_graph" style="position:relative;width:500px;top:-150px;left:-80px;z-index:1">
+		   <p style="position:relative;width:50%;top:130px;left:20%;font-size:1.9em;color:#A9F5A9">
+		   <b>Top Credited Directors of Selected Movies (Click to lock):</b></p>
+		   <div id="rbutton">
+    <button name="reportbutton" 
+    		id="director_button"
+			style="visibility:hidden;position:relative;left:20%;top:130px;z-index:999;height:30px;color:black;background-color:#C0C0C0"
+           type="button" 
+           value="Update" 
+           onclick="director_report()" />generate director report
+		   </div >
+
+		   </div>
+ 
+<div>
+   <div class="legend" style="position:absolute;width: 90%;top:640px;left:10px;color:#A9F5A9;font-size:2em">
+              Directors are listed by frequency from higher to lower.
+		Directors with percentages above the benchmark average are brighter.  
+		Directors with percentages below the benchmark average are darker.
+    </div>
+</div>
+ </div>   
+</div> 
+<div style="position:absolute;width:100%;top:775px">
+<p style="position:relative;width:auto;display:inline-block;float:right;font-size:1.3em;left:-5px;color:#A9F5A9">© 2015 Si Chang Zhang</p>
+</div>
+	  </div>
+
+	  </div>
+
+<div style="position:absolute;top:-1000px;width:1300px;height:400px">
+<div class="main_graph" style="background-color:white;position:fixed;top:130px;left:480px;z-index:9999;border-radius: 15px 15px 15px 15px;">
+		  
+		   </div>
+		   </div>
+		   
+
+
+	<script>
+
+function aso(){
+
+		$('#aselect').remove()
+
+
+		$('#pselect').append(
+" <div id='advselect'> <p style='color:white;font-size:9pt'>Movies with any of the following attributes:</p> <textarea id='advtextarea1' style=''class='example_adv1'  rows='1'></textarea> <br> <p style='color:white;font-size:9pt'>AND any of the following attributes:</p><textarea id='advtextarea2' style=''class='example_adv2'  rows='1'></textarea> <br><p style='color:white;font-size:9pt'>AND any of the following attributes:</p><textarea id='advtextarea3' style=''class='example_adv3'  rows='1'></textarea> <br><div id='option'> <a name='logoutButton' style='display:inline-block;height:13px;z-index:999;' class='myButton' onclick='bso()' >Switch to Basic Attribute Select</a> </div ></div>")
+
+
+			$('#advtextarea1').textext({
+		plugins : 'autocomplete suggestions tags filter',
+
+		suggestions: saglist.split(',')
+	});
+
+			$('#advtextarea2').textext({
+		plugins : 'autocomplete suggestions tags filter',
+
+		suggestions: saglist.split(',')
+	});
+
+
+			$('#advtextarea3').textext({
+		plugins : 'autocomplete suggestions tags filter',
+
+		suggestions: saglist.split(',')
+	});
+	}
+
+
+
+	function bso(){
+
+		$('#advselect').remove()
+
+
+		$('#pselect').append(
+"<div id='aselect'><p style='color:white;font-size:9pt'>Movies with ALL of the following attributes:</p><textarea id='textarea' style=''class='example'  rows='1'></textarea> <br><div id='option'> <a name='logoutButton' style='display:inline-block;height:13px;z-index:999;' class='myButton' onclick='aso()' >Switch to Advenced Attribute Select</a> </div ></div>")
+
+			$('#textarea').textext({
+		plugins : 'autocomplete suggestions tags filter',
+
+		suggestions: saglist.split(',')
+	});
+
+	}
+
+
+
+	
+
+	d3.selection.prototype.moveToFront = function() {
+  return this.each(function(){
+    this.parentNode.appendChild(this);
+  });
+};
+	
+	
+	$('.focusrange').tipsy({ 
+        gravity: 's', 
+        html: true, 
+		fade: false,
+        title: function() {
+          return 'focus range controls the upper and lower boundary of ranked movies'; 
+				}});	   
+
+	$("#slider").rangeSlider({defaultValues:{min: 0, max: 100}},{bounds:{min: 0, max: 100}});
+	$("#xslider").rangeSlider({defaultValues:{min: 0, max: 130}},{bounds:{min: 0, max: 130}});
+	$("#yslider").rangeSlider({defaultValues:{min: 1995, max: 2015}},{bounds:{min: 1995, max: 2015}});
+
+
+	$("#loc_slider").rangeSlider({defaultValues:{min: 0, max: 100}},{bounds:{min: 0, max: 100}});
+
+
+		$("#women_ratio_slider").rangeSlider({defaultValues:{min: 0, max: 100}},{bounds:{min: 0, max: 100}});
+		
+		$("#women_ratio_slider .ui-rangeSlider-bar").css('background','#DE3163')
+
+		$("#women_18_24_ratio_slider").rangeSlider({defaultValues:{min: 0, max: 100}},{bounds:{min: 0, max: 100}});
+		$("#women_18_24_ratio_slider .ui-rangeSlider-bar").css('background','#DE3163')
+
+		$("#women_25_34_ratio_slider").rangeSlider({defaultValues:{min: 0, max: 100}},{bounds:{min: 0, max: 100}});
+		$("#women_25_34_ratio_slider .ui-rangeSlider-bar").css('background','#DE3163')
+
+
+		$("#women_34_44_ratio_slider").rangeSlider({defaultValues:{min: 0, max: 100}},{bounds:{min: 0, max: 100}});
+		$("#women_34_44_ratio_slider .ui-rangeSlider-bar").css('background','#DE3163')
+
+		$("#women_44_54_ratio_slider").rangeSlider({defaultValues:{min: 0, max: 100}},{bounds:{min: 0, max: 100}});
+		$("#women_44_54_ratio_slider .ui-rangeSlider-bar").css('background','#DE3163')
+
+		$("#women_55_64_ratio_slider").rangeSlider({defaultValues:{min: 0, max: 100}},{bounds:{min: 0, max: 100}});
+		$("#women_55_64_ratio_slider .ui-rangeSlider-bar").css('background','#DE3163')
+
+		$("#women_65_ratio_slider").rangeSlider({defaultValues:{min: 0, max: 100}},{bounds:{min: 0, max: 100}});
+		$("#women_65_ratio_slider .ui-rangeSlider-bar").css('background','#DE3163')
+
+
+
+
+
+
+
+
+
+
+		$("#men_ratio_slider").rangeSlider({defaultValues:{min: 0, max: 100}},{bounds:{min: 0, max: 100}});
+		$("#men_ratio_slider .ui-rangeSlider-bar").css('background','#3878C0')
+
+		$("#men_18_24_ratio_slider").rangeSlider({defaultValues:{min: 0, max: 100}},{bounds:{min: 0, max: 100}});
+		$("#men_18_24_ratio_slider .ui-rangeSlider-bar").css('background','#3878C0')
+
+		$("#men_25_34_ratio_slider").rangeSlider({defaultValues:{min: 0, max: 100}},{bounds:{min: 0, max: 100}});
+		$("#men_25_34_ratio_slider .ui-rangeSlider-bar").css('background','#3878C0')
+
+		$("#men_34_44_ratio_slider").rangeSlider({defaultValues:{min: 0, max: 100}},{bounds:{min: 0, max: 100}});
+		$("#men_34_44_ratio_slider .ui-rangeSlider-bar").css('background','#3878C0')
+
+		$("#men_44_54_ratio_slider").rangeSlider({defaultValues:{min: 0, max: 100}},{bounds:{min: 0, max: 100}});
+		$("#men_44_54_ratio_slider .ui-rangeSlider-bar").css('background','#3878C0')
+
+		$("#men_55_64_ratio_slider").rangeSlider({defaultValues:{min: 0, max: 100}},{bounds:{min: 0, max: 100}});
+		$("#men_55_64_ratio_slider .ui-rangeSlider-bar").css('background','#3878C0')
+
+
+
+		$("#men_65_ratio_slider").rangeSlider({defaultValues:{min: 0, max: 100}},{bounds:{min: 0, max: 100}});
+		$("#men_65_ratio_slider .ui-rangeSlider-bar").css('background','#3878C0')
+
+	
+				
+
+		
+	//$("#attr_slider").rangeSlider({defaultValues:{min: 0.1, max: 100}},{bounds:{min: 0.1, max: 100}});
+	  $('ul.tabs').each(function(){
+    // For each set of tabs, we want to keep track of
+    // which tab is active and it's associated content
+    var $active, $content, $links = $(this).find('a');
+
+    // If the location.hash matches one of the links, use that as the active tab.
+    // If no match is found, use the first link as the initial active tab.
+    $active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
+    $active.addClass('active');
+
+    $content = $($active[0].hash);
+
+    // Hide the remaining content
+    $links.not($active).each(function () {
+      $(this.hash).hide();
+    });
+
+    // Bind the click event handler
+    $(this).on('click', 'a', function(e){
+      // Make the old tab inactive.
+      $active.removeClass('active');
+      $content.hide();
+
+      // Update the variables with the new link and content
+      $active = $(this);
+      $content = $(this.hash);
+
+      // Make the tab active.
+      $active.addClass('active');
+      $content.show();
+
+      // Prevent the anchor's default click action
+      e.preventDefault();
+    });
+  });
+
+
+		function isBigEnough(value) {
+				return function(element, index, array) {
+					return (element >= value);
+						}
+							}
+	
+	
+	var kstr='';
+	var w;
+
+
+	if(($(window).width()-500)<770){
+	
+	 w=770;}
+
+	if(($(window).width()-500)>=770){ w=$(window).width()-500;}
+	//console.log(w)
+	var h=$(window).height()-160;
+
+
+	$(window).scroll(function(){
+		$(".main_graph").css('left',String(480-$(window).scrollLeft())+'px');
+
+	});
+
+	var hmargin=20;
+	var wmargin=30;
+	var transx=0;
+	var transy=0;
+	
+	var border=0;
+	var bordercolor='black';
+	
+	var canvas = d3.select(".main_graph").append("svg")
+					.attr("width",w)
+					.attr("height",h)
+					.attr("transform","translate("+transx+","+transy+")");
+					
+	var layer0 = canvas.append('g');
+					
+	var borderPath = canvas.attr("border",border)
+						.append("rect")
+						.attr("x",0)
+						.attr("y",0)
+						.attr("height",h)
+						.attr("width",w)
+						.style("stroke", bordercolor)
+						.style("fill", "none")
+						.style("stroke-width", border);
+				
+				
+	var xScale = d3.scale.linear()
+					.domain([0,130000000])
+					.range([0,w-wmargin]);
+					
+	var yScale = d3.scale.linear()
+					.domain([-2000000,780000000])
+					.range([0,h-hmargin]);
+					
+					
+	var xAScale = d3.scale.linear()
+					.domain([0,130000000])
+					.range([0,w-2*wmargin]);
+					
+	var yAScale = d3.scale.linear()
+					.domain([780000000,-2000000])
+					.range([0,h-2*hmargin]);
+					
+					var xAxis=d3.svg.axis().scale(xAScale).ticks(0).tickSize(6,3,1);
+					
+					var yAxis=d3.svg.axis().scale(yAScale).orient("left").ticks(0)
+					.tickSize(6,3,1);
+					
+					var xtitle="Marketing Spending"
+					var ytitle="Domestic Total Box-office Revenue"
+
+
+
+					
+
+					canvas.append("text")
+					.attr("transform","translate("+(w/2-200)+","+h/2+")")
+					.style("font-size","56px")
+					.style("fill","black").text("Ready to update")
+	
+	var filters = {
+	//user input
+	'op':.01,
+	'opu':100,
+	'kfr_min':0,
+	'kfr_max':100,
+	'Comedy':['yes','no'],
+	'Family': ['yes','no'],
+	'Action': ['yes','no'],
+	'Adventure':['yes','no'],
+	'Drama':['yes','no'],
+	'Historical':['yes','no'],
+	'Fantasy':['yes','no'],
+	'Crime':['yes','no'],
+	'Horror':['yes','no'],
+	'Romance':['yes','no'],
+	'Thriller':['yes','no'],
+	'SciFi':['yes','no'],
+	'Mystery':['yes','no'],
+	'War':['yes','no'],
+	'Biography':['yes','no'],
+	'Documentary':['yes','no'],
+	'Music':['yes','no'],
+	'Musical':['yes','no'],
+	'Animation':['yes','no'],
+	'Western':['yes','no'],
+	'Sport':['yes','no'],
+	'keywords':[],
+	'keywordsor1':[],
+	'keywordsor2':[],
+	'keywordsor3':[],
+	'actors':[],
+	'techrole':[],
+	'lx':0,
+	'lxu':130,
+	'ly':1995,
+	'lyu':2015
+	};
+	
+	
+	var empty_filter = {'Comedy':'no','Action':'no','Family':'no'};
+	
+
+	d3.select('.filter_button').on("change",function()
+	{ 
+	if (document.getElementById('an_button').checked && this.checked)
+	{filters.Action='bs';}
+	else if (this.checked){filters.Action='yes';}
+	else if (document.getElementById('an_button').checked && !this.checked)
+	{filters.Action='no';}
+	else {filters.Action=['yes','no'];}
+	}
+	);
+
+	d3.select('#c_button').on("change",function()
+	{ 
+	if (document.getElementById('cn_button').checked && this.checked)
+	{filters.Comedy='bs';}
+	else  if (document.getElementById('cn_button').checked && !this.checked)
+	{filters.Comedy='no';}
+	else 
+	if (this.checked){filters.Comedy='yes';}
+	else {filters.Comedy=['yes','no'];}
+	}
+	);
+	
+	d3.select('#F_button').on("change",function()
+	{ 
+	if (document.getElementById('Fn_button').checked && this.checked)
+	{filters.Family='bs';}
+	else  if (document.getElementById('Fn_button').checked && !this.checked)
+	{filters.Family='no';}
+	else 
+	if (this.checked){filters.Family='yes';}
+	else {filters.Family=['yes','no'];}
+	}
+	);
+	
+	
+		d3.select('#an_button').on("change",function()
+	{ if (document.getElementById('a_button').checked && this.checked)
+	{filters.Action='bs';}
+	else  if (document.getElementById('a_button').checked && !this.checked)
+	{filters.Action='yes';}
+	else 
+	if (this.checked){filters.Action='no';}
+	else {filters.Action=['yes','no'];}
+	}
+	);
+
+	d3.select('#cn_button').on("change",function()
+	{ if (document.getElementById('c_button').checked && this.checked)
+	{filters.Comedy='bs';}
+	else  if (document.getElementById('c_button').checked && !this.checked)
+	{filters.Comedy='yes';}
+	else 
+	if (this.checked){filters.Comedy='no';}
+	else {filters.Comedy=['yes','no'];}
+	}
+	);
+	
+	d3.select('#Fn_button').on("change",function()
+	{ if (document.getElementById('F_button').checked && this.checked)
+	{filters.Family='bs';}
+	else  if (document.getElementById('F_button').checked && !this.checked)
+	{filters.Family='yes';}
+	else 
+	if (this.checked){filters.Family='no';}
+	else {filters.Family=['yes','no'];}
+	}
+	);
+	
+	d3.select('#ad_button').on("change",function()
+	{ 
+	if (document.getElementById('adn_button').checked && this.checked)
+	{filters.Adventure='bs';}
+	else  if (document.getElementById('adn_button').checked && !this.checked)
+	{filters.Adventure='no';}
+	else 
+	if (this.checked){filters.Adventure='yes';}
+	else {filters.Adventure=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#adn_button').on("change",function()
+	{ if (document.getElementById('ad_button').checked && this.checked)
+	{filters.Adventure='bs';}
+	else  if (document.getElementById('ad_button').checked && !this.checked)
+	{filters.Adventure='yes';}
+	else 
+	if (this.checked){filters.Adventure='no';}
+	else {filters.Adventure=['yes','no'];}
+	}
+	);
+	
+	
+		d3.select('#dra_button').on("change",function()
+	{ 
+	if (document.getElementById('dran_button').checked && this.checked)
+	{filters.Drama='bs';}
+	else  if (document.getElementById('dran_button').checked && !this.checked)
+	{filters.Drama='no';}
+	else 
+	if (this.checked){filters.Drama='yes';}
+	else {filters.Drama=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#dran_button').on("change",function()
+	{ if (document.getElementById('dra_button').checked && this.checked)
+	{filters.Drama='bs';}
+	else  if (document.getElementById('dra_button').checked && !this.checked)
+	{filters.Drama='yes';}
+	else 
+	if (this.checked){filters.Drama='no';}
+	else {filters.Drama=['yes','no'];}
+	}
+	);
+	
+			d3.select('#hist_button').on("change",function()
+	{ 
+	if (document.getElementById('histn_button').checked && this.checked)
+	{filters.Historical='bs';}
+	else  if (document.getElementById('histn_button').checked && !this.checked)
+	{filters.Historical='no';}
+	else 
+	if (this.checked){filters.Historical='yes';}
+	else {filters.Historical=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#histn_button').on("change",function()
+	{ if (document.getElementById('hist_button').checked && this.checked)
+	{filters.Historical='bs';}
+	else  if (document.getElementById('hist_button').checked && !this.checked)
+	{filters.Historical='yes';}
+	else 
+	if (this.checked){filters.Historical='no';}
+	else {filters.Historical=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#mus_button').on("change",function()
+	{ 
+	if (document.getElementById('musn_button').checked && this.checked)
+	{filters.Music='bs';}
+	else  if (document.getElementById('musn_button').checked && !this.checked)
+	{filters.Music='no';}
+	else 
+	if (this.checked){filters.Music='yes';}
+	else {filters.Music=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#musn_button').on("change",function()
+	{ if (document.getElementById('mus_button').checked && this.checked)
+	{filters.Music='bs';}
+	else  if (document.getElementById('mus_button').checked && !this.checked)
+	{filters.Music='yes';}
+	else 
+	if (this.checked){filters.Music='no';}
+	else {filters.Music=['yes','no'];}
+	}
+	);
+
+	
+	d3.select('#cri_button').on("change",function()
+	{ 
+	if (document.getElementById('crin_button').checked && this.checked)
+	{filters.Crime='bs';}
+	else  if (document.getElementById('crin_button').checked && !this.checked)
+	{filters.Crime='no';}
+	else 
+	if (this.checked){filters.Crime='yes';}
+	else {filters.Crime=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#crin_button').on("change",function()
+	{ if (document.getElementById('cri_button').checked && this.checked)
+	{filters.Crime='bs';}
+	else  if (document.getElementById('cri_button').checked && !this.checked)
+	{filters.Crime='yes';}
+	else 
+	if (this.checked){filters.Crime='no';}
+	else {filters.Crime=['yes','no'];}
+	}
+	);
+	
+	d3.select('#hor_button').on("change",function()
+	{ 
+	if (document.getElementById('horn_button').checked && this.checked)
+	{filters.Horror='bs';}
+	else  if (document.getElementById('horn_button').checked && !this.checked)
+	{filters.Horror='no';}
+	else 
+	if (this.checked){filters.Horror='yes';}
+	else {filters.Horror=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#horn_button').on("change",function()
+	{ if (document.getElementById('hor_button').checked && this.checked)
+	{filters.Horror='bs';}
+	else  if (document.getElementById('hor_button').checked && !this.checked)
+	{filters.Horror='yes';}
+	else 
+	if (this.checked){filters.Horror='no';}
+	else {filters.Horror=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#rom_button').on("change",function()
+	{ 
+	if (document.getElementById('romn_button').checked && this.checked)
+	{filters.Romance='bs';}
+	else  if (document.getElementById('romn_button').checked && !this.checked)
+	{filters.Romance='no';}
+	else 
+	if (this.checked){filters.Romance='yes';}
+	else {filters.Romance=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#romn_button').on("change",function()
+	{ if (document.getElementById('rom_button').checked && this.checked)
+	{filters.Romance='bs';}
+	else  if (document.getElementById('rom_button').checked && !this.checked)
+	{filters.Romance='yes';}
+	else 
+	if (this.checked){filters.Romance='no';}
+	else {filters.Romance=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#thr_button').on("change",function()
+	{ 
+	if (document.getElementById('thrn_button').checked && this.checked)
+	{filters.Thriller='bs';}
+	else  if (document.getElementById('thrn_button').checked && !this.checked)
+	{filters.Thriller='no';}
+	else 
+	if (this.checked){filters.Thriller='yes';}
+	else {filters.Thriller=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#thrn_button').on("change",function()
+	{ if (document.getElementById('thr_button').checked && this.checked)
+	{filters.Thriller='bs';}
+	else  if (document.getElementById('thr_button').checked && !this.checked)
+	{filters.Thriller='yes';}
+	else 
+	if (this.checked){filters.Thriller='no';}
+	else {filters.Thriller=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#sci_button').on("change",function()
+	{ 
+	if (document.getElementById('scin_button').checked && this.checked)
+	{filters.SciFi='bs';}
+	else  if (document.getElementById('scin_button').checked && !this.checked)
+	{filters.SciFi='no';}
+	else 
+	if (this.checked){filters.SciFi='yes';}
+	else {filters.SciFi=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#scin_button').on("change",function()
+	{ if (document.getElementById('sci_button').checked && this.checked)
+	{filters.SciFi='bs';}
+	else  if (document.getElementById('sci_button').checked && !this.checked)
+	{filters.SciFi='yes';}
+	else 
+	if (this.checked){filters.SciFi='no';}
+	else {filters.SciFi=['yes','no'];}
+	}
+	);
+
+	
+	d3.select('#myst_button').on("change",function()
+	{ 
+	if (document.getElementById('mystn_button').checked && this.checked)
+	{filters.Mystery='bs';}
+	else  if (document.getElementById('mystn_button').checked && !this.checked)
+	{filters.Mystery='no';}
+	else 
+	if (this.checked){filters.Mystery='yes';}
+	else {filters.Mystery=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#mystn_button').on("change",function()
+	{ if (document.getElementById('myst_button').checked && this.checked)
+	{filters.Mystery='bs';}
+	else  if (document.getElementById('myst_button').checked && !this.checked)
+	{filters.Mystery='yes';}
+	else 
+	if (this.checked){filters.Mystery='no';}
+	else {filters.Mystery=['yes','no'];}
+	}
+	);
+
+	
+	d3.select('#musl_button').on("change",function()
+	{ 
+	if (document.getElementById('musln_button').checked && this.checked)
+	{filters.Musical='bs';}
+	else  if (document.getElementById('musln_button').checked && !this.checked)
+	{filters.Musical='no';}
+	else 
+	if (this.checked){filters.Musical='yes';}
+	else {filters.Musical=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#musln_button').on("change",function()
+	{ if (document.getElementById('musl_button').checked && this.checked)
+	{filters.Musical='bs';}
+	else  if (document.getElementById('musl_button').checked && !this.checked)
+	{filters.Musical='yes';}
+	else 
+	if (this.checked){filters.Musical='no';}
+	else {filters.Musical=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#War_button').on("change",function()
+	{ 
+	if (document.getElementById('Warn_button').checked && this.checked)
+	{filters.War='bs';}
+	else  if (document.getElementById('Warn_button').checked && !this.checked)
+	{filters.War='no';}
+	else 
+	if (this.checked){filters.War='yes';}
+	else {filters.War=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#Warn_button').on("change",function()
+	{ if (document.getElementById('War_button').checked && this.checked)
+	{filters.War='bs';}
+	else  if (document.getElementById('War_button').checked && !this.checked)
+	{filters.War='yes';}
+	else 
+	if (this.checked){filters.War='no';}
+	else {filters.War=['yes','no'];}
+	}
+	);
+	
+	d3.select('#bio_button').on("change",function()
+	{ 
+	if (document.getElementById('bion_button').checked && this.checked)
+	{filters.Biography='bs';}
+	else  if (document.getElementById('bion_button').checked && !this.checked)
+	{filters.Biography='no';}
+	else 
+	if (this.checked){filters.Biography='yes';}
+	else {filters.Biography=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#bion_button').on("change",function()
+	{ if (document.getElementById('bio_button').checked && this.checked)
+	{filters.Biography='bs';}
+	else  if (document.getElementById('bio_button').checked && !this.checked)
+	{filters.Biography='yes';}
+	else 
+	if (this.checked){filters.Biography='no';}
+	else {filters.Biography=['yes','no'];}
+	}
+	);	
+	
+	
+	
+	d3.select('#doc_button').on("change",function()
+	{ 
+	if (document.getElementById('docn_button').checked && this.checked)
+	{filters.Documentary='bs';}
+	else  if (document.getElementById('docn_button').checked && !this.checked)
+	{filters.Documentary='no';}
+	else 
+	if (this.checked){filters.Documentary='yes';}
+	else {filters.Documentary=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#docn_button').on("change",function()
+	{ if (document.getElementById('doc_button').checked && this.checked)
+	{filters.Documentary='bs';}
+	else  if (document.getElementById('doc_button').checked && !this.checked)
+	{filters.Documentary='yes';}
+	else 
+	if (this.checked){filters.Documentary='no';}
+	else {filters.Documentary=['yes','no'];}
+	}
+	);	
+
+
+	d3.select('#ani_button').on("change",function()
+	{ 
+	if (document.getElementById('anin_button').checked && this.checked)
+	{filters.Animation='bs';}
+	else  if (document.getElementById('anin_button').checked && !this.checked)
+	{filters.Animation='no';}
+	else 
+	if (this.checked){filters.Animation='yes';}
+	else {filters.Animation=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#anin_button').on("change",function()
+	{ if (document.getElementById('ani_button').checked && this.checked)
+	{filters.Animation='bs';}
+	else  if (document.getElementById('ani_button').checked && !this.checked)
+	{filters.Animation='yes';}
+	else 
+	if (this.checked){filters.Animation='no';}
+	else {filters.Animation=['yes','no'];}
+	}
+	);		
+	
+	d3.select('#west_button').on("change",function()
+	{ 
+	if (document.getElementById('westn_button').checked && this.checked)
+	{filters.Western='bs';}
+	else  if (document.getElementById('westn_button').checked && !this.checked)
+	{filters.Western='no';}
+	else 
+	if (this.checked){filters.Western='yes';}
+	else {filters.Western=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#westn_button').on("change",function()
+	{ if (document.getElementById('west_button').checked && this.checked)
+	{filters.Western='bs';}
+	else  if (document.getElementById('west_button').checked && !this.checked)
+	{filters.Western='yes';}
+	else 
+	if (this.checked){filters.Western='no';}
+	else {filters.Western=['yes','no'];}
+	}
+	);		
+	
+	d3.select('#Sport_button').on("change",function()
+	{ 
+	if (document.getElementById('Sportn_button').checked && this.checked)
+	{filters.Sport='bs';}
+	else  if (document.getElementById('Sportn_button').checked && !this.checked)
+	{filters.Sport='no';}
+	else 
+	if (this.checked){filters.Sport='yes';}
+	else {filters.Sport=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#Sportn_button').on("change",function()
+	{ if (document.getElementById('Sport_button').checked && this.checked)
+	{filters.Sport='bs';}
+	else  if (document.getElementById('Sport_button').checked && !this.checked)
+	{filters.Sport='yes';}
+	else 
+	if (this.checked){filters.Sport='no';}
+	else {filters.Sport=['yes','no'];}
+	}
+	);		
+	
+	d3.select('#fanta_button').on("change",function()
+	{ 
+	if (document.getElementById('fantan_button').checked && this.checked)
+	{filters.Fantasy='bs';}
+	else  if (document.getElementById('fantan_button').checked && !this.checked)
+	{filters.Fantasy='no';}
+	else 
+	if (this.checked){filters.Fantasy='yes';}
+	else {filters.Fantasy=['yes','no'];}
+	}
+	);
+	
+	
+	d3.select('#fantan_button').on("change",function()
+	{ if (document.getElementById('fanta_button').checked && this.checked)
+	{filters.Fantasy='bs';}
+	else  if (document.getElementById('fanta_button').checked && !this.checked)
+	{filters.Fantasy='yes';}
+	else 
+	if (this.checked){filters.Fantasy='no';}
+	else {filters.Fantasy=['yes','no'];}
+	}
+	);		
+	
+
+function logout(){
+
+	alert("You are now logged out"),
+
+      $("body").remove();
+	$.ajax({
+            url: "./logout",
+            //headers: {"authorization":"false"},
+            type: 'POST',
+           // name:"false",
+
+    
+            statusCode: {
+      401: $(document).ajaxStop(function() {
+		window.location.reload();
+
+	})
+
+
+  }})
+
+
+
+
+
+}
+
+
+var rep_data;
+var rep_this;
+var rep_def_filters=filters;
+var rep_cdata;
+var rep_lgdata;
+var rep_percentage;
+var att_rp;
+var rep_filters;
+
+
+			function attribute_report(){
+
+				if(typeof att_rp!="undefined"){
+				 att_rp.close();};
+				 //console.log(filters);
+				att_rp= window.open("public/attribute_report.html","report","width=750,height=800");
+
+
+	
+				console.log(rep_data)
+
+
+
+
+				att_rp.rep_data=rep_data;
+				att_rp.rep_this=rep_this;
+				att_rp.rep_filters=rep_filters;
+				att_rp.def_filters=rep_def_filters;
+				att_rp.rep_lgdata=rep_lgdata;
+				att_rp.rep_percentage=rep_percentage;
+
+			}
+
+
+
+var act_rp;
+
+				function actor_report(){
+
+				if(typeof act_rp!="undefined"){
+				 act_rp.close();};
+				 //console.log(filters);
+				act_rp= window.open("public/actor_report.html","report","width=750,height=800");
+
+				console.log(filters.keywords)
+
+				act_rp.rep_data=rep_data;
+				act_rp.rep_this=rep_this;
+				act_rp.rep_filters=rep_filters;
+				act_rp.def_filters=rep_def_filters;
+				act_rp.rep_lgdata=rep_lgdata;
+				act_rp.rep_percentage=rep_percentage;
+
+			}
+
+
+
+var drc_rp;
+
+				function director_report(){
+
+				if(typeof drc_rp!="undefined"){
+				 drc_rp.close();};
+				 //console.log(filters);
+				drc_rp= window.open("public/director_report.html","report","width=750,height=800");
+
+				
+
+				drc_rp.rep_data=rep_data;
+				drc_rp.rep_this=rep_this;
+				drc_rp.rep_filters=rep_filters;
+				drc_rp.def_filters=rep_def_filters;
+				drc_rp.rep_lgdata=rep_lgdata;
+				drc_rp.rep_percentage=rep_percentage;
+
+			}
+
+
+g_titles=[]
+				function geo_data(){
+
+				if(typeof geo_d!="undefined"){
+				 geo_d.close();};
+				 //console.log(filters);
+				geo_d= window.open("public/geo_d.html","report","width="+$(window).width()+",height="+$(window).height());
+
+
+	
+			//	console.log(rep_data)
+
+
+
+
+				geo_d.titles=g_titles
+				
+
+			}
+
+
+			function show_demo(){
+							$("#demo_select").css("height","")
+
+
+
+			$("#demo_select").css("visibility","")
+
+			$("#show_demo").css("display","none")
+			$("#hide_demo").css("display","block")
+			}
+
+			function hide_demo(){
+							$("#demo_select").css("height","1px")
+
+
+
+			$("#demo_select").css("visibility","hidden")
+
+			$("#hide_demo").css("display","none")
+			$("#show_demo").css("display","block")
+			}
+
+	
+/////////////////////////////////////////////////////////////////data2
+//updateData();
+	
+/////////////////////////////////////////////////////////////////data2
+function updateData(){
+
+
+			
+			//$window.resizeTo(1000,1000)
+
+
+	document.getElementsByName('updateButton')[0].style.visibility="hidden"
+
+
+if(typeof att_rp!="undefined"){
+				 att_rp.close();};
+if(typeof act_rp!="undefined"){
+				 act_rp.close();};
+if(typeof drc_rp!="undefined"){
+				 drc_rp.close();};
+
+
+
+
+				 filters.women_ratio_h=$("#women_ratio_slider").rangeSlider("values").max;
+				 filters.women_ratio_l=$("#women_ratio_slider").rangeSlider("values").min;
+
+				 filters.men_ratio_h=$("#men_ratio_slider").rangeSlider("values").max;
+				 filters.men_ratio_l=$("#men_ratio_slider").rangeSlider("values").min;
+
+				 filters.women_18_24_ratio_h=$("#women_18_24_ratio_slider").rangeSlider("values").max;
+				 filters.women_18_24_ratio_l=$("#women_18_24_ratio_slider").rangeSlider("values").min;
+
+				 filters.women_25_34_ratio_h=$("#women_25_34_ratio_slider").rangeSlider("values").max;
+				 filters.women_25_34_ratio_l=$("#women_25_34_ratio_slider").rangeSlider("values").min;
+
+				 filters.women_34_44_ratio_h=$("#women_34_44_ratio_slider").rangeSlider("values").max;
+				 filters.women_34_44_ratio_l=$("#women_34_44_ratio_slider").rangeSlider("values").min;
+
+				 filters.women_44_54_ratio_h=$("#women_44_54_ratio_slider").rangeSlider("values").max
+				 filters.women_44_54_ratio_l=$("#women_44_54_ratio_slider").rangeSlider("values").min
+
+				 filters.women_55_64_ratio_h=$("#women_55_64_ratio_slider").rangeSlider("values").max
+				 filters.women_55_64_ratio_l=$("#women_55_64_ratio_slider").rangeSlider("values").min
+
+				 filters.women_65_ratio_h=$("#women_65_ratio_slider").rangeSlider("values").max
+				 filters.women_65_ratio_l=$("#women_65_ratio_slider").rangeSlider("values").min
+
+
+
+
+
+				 filters.men_18_24_ratio_h=$("#men_18_24_ratio_slider").rangeSlider("values").max;
+				 filters.men_18_24_ratio_l=$("#men_18_24_ratio_slider").rangeSlider("values").min;
+
+				 filters.men_25_34_ratio_h=$("#men_25_34_ratio_slider").rangeSlider("values").max;
+				 filters.men_25_34_ratio_l=$("#men_25_34_ratio_slider").rangeSlider("values").min;
+
+				 filters.men_34_44_ratio_h=$("#men_34_44_ratio_slider").rangeSlider("values").max;
+				 filters.men_34_44_ratio_l=$("#men_34_44_ratio_slider").rangeSlider("values").min;
+
+				 filters.men_44_54_ratio_h=$("#men_44_54_ratio_slider").rangeSlider("values").max;
+				 filters.men_44_54_ratio_l=$("#men_44_54_ratio_slider").rangeSlider("values").min;
+
+				 filters.men_55_64_ratio_h=$("#men_55_64_ratio_slider").rangeSlider("values").max;
+				 filters.men_55_64_ratio_l=$("#men_55_64_ratio_slider").rangeSlider("values").min;
+
+				 filters.men_65_ratio_h=$("#men_65_ratio_slider").rangeSlider("values").max;
+				 filters.men_65_ratio_l=$("#men_65_ratio_slider").rangeSlider("values").min;
+
+
+				 filters.loc_num_max=$("#loc_slider").rangeSlider("values").max;
+				 filters.loc_num_min=$("#loc_slider").rangeSlider("values").min;
+
+
+//console.log(filters)
+		document.getElementById('attribute_button').style.visibility="hidden";
+		document.getElementById('actor_button').style.visibility="hidden";
+		document.getElementById('director_button').style.visibility="hidden";
+
+		filters.opu=$("#slider").rangeSlider("values").max;
+		filters.op=$("#slider").rangeSlider("values").min+0.01;
+		
+		
+		filters.kfr_max=$("#slider").rangeSlider("values").max;
+		filters.kfr_min=$("#slider").rangeSlider("values").min-10;
+
+		filters.lxu=$("#xslider").rangeSlider("values").max*1000000;
+		filters.lx=$("#xslider").rangeSlider("values").min*1000000+0.01;
+		
+		filters.lyu=$("#yslider").rangeSlider("values").max;
+		filters.ly=$("#yslider").rangeSlider("values").min;
+	
+			var textarea = $('textarea.example:last');
+			if(typeof textarea.textext()[0]!='undefined'){
+				filters['keywords']=JSON.parse(textarea.textext()[0].hiddenInput().val());
+			}
+
+			else{filters['keywords']=[]}
+
+
+			var advtextarea1 = $('textarea.example_adv1:last');	
+			if(typeof advtextarea1.textext()[0]!='undefined'){
+				filters['keywordsor1']=JSON.parse(advtextarea1.textext()[0].hiddenInput().val());
+			}
+
+			else{filters['keywordsor1']=[]}
+
+
+			var advtextarea2 = $('textarea.example_adv2:last');	
+			if(typeof advtextarea2.textext()[0]!='undefined'){
+				filters['keywordsor2']=JSON.parse(advtextarea2.textext()[0].hiddenInput().val());
+			}
+
+			else{filters['keywordsor2']=[]}
+
+
+			var advtextarea3 = $('textarea.example_adv3:last');	
+			if(typeof advtextarea3.textext()[0]!='undefined'){
+				filters['keywordsor3']=JSON.parse(advtextarea3.textext()[0].hiddenInput().val());
+			}
+
+			else{filters['keywordsor3']=[]}
+				
+			var atextarea = $('textarea.example2:last');
+			filters['actors']=JSON.parse(atextarea.textext()[0].hiddenInput().val());
+
+			var dtextarea = $('textarea.example3:last');
+			filters['techrole']=JSON.parse(dtextarea.textext()[0].hiddenInput().val());
+
+
+			var loc_textarea = $('textarea.location_textarea:last');
+			filters['location']=loc_textarea.textext()[0].hiddenInput().val();
+			//console.log(filters['actors'])
+			//filters['keywords']=textarea.textext()[0].hiddenInput().val();
+						//console.log(filters['keywordsor3'])
+
+
+
+rep_filters = {
+	//user input
+	'op':filters.op,
+	'opu':filters.opu,
+
+	'Comedy':filters.Comedy,
+	'Family': filters.Family,
+	'Action': filters.Action,
+	'Adventure':filters.Adventure,
+	'Drama':filters.Drama,
+	'Historical':filters.Historical,
+	'Fantasy':filters.Fantasy,
+	'Crime':filters.Crime,
+	'Horror':filters.Horror,
+	'Romance':filters.Romance,
+	'Thriller':filters.Thriller,
+	'SciFi':filters.SciFi,
+	'Mystery':filters.Mystery,
+	'War':filters.War,
+	'Biography':filters.Biography,
+	'Documentary':filters.Documentary,
+	'Music':filters.Music,
+	'Musical':filters.Musical,
+	'Animation':filters.Animation,
+	'Western':filters.Western,
+	'Sport':filters.Sport,
+	'keywords':filters.keywords,
+	'keywordsor1':filters.keywordsor1,
+	'keywordsor2':filters.keywordsor2,
+	'actors':filters.actors,
+	'techrole':filters.techrole,
+	'lx':filters.lx,
+	'lxu':filters.lxu,
+	'ly':filters.ly,
+	'lyu':filters.lyu
+	};
+
+
+var serverdata;
+var serverdata1;
+
+
+		d3.select("body").select(".main_graph").select("svg").remove();
+		d3.select("body").selectAll(".wordcloud").remove();
+
+		var root=d3.select("body").select(".main_graph").append("svg")
+					.attr("width",w)
+					.attr("height",h)
+					.attr("transform","translate("+transx+","+transy+")")
+					
+
+					root.append("text")
+					.attr("transform","translate("+(w/2-100)+","+h/2+")")
+					.style("font-size","56px")
+					.style("fill","black").text("Loading...")
+
+	var yl = d3.scale.ordinal()
+			.domain(d3.range(50))
+			.rangePoints([0,h*0.8]);
+
+		var yl2 = d3.scale.ordinal()
+			.domain(d3.range(50))
+			.rangePoints([0,h*0.8]);
+
+	var zl = d3.scale.linear()
+    .domain([10, 0])
+    .range(["hsl(104,100%,75%)", "hsl(104,100%,75%)"])
+    .interpolate(d3.interpolateHcl);
+
+    root.selectAll("circle")
+    .data(yl.domain())
+  .enter().append("circle")
+  .attr("transform","translate("+w*0.05+","+h*0.05+")")
+    .attr("r", 17)
+    .attr("cx", 0)
+    .attr("cy", yl)
+    .style("fill", function(d) { return zl(Math.abs(d % 20 - 10)); })
+  .transition()
+    .duration(2000)
+    .delay(function(d) { return d * 40; })
+    .each(slide);
+    
+	
+	function slide() {
+  var circle = d3.select(this);
+  (function repeat() {
+    circle = circle.transition()
+        .attr("cx", w*0.9)
+      .transition()
+        .attr("cx", 0)
+        .each("end", repeat);
+  })();
+}
+
+
+	$.ajax({
+            url: "./lgd",
+            
+            type: 'POST',
+    
+            success: function(odata){
+
+            	console.log('lgd_called')
+
+            	lgdata=odata.ld
+
+            	
+
+      if (lgdata.x=="expired"){ 
+      		d3.select("body").select(".main_graph").select("svg").remove();
+			d3.select("body").selectAll(".wordcloud").remove();
+
+			var root=d3.select("body").select(".main_graph").append("svg")
+					.attr("width",w)
+					.attr("height",h)
+					.attr("transform","translate("+transx+","+transy+")")
+					
+
+					root.append("text")
+					.attr("transform","translate("+w/2+","+h/2+")")
+					.attr("text-anchor","middle")
+					.style("font-size","50px")
+					.style("fill","black").text("Your usage limit has been reached")
+
+      }
+
+
+            if (lgdata.x=="notfinish"){ 
+      		d3.select("body").select(".main_graph").select("svg").remove();
+			d3.select("body").selectAll(".wordcloud").remove();
+
+			var root=d3.select("body").select(".main_graph").append("svg")
+					.attr("width",w)
+					.attr("height",h)
+					.attr("transform","translate("+transx+","+transy+")")
+					
+
+					root.append("text")
+					.attr("transform","translate("+w/2+","+h/2+")")
+					.attr("text-anchor","middle")
+					.style("font-size","50px")
+					.style("fill","black").html("Your account is being used")
+
+      }
+
+
+      else{
+
+
+var worker= new Worker("public/adv_works.js")
+
+
+
+			//$.ajax({
+            //url: "./filters",
+            //data: filters,
+            
+            //type: 'POST',
+            //data: filters,
+            //success: function(data){
+ worker.onmessage=function(data){ 
+
+ 	var dataj=JSON.parse(data.data)
+ 	
+            	serverdata=dataj.success,
+            	serverdata1=dataj.data1,	
+            	fkwd=dataj.kword,
+            	fkwd1=dataj.kword1,
+            	ktpercentage=dataj.ktpercentage,
+				summary=dataj.summ,
+            	factd=dataj.actord,
+            	factd1=dataj.actord1
+            	asummary=dataj.asum,
+            	tpercentage=dataj.tpercentage,
+            	fdpd=dataj.dpdata,
+            	fdpd1=dataj.dpdata1,
+            	dpnumpercentage=dataj.dpt,
+            	dpsummary=dataj.dsum;
+
+
+            	//console.log(ktpercentage)
+
+
+
+            	data=serverdata;
+				data1=serverdata1;
+
+for (var i in data){
+	data[i].keywords=fkwd[i];
+
+}
+
+for (var i in data1){
+	data1[i].keywords=fkwd1[i];
+
+}
+
+for (var i in data){
+	data[i].actors=factd[i];
+
+}
+
+for (var i in data1){
+	data1[i].actors=factd1[i];
+
+}
+
+
+for (var i in data){
+	data[i].techrole=fdpd[i];
+
+}
+
+for (var i in data1){
+	data1[i].techrole=fdpd1[i];
+
+}
+
+
+
+          
+
+
+
+
+	
+	
+		d3.select("body").select(".main_graph").select("svg").remove();
+		d3.select("body").selectAll(".wordcloud").remove();
+		
+	
+		
+	var canvas = d3.select(".main_graph").append("svg")
+					.attr("width",w)
+					.attr("height",h)
+					.attr("transform","translate("+transx+","+transy+")")
+	var layer0 = canvas.append('g')
+					
+					var borderPath = canvas.attr("border",border)
+						.append("rect")
+						.attr("x",0)
+						.attr("y",0)
+						.attr("height",h)
+						.attr("width",w)
+						.style("stroke", bordercolor)
+						.style("fill", "none")
+						.style("stroke-width", border);
+				
+				
+		canvas.append("g").attr("class","x axis")
+		.attr("transform","translate("+wmargin+","+(h-hmargin)+")")
+		.call(xAxis);
+		
+		canvas.append("g").attr("class","y axis")
+		.attr("transform","translate("+wmargin+","+hmargin+")")
+		.call(yAxis);
+		
+		canvas.append("text")      // text label for the x axis
+        .attr("x", w/2-wmargin*2 )
+        .attr("y", h-3 )
+        .style("text-anchor", "middle")
+		.style("font-weight","bold")
+		.attr('font-size',15)
+        .text("Marketing Spending");
+		
+		
+		canvas.append("text")   //text label for the y axis
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0-20+wmargin)
+        .attr("x",0-h/2)
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+		.style("font-weight","bold")
+		.attr('font-size',15)
+        .text("Domestic Total Box-office Revenue");
+		
+	
+					
+
+rep_lgdata=lgdata;
+
+		var lineFunc = d3.svg.line()
+			.x(function(d) {
+				return wmargin+xScale(d.x);
+					})
+			.y(function(d) {
+				return h-hmargin-yScale(d.fy);
+			})
+			.interpolate('linear');
+			
+			layer0.append('svg:path').attr('id','fitted_line').attr('d', lineFunc(lgdata)).attr('stroke', '#A9F5A9').attr('stroke-width', 7).attr('opacity',.8).attr('fill', 'none');
+			
+			
+		layer0.append("text")
+    .attr("dx", 300)
+    .attr("dy", 2)
+  .append("textPath")
+    .attr("class", "textpath")
+    .attr("xlink:href", "#fitted_line")
+	.attr("fill",'#3B240B')
+	.style("font-size","9px")
+	.style("font-weight","bold")
+    .text("Greenlight Essentials......Greenlight Essentials......Greenlight Essentials");
+		
+
+///////filter here
+
+////////
+		
+		rep_data=data;
+			
+				
+		
+////////////////////////////////////////////////////////////////actor manipulation
+//////////////////////////////////////////////end of data manipulation
+				
+			var circles =	canvas.selectAll("circle")
+			   .data(data)
+			   .enter()
+			   .append("circle")
+			   .attr("cx", function(d) {
+			   		return wmargin+xScale(d.x);
+			   })
+			   .attr("cy", function(d) {
+			   		return h-hmargin-yScale(d.y);
+			   })
+			   .attr('r', 0.5)
+			   .attr("fill","black")
+			   .style("opacity",.5)
+			   ;
+
+
+
+g_titles=[]
+for (i in data){
+	g_titles.push(data[i]['title'])
+
+}
+//geo_data()
+//console.log(g_titles)
+
+			 
+			    circles.on("mouseover", function(){
+				
+				if(lock=="on"){d3.select(this).transition().duration(70).style("opacity",5)
+				.attr('r',11.7)}
+				
+				
+				
+				else {
+				d3.select(this).transition().duration(70).style("opacity",5)
+				.attr('r',11.7),
+				kl=this.__data__.keywords.split(","),
+				tempbool=[],
+				tdata=d3.select(".word_graph").select(".wordcloud").selectAll("text").filter(function (d){return kl.indexOf(d.text)>-1 })
+				,
+				
+				tdata.transition().duration(10).style("fill","red"),
+				kl=this.__data__.actors.split(","),
+				tempbool=[],
+				tdata=d3.select(".actor_graph").select(".wordcloud").selectAll("text").filter(function (d){return kl.indexOf(d.text)>-1 })
+				,	
+				tdata.transition().duration(10).style("fill","red")
+				,
+				kl=this.__data__.techrole.split(","),
+				tempbool=[],
+				tdata=d3.select(".dp_graph").select(".wordcloud").selectAll("text").filter(function (d){return kl.indexOf(d.text)>-1 })
+				,	
+				tdata.transition().duration(10).style("fill","red")
+
+				}})
+				.on("mouseout", function(){
+				///////check color
+				//console.log(d3.select(this).style("fill"))
+				
+				if(d3.select(this).style("fill")=="rgb(128, 0, 0)"||d3.select(this).style("fill")=='#800000'){
+				return;
+				}
+				else{
+				if(lock=="on"){d3.select(this).transition().duration(300).style("opacity",.5)
+				.attr('r',5.7);}
+				else{
+				d3.select(".word_graph").select(".wordcloud").selectAll("text").transition().style("fill", function(d) { return color(d.pc);})
+				,
+				d3.select(".actor_graph").select(".wordcloud").selectAll("text").transition().style("fill", function(d) { return color(d.pc);})
+				,
+				d3.select(".dp_graph").select(".wordcloud").selectAll("text").transition().style("fill", function(d) { return color(d.pc);})
+				,
+				d3.select(this).transition().duration(300).style("opacity",.5)
+				.attr('r',5.7);}}})
+			   .transition()
+			   .duration(777)
+			   .attr('r',5.7);
+			   
+			   
+				
+			// tooltips (using jQuery plugin tipsy)
+		$('svg circle').tipsy({ 
+        gravity: 's', 
+        html: true, 
+		fade: false,
+        title: function() {
+          var d = this.__data__;
+          return d.title; 
+				}});     
+
+
+
+	  ////////////////////////////////word list
+			
+			var color = d3.scale.linear()
+            .domain([0,1,2,3,4,5,6,10,15,20,100])
+            .range(["#ddd", "#ccc", "#bbb", "#aaa", "#999", "#888", "#777", "#666", "#555", "#444", "#333", "#222"]);
+			   
+			   
+
+					 //////////////////////////////////////////
+					 function compare(a,b) {
+					if (a.percent > b.percent)
+					return -1;
+				if (a.percent < b.percent)
+					return 1;
+			return 0;
+				}
+
+
+					 
+					 
+					 ktpercentage.sort(compare);
+					 
+					 var psum=[];
+					 for (var i in ktpercentage){
+					 psum[i]=ktpercentage[i]['keyword']
+					 }
+				
+					
+					 for (var i in summary){
+						summary[i]['percent']=ktpercentage[psum.indexOf(summary[i]['text'])]['percent'];
+						
+					 }
+
+
+
+
+	
+
+	
+
+//console.log(summary)
+
+
+		
+					 //////////////////////////////////////////
+					 
+					 			  var  fontScale = d3.scale.linear()
+                     .domain([0, d3.max(summary, function(d) { return d.size; })])
+                     .range([20, 20])
+
+
+
+//console.log(summary)
+					 
+		d3.layout.cloud().size([500, 500])
+            .words(summary)
+            .rotate(0)
+            .fontSize(function(d) { return fontScale(d.size); })
+            .on("end", draw)
+            .start();
+			
+			
+			
+					var cdata;
+					 var percentage;
+
+					  function compare2(a,b) {
+					if (a.order < b.order)
+					return -1;
+				if (a.order > b.order)
+					return 1;
+			return 0;
+				}
+			//		 var cn=[];
+			//	var pn;
+			var lock='off'
+     function draw(words) {
+	
+		
+
+		for (var i in words){
+		words[i].percent=ktpercentage[psum.indexOf(words[i]['text'])]['percent'];
+		}
+		var swords=[];
+		for(var i in words){
+		swords[i]=[];
+		swords[i]['percent']=words[i]['percent'];
+		}
+
+		swords.sort(compare)
+		var swordsl=[];
+		for(var i in swords){
+		swordsl[i]=swords[i]['percent']
+		}
+		
+		
+		for (var i in words){
+		words[i].pc=swordsl.indexOf(words[i]['percent']);
+		}
+
+		var sind=[]
+		for (var i in summary){
+			sind.push(summary[i].text)
+		}
+		
+		for (var i in words){
+		words[i].order=sind.indexOf(words[i]['text']);
+		}
+
+
+
+
+
+	
+
+		//console.log(words)
+
+		words.sort(compare2)
+
+
+		
+		
+        var wgraph = d3.select(".word_graph").append("svg")
+                .attr("width", 500)
+                .attr("height", 730)
+                .attr("class", "wordcloud")
+                .append("g")
+                // without the transform, words words would get cutoff to the left and top, they would
+                // appear outside of the SVG area
+                .attr("transform", "translate(100,160)")
+                .selectAll("text")
+                .data(words)
+                .enter().append("text")
+                .style("font-size", function(d) { return d.size*.1 + "px"; })
+                .style("fill", function(d) { return color(d.pc);})
+                .attr("transform", function(d,i) {
+                    return "translate(" + [0, i*20] + ")rotate(" + d.rotate + ")";
+                })
+             
+                .text(function(d) { return d.text; });
+				
+			
+				
+				
+				wgraph.on({"mouseover": function(){
+
+				d3.select(this).transition().duration(70)
+				.style("font-size",function(d) { return d.size*2 + "px"; 
+				
+				});
+				
+				
+				tkw=d3.select(this).text();
+				
+				//console.log(tkw);
+				cdata=d3.selectAll('circle').filter(function (d){
+				return d.keywords.match(tkw)})
+				
+				rep_cdata=cdata;
+				
+				//cdata.each(function(d){
+				 //cn.push(d.op)
+				//}
+				//)
+				
+				//pn=cn.filter(isBigEnough(50))
+				//percentage=Math.round(pn.length*100/cn.length);
+				
+				//cn=[];
+				var pe;
+				pe=words.filter(function (d){return d.text.match(tkw)});
+				//console.log(pe[0].percent)
+			
+				percentage=pe[0].percent
+				
+				if(lock=="on"){return;}
+				else{
+				cdata.transition().duration(70).style("opacity",5)
+				.attr('r',11.7)}
+				
+				if(d3.select(this).style("fill")=="rgb(255, 0, 0)"||d3.select(this).style("fill")=="#ff0000"||lock=='on'){
+				return ;
+				}
+				else {
+						layer0.append("text")      
+						.attr("x", w*0.3 )
+						.attr("y", h*0.45 )
+						.attr("class",'percent_sign')
+						.style("z-index",1)
+						.style("font-weight","bold")
+						.style("font-size",80+'px')
+						.style("fill",'#00FF66')
+						.style('opacity',0.5)
+						.text(percentage+"%");
+						
+						layer0.append("text")      
+						.attr("x", w*0.65 )
+						.attr("y", h*0.85 )
+						.attr("class",'percent_sign')
+						.style("z-index",1)
+						.style("font-weight","bold")
+						.style("font-size",80+'px')
+						.style("fill",'red')
+						.style('opacity',0.5)
+						.text(100-percentage+"%");
+
+
+		
+
+
+
+
+
+					}
+
+				
+
+
+
+					//	rep_percentage=percentage;
+				
+				}
+				,"mouseout":function(){
+				d3.select(this).transition().duration(300)
+				.style("font-size",function(d) { return d.size + "px"; })
+				;
+				
+				var tkw=d3.select(this).text();
+				//console.log(tkw);
+				///if its black
+				if(d3.select(this).style("fill")=="rgb(255, 0, 0)"
+				||d3.select(this).style("fill")=="#ff0000"||lock=='on'){
+				return ;
+				}
+				//if(d3.select(this).)
+				
+				///
+				else {d3.selectAll('circle').filter(function (d){
+				return d.keywords.match(tkw)})
+				.transition().duration(300).style("opacity",.5).style('fill','black')
+				.attr('r',5.7); 
+				
+				d3.selectAll('.percent_sign').remove();
+				}
+				}
+				,"click":function(){
+				//console.log(d3.select(this).style("fill"))
+				if((d3.select(this).style("fill")=="rgb(255, 0, 0)"
+				||d3.select(this).style("fill")=="#ff0000")&& lock=='on'){
+
+
+					document.getElementById('attribute_button').style.visibility="hidden",
+				
+					lock='off',
+
+
+
+				d3.select(this).style("fill", function(d) { return color(d.pc);}
+				),d3.selectAll('circle')
+				.transition().duration(300).style("opacity",.5).style('fill','black')
+				.attr('r',5.7);
+				if(typeof att_rp!="undefined"){
+				return att_rp.close()}
+				}
+				else if((d3.select(this).style("fill")!=="rgb(255, 0, 0)"&& lock=='on')
+				||(d3.select(this).style("fill")!=="#ff0000"&& lock=='on')){return ;}
+				else{
+				
+					rep_percentage=percentage,
+				document.getElementById('attribute_button').style.visibility="visible",
+				rep_this=d3.select(this).text(),
+				lock='on',
+
+
+				
+				d3.select(this).style("fill","#ff0000"),
+				cdata.transition().duration(70).style("opacity",1).style('fill','rgb(128,0,0)')
+				.attr('r',11.7);
+
+				cdata.moveToFront();
+
+				}
+				}
+				})
+				
+			
+				
+				
+			//	.on("mouseout", )
+					/////mouse click test
+				//.on("click", function(){
+				//alert("hello");
+				//})
+				
+				
+				////mouse click test
+				
+				.transition()
+				.duration(1500)
+				.style("font-size", function(d) { return d.size + "px"; });
+				
+				
+				
+			  
+				
+    }
+	
+					
+
+				
+				
+				
+				
+////////////////////////////////////////////////////////////////////////actor cloud
+
+
+
+
+					 //////////////////////////////////////////
+					 function compare(a,b) {
+					if (a.percent > b.percent)
+					return -1;
+				if (a.percent < b.percent)
+					return 1;
+			return 0;
+				}
+
+
+					
+					 tpercentage.sort(compare);
+					 
+					 var tpsum=[];
+					 for (var i in tpercentage){
+					 tpsum[i]=tpercentage[i]['actor']
+					 }
+				
+					
+					 for (var i in asummary){
+						asummary[i]['percent']=tpercentage[tpsum.indexOf(asummary[i]['text'])]['percent'];
+						
+					 }
+				
+
+
+
+					
+					 //////////////////////////////////////////
+
+					
+	
+		
+		var acfontScale = d3.scale.linear()
+                     .domain([0, d3.max(asummary, function(d) { return d.size; })])
+                     .range([20,20])
+
+					 
+					 
+				d3.layout.cloud().size([500, 500])
+            .words(asummary)
+            .rotate(0)
+            .fontSize(function(d) { return acfontScale(d.size); })
+            .on("end", draw2)
+            .start();
+			
+			
+			var acdata;
+					 var apercentage;
+					 var acn=[];
+				var apn;
+		
+			
+			
+			
+	
+	function draw2(words) {
+	
+	
+			for (var i in words){
+		words[i].percent=tpercentage[tpsum.indexOf(words[i]['text'])]['percent'];
+		}
+		var swords=[];
+		for(var i in words){
+		swords[i]=[];
+		swords[i]['percent']=words[i]['percent'];
+		}
+
+		swords.sort(compare)
+		var swordsl=[];
+		for(var i in swords){
+		swordsl[i]=swords[i]['percent']
+		}
+		
+		
+		for (var i in words){
+		words[i].pc=swordsl.indexOf(words[i]['percent']);
+		}
+		
+		var sind=[]
+		for (var i in  asummary){
+			sind.push(asummary[i].text)
+		}
+		
+		for (var i in words){
+		words[i].order=sind.indexOf(words[i]['text']);
+		}
+
+		words.sort(compare2)
+	
+        var awgraph = d3.select(".actor_graph").append("svg")
+                .attr("width", 500)
+                .attr("height", 730)
+                .attr("class", "wordcloud")
+                .append("g")
+                // without the transform, words words would get cutoff to the left and top, they would
+                // appear outside of the SVG area
+                .attr("transform", "translate(100,160)")
+                .selectAll("text")
+                .data(words)
+                .enter().append("text")
+                .style("font-size", function(d) { return d.size*.1 + "px"; })
+                .style("fill", function(d) { return color(d.pc); })
+                .attr("transform", function(d,i) {
+                    return "translate(" + [0, i*20] + ")rotate(" + d.rotate + ")";
+                })
+                .text(function(d) { return d.text; });
+				
+				
+				
+				//////////mouse effect
+				awgraph.on({"mouseover": function(){
+				d3.select(this).transition().duration(70)
+				.style("font-size",function(d) { return d.size*2 + "px"; 
+				
+				});
+				
+				
+				atkw=d3.select(this).text();
+				//console.log(tkw);
+				acdata=d3.selectAll('circle').filter(function (d){
+				return d.actors.match(atkw)})
+				
+			
+				//acdata.each(function(d){
+				// acn.push(d.op)
+				//}
+				//)
+				
+				//apn=acn.filter(isBigEnough(50))
+				//apercentage=Math.round(apn.length*100/acn.length);
+				
+				//acn=[];
+				var ape;
+				ape=tpercentage.filter(function (d){return d.actor.match(atkw)});
+				
+				apercentage=ape[0].percent
+				
+					if(lock=='on'){return }
+				else{
+
+				acdata.transition().duration(70).style("opacity",5)
+				.attr('r',11.7)}
+				
+				if(d3.select(this).style("fill")=="rgb(255, 0, 0)"
+				||d3.select(this).style("fill")=="#ff0000"||lock=='on'){
+				return ;
+				}
+				else {
+						layer0.append("text")      
+						.attr("x", w*0.3 )
+						.attr("y", h*0.45 )
+						.attr("class",'percent_sign')
+						.style("z-index",1)
+						.style("font-weight","bold")
+						.style("font-size",80+'px')
+						.style("fill",'#00FF66')
+						.style('opacity',0.5)
+						.text(apercentage+"%");
+						
+						layer0.append("text")      
+						.attr("x", w*0.65 )
+						.attr("y", h*0.85 )
+						.attr("class",'percent_sign')
+						.style("z-index",1)
+						.style("font-weight","bold")
+						.style("font-size",80+'px')
+						.style("fill",'red')
+						.style('opacity',0.5)
+						.text(100-apercentage+"%");
+
+						
+
+
+
+					}
+
+
+				}
+				,"mouseout":function(){
+				d3.select(this).transition().duration(300)
+				.style("font-size",function(d) { return d.size + "px"; })
+				;
+				
+				var atkw=d3.select(this).text();
+				//console.log(tkw);
+				///if its black
+				if(d3.select(this).style("fill")=="rgb(255, 0, 0)"
+				||d3.select(this).style("fill")=="#ff0000"||lock=='on'){
+				return ;
+				}
+				//if(d3.select(this).)
+				
+				///
+				else {d3.selectAll('circle').filter(function (d){
+				return d.actors.match(atkw)})
+				.transition().duration(300).style("opacity",.5).style('fill','black')
+				.attr('r',5.7);
+				d3.selectAll('.percent_sign').remove();
+				}
+				}
+				,"click":function(){
+				//console.log(d3.select(this).style("fill"))
+				if((d3.select(this).style("fill")=="rgb(255, 0, 0)"
+				||d3.select(this).style("fill")=="#ff0000")&&lock=='on'){
+					document.getElementById('actor_button').style.visibility="hidden",
+				lock='off',
+				d3.select(this).style("fill", function(d) { return color(d.pc);}
+				),d3.selectAll('circle')
+				.transition().duration(300).style("opacity",.5).style('fill','black')
+				.attr('r',5.7);
+				if(typeof act_rp!="undefined"){
+				 act_rp.close();};
+				}
+				else if((d3.select(this).style("fill")!=="rgb(255, 0, 0)"&& lock=='on')
+				||(d3.select(this).style("fill")!=="#ff0000"&& lock=='on')){return ;}
+				
+				else{
+					rep_percentage=apercentage,
+					
+					rep_this=d3.select(this).text(),
+					document.getElementById('actor_button').style.visibility="visible"
+					,aoricol=this['style']['fill'],lock='on',d3.select(this).style("fill","#ff0000"),
+				acdata.transition().duration(70).style("opacity",1).style('fill','rgb(128,0,0)')
+				.attr('r',11.7);
+				acdata.moveToFront();
+				}
+				}
+				
+				
+				})
+				
+				.transition()
+				.duration(1500)
+				.style("font-size", function(d) { return d.size + "px"; });
+				
+				
+				}
+		
+
+				///////////////////////////dpcloud
+	var color = d3.scale.linear()
+            .domain([0,1,2,3,4,5,6,10,15,20,100])
+            .range(["#ddd", "#ccc", "#bbb", "#aaa", "#999", "#888", "#777", "#666", "#555", "#444", "#333", "#222"]);
+			   
+			   
+
+					 //////////////////////////////////////////
+					 function compare(a,b) {
+					if (a.percent > b.percent)
+					return -1;
+				if (a.percent < b.percent)
+					return 1;
+			return 0;
+				}
+
+
+					
+					 
+					 dpnumpercentage.sort(compare);
+					 
+					 var psum=[];
+					 for (var i in dpnumpercentage){
+					 psum[i]=dpnumpercentage[i]['techrole']
+					 }
+				
+					
+					 for (var i in dpsummary){
+						dpsummary[i]['percent']=dpnumpercentage[psum.indexOf(dpsummary[i]['text'])]['percent'];
+						
+					 }
+				
+
+
+				
+		
+					 //////////////////////////////////////////
+					 
+					 			  var  fontScale = d3.scale.linear()
+                     .domain([0, d3.max(dpsummary, function(d) { return d.size; })])
+                     .range([20, 20])
+					 
+				d3.layout.cloud().size([500, 500])
+            .words(dpsummary)
+            .rotate(0)
+            .fontSize(function(d) { return fontScale(d.size); })
+            .on("end", draw3)
+            .start();
+			
+			
+			
+					var cdata;
+					 var percentage;
+			//		 var cn=[];
+			//	var pn;
+			var lock='off'
+     function draw3(words) {
+	
+		
+		for (var i in words){
+		words[i].percent=dpnumpercentage[psum.indexOf(words[i]['text'])]['percent'];
+		}
+		var swords=[];
+		for(var i in words){
+		swords[i]=[];
+		swords[i]['percent']=words[i]['percent'];
+		}
+
+		swords.sort(compare)
+		var swordsl=[];
+		for(var i in swords){
+		swordsl[i]=swords[i]['percent']
+		}
+		
+		
+		for (var i in words){
+		words[i].pc=swordsl.indexOf(words[i]['percent']);
+		}
+
+		var sind=[]
+		for (var i in dpsummary){
+			sind.push(dpsummary[i].text)
+		}
+		
+		for (var i in words){
+		words[i].order=sind.indexOf(words[i]['text']);
+		}
+
+		words.sort(compare2)
+
+        var wgraph = d3.select(".dp_graph").append("svg")
+                .attr("width", 500)
+                .attr("height", 730)
+                .attr("class", "wordcloud")
+                .append("g")
+                // without the transform, words words would get cutoff to the left and top, they would
+                // appear outside of the SVG area
+                .attr("transform", "translate(100,160)")
+                .selectAll("text")
+                .data(words)
+                .enter().append("text")
+                .style("font-size", function(d) { return d.size*.1 + "px"; })
+                .style("fill", function(d) { return color(d.pc);})
+                .attr("transform", function(d,i) {
+                    return "translate(" + [0, i*20] + ")rotate(" + d.rotate + ")";
+                })
+                .text(function(d) { return d.text; });
+				
+			
+				
+				
+				wgraph.on({"mouseover": function(){
+				d3.select(this).transition().duration(70)
+				.style("font-size",function(d) { return d.size*2 + "px"; 
+				
+				});
+				
+				
+				tkw=d3.select(this).text();
+				//console.log(tkw);
+				cdata=d3.selectAll('circle').filter(function (d){
+				return d.techrole.match(tkw)})
+				
+				
+				
+				//cdata.each(function(d){
+				 //cn.push(d.op)
+				//}
+				//)
+				
+				//pn=cn.filter(isBigEnough(50))
+				//percentage=Math.round(pn.length*100/cn.length);
+				
+				//cn=[];
+				var pe;
+				pe=dpnumpercentage.filter(function (d){return d.techrole.match(tkw)});
+				//console.log(ape[0].percent)
+			
+				percentage=pe[0].percent
+				
+				if(lock=="on"){return;}
+				else{
+				cdata.transition().duration(70).style("opacity",5)
+				.attr('r',11.7)}
+				
+				if(d3.select(this).style("fill")=="rgb(255, 0, 0)"||d3.select(this).style("fill")=="#ff0000"||lock=='on'){
+				return ;
+				}
+				else {
+						layer0.append("text")      
+						.attr("x", w*0.3 )
+						.attr("y", h*0.45 )
+						.attr("class",'percent_sign')
+						.style("z-index",1)
+						.style("font-weight","bold")
+						.style("font-size",80+'px')
+						.style("fill",'#00FF66')
+						.style('opacity',0.5)
+						.text(percentage+"%");
+						
+						layer0.append("text")      
+						.attr("x", w*0.65 )
+						.attr("y", h*0.85 )
+						.attr("class",'percent_sign')
+						.style("z-index",1)
+						.style("font-weight","bold")
+						.style("font-size",80+'px')
+						.style("fill",'red')
+						.style('opacity',0.5)
+						.text(100-percentage+"%");
+
+
+					}
+				
+				}
+				,"mouseout":function(){
+				d3.select(this).transition().duration(300)
+				.style("font-size",function(d) { return d.size + "px"; })
+				;
+				
+				var tkw=d3.select(this).text();
+				//console.log(tkw);
+				///if its black
+				if(d3.select(this).style("fill")=="rgb(255, 0, 0)"
+				||d3.select(this).style("fill")=="#ff0000"||lock=='on'){
+				return ;
+				}
+				//if(d3.select(this).)
+				
+				///
+				else {d3.selectAll('circle').filter(function (d){
+				return d.techrole.match(tkw)})
+				.transition().duration(300).style("opacity",.5).style('fill','black')
+				.attr('r',5.7); 
+				
+				d3.selectAll('.percent_sign').remove();
+				}
+				}
+				,"click":function(){
+				//console.log(d3.select(this).style("fill"))
+				if((d3.select(this).style("fill")=="rgb(255, 0, 0)"
+				||d3.select(this).style("fill")=="#ff0000")&&lock=='on'){
+					document.getElementById('director_button').style.visibility="hidden",
+				
+				lock='off',
+
+				d3.select(this).style("fill", function(d) { return color(d.pc);}
+				),d3.selectAll('circle')
+				.transition().duration(300).style("opacity",.5).style('fill','black')
+				.attr('r',5.7);
+				if(typeof drc_rp!="undefined"){
+				 drc_rp.close();};
+				}
+				else if((d3.select(this).style("fill")!=="rgb(255, 0, 0)"&& lock=='on')
+				||(d3.select(this).style("fill")!=="#ff0000"&& lock=='on')){return ;}
+				
+				else{
+
+				document.getElementById('director_button').style.visibility="visible",
+				rep_this=d3.select(this).text(),
+				rep_percentage=percentage,
+				
+				lock='on',
+				
+				d3.select(this).style("fill","#ff0000"),
+				cdata.transition().duration(70).style("opacity",1).style('fill','rgb(128,0,0)')
+				.attr('r',11.7);
+				cdata.moveToFront();
+				}
+				}
+				})
+				
+			
+				
+				
+			//	.on("mouseout", )
+					/////mouse click test
+				//.on("click", function(){
+				//alert("hello");
+				//})
+				
+				
+				////mouse click test
+				
+				.transition()
+				.duration(1500)
+				.style("font-size", function(d) { return d.size + "px"; });
+				
+				
+				
+			  
+				
+    }
+	
+
+
+	document.getElementsByName('updateButton')[0].style.visibility="visible"	
+			
+	
+	}
+        
+	worker.postMessage(filters);}}})}
+	</script>
+	
+	
+			
+</body>
+</html>

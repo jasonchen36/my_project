@@ -1,0 +1,635 @@
+<!doctype html>
+
+<html>
+<head>
+</head>
+
+<script src="d3.min.js"></script>
+
+ 
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="jsPDF-master/dist/jspdf.debug.js"></script>
+
+
+<body>
+<h1 style="z-index:99;position:absolute;color:;width:100%;background-color: ;height:70px;padding:0px;margin:0px">
+
+<div align="center" >
+<div style='text-align:center;width:93%;position:relative;top:10px'>
+Greenlight Essentials</div></div>
+
+<p style="position:relative;width:100%;display:inline-block;text-align:right;left:-20px;top:20px;font-size:0.4em;color:black">© 2015 Si Chang Zhang. All Rights Reserved. </p></h1>
+
+<h3 style="z-index:99;position:absolute;color:;width:100%;background-color: ;height:70px;padding:0px;margin:0px">
+
+<div align="center" >
+<div style='text-align:center;width:93%;position:absolute;top:50px'>
+Domestic (U.S. & Canada) Attribute Report</div></div></h3>
+
+
+<div>
+    <button name="printbutton" 
+    		id="attribute_button"
+			style="-webkit-appearance: none;position:relative;left:90%;z-index:999;height:30px;color:#444"
+           type="button" 
+           value="Update" 
+           onclick="printme()" />print
+		   </div >
+
+<div class="main_graph" style="position:relative;float:right;top:40px;z-index:9999">
+		  
+		   </div>
+<div class="main_text" style="position:relative; float:left;width:220px;height:400px;top:40px">
+
+
+</div>
+
+<div class="graph_text" style="position:absolute; float:left;width:700px;height:300px;">
+
+
+</div>
+
+
+
+<script>
+var w=450;
+	var h=300;
+	var hmargin=20;
+	var wmargin=30;
+	var transx=0;
+	var transy=0;
+	
+	var border=0;
+	var bordercolor='black';
+	
+					
+	//console.log(w)
+					
+	
+				
+				
+	var xScale = d3.scale.linear()
+					.domain([0,130000000])
+					.range([0,w-wmargin]);
+					
+	var yScale = d3.scale.linear()
+					.domain([-2000000,780000000])
+					.range([0,h-hmargin]);
+					
+					
+	var xAScale = d3.scale.linear()
+					.domain([0,130000000])
+					.range([0,w-2*wmargin]);
+					
+	var yAScale = d3.scale.linear()
+					.domain([780000000,-2000000])
+					.range([0,h-2*hmargin]);
+					
+					var xAxis=d3.svg.axis().scale(xAScale).ticks(0).tickSize(6,3,1);
+					
+					var yAxis=d3.svg.axis().scale(yAScale).orient("left").ticks(0)
+					.tickSize(6,3,1);
+					
+					var xtitle="Marketing Spending"
+					var ytitle="Domestic Total Box-office Revenue"
+
+
+var tvas=d3.select(".main_text")
+					
+
+var canvas = d3.select(".main_graph").append("svg")
+					.attr("width",w)
+					.attr("height",h)
+					.attr("transform","translate("+transx+","+transy+")")
+	var layer0 = canvas.append('g')
+					
+					var borderPath = canvas.attr("border",border)
+						.append("rect")
+						.attr("x",0)
+						.attr("y",0)
+						.attr("height",h)
+						.attr("width",w)
+						.style("stroke", bordercolor)
+						.style("fill", "none")
+						.style("stroke-width", border);
+				
+				
+		canvas.append("g").attr("class","x axis")
+		.attr("transform","translate("+wmargin+","+(h-hmargin)+")")
+		.call(xAxis);
+		
+		canvas.append("g").attr("class","y axis")
+		.attr("transform","translate("+wmargin+","+hmargin+")")
+		.call(yAxis);
+		
+		canvas.append("text")      // text label for the x axis
+        .attr("x", w/2)
+        .attr("y", h-7 )
+        .style("text-anchor", "middle")
+		.style("font-weight","bold")
+		.attr('font-size',15)
+        .text("Marketing Spending");
+		
+		
+		canvas.append("text")   //text label for the y axis
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0-20+wmargin)
+        .attr("x",0-h/2)
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+		.style("font-weight","bold")
+		.attr('font-size',15)
+        .text("Domestic Total Box-office Revenue");
+
+
+
+        var circles =	canvas.selectAll("circle")
+			   .data(rep_data)
+			   .enter()
+			   .append("circle")
+			   .attr("cx", function(d) {
+			   		return wmargin+xScale(d.x);
+			   })
+			   .attr("cy", function(d) {
+			   		return h-hmargin-yScale(d.y);
+			   })
+			   .attr('r', 4)
+			   .attr("stroke","grey")
+			   .attr("fill","black")
+			   .style("opacity",.8)
+			   ;
+
+			   //console.log(rep_this)
+
+			   cdata=d3.selectAll('circle').filter(function (d){
+				return d.keywords.match(rep_this)})
+
+		cdata.style("opacity",.8)
+				.attr('r',7.7).style("fill","red")
+
+
+var lineFunc = d3.svg.line()
+			.x(function(d) {
+				return wmargin+xScale(d.x);
+					})
+			.y(function(d) {
+				return h-hmargin-yScale(d.fy);
+			})
+			.interpolate('linear');
+			
+			canvas.append('svg:path').attr('id','fitted_line').attr('d', lineFunc(rep_lgdata)).attr('stroke', 'grey').attr('stroke-width', 7).attr('opacity',.8).attr('fill', 'none');
+
+
+			canvas.append("text")      
+						.attr("x", w*0.3 )
+						.attr("y", h*0.45 )
+						.attr("class",'percent_sign')
+						.style("z-index",99999)
+						.style("font-weight","bold")
+						.style("font-size",80+'px')
+						.style("fill",'#00FF66')
+						.style('opacity',0.5)
+						.text(rep_percentage+"%");
+						
+						canvas.append("text")      
+						.attr("x", w*0.55 )
+						.attr("y", h*0.89 )
+						.attr("class",'percent_sign')
+						.style("z-index",99999999)
+						.style("font-weight","bold")
+						.style("font-size",80+'px')
+						.style("fill",'red')
+						.style('opacity',0.5)
+						.text(100-rep_percentage+"%");
+			
+////////////////filter
+
+var genre = [];
+
+
+if (rep_filters.Comedy==='yes'){
+	genre.push("comedy")
+
+}
+
+if (rep_filters.Comedy==='no'){
+	genre.push("non-comedy")
+
+}
+
+if (rep_filters.Family==='yes'){
+	genre.push("family")
+
+}
+
+if (rep_filters.Family==='no'){
+	genre.push("non-family")
+
+}
+
+if (rep_filters.Action==='yes'){
+	genre.push("action")
+
+}
+
+if (rep_filters.Action==='no'){
+	genre.push("non-action")
+
+}
+
+if (rep_filters.Adventure==='yes'){
+	genre.push("adventure")
+
+}
+
+if (rep_filters.Adventure==='no'){
+	genre.push("non-adventure")
+
+}
+
+
+if (rep_filters.Drama==='yes'){
+	genre.push("drama")
+
+}
+
+if (rep_filters.Drama==='no'){
+	genre.push("non-drama")
+
+}
+
+if (rep_filters.Historical==='yes'){
+	genre.push("historical")
+
+}
+
+if (rep_filters.Historical==='no'){
+	genre.push("non-historical")
+
+}
+
+if (rep_filters.Fantasy==='yes'){
+	genre.push("fantasy")
+
+}
+
+if (rep_filters.Fantasy==='no'){
+	genre.push("non-fantasy")
+
+}
+
+if (rep_filters.Crime==='yes'){
+	genre.push("crime")
+
+}
+
+if (rep_filters.Crime==='no'){
+	genre.push("non-crime")
+
+}
+
+if (rep_filters.Horror==='yes'){
+	genre.push("horror")
+
+}
+
+if (rep_filters.Horror==='no'){
+	genre.push("non-horror")
+
+}
+
+if (rep_filters.Romance==='yes'){
+	genre.push("romance")
+
+}
+
+if (rep_filters.Romance==='no'){
+	genre.push("non-romance")
+
+}
+if (rep_filters.Thriller==='yes'){
+	genre.push("thriller")
+
+}
+
+if (rep_filters.Thriller==='no'){
+	genre.push("non-thriller")
+
+}
+
+if (rep_filters.SciFi==='yes'){
+	genre.push("scifi")
+
+}
+
+if (rep_filters.SciFi==='no'){
+	genre.push("non-scifi")
+
+}
+
+if (rep_filters.Mystery==='yes'){
+	genre.push("mystery")
+
+}
+
+if (rep_filters.Mystery==='no'){
+	genre.push("non-mystery")
+
+}
+
+if (rep_filters.War==='yes'){
+	genre.push("war")
+
+}
+
+if (rep_filters.War==='no'){
+	genre.push("non-war")
+
+}
+
+if (rep_filters.Biography==='yes'){
+	genre.push("biography")
+
+}
+
+if (rep_filters.Biography==='no'){
+	genre.push("non-biography")
+
+}
+
+if (rep_filters.Documentary==='yes'){
+	genre.push("documentary")
+
+}
+
+if (rep_filters.Documentary==='no'){
+	genre.push("non-documentary")
+
+}
+
+if (rep_filters.Music==='yes'){
+	genre.push("music")
+
+}
+
+if (rep_filters.Music==='no'){
+	genre.push("non-music")
+
+}
+
+if (rep_filters.Musical==='yes'){
+	genre.push("musical")
+
+}
+
+if (rep_filters.Musical==='no'){
+	genre.push("non-musical")
+
+}
+
+if (rep_filters.Animation==='yes'){
+	genre.push("animation")
+
+}
+
+if (rep_filters.Animation==='no'){
+	genre.push("non-animation")
+
+}
+
+if (rep_filters.Western==='yes'){
+	genre.push("western")
+
+}
+
+if (rep_filters.Western==='no'){
+	genre.push("non-western")
+
+}
+
+if (rep_filters.Sport==='yes'){
+	genre.push("sport")
+
+}
+
+if (rep_filters.Sport==='no'){
+	genre.push("non-sport")
+
+}
+
+
+//console.log(genre)
+var final_text="</br>";
+
+if(rep_filters===def_filters){
+
+	final_text="</br>All movies in the database"
+}
+
+//console.log(rep_filters.keywordsor1)
+if(genre!=""||rep_filters.keywords!=""||rep_filters.actors!=""||rep_filters.techrole!=""||rep_filters.keywordsor1!=""||rep_filters.keywordsor2!=""){
+final_text="</br>Only movies ";}
+
+if(genre!=""){
+	final_text=final_text+"in genre(s): <b>"+ genre.join(',') +"</b>,";
+
+}
+
+if(rep_filters.keywords!=""){
+	final_text=final_text+" with attribtue(s): <b>"+rep_filters.keywords.join(',')+"</b>,"
+
+}
+
+if(rep_filters.keywordsor1!=""&&rep_filters.keywordsor2!=""){
+	final_text=final_text+" with attribtue(s): <b>"+rep_filters.keywordsor1.join(' or ')+" AND "+rep_filters.keywordsor2.join(' or ')+"</b>,"
+
+}
+
+
+if(rep_filters.keywordsor1!=""&&rep_filters.keywordsor2==""){
+	final_text=final_text+" with attribtue(s): <b>"+rep_filters.keywordsor1.join(' or ')+"</b>,"
+
+}
+
+if(rep_filters.keywordsor1==""&&rep_filters.keywordsor2!=""){
+	final_text=final_text+" with attribtue(s): <b>"+rep_filters.keywordsor2.join(' or ')+"</b>,"
+
+}
+
+if(rep_filters.keywordsor1==""&&rep_filters.keywordsor3!=""){
+	final_text=final_text+" with attribtue(s): <b>"+rep_filters.keywordsor2.join(' or ')+"</b>,"
+
+}
+
+
+
+if(rep_filters.actors!=""){
+	final_text=final_text+" starring actor(s): <b>"+rep_filters.actors.join(',')+"</b>,"
+
+}
+
+if(rep_filters.techrole!=""){
+	final_text=final_text+" directed by: <b>"+rep_filters.techrole.join(',')+"</b>,"
+
+}
+
+
+if(final_text=="</br>"){
+
+	final_text="</br>All movies in the database"
+}
+/////chance word
+var chance=""
+if(45<rep_percentage&&rep_percentage<70){
+ 	chance=" <b>somewhat</b> likely make the movie <b>creatively strong</b>, and attract <b>more</b> audience."
+
+}
+
+if(70<=rep_percentage){
+ 	chance=" <b>very</b> likely make the movie <b>creatively strong</b>, and attract <b>more</b> audience."
+
+}
+
+
+if(45<=rep_percentage&& rep_percentage<=55){
+ 	chance=" likely have <b>no significant effect</b> on creative strength and audience. "
+
+}
+
+if(30<rep_percentage&&rep_percentage<45){
+ 	chance=" <b>somewhat</b> likely make the movie <b>creatively weak</b>, and attract <b>less</b> audience."
+
+}
+
+if(rep_percentage<=30){
+ 	chance=" <b>very</b> likely make the movie <b>creatively weak</b>, and attract <b>less</b> audience."
+
+}
+////f_kw
+
+var f_kw
+
+if(typeof rep_filters.actors[0]==="undefined"){
+
+	f_kw=""
+}
+
+else{
+
+	f_kw="starring: <b>"+rep_filters.actors.join(',')+"</b>";
+}
+
+var f_direct
+
+if(typeof rep_filters.techrole[0]==="undefined"){
+
+	f_direct=""
+}
+
+else{
+
+	f_direct="directed by: <b>"+rep_filters.techrole.join(',') +"</b>";
+}
+
+
+var attr_ind= rep_filters.keywords.indexOf(rep_this);
+var att_subkw=[]
+
+for(var i in rep_filters.keywords){
+att_subkw.push(rep_filters.keywords[i])}
+if(attr_ind>-1){
+	att_subkw.splice(attr_ind,1)
+
+}
+
+if(rep_this!=rep_filters.keywordsor1.join(' or ')){
+	att_subkw.push(rep_filters.keywordsor1.join(' or '))
+
+}
+
+
+if(rep_this!=rep_filters.keywordsor2.join(' or ')){
+	att_subkw.push(rep_filters.keywordsor2.join(' or '))
+
+}
+
+//console.log(rep_this)
+
+
+var genre_ind= genre.indexOf(rep_this);
+if(genre_ind>-1){
+	genre.splice(genre_ind,1)
+
+}
+
+
+for(i in att_subkw){
+	if(att_subkw[i]==""){att_subkw.splice(i,1)}
+}
+
+for(i in att_subkw){
+	if(att_subkw[i]==""){att_subkw.splice(i,1)}
+}
+
+
+
+//console.log(genre.join(','))
+tvas.append("text").attr("y", 20)
+        .attr("x",10).style("text-align","justify").style("font-family","Arial,Helvetica,sans-serif")
+        .html("<span id=\"ruler\">"+final_text +" are used in this analysis." +"</br> </br> Among these movies, <b>" + rep_percentage +"%</b> of those with the attribute: <b>" + rep_this +"</b> are over the benchmark average."+"</br> </br>In other words, including the attribute: <b>"+rep_this
+        +"</b> in any " +"<b>"+ att_subkw.join(', ') +" " 
+        +genre.join(',') +"</b> movie "+f_kw +f_direct+" will" +chance +"</span>");
+//console.log(rep_data)
+
+transy=Math.max($("#ruler").height(),h)+110;
+transx=0;
+d3.select(".graph_text").style("top",transy+"px")
+
+function printme(){
+	d3.select("#attribute_button").style("visibility","hidden");
+	window.print();
+	d3.select("#attribute_button").style("visibility","visible");
+}
+
+
+
+
+var t_array=cdata.data();
+
+t_array.sort(function (a, b) {
+  if (Number(a.x) > Number(b.x)) {
+    return 1;
+  }
+  if (Number(a.x) < Number(b.x)) {
+    return -1;
+  }
+  // a must be equal to b
+  return 0;
+});
+
+
+
+var c_title=[];
+for (var i in t_array){
+if(t_array[i].ap>50){
+c_title.push("("+(Number(i)+1)+") &nbsp"+"<b>"+t_array[i].title+"</b>")}
+else{
+
+	c_title.push("("+(Number(i)+1)+") &nbsp"+t_array[i].title)
+}
+}
+
+var gvas=d3.select(".graph_text")
+
+
+
+
+gvas.append("text").attr("y", 20)
+        .attr("x",10).style("text-align","justify").style("font-family","Arial,Helvetica,sans-serif").style("font-size",'11pt')
+        .html("List of highlighted movies in the graph, ordered from lowest marketing spending to highest marketing spending" + " (titles over the benchmark average are in bold): "+c_title.join(', &nbsp')+"."
+        	);
+
+</script>
+
+</body>
+</html>

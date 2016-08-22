@@ -1,0 +1,64 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "Auburn",
+               "short_name" : "Auburn",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Cayuga County",
+               "short_name" : "Cayuga County",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "New York",
+               "short_name" : "NY",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "13021",
+               "short_name" : "13021",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "Auburn, NY 13021, USA",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 42.9592679,
+                  "lng" : -76.53691479999999
+               },
+               "southwest" : {
+                  "lat" : 42.906603,
+                  "lng" : -76.600824
+               }
+            },
+            "location" : {
+               "lat" : 42.9317335,
+               "lng" : -76.5660529
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.9592679,
+                  "lng" : -76.53691479999999
+               },
+               "southwest" : {
+                  "lat" : 42.906603,
+                  "lng" : -76.600824
+               }
+            }
+         },
+         "place_id" : "ChIJ-YnQABes0IkRcTG6VsuqH5o",
+         "types" : [ "locality", "political" ]
+      }
+   ],
+   "status" : "OK"
+}

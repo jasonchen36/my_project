@@ -1,0 +1,384 @@
+<!-- views/index.ejs -->
+<!doctype html>
+<html>
+<head>
+	<title>Greenlight Essentials</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="/everyone/jquery-scrollto.js"></script>
+	 <link rel="stylesheet" href="/everyone/css/screen.css" type="text/css" />
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	<style>
+
+
+		body 		{  background-color:#1C1C1C;width:100%;min-width:1200px;
+			}
+
+
+
+		.green {
+  color: #FFF;
+
+  border: 2px white solid;
+
+}
+
+.green:hover {
+  color: #fff;
+  background-color: grey;
+}
+
+.btn {
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 22px;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -o-transition: .3s;
+  display: inline-block;
+}
+
+.aboutme{
+	
+	float:right;
+	color:grey;
+	display:inline;
+	
+	top:10px;
+
+}
+
+
+.report{
+
+	color:grey;
+
+
+}
+
+.report:hover{color:white;}
+
+
+.aboutme:hover{ color:white;}
+
+.containerhome{
+	background-image: url("/everyone/background.jpg");
+			background-size:cover;
+			background-repeat: no-repeat;
+
+			background-position:center 0px;
+
+}
+
+
+
+.BeforeScroll
+{
+
+  display: none;
+}
+
+
+/*Use this class when you want your content to be shown after some scroll*/
+.AfterScroll
+{
+
+  
+  display: block;
+}
+
+
+	</style>
+</head>
+<body>
+
+
+<script type = "text/javascript">
+
+ht=$( window ).height() *0.3;
+
+
+
+
+$(document).scroll(function() {
+  var y = $(this).scrollTop();
+  if (y >= ht) {
+    $('.bottomMenu1').fadeTo(600,1);
+  }; 
+
+
+});
+
+
+
+$(document).scroll(function() {
+  var y = $(this).scrollTop();
+  if (y > (ht * 1.5 +$('.bottomMenu1').height())) {
+      $('.bottomMenu2').fadeTo(600,1);
+
+
+  } 
+});
+
+
+$(document).scroll(function() {
+  var y = $(this).scrollTop();
+  if (y > (ht * 1.5 +$('#block').height())) {
+    $('.bottomMenu3').fadeTo(600,1);
+  } 
+});
+
+
+$(document).scroll(function() {
+  var y = $(this).scrollTop();
+  if (y > (ht * 1.5 +$('#block').height()+$('.bottomMenu3').height())) {
+    $('.bottomMenu4').fadeTo(600,1);
+  } 
+});
+
+
+
+
+</script>
+
+
+
+
+<div class="containerhome" style="position:relative;top:0px;height:100vh;">
+<h1 style="z-index:9999;position:fixed;color:#A9F5A9;width:100%;min-width:1200px;background-color: rgba(28,28,28,0.95);opacity;height:70px;top:0px;padding:0px;margin:0px;display:inline-block">
+
+<a href="/" style="color:inherit;
+  text-decoration: none;z-index:99999;">
+<img src='/everyone/glessentials.png' style="position:relative;left:px" height='70px'></a>
+
+
+
+<div align="center" style="display:inline-block" >
+<div style='text-align:left;width:100%;position:relative;top:30px;display:inline-block'>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+<a  onclick="sample()" class='btn aboutme'  ><h4 style=''>SAMPLE ANALYSIS</h4></a>
+
+<a  onclick="aboutme()" class='btn aboutme'  ><h4 style=''>ABOUT/CONTACT US</h4></a>
+
+<a  onclick="testimonials()" class='btn aboutme'  ><h4 style=''>TESTIMONIALS</h4></a>
+
+
+
+<a  href="/" class='btn aboutme'  ><h4 style=''>HOME</h4></a>
+
+<script>
+
+function aboutme(){
+	$('#aboutme').ScrollTo();
+
+}
+
+function testimonials(){
+	$('#block').ScrollTo();
+
+}
+
+
+function sample(){
+	$('#sample').ScrollTo();
+
+}
+</script>
+
+</h1>
+
+
+
+	<div class="text-center" style="background-color: ;margin-top:vh;width:50%;position:relative;height:;left:25%">
+
+		<div style="position:relative;top:30vh">
+			<a  href="http://www.facebook.com/impossiblethingsmovie" class="btn green"><span class='fa fa-film'  > </span>  IMPOSSIBLE THINGS coming soon on Kickstarter</a>
+			</div>
+
+	<div style="position:relative;top:40vh">
+		<a href="/login" class="btn green"><span class="fa fa-user"></span>  Login</a>
+		<a href="/signup" class="btn green"><span class="fa fa-user"></span>  Sign up</a>
+		</div>
+	</div>
+
+</div>
+
+
+
+<div id="block" >
+
+<div class="bottomMenu1" style="opacity:0">
+
+		<h2 style="margin-top:70px;margin-bottom:40px">Featured Testimonials</h2>
+		<div>
+		<div class="photo">
+			
+			<img src="/everyone/img/jeff.jpg" alt="" class="photo" />
+		</div>
+		<p class="content" style="font-size:12pt"><span class="laquo">&nbsp;</span>
+We have used Greenlight Essentials on a couple of our feature film projects. We use their analytic results as a benchmark to validate our casting decisions, and also as a tool to help our investors seeing the value of our projects. 
+
+</br>
+</br>
+ Working with Jack has been a real pleasure. He&#39;s professional and gives his independent advice based on his findings. There are some real gem insights that can be found from his numbers.
+
+
+		<span class="raquo">&nbsp;</span></p>
+		<div class="sign">
+			<a href="https://www.linkedin.com/in/jeffchao?">Jeff Chao</a>
+			<p>Managing Director</p>
+		</div>
+		</div>
+
+	</div>
+
+
+<div class="bottomMenu2" style="opacity:0">
+
+
+</br>
+</br>
+</br>
+</br>
+<div>
+		<div class="photo">
+			
+			<img src="/everyone/img/charles.jpg" alt="" class="photo" />
+		</div>
+		<p class="content" style="font-size:12pt"><span class="laquo">&nbsp;</span>We used Greenlight Essentials at an early stage of development for several reason and we could not have been happier.
+		</br>
+1) To see what the market was like for our films, and to develop or not to develop.
+</br>
+2) To help with casting, and to see how that effected the data if it was showing the success rate as borderline.
+</br>
+3) To feed, eventually, into our marketing strategy.
+</br>
+4) To use as leverage with distributors and to use the data as a source of risk adjustment in our presentation to investors.
+</br>
+</br>
+
+Greenlight Essential, is the first company that allows the Indie filmmaker access to the big data the studios use. This  allows us to develop our films creatively based on an analytic foundation.These strategies are essential in the disruptive landscape we face. Jack Zhang, is a trail blazer and an essential part of our film making.<span class="raquo">&nbsp;</span></p>
+		<div class="sign">
+			<a href="https://www.linkedin.com/profile/view?id=40173406">Charles Liburd</a>
+			<p>Producer</p>
+		</div>
+		</div>
+
+
+
+
+
+
+		</br>
+
+		</div>
+	</div>
+<div id="aboutme" style="background-color:white;position:relative;top:">
+
+<div class="bottomMenu3" style="opacity:0">
+
+
+
+
+
+<div id="" class="jumbotron text-center" style="background-color:;">
+		<h2>About Us</h2>
+		<p style='margin-left:20%;margin-right:20%'>Greenlight Essentials is a company that is dedicated to helping entertainment professionals better understand movie data and bring big data analysis to the film industry. We created software that allows users with neither programming nor mathematics background to explore and discover repeatable patterns from decades of film data. This way, without watching decades of films or gathering past audience reactions, industry professionals can have a better understanding of what combinations of elements in a film would draw in an audience and what combinations of elements in a film would repel an audience. 
+</br></br>
+Contact us at: jack.z@glessentials.com</p>
+	</div>
+
+</div>
+</div>
+
+<div class="bottomMenu4" style="opacity:0">
+<div id="sample" style="color:white;position:relative;top:">
+
+<div id="" class=" text-center" style="background-color:;">
+		</br>
+</br>
+</br>
+
+		<h2>Sample Analysis</h2>
+		
+		</br>
+		<a href="https://www.linkedin.com/pulse/selfless-risky-investment-evidencedata-based-analysis-jack-zhang?trk=prof-post" class="btn report"> Is Self/less a risky investment? – An Evidence/Data Based Analysis</a>
+		</br>
+		<a href="https://www.linkedin.com/pulse/gone-girls-success-foreseeable-evidencedata-based-analysis-jack-zhang?trk=prof-post" class="btn report"> Was Gone Girl’s Success Foreseeable? – An Evidence/Data based Analysis</a>
+		</br>
+		<a href="https://www.linkedin.com/pulse/why-lone-ranger-failed-evidence-based-analysis-jack-zhang?trk=prof-post" class="btn report"> Why The Lone Ranger Failed – An Evidence Based Analysis</a>
+		
+	</div>
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</div>
+</div>
+
+
+<div id="" style="background-color:white;position:relative;top:">
+</br>
+</br>
+</br>
+<div style="width: 95%;text-align: center;">
+
+<a href="http://www.cfccreates.com/" target="_blank"><img src="/everyone/CFC_Media_Lab_Logo.png"  height="15%" width="15%" /></a>
+
+
+<a href="http://www.nmncfilms.com/" target="_blank">
+<img src="/everyone/NMNCFilms.jpg"  height="15%" width="15%" /></a>
+
+
+<a href="http://velocity.uwaterloo.ca/" target="_blank">
+<img src="/everyone/velocity-logo.png" height="15%" width="15%" style="background:black;padding:10px;position:relative;left:1%" />
+</a>
+
+<a href="http://www.theglobeandmail.com/report-on-business/small-business/going-global/startups-see-a-niche-in-the-film-industry/article26739871/" target="_blank">
+<img src="/everyone/globe-logo.jpg" height="15%" width="15%" style="position:relative;left:3%" />
+</a>
+
+</div>
+
+</br>
+</br>
+</br>
+
+
+
+</div>
+
+
+
+<div id="site_map" style="background-color:;position:relative;top:">
+
+
+
+</br>
+</br>
+</br>
+
+
+
+</div>
+
+
+
+</body>
+</html>

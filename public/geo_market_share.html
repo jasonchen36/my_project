@@ -1,0 +1,271 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" id="themeCSS" href="jQRangeSlider-5.7.0/css/classic.css"> 
+<script src="d3.min.js"></script>
+
+
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="jQRangeSlider-5.7.0/lib/jquery.mousewheel.min.js"></script>
+		<script src="jQRangeSlider-5.7.0/jQAllRangeSliders-min.js"></script>
+<script src="cloudlayout.js"></script>
+
+    <script type="text/javascript" src="jquery.tipsy.js"></script>
+    <link href="tipsy.css" rel="stylesheet" type="text/css" />
+	 <script src="topojson.v1.min.js"></script>
+
+	 		<link rel="stylesheet" href="jquery-textext-master/src/css/textext.core.css" type="text/css" />
+		<link rel="stylesheet" href="jquery-textext-master/src/css/textext.plugin.tags.css" type="text/css" />
+		<link rel="stylesheet" href="jquery-textext-master/src/css/textext.plugin.autocomplete.css" type="text/css" />
+		<link rel="stylesheet" href="jquery-textext-master/src/css/textext.plugin.focus.css" type="text/css" />
+		<link rel="stylesheet" href="jquery-textext-master/src/css/textext.plugin.prompt.css" type="text/css" />
+		<link rel="stylesheet" href="jquery-textext-master/src/css/textext.plugin.arrow.css" type="text/css" />
+		<script src="jquery-textext-master/src/js/textext.core.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery-textext-master/src/js/textext.plugin.tags.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery-textext-master/src/js/textext.plugin.autocomplete.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery-textext-master/src/js/textext.plugin.suggestions.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery-textext-master/src/js/textext.plugin.filter.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery-textext-master/src/js/textext.plugin.focus.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery-textext-master/src/js/textext.plugin.prompt.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery-textext-master/src/js/textext.plugin.ajax.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery-textext-master/src/js/textext.plugin.arrow.js" type="text/javascript" charset="utf-8"></script>
+
+
+		<script type="text/javascript" src="http://d3js.org/d3.hexbin.v0.min.js"></script>	
+	 
+<title> Analytic Terminal </title>
+<style>
+
+
+
+body {
+        font-family:"Lucida Grande","Droid Sans",Arial,Helvetica,sans-serif;
+		margin:0;
+		padding:0;
+
+		
+    }
+
+.myButton {
+	background-color:#d9534f;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:9px 21px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton:hover {
+	background-color:#d43f3a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+    .tipsy { font-size: 14px;}
+    .legend {
+        border: 1px solid #555555;
+        border-radius: 5px 5px 5px 5px;
+        font-size: 1.8em;
+        margin: 0px;
+        padding: 8px;
+    }
+    .bld {
+        font-weight: bold;
+    }
+	
+	.filter_options {
+        
+        border: 1px solid #555555;
+        border-radius:5px;
+        font-size: .9em;
+		color:white;
+        margin: 10px;
+        padding: 10px;
+		width:400px;
+		position:relative;
+		top:0px;
+		left:-2%;
+		z-index:7999;
+		height:-600px;
+		background-color:#2E2E2E;
+		
+    }
+
+	.myButton2 {
+	background-color:#b8b8b8;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:17px;
+	padding:21px 17px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton2:hover {
+	background-color:#949194;
+}
+.myButton2:active {
+	position:relative;
+	top:1px;
+}
+
+
+	p {
+    font-size: 100%;
+	}
+	div {
+    font-size: 90%;
+	}
+	.tabs li {
+				white-space: nowrap;
+				
+			}
+
+			.tabs a {
+				padding:5px 10px;
+				display:inline-block;
+				
+				background:#fff;
+				color:#000;
+				text-decoration:none;
+				z-index:999;
+			
+			}
+
+			.tabs a.active {
+				background:#000000;
+				color:#fff;
+				z-index:999
+			}
+
+.land {
+  fill: #222;
+}
+
+.county-boundary {
+  fill: none;
+  stroke: #fff;
+  stroke-width: .5px;
+}
+
+.state-boundary {
+  fill: none;
+  stroke: #fff;
+}
+
+.hexagons path {
+  stroke: #40B640;
+  stroke-width:3px;
+}
+
+
+table {
+    width: 100%; 
+    background-color: #f1f1c1;
+}
+
+table tr:nth-child(even) {
+    background-color: #eee;
+}
+table tr:nth-child(odd) {
+    background-color: #fff;
+}
+table th {
+    color: white;
+    background-color: black;
+}
+Try it Yourself »
+
+			
+			
+
+</style>
+</head>
+<body  class='pos_right'  style="background-color: #6E6E6E;padding:0px;margin:0px">
+<h1 style="z-index:9999;position:fixed;color:#A9F5A9;width:100%;background-color: #1C1C1C;height:70px;padding:0px;margin:0px">
+
+
+<a href="/" style="color:inherit;
+  text-decoration: none;z-index:99999;">
+  <img src='/everyone/glessentials.png' height='70px'></a>
+
+<div align="center" >
+<div style='text-align:left;width:93%;position:relative;top:25px'>
+
+</div></div>
+<p style="position:relative;width:auto;display:inline-block;float:right;font-size:0.4em;top:-45px;left:-20px;color:#A9F5A9">© 2015 Si Chang Zhang. All Rights Reserved. </p>
+
+</h1>
+
+
+
+<div id="option">
+    <a name="logoutButton" 
+	
+			style="position:relative;left:93%;top:-20px;z-index:999;"
+class="myButton"
+    
+           onclick="logout()" >Logout</a>
+		   </div >
+
+
+
+		   		   <p class="data_summary" style="position:absolute;width:auto;display:inline-block;right:30px;top:70px;font-size:1em;color:#fff"> </p>
+
+<map></map>
+
+
+
+		   		   		   <p class="title_summary" style="position:relative;width:auto;display:inline-block;left:20px;float:left;width:1000px;top:px;font-size:1em;color:#fff"> </p>
+
+		   		   		   
+
+
+
+<script>
+
+function createTable(tableData) {
+  var table = document.createElement('table');
+  var tableBody = document.createElement('tbody');
+
+  tableData.forEach(function(rowData) {
+    var row = document.createElement('tr');
+
+    rowData.forEach(function(cellData) {
+      var cell = document.createElement('td');
+      cell.appendChild(document.createTextNode(cellData));
+      row.appendChild(cell);
+    });
+
+    tableBody.appendChild(row);
+  });
+
+  table.appendChild(tableBody);
+  document.body.appendChild(table);
+}
+
+createTable(detail1)
+</script>
+
+
+
+
+	
+			
+</body>
+</html>

@@ -1,0 +1,3958 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+        <meta name="author" content="Coderthemes">
+
+        <link rel="shortcut icon" href="/everyone/small_logo.png">
+
+        <title>Greenlight Essentials</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../public/admin_2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../public/admin_2/css/bootstrap-reset.css" rel="stylesheet">
+
+        <!--Animation css-->
+        <link href="../public/admin_2/css/animate.css" rel="stylesheet">
+
+        <!--Icon-fonts css-->
+        <link href="../public/admin_2/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href="../public/admin_2/assets/ionicon/css/ionicons.min.css" rel="stylesheet" />
+
+        <!--Morris Chart CSS -->
+        <link rel="stylesheet" href="../public/admin_2/assets/morris/morris.css">
+
+        <!-- sweet alerts -->
+        <link href="../public/admin_2/assets/sweet-alert/sweet-alert.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../public/admin_2/css/style.css" rel="stylesheet">
+        <link href="../public/admin_2/css/helper.css" rel="stylesheet">
+
+
+        <link rel="stylesheet" id="themeCSS" href="../public/jQRangeSlider-5.7.0/css/classic.css"> 
+        <script src="../public/d3.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script src="../public/jQRangeSlider-5.7.0/lib/jquery.mousewheel.min.js"></script>
+        <script src="../public/jQRangeSlider-5.7.0/jQAllRangeSliders-min.js"></script>
+        <script src="../public/cloudlayout.js"></script>
+
+        <script type="text/javascript" src="../public/jquery.tipsy.js"></script>
+        <link href="../public/tipsy.css" rel="stylesheet" type="text/css" />
+     
+
+        <link rel="stylesheet" href="../public/jquery-textext-master/src/css/textext.core.css" type="text/css" />
+        <link rel="stylesheet" href="../public/jquery-textext-master/src/css/textext.plugin.tags.css" type="text/css" />
+        <link rel="stylesheet" href="../public/jquery-textext-master/src/css/textext.plugin.autocomplete.css" type="text/css" />
+        <link rel="stylesheet" href="../public/jquery-textext-master/src/css/textext.plugin.focus.css" type="text/css" />
+        <link rel="stylesheet" href="../public/jquery-textext-master/src/css/textext.plugin.prompt.css" type="text/css" />
+        <link rel="stylesheet" href="../public/jquery-textext-master/src/css/textext.plugin.arrow.css" type="text/css" />
+        <script src="../public/jquery-textext-master/src/js/textext.core.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../public/jquery-textext-master/src/js/textext.plugin.tags.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../public/jquery-textext-master/src/js/textext.plugin.autocomplete.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../public/jquery-textext-master/src/js/textext.plugin.suggestions.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../public/jquery-textext-master/src/js/textext.plugin.filter.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../public/jquery-textext-master/src/js/textext.plugin.focus.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../public/jquery-textext-master/src/js/textext.plugin.prompt.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../public/jquery-textext-master/src/js/textext.plugin.ajax.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../public/jquery-textext-master/src/js/textext.plugin.arrow.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <link type="text/css" href="../public/admin_2/assets/bootstrap3-editable/bootstrap-editable.css" rel="stylesheet">
+
+        
+
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+        <!--[if lt IE 9]>
+          <script src="js/html5shiv.js"></script>
+          <script src="js/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+
+
+    <body>
+
+        <!-- Aside Start-->
+        <aside class="left-panel">
+
+            <!-- brand -->
+            <div class="logo">
+                <a href="/welcome" class="logo-expanded">
+                    <img src='/everyone/small_logo.png' height='70px'>
+                    <span class="nav-label" style="font-weight:300"> <p style="color:#A9F5A9">Greenlight</p> <p style="position:relative;top:-15px">Essentials</p></span>
+                </a>
+            </div>
+            <!-- / brand -->
+        
+            <!-- Navbar Start -->
+            <nav class="navigation">
+                <ul class="list-unstyled">
+                    
+
+                    <li class="has-submenu"><a href="#"><i class="ion-film-marker"></i> <span class="nav-label">Genre</span></a>
+                                                                        <ul class="list-unstyled" >
+
+                                                                        <li>
+                                                                            <a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspYes&nbsp&nbsp&nbspNo</a>
+                                                                        </li>
+
+                                                                           <li class='last' ><a style="text-align:right">Action&nbsp&nbsp
+                                                      
+
+                                                        <label class="cr-styled" >
+                                                         <input class="filter_button" id="a_button" type="checkbox"  > <i class="fa" style="width:17px"></i></input></label>
+
+                                                         <label class="cr-styled">
+                                                         <input class="filter_button" id="an_button" type="checkbox" ><i class="fa" style="width:17px"></i></input>
+                                                         </label>
+                                                         </a>
+
+                                                         </li>
+
+                                                         <li class='last'><a style="text-align:right"><span>Adventure&nbsp&nbsp
+                                                         <label class="cr-styled" >
+                                                         <input class="filter_button" id="ad_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                         </label>
+                                                         <label class="cr-styled" >
+                                                         <input class="filter_button" id="adn_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                         </label>
+                                                                  </span></a>
+                                                            
+                                                         </li>
+
+                                                         
+
+                                                         <li class=''><a style="text-align:right"><span>Animation&nbsp&nbsp
+                                                         <label class="cr-styled" >
+                                                         <input class="filter_button" id="ani_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                         </label>
+                                                         <label class="cr-styled" >
+                                                        <input class="filter_button" id="anin_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                        </label>
+                                                                  </span></a>
+                                                            
+                                                         </li>
+
+
+                                                         <li class=''><a style="text-align:right"><span>Biography&nbsp&nbsp
+                                                         <label class="cr-styled" >
+                                                <input class="filter_button" id="bio_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                <label class="cr-styled" >
+                                                        <input class="filter_button" id="bion_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                                  </span></a>
+                                                            
+                                                         </li>
+
+                                                         <li class=''><a style="text-align:right"><span>Comedy&nbsp&nbsp
+                                                         <label class="cr-styled" >
+                                                <input class="filter_button" id="c_button" type="checkbox" > <i class="fa" style="width:17px"></i> </input>
+                                                </label>
+                                                <label class="cr-styled" >
+                                                        <input class="filter_button" id="cn_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                        </label>
+                                                                  </span></a>
+                                                            
+                                                         </li>
+
+                                                         <li class=''><a style="text-align:right"><span>Crime&nbsp&nbsp
+                                                         <label class="cr-styled" >
+                                                         <input class="filter_button" id="cri_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                         </label>
+                                                         <label class="cr-styled" >
+                                                        <input class="filter_button" id="crin_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                        </label>
+                                                                  </span></a>
+                                                            
+                                                         </li>
+
+                                                         <li class=''><a style="text-align:right"><span>Drama&nbsp&nbsp
+                                                         <label class="cr-styled" >
+                                                <input class="filter_button" id="dra_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                <label class="cr-styled" >
+                                                <input class="filter_button" id="dran_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                                  </span></a>
+                                                            
+                                                         </li>
+
+                                                         <li class=''><a style="text-align:right"><span>Family&nbsp&nbsp
+                                                         <label class="cr-styled" >
+                                                <input class="filter_button" id="F_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                <label class="cr-styled" >
+                                                        <input class="filter_button" id="Fn_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                        </label>
+                                                                  </span></a>
+                                                            
+                                                         </li>
+
+                                                         <li class=''><a style="text-align:right"><span>Fantasy&nbsp&nbsp
+                                                         <label class="cr-styled" >
+                                                <input class="filter_button" id="fanta_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                <label class="cr-styled" >
+                                                <input class="filter_button" id="fantan_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                                  </span></a>
+                                                            
+                                                         </li>
+
+                                                         <li class=''><a style="text-align:right"><span>Historical&nbsp&nbsp
+                                                         <label class="cr-styled" >
+                                                <input class="filter_button" id="hist_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                <label class="cr-styled" >
+                                                <input class="filter_button" id="histn_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+
+                                                                  </span></a>
+                                                            
+                                                         </li>
+
+                                                         <li class=''><a style="text-align:right"><span>Documentary&nbsp&nbsp
+                                                         <label class="cr-styled" >
+                                                <input class="filter_button" id="doc_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                <label class="cr-styled" >
+                                                <input class="filter_button" id="docn_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                                  </span></a>
+                                                            
+                                                         </li>
+
+                                                         <li class=''><a style="text-align:right"><span>Horror&nbsp&nbsp
+                                                         <label class="cr-styled" >
+                                                <input class="filter_button" id="hor_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                <label class="cr-styled" >
+                                                        <input class="filter_button" id="horn_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                        </label>
+                                                                  </span></a>
+                                                            
+                                                         </li>
+
+                                                         <li class=''><a style="text-align:right"><span>Music&nbsp&nbsp
+                                                         <label class="cr-styled" >
+                                                <input class="filter_button" id="mus_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                <label class="cr-styled" >
+                                                        <input class="filter_button" id="musn_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                        </label>
+                                                                  </span></a>
+                                                            
+                                                         </li>
+
+                                                         <li class=''><a style="text-align:right"><span>Musical&nbsp&nbsp
+                                                         <label class="cr-styled" >
+                                                <input class="filter_button" id="musl_button" type="checkbox" > <i class="fa" style="width:17px;"></i></input>
+                                                </label>
+                                                <label class="cr-styled" >
+                                                <input class="filter_button" id="musln_button" type="checkbox" > <i class="fa" style="position:relative;width:17px"></i></input>
+                                                </label>
+                                                                  </span></a>
+                                                            
+                                                         </li>
+
+                                                         <li class=''><a style="text-align:right"><span>Mystery&nbsp&nbsp
+                                                         <label class="cr-styled" >
+                                                <input class="filter_button" id="myst_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                <label class="cr-styled" >
+                                                <input class="filter_button" id="mystn_button" type="checkbox" > <i class="fa" style="position:relative;width:17px"></i></input>
+                                                </label>
+                                                                  </span></a>
+                                                            
+                                                         </li>
+
+                                                         <li class=''><a style="text-align:right"><span>Romance&nbsp&nbsp
+                                                         <label class="cr-styled" >
+                                                <input class="filter_button" id="rom_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                <label class="cr-styled" >
+                                                <input class="filter_button" id="romn_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                                  </span></a>
+                                                            
+                                                         </li>
+
+                                                         <li class=''><a style="text-align:right"><span>SciFi&nbsp&nbsp
+                                                         <label class="cr-styled" >
+                                                <input class="filter_button" id="sci_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                <label class="cr-styled" >
+                                                <input class="filter_button" id="scin_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                                  </span></a>
+                                                            
+                                                         </li>
+
+                                                         <li class=''><a style="text-align:right"><span>Sport&nbsp&nbsp
+                                                         <label class="cr-styled" >
+                                                <input class="filter_button" id="Sport_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                <label class="cr-styled" >
+                                                <input class="filter_button" id="Sportn_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                                  </span></a>
+                                                            
+                                                         </li>
+
+                                                         <li class=''><a style="text-align:right"><span>Thriller&nbsp&nbsp
+                                                         <label class="cr-styled" >
+                                                <input class="filter_button" id="thr_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                <label class="cr-styled" >
+                                                <input class="filter_button" id="thrn_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                                  </span></a>
+                                                            
+                                                         </li>
+
+                                                         <li class=''><a style="text-align:right"><span>War&nbsp&nbsp
+                                                         <label class="cr-styled" >
+                                                <input class="filter_button" id="War_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                <label class="cr-styled" >
+                                                <input class="filter_button" id="Warn_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                                  </span></a>
+                                                            
+                                                         </li>
+
+                                                        <li class=''><a style="text-align:right"><span>Western&nbsp&nbsp
+                                                        <label class="cr-styled" >
+                                                <input class="filter_button" id="west_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                <label class="cr-styled" >
+                                                <input class="filter_button" id="westn_button" type="checkbox" > <i class="fa" style="width:17px"></i></input>
+                                                </label>
+                                                                  </span></a>
+                                                            
+                                                         </li>
+                                                                        </ul>
+                                 </li>
+                    <li class="has-submenu"><a href="#"><i class="ion-person-stalker"></i> <span class="nav-label">Actor</span></a>
+                        <ul class="list-unstyled">
+                            <li><a style="margin-left:20px;margin-right:20px">
+                                                            <div style="position:relative;width:90%;left:-50px;top:0px;z-index:9999;color:black"><h3 style='position:relative;top:0px;color:white;font-size:1em'>Enter Actors' Name: </h3>
+
+
+
+                                                                            <textarea id="atextarea" style=''class="example2"  rows="1"></textarea> <br>
+
+                                                                                
+                                                                            <script type="text/javascript">
+
+                                                                            
+                                                                                
+
+
+                                                                            </script>
+                                                                
+                                                            </div>
+                                                            
+                            
+                                </a></li></ul>
+                    </li>
+                    <li class="has-submenu"><a href="#"><i class="ion-videocamera"></i> <span class="nav-label">Director</span></a>
+                        <ul class="list-unstyled">
+                                             <li><a style="margin-left:20px;margin-right:20px">
+                                                                            <div style="background:">
+                                                                            <div style="position:relative;width:90%;left:-50px;top:0px;z-index:9997;color:black"><h3 style='position:relative;top:0px;color:white;font-size:1em'>Enter Directors' Name: </h3>
+                                                                        <textarea id="dtextarea" style=''class="example3"  rows="1"></textarea> <br>
+
+                                                                            
+                                                               
+                                                                            
+                                                                        </div>
+                                                                        </div>
+                                                                            </a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu"><a ><i class="ion-grid"></i> <span class="nav-label">Plot Attribute</span></a>
+                        <ul class="list-unstyled">
+
+                        <li><a style="margin-left:7px;margin-right:7px">
+                            
+                                                    
+                                                    <div id='pselect'style="position:relative;width:100%;left:-50px;top:-20px;z-index:9998;color:black"><h3 style='position:relative;top:px;color:white;font-size:1em'>Enter Plot Attributes: </h3>
+
+                                                    <div id='aselect'>
+
+                                                    <div id='advselect'> <p style='color:white;font-size:9pt'>Movies with any of the following attributes:</p> <textarea id='advtextarea1' style='color:black;font-color:black'class='example_adv1'  rows='1'></textarea> <br> <p style='color:white;font-size:9pt'>AND any of the following attributes:</p><textarea id='advtextarea2' style='color:black;font-color:black' class='example_adv2'  rows='1'></textarea> <br><p style='color:white;font-size:9pt'>AND any of the following attributes:</p><textarea id='advtextarea3' style='color:black;font-color:black'class='example_adv3'  rows='1'></textarea> 
+
+                                                    <script>
+
+                                                       
+
+
+                                                               
+
+
+
+                                                    </script>
+                                                        
+                                                    </div>
+                                                    
+                        </a></li>
+                            
+                        </ul>
+                    </li>
+                    <li class="" ><a style="height:100px" class="gap"><i class="ion-calendar"></i> <span class="">Release Year
+
+                                
+                    <div id="yslider" style="position:relative;top: 30px; left: 30px; width: 150px; color: black; font-size:0.6em;" class="ui-rangeSlider ui-rangeSlider-withArrows">  </div>
+
+                    
+
+                 
+                        </span></a>
+                                      
+                    </li>
+
+                     
+
+                    <li class="" ><a style="height:100px" class="gap"><i class="ion-stats-bars"></i> <span class="">Marketing Spent (in M$)
+
+                                
+                    <div id="xslider" style="position:relative;top: 30px; left: 30px; width: 150px; color: black; font-size:0.6em;" class="ui-rangeSlider ui-rangeSlider-withArrows">  </div>
+
+                    
+
+                 
+                        </span></a>
+                                      
+                    </li>
+
+
+                    <li class="" ><a style="height:100px" class="gap"><i class="ion-search"></i> <span class="">Focus Range
+                                
+                    <div id="slider" style="position:relative;top: 30px; left: 0px; width: 200px; color: black; font-size:0.6em;" class="ui-rangeSlider ui-rangeSlider-withArrows">  </div>
+
+                    
+
+                 
+                        </span></a>
+                                      
+                    </li>
+                    <li ><a onclick="updateData()" name="updateButton" style="height:50px;background:black;border-left: 3px solid #A9F5A9;">
+                    <span class="nav-label" style="font-size:1.2em">UPDATE</span>
+
+                    <i class="ion-arrow-right-a" style="float:right"></i> 
+                    </a>
+                        
+                    </li>
+                </ul>
+            </nav>
+                
+        </aside>
+        <!-- Aside Ends-->
+
+
+        <!--Main Content Start -->
+        <section class="content">
+            
+            <!-- Header -->
+            <header class="top-head container-fluid">
+                <button type="button" class="navbar-toggle pull-left">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+                <!-- Left navbar -->
+                <nav class=" navbar-default hidden-xs" role="navigation">
+                    <ul class="nav navbar-nav">
+                       
+                        <li><a  data-toggle="modal" data-target="#myModal" onclick="modal_update()">
+                        Save</a></li>
+                        <li><a href="#">Share</a></li>
+                    </ul>
+                </nav>
+               
+                
+                <!-- Right navbar -->
+                <ul class="list-inline navbar-right top-menu top-right-menu">  
+                    <!-- mesages -->  
+                  
+                        
+                       
+                    <!-- /Notification -->
+
+
+
+                    <!-- user login dropdown start-->
+                    <li class="dropdown text-center">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+
+                            <span class="username"> </span> <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu extended pro-menu fadeInUp animated" tabindex="5003" style="overflow: hidden; outline: none;">
+ 
+                            <li><a onclick="logout()"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->       
+                </ul>
+                <!-- End right navbar -->
+
+            </header>
+            <!-- Header Ends -->
+
+
+            <!-- Page Content Start -->
+            <!-- ================== -->
+
+            <div class="wraper container-fluid">
+                <div class="page-title"> 
+                    <h3 class="title" id="title"> </h3> 
+                </div>
+                <div class="sweet-overlay" tabindex="-1" style="opacity: -0.04; display: none;"></div>
+               
+
+
+                <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                <h4 class="modal-title" id="myModalLabel">Save This Report</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                            <form action="#" class="form-horizontal">
+                                             
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Report Title</label>
+                                                    <div class="col-sm-9">
+                                                        <a href="#" id="inline-firstname" data-type="text" data-pk="1" data-placement="right" data-placeholder="Required" data-title="Enter your firstname" class="editable editable-click editable-unsaved" style="display: inline-block; background-color: rgba(0, 0, 0, 0);"></a>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Save to Project</label>
+                                                    <div class="col-sm-9" id="proj_choose">
+                                                        <a href="#" id="inline-sex" data-type="select" data-pk="1" data-value="" data-title="Select sex"
+                                                        data-placeholder="Required" class="editable editable-click" style="color: gray;"></a>
+                                                    </div>
+                                                    
+                                                </div>
+
+                                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#new_proj_modal">Save to New Project</button>
+                                                
+                                            </form>
+                                                
+                                              
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal" id="close_save">Close</button>
+                                                <button type="button" class="btn btn-primary" onclick="save_changes()" id="save_trigger">Confirm and Save</button>
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div>
+
+
+                                 <div id="new_proj_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            
+                                            <div class="modal-body">
+                                            <form>
+                                                  New Project name:<br>
+                                                  <input type="text" id="new_proj_name" ><br>
+                                                  
+                                                </form>
+                                                
+                                              
+                                            </div>
+                                           
+                                                <button type="button" class="btn btn-default" data-dismiss="modal" id="confirm_close">Close</button>
+                                                <button type="button" class="btn btn-primary" onclick="new_proj_modal()">Confirm Name</button>
+                               
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div>
+
+
+                <div class="row text-center">
+                    
+                    <div class="col-sm-12 col-md-12">
+                        <div class="panel">
+                            
+                                                        <span class="text-muted" id="movies">movies used in this analysis</span>
+
+                            
+                        </div>
+                    </div>
+
+    
+
+
+                    
+
+                    </div>
+
+
+
+               
+
+
+
+                <div class="row">
+                    
+
+                    
+
+
+                   
+
+
+
+                <div class="row">
+
+                 <div class="col-lg-8">
+
+                        <div class="portlet"><!-- /primary heading -->
+                            <div class="portlet-heading">
+                                <h3 class="portlet-title text-dark text-uppercase">
+                                    Main Graph
+                                </h3>
+                                <div class="portlet-widgets">
+                                    
+                                    <span class="divider"></span>
+                                    <a data-toggle="collapse" data-parent="#accordion1" href="#portlet2"><i class="ion-minus-round"></i></a>
+                                    <span class="divider"></span>
+                                    
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="portlet2" class="panel-collapse collapse in">
+                                <div class="portlet-body" style="">
+                                    <div style="position:relative;top:;width:auto;height:auto">
+                                    <div class="main_graph" style="background-color:white;position:relative;top:0px;left:0px;z-index:;border-radius: 0px 0px 0px 0px;">
+                                              
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- end col -->
+            
+
+
+
+                        <div class="col-lg-4"> 
+                        <ul class="nav nav-tabs"> 
+                            <li class=""> 
+                                <a href="#home" data-toggle="tab" aria-expanded="false"> 
+                                    <span class="visible-xs"><i class="ion-grid"></i></span> 
+                                    <span class="hidden-xs">Plot Attribute</span> 
+                                </a> 
+                            </li> 
+                            <li class="active"> 
+                                <a href="#profile" data-toggle="tab" aria-expanded="true"> 
+                                    <span class="visible-xs"><i class="ion-person-stalker"></i></span> 
+                                    <span class="hidden-xs">Actor</span> 
+                                </a> 
+                            </li> 
+                            <li class=""> 
+                                <a href="#messages" data-toggle="tab" aria-expanded="false"> 
+                                    <span class="visible-xs"><i class="ion-videocamera"></i></span> 
+                                    <span class="hidden-xs">Director</span> 
+                                </a> 
+                            </li> 
+                           
+                        </ul> 
+                        <div class="tab-content"> 
+                            <div class="tab-pane" id="home"> 
+                                <div> 
+                                                                                                        <div id="rbutton">
+                                                                                                        <button name="reportbutton" 
+                                                                                                                id="attribute_button"
+                                                                                                                style="visibility:hidden;position:relative;left:;top:;z-index:999;height:25px;color:black;background-color:#C0C0C0"
+                                                                                                               type="button" 
+                                                                                                               value="Update" 
+                                                                                                               onclick="attribute_report()" />generate attribute report
+                                                                                                               </div >
+                                     <ul class="list-group no-margn  todo-list" id="wc1"   style="overflow: -moz-scrollbars-vertical; overflow-y:scroll;">
+                                                             
+
+
+
+
+
+
+
+                                       
+                                                                                                               
+
+
+                                                                                                             
+
+                            
+                                                                                                               <div class="word_graph_parent" style="position:relative;top:0px;">
+                                                                                                               <div class="word_graph" style="position:relative;width:;left:;z-index:1">
+                                                                                                               </div>
+
+                                                                                                              
+                                                                                                    <div>
+                                                                                                        
+
+                                                                                                    </div>
+
+                                                                                                    </div>
+                                                                                                   
+
+
+
+
+
+
+                                        </ul>
+                                </div> 
+                            </div> 
+                            <div class="tab-pane active" id="profile"> 
+                                <div> 
+                                                                                                <div id="rbutton">
+                                                                                                        <button name="reportbutton" 
+                                                                                                                id="actor_button"
+                                                                                                                style="visibility:hidden;position:relative;left:;top:;z-index:999;height:25px;color:black;background-color:#C0C0C0"
+                                                                                                               type="button" 
+                                                                                                               value="Update" 
+                                                                                                               onclick="actor_report()" />generate actor report
+                                                                                                               </div >
+                                     <ul class="list-group no-margn  todo-list" id="wc2"  style="overflow: -moz-scrollbars-vertical; overflow-y:scroll;">
+                                                             
+
+
+
+
+
+
+
+                                       
+                                                                                                              
+
+
+                                                                                                             
+                                                                                                               <div class="actor_graph_parent" style="position:relative;height:;top:">
+                                                                                                      <div class="actor_graph" style="position:relative;width:;top:;left:;z-index:1">
+                                                                                                      </div>
+                                                                                                      </div>
+
+                            
+                                                                                                               
+
+                                                                                                              
+                                                                                                    
+                                                                                                    
+                                                                                                   
+
+
+
+
+
+
+                                        </ul>
+                                </div> 
+                            </div> 
+                            <div class="tab-pane" id="messages"> 
+                                <div> 
+                                                                                                        <div id="rbutton">
+                                                                                                        <button name="reportbutton" 
+                                                                                                                id="director_button"
+                                                                                                                style="visibility:hidden;position:relative;z-index:999;height:25px;color:black;background-color:#C0C0C0"
+                                                                                                               type="button" 
+                                                                                                               value="Update" 
+                                                                                                               onclick="director_report()" />generate director report
+                                                                                                               </div >
+                                     <ul class="list-group no-margn  todo-list"  id="wc3"   style="overflow: -moz-scrollbars-vertical; overflow-y:scroll;">
+                                                             
+
+
+
+
+
+
+
+                                       
+
+
+                                                                                                             
+                                                                                                             
+                            
+                                                                                                         
+
+                                                                                                              
+                                                                                                   
+                                                                                                  
+
+                                                                                                    <div class="dp_graph_parent" style="position:relative;height:">
+                                                                                                      <div class="dp_graph" style="position:relative;width:;top:;left:;z-index:1">
+                                                                                                      </div>
+                                                                                                      </div>
+                                                                                                   
+
+
+
+
+
+
+                                        </ul>
+                                </div> 
+                            </div> 
+                            
+                        </div> 
+                    </div>
+
+                    
+
+                   
+
+                    
+                </div> <!-- End row -->
+
+
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Foreign Breakdown</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <table id="datatable" class="table table-striped table-bordered">
+                                            <thead>
+                                                <tr><th>Country</th><th>Average Percentage of Foreign Box office</th><th>Average Box Office (in $US)</th></tr>
+                                            </thead>
+
+                                            <tbody>
+                                            </tbody>
+
+                                     
+                                            
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div> <!-- End Row -->
+
+
+
+                                                                                                                    
+
+
+
+
+            </div>
+            <!-- Page Content Ends -->
+            <!-- ================== -->
+
+          
+
+            <!-- Footer Start -->
+            <footer class="footer">
+                2016 © Greenlight Essentials
+            </footer>
+            <!-- Footer Ends -->
+
+
+
+        </section>
+        <!-- Main Content Ends -->
+        
+
+
+        <!-- js placed at the end of the document so the pages load faster -->
+        <script src="../public/admin_2/js/jquery.js"></script>
+        <script src="../public/admin_2/js/bootstrap.min.js"></script>
+        <script src="../public/admin_2/js/modernizr.min.js"></script>
+        <script src="../public/admin_2/js/pace.min.js"></script>
+        <script src="../public/admin_2/js/wow.min.js"></script>
+        <script src="../public/admin_2/js/jquery.scrollTo.min.js"></script>
+        <script src="../public/admin_2/js/jquery.nicescroll.js" type="text/javascript"></script>
+        <script src="../public/admin_2/assets/chat/moment-2.2.1.js"></script>
+
+        <!-- Counter-up -->
+        <script src="../public/admin_2/js/waypoints.min.js" type="text/javascript"></script>
+        <script src="../public/admin_2/js/jquery.counterup.min.js" type="text/javascript"></script>
+
+        <!-- EASY PIE CHART JS -->
+        <script src="../public/admin_2/assets/easypie-chart/easypiechart.min.js"></script>
+        <script src="../public/admin_2/assets/easypie-chart/jquery.easypiechart.min.js"></script>
+        <script src="../public/admin_2/assets/easypie-chart/example.js"></script>
+
+
+        <!--C3 Chart-->
+        <script src="../public/admin_2/assets/c3-chart/d3.v3.min.js"></script>
+        <script src="../public/admin_2/assets/c3-chart/c3.js"></script>
+
+        <!--Morris Chart-->
+        <script src="../public/admin_2/assets/morris/morris.min.js"></script>
+        <script src="../public/admin_2/assets/morris/raphael.min.js"></script>
+
+        <!-- sparkline --> 
+        <script src="../public/admin_2/assets/sparkline-chart/jquery.sparkline.min.js" type="text/javascript"></script>
+        <script src="../public/admin_2/assets/sparkline-chart/chart-sparkline.js" type="text/javascript"></script> 
+
+        <!-- sweet alerts -->
+        <script src="../public/admin_2/assets/sweet-alert/sweet-alert.min.js"></script>
+        <script src="../public/admin_2/assets/sweet-alert/sweet-alert.init.js"></script>
+
+        <script src="../public/admin_2/js/jquery.app.js"></script>
+        <!-- Chat -->
+        <script src="../public/admin_2/js/jquery.chat.js"></script>
+        <!-- Dashboard -->
+        <script src="../public/admin_2/js/jquery.dashboard.js"></script>
+
+        <!-- Todo -->
+        <script src="../public/admin_2/js/jquery.todo.js"></script>
+
+        <link rel="stylesheet" id="themeCSS" href="../public/jQRangeSlider-5.7.0/css/classic.css"> 
+
+
+        <script src="../public/d3.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script src="../public/jQRangeSlider-5.7.0/lib/jquery.mousewheel.min.js"></script>
+        <script src="../public/jQRangeSlider-5.7.0/jQAllRangeSliders-min.js"></script>
+        <script src="../public/cloudlayout.js"></script>
+
+        <script type="text/javascript" src="../public/jquery.tipsy.js"></script>
+        <link href="../public/tipsy.css" rel="stylesheet" type="text/css" />
+     
+
+        <link rel="stylesheet" id="themeCSS" href="../public/jQRangeSlider-5.7.0/css/classic.css"> 
+<script src="../public/d3.min.js"></script>
+
+
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="../public/jQRangeSlider-5.7.0/lib/jquery.mousewheel.min.js"></script>
+        <script src="../public/jQRangeSlider-5.7.0/jQAllRangeSliders-min.js"></script>
+<script src="../public/cloudlayout.js"></script>
+
+    <script type="text/javascript" src="../public/jquery.tipsy.js"></script>
+    <link href="../public/tipsy.css" rel="stylesheet" type="text/css" />
+     
+
+            <link rel="stylesheet" href="../public/jquery-textext-master/src/css/textext.core.css" type="text/css" />
+        <link rel="stylesheet" href="../public/jquery-textext-master/src/css/textext.plugin.tags.css" type="text/css" />
+        <link rel="stylesheet" href="../public/jquery-textext-master/src/css/textext.plugin.autocomplete.css" type="text/css" />
+        <link rel="stylesheet" href="../public/jquery-textext-master/src/css/textext.plugin.focus.css" type="text/css" />
+        <link rel="stylesheet" href="../public/jquery-textext-master/src/css/textext.plugin.prompt.css" type="text/css" />
+        <link rel="stylesheet" href="../public/jquery-textext-master/src/css/textext.plugin.arrow.css" type="text/css" />
+        <script src="../public/jquery-textext-master/src/js/textext.core.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../public/jquery-textext-master/src/js/textext.plugin.tags.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../public/jquery-textext-master/src/js/textext.plugin.autocomplete.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../public/jquery-textext-master/src/js/textext.plugin.suggestions.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../public/jquery-textext-master/src/js/textext.plugin.filter.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../public/jquery-textext-master/src/js/textext.plugin.focus.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../public/jquery-textext-master/src/js/textext.plugin.prompt.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../public/jquery-textext-master/src/js/textext.plugin.ajax.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../public/jquery-textext-master/src/js/textext.plugin.arrow.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="../public/admin_2/assets/bootstrap3-editable/moment.min.js"></script>    
+        <script type="text/javascript" src="../public/admin_2/assets/bootstrap3-editable/bootstrap-editable.js"></script>
+        <script type="text/javascript" src="../public/admin_2/assets/bootstrap3-editable/demo-xeditable.js"></script>
+        <link href="../public/admin_2/assets/sweet-alert/sweet-alert.min.css" rel="stylesheet">
+
+        <script src="../public/admin_2/assets/sweet-alert/sweet-alert.min.js"></script>
+        <script src="../public/admin_2/assets/sweet-alert/sweet-alert.init.js"></script>
+
+
+
+        <script type="text/javascript">
+
+        url_start=window.location.href.indexOf("/view/")
+        url=window.location.href.substring(url_start+6)
+            $(function() {
+    $("form").submit(function() { return false; });
+});
+
+        var file_url=""
+        var file_list={}
+
+        var proj_list=[]
+        var source_list=[]
+          
+
+             //   console.log(source_list)
+
+
+        function new_proj_modal(){
+
+            $("#inline-sex").remove()
+
+           $("#proj_choose").html('<a href="#" id="inline-sex" data-type="select" data-pk="1" data-value="" data-title="Select sex" data-placeholder="Required" class="editable editable-click" style="color: gray;"></a>')
+
+
+           var new_proj_name=$("#new_proj_name").val()
+
+           if (proj_list.indexOf(new_proj_name)>-1){
+
+
+            swal("Project already exist!")
+            $('#inline-sex').editable({
+             prepend: new_proj_name,
+              mode: 'inline',
+              source: source_list,
+              display: function(value, sourceData) {
+              // var colors = {"": "gray", 1: "green", 2: "blue"},
+               elem = $.grep(sourceData, function(o){return o.value == value;});
+
+               if(elem.length) {
+                 $(this).text(elem[0].text)
+               } else {
+                 $(this).empty();
+               }
+             }
+           });
+           }
+
+           else {
+
+            proj_list.push(new_proj_name)
+
+            file_list[new_proj_name]=[]
+
+            $("#confirm_close").click()
+
+            $.ajax({
+            url: "./manage_data",
+            data:{'proj_name':new_proj_name,'action':"create_new_proj"},
+            type: 'POST',
+    
+            success: function(){
+
+                swal("Created "+new_proj_name )
+
+            $('#inline-sex').editable({
+                prepend: new_proj_name,
+              mode: 'inline',
+              source: source_list,
+              display: function(value, sourceData) {
+              // var colors = {"": "gray", 1: "green", 2: "blue"},
+               elem = $.grep(sourceData, function(o){return o.value == value;});
+
+               if(elem.length) {
+                 $(this).text(elem[0].text)
+               } else {
+                 $(this).empty();
+               }
+             }
+           })
+            }})
+
+
+        }
+
+        }
+
+       
+
+        function modal_update(){
+
+            $.ajax({
+            url: "./header_data",
+            type: 'POST',
+    
+            success: function(header_data){
+
+                header=header_data.success
+                //console.log(header_data)
+
+                
+          
+
+
+
+
+        var report_url=""
+
+        file_list=header['file_list']
+
+        proj_list=header['proj_list']
+          
+        
+        source_list=[]
+        for (i in proj_list){
+            source_list.push({
+                value:i,text: proj_list[i]
+            })
+        }
+        
+
+
+            $('#inline-sex').editable({
+             
+              mode: 'inline',
+              source: source_list,
+              display: function(value, sourceData) {
+              // var colors = {"": "gray", 1: "green", 2: "blue"},
+               elem = $.grep(sourceData, function(o){return o.value == value;});
+
+               if(elem.length) {
+                 $(this).text(elem[0].text)
+               } else {
+                 $(this).empty();
+               }
+             }
+           });
+
+            }})
+        }
+
+        var datapred_send=[]
+
+        var send_dataj={}
+
+        var pathname = window.location.pathname; // Returns path only
+
+        
+
+
+        function save_changes(){
+
+            title_doc=$("#inline-firstname").text()
+            proj_title=$("#inline-sex").text()
+
+            //console.log(send_dataj)
+
+            if (title_doc == "Empty"){
+                swal("Report title cannot be empty")
+            }
+
+
+            else if (proj_title =='Empty'){
+                swal("Must choose a project to save to")
+
+            }
+
+            else if (file_list[proj_title].indexOf(title_doc)>-1){
+                swal("Report name already exist in the project, please enter another name")
+            }
+
+            else {
+                $("#save_trigger").css("visibility","hidden")
+
+                save_data={
+                    'filters':filters,
+                    'datapred_send':datapred_send,
+                    'dataj':send_dataj,
+                    'version':pathname,
+                    'title_name':title_doc,
+                    'proj_name':proj_title,
+
+
+                }
+
+             //   console.log(sizeof(save_data))
+
+                $.ajax({
+            url: "./save_data",
+            data: save_data,
+            type: 'POST',
+    
+            success: function(odata){
+
+                $.ajax({
+            url: "./header_data",
+            type: 'POST',
+    
+            success: function(header_data){
+
+                                header=header_data.success
+                                //console.log(header_data)
+
+                                
+                          
+
+
+
+
+                        var report_url=""
+
+                        file_list=header['file_list']
+
+                        proj_list=header['proj_list']
+                          
+                        
+                        source_list=[]
+                        for (i in proj_list){
+                            source_list.push({
+                                value:i,text: proj_list[i]
+                            })
+                        }
+                        
+
+                                file_url=odata.success
+                                console.log(file_url)
+                               swal("Successfully Saved!")
+                                $("#save_trigger").css("visibility","visible")
+
+                               $('#close_save').click()
+
+
+            }})
+                
+            }})
+
+
+
+
+
+
+       //     
+
+
+
+
+
+            }
+
+
+
+
+            //console.log(proj_title)
+        }
+
+
+                                                                    var asaglist;
+                                                                            function readTextFile(file)
+                                                                            {
+                                                                                var rawFile = new XMLHttpRequest();
+                                                                                rawFile.open("GET", file, false);
+                                                                                rawFile.onreadystatechange = function ()
+                                                                                {
+                                                                                    if(rawFile.readyState === 4)
+                                                                                    {
+                                                                                        if(rawFile.status === 200 || rawFile.status == 0)
+                                                                                        {
+                                                                                            var allText = rawFile.responseText;
+                                                                                            asaglist=allText;
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                                rawFile.send(null);
+                                                                            }
+                                                                                readTextFile('../public/csvActor.txt');
+                                                                                
+                                                                                
+                                                                                $('#atextarea').textext({
+                                                                                    plugins : 'autocomplete suggestions tags filter',
+
+                                                                                    suggestions: asaglist.split(',')
+                                                                                });
+
+                                                                     var saglist;
+                                                                function readTextFile2(file)
+                                                                {
+                                                                    var rawFile = new XMLHttpRequest();
+                                                                    rawFile.open("GET", file, false);
+                                                                    rawFile.onreadystatechange = function ()
+                                                                    {
+                                                                        if(rawFile.readyState === 4)
+                                                                        {
+                                                                            if(rawFile.status === 200 || rawFile.status == 0)
+                                                                            {
+                                                                                var allText = rawFile.responseText;
+                                                                                saglist=allText;
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                    rawFile.send(null);
+                                                                }
+                                                                    readTextFile2('../public/suggestionlist.txt');
+
+                                                                                $('#advtextarea1').textext({
+                                                                        plugins : 'autocomplete suggestions tags filter',
+
+                                                                        suggestions: saglist.split(',')
+                                                                    });
+
+                                                                            $('#advtextarea2').textext({
+                                                                        plugins : 'autocomplete suggestions tags filter',
+
+                                                                        suggestions: saglist.split(',')
+                                                                    });
+
+
+                                                                            $('#advtextarea3').textext({
+                                                                        plugins : 'autocomplete suggestions tags filter',
+
+                                                                        suggestions: saglist.split(',')
+                                                                    });
+
+
+                                                                var dsaglist;
+                                                                        function readTextFile3(file)
+                                                                        {
+                                                                            var rawFile = new XMLHttpRequest();
+                                                                            rawFile.open("GET", file, false);
+                                                                            rawFile.onreadystatechange = function ()
+                                                                            {
+                                                                                if(rawFile.readyState === 4)
+                                                                                {
+                                                                                    if(rawFile.status === 200 || rawFile.status == 0)
+                                                                                    {
+                                                                                        var allText = rawFile.responseText;
+                                                                                        dsaglist=allText;
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                            rawFile.send(null);
+                                                                        }
+                                                                            readTextFile3('../public/csvdirector.txt');
+                                                                            
+                                                                            
+                                                                            $('#dtextarea').textext({
+                                                                                plugins : 'autocomplete suggestions tags filter',
+
+                                                                                suggestions: dsaglist.split(',')
+                                                                            });
+
+
+                                                                            ////////////textext
+                                                                    
+
+        d3.selection.prototype.moveToFront = function() {
+  return this.each(function(){
+    this.parentNode.appendChild(this);
+  });
+};
+    
+    
+    $('.focusrange').tipsy({ 
+        gravity: 's', 
+        html: true, 
+        fade: false,
+        title: function() {
+          return 'focus range controls the upper and lower boundary of ranked movies'; 
+                }});       
+
+    $("#slider").rangeSlider({defaultValues:{min: 0, max: 100}},{bounds:{min: 0, max: 100}});
+    $("#xslider").rangeSlider({defaultValues:{min: 0, max: 130}},{bounds:{min: 0, max: 130}});
+    $("#yslider").rangeSlider({defaultValues:{min: 1995, max: 2016}},{bounds:{min: 1995, max: 2016}});
+    
+    //$("#attr_slider").rangeSlider({defaultValues:{min: 0.1, max: 100}},{bounds:{min: 0.1, max: 100}});
+      $('ul.tabs').each(function(){
+    // For each set of tabs, we want to keep track of
+    // which tab is active and it's associated content
+    var $active, $content, $links = $(this).find('a');
+
+    // If the location.hash matches one of the links, use that as the active tab.
+    // If no match is found, use the first link as the initial active tab.
+    $active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
+    $active.addClass('active');
+
+    $content = $($active[0].hash);
+
+    // Hide the remaining content
+    $links.not($active).each(function () {
+      $(this.hash).hide();
+    });
+
+    // Bind the click event handler
+    $(this).on('click', 'a', function(e){
+      // Make the old tab inactive.
+      $active.removeClass('active');
+      $content.hide();
+
+      // Update the variables with the new link and content
+      $active = $(this);
+      $content = $(this.hash);
+
+      // Make the tab active.
+      $active.addClass('active');
+      $content.show();
+
+      // Prevent the anchor's default click action
+      e.preventDefault();
+    });
+  });
+
+
+        function isBigEnough(value) {
+                return function(element, index, array) {
+                    return (element >= value);
+                        }
+                            }
+    
+    
+    var kstr='';
+    var w;
+
+
+    w=$(".col-lg-8").width()
+
+
+    
+    //console.log(w)
+    var h=$(window).height()/1.8;
+
+    var wh=h-33
+
+
+    
+
+  var wwidth=$(".col-lg-4").width()-70
+  //var wheight=$(".col-lg-8").height()
+
+  $("#wc1").css("max-height",wh)
+    $("#wc2").css("max-height",wh)
+
+  $("#wc3").css("max-height",wh)
+
+
+  $(".actor_graph_parent").css("height",wh)
+    $(".dp_graph_parent").css("height",wh)
+
+  $(".word_graph_parent").css("height",wh)
+
+
+
+//$('.word_graph').css("width",String(wwidth-30)+"px")
+
+  //  $('.word_graph').css("max-height",String(wheight-30)+"px")
+
+  //  $('.tab1').css("width",String(wwidth)+"px")
+
+    //    $('.tab1').css("height",String(wheight)+"px")
+
+      //          $('.tab1').css("top",String(h+20)+"px")
+
+
+
+/*----
+    $(window).scroll(function(){
+        $(".main_graph").css('left',String(480-$(window).scrollLeft())+'px');
+
+    });
+
+    ----*/
+
+    var hmargin=20;
+    var wmargin=30;
+    var transx=0;
+    var transy=0;
+    
+    var border=0;
+    var bordercolor='black';
+    
+    var canvas = d3.select(".main_graph").append("svg")
+                    .attr("width",w)
+                    .attr("height",h)
+                    .attr("transform","translate("+transx+","+transy+")");
+                    
+    var layer0 = canvas.append('g');
+                    
+    var borderPath = canvas.attr("border",border)
+                        .append("rect")
+                        .attr("x",0)
+                        .attr("y",0)
+                        .attr("height",h)
+                        .attr("width",w)
+                        .style("stroke", bordercolor)
+                        .style("fill", "none")
+                        .style("stroke-width", border);
+                
+                
+    var xScale = d3.scale.linear()
+                    .domain([0,130000000])
+                    .range([0,w-wmargin]);
+                    
+    var yScale = d3.scale.linear()
+                    .domain([-2000000,780000000])
+                    .range([0,h-hmargin]);
+                    
+                    
+    var xAScale = d3.scale.linear()
+                    .domain([0,130000000])
+                    .range([0,w-2*wmargin]);
+                    
+    var yAScale = d3.scale.linear()
+                    .domain([780000000,-2000000])
+                    .range([0,h-2*hmargin]);
+                    
+                    var xAxis=d3.svg.axis().scale(xAScale).ticks(0).tickSize(6,3,1);
+                    
+                    var yAxis=d3.svg.axis().scale(yAScale).orient("left").ticks(0)
+                    .tickSize(6,3,1);
+                    
+                    var xtitle="Marketing Spending"
+                    var ytitle="Domestic Total Box-office Revenue"
+
+
+
+                    
+
+                    canvas.append("text")
+                    .attr("transform","translate("+(w/2-w/4)+","+h/2+")")
+                    .style("font-size", w/15+"px")
+                    .style("fill","black").text("Ready to update")
+    
+    var filters = {
+    //user input
+    'op':.01,
+    'opu':100,
+    'kfr_min':0,
+    'kfr_max':100,
+    'Comedy':['yes','no'],
+    'Family': ['yes','no'],
+    'Action': ['yes','no'],
+    'Adventure':['yes','no'],
+    'Drama':['yes','no'],
+    'Historical':['yes','no'],
+    'Fantasy':['yes','no'],
+    'Crime':['yes','no'],
+    'Horror':['yes','no'],
+    'Romance':['yes','no'],
+    'Thriller':['yes','no'],
+    'SciFi':['yes','no'],
+    'Mystery':['yes','no'],
+    'War':['yes','no'],
+    'Biography':['yes','no'],
+    'Documentary':['yes','no'],
+    'Music':['yes','no'],
+    'Musical':['yes','no'],
+    'Animation':['yes','no'],
+    'Western':['yes','no'],
+    'Sport':['yes','no'],
+    'keywords':[],
+    'keywordsor1':[],
+    'keywordsor2':[],
+    'keywordsor3':[],
+    'actors':[],
+    'techrole':[],
+    'lx':0,
+    'lxu':130,
+    'ly':1995,
+    'lyu':2015
+    };
+    
+    
+    var empty_filter = {'Comedy':'no','Action':'no','Family':'no'};
+    
+
+    d3.select('.filter_button').on("change",function()
+    { 
+    if (document.getElementById('an_button').checked && this.checked)
+    {filters.Action='bs';}
+    else if (this.checked){filters.Action='yes';}
+    else if (document.getElementById('an_button').checked && !this.checked)
+    {filters.Action='no';}
+    else {filters.Action=['yes','no'];}
+    }
+    );
+
+    d3.select('#c_button').on("change",function()
+    { 
+    if (document.getElementById('cn_button').checked && this.checked)
+    {filters.Comedy='bs';}
+    else  if (document.getElementById('cn_button').checked && !this.checked)
+    {filters.Comedy='no';}
+    else 
+    if (this.checked){filters.Comedy='yes';}
+    else {filters.Comedy=['yes','no'];}
+    }
+    );
+    
+    d3.select('#F_button').on("change",function()
+    { 
+    if (document.getElementById('Fn_button').checked && this.checked)
+    {filters.Family='bs';}
+    else  if (document.getElementById('Fn_button').checked && !this.checked)
+    {filters.Family='no';}
+    else 
+    if (this.checked){filters.Family='yes';}
+    else {filters.Family=['yes','no'];}
+    }
+    );
+    
+    
+        d3.select('#an_button').on("change",function()
+    { if (document.getElementById('a_button').checked && this.checked)
+    {filters.Action='bs';}
+    else  if (document.getElementById('a_button').checked && !this.checked)
+    {filters.Action='yes';}
+    else 
+    if (this.checked){filters.Action='no';}
+    else {filters.Action=['yes','no'];}
+    }
+    );
+
+    d3.select('#cn_button').on("change",function()
+    { if (document.getElementById('c_button').checked && this.checked)
+    {filters.Comedy='bs';}
+    else  if (document.getElementById('c_button').checked && !this.checked)
+    {filters.Comedy='yes';}
+    else 
+    if (this.checked){filters.Comedy='no';}
+    else {filters.Comedy=['yes','no'];}
+    }
+    );
+    
+    d3.select('#Fn_button').on("change",function()
+    { if (document.getElementById('F_button').checked && this.checked)
+    {filters.Family='bs';}
+    else  if (document.getElementById('F_button').checked && !this.checked)
+    {filters.Family='yes';}
+    else 
+    if (this.checked){filters.Family='no';}
+    else {filters.Family=['yes','no'];}
+    }
+    );
+    
+    d3.select('#ad_button').on("change",function()
+    { 
+    if (document.getElementById('adn_button').checked && this.checked)
+    {filters.Adventure='bs';}
+    else  if (document.getElementById('adn_button').checked && !this.checked)
+    {filters.Adventure='no';}
+    else 
+    if (this.checked){filters.Adventure='yes';}
+    else {filters.Adventure=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#adn_button').on("change",function()
+    { if (document.getElementById('ad_button').checked && this.checked)
+    {filters.Adventure='bs';}
+    else  if (document.getElementById('ad_button').checked && !this.checked)
+    {filters.Adventure='yes';}
+    else 
+    if (this.checked){filters.Adventure='no';}
+    else {filters.Adventure=['yes','no'];}
+    }
+    );
+    
+    
+        d3.select('#dra_button').on("change",function()
+    { 
+    if (document.getElementById('dran_button').checked && this.checked)
+    {filters.Drama='bs';}
+    else  if (document.getElementById('dran_button').checked && !this.checked)
+    {filters.Drama='no';}
+    else 
+    if (this.checked){filters.Drama='yes';}
+    else {filters.Drama=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#dran_button').on("change",function()
+    { if (document.getElementById('dra_button').checked && this.checked)
+    {filters.Drama='bs';}
+    else  if (document.getElementById('dra_button').checked && !this.checked)
+    {filters.Drama='yes';}
+    else 
+    if (this.checked){filters.Drama='no';}
+    else {filters.Drama=['yes','no'];}
+    }
+    );
+    
+            d3.select('#hist_button').on("change",function()
+    { 
+    if (document.getElementById('histn_button').checked && this.checked)
+    {filters.Historical='bs';}
+    else  if (document.getElementById('histn_button').checked && !this.checked)
+    {filters.Historical='no';}
+    else 
+    if (this.checked){filters.Historical='yes';}
+    else {filters.Historical=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#histn_button').on("change",function()
+    { if (document.getElementById('hist_button').checked && this.checked)
+    {filters.Historical='bs';}
+    else  if (document.getElementById('hist_button').checked && !this.checked)
+    {filters.Historical='yes';}
+    else 
+    if (this.checked){filters.Historical='no';}
+    else {filters.Historical=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#mus_button').on("change",function()
+    { 
+    if (document.getElementById('musn_button').checked && this.checked)
+    {filters.Music='bs';}
+    else  if (document.getElementById('musn_button').checked && !this.checked)
+    {filters.Music='no';}
+    else 
+    if (this.checked){filters.Music='yes';}
+    else {filters.Music=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#musn_button').on("change",function()
+    { if (document.getElementById('mus_button').checked && this.checked)
+    {filters.Music='bs';}
+    else  if (document.getElementById('mus_button').checked && !this.checked)
+    {filters.Music='yes';}
+    else 
+    if (this.checked){filters.Music='no';}
+    else {filters.Music=['yes','no'];}
+    }
+    );
+
+    
+    d3.select('#cri_button').on("change",function()
+    { 
+    if (document.getElementById('crin_button').checked && this.checked)
+    {filters.Crime='bs';}
+    else  if (document.getElementById('crin_button').checked && !this.checked)
+    {filters.Crime='no';}
+    else 
+    if (this.checked){filters.Crime='yes';}
+    else {filters.Crime=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#crin_button').on("change",function()
+    { if (document.getElementById('cri_button').checked && this.checked)
+    {filters.Crime='bs';}
+    else  if (document.getElementById('cri_button').checked && !this.checked)
+    {filters.Crime='yes';}
+    else 
+    if (this.checked){filters.Crime='no';}
+    else {filters.Crime=['yes','no'];}
+    }
+    );
+    
+    d3.select('#hor_button').on("change",function()
+    { 
+    if (document.getElementById('horn_button').checked && this.checked)
+    {filters.Horror='bs';}
+    else  if (document.getElementById('horn_button').checked && !this.checked)
+    {filters.Horror='no';}
+    else 
+    if (this.checked){filters.Horror='yes';}
+    else {filters.Horror=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#horn_button').on("change",function()
+    { if (document.getElementById('hor_button').checked && this.checked)
+    {filters.Horror='bs';}
+    else  if (document.getElementById('hor_button').checked && !this.checked)
+    {filters.Horror='yes';}
+    else 
+    if (this.checked){filters.Horror='no';}
+    else {filters.Horror=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#rom_button').on("change",function()
+    { 
+    if (document.getElementById('romn_button').checked && this.checked)
+    {filters.Romance='bs';}
+    else  if (document.getElementById('romn_button').checked && !this.checked)
+    {filters.Romance='no';}
+    else 
+    if (this.checked){filters.Romance='yes';}
+    else {filters.Romance=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#romn_button').on("change",function()
+    { if (document.getElementById('rom_button').checked && this.checked)
+    {filters.Romance='bs';}
+    else  if (document.getElementById('rom_button').checked && !this.checked)
+    {filters.Romance='yes';}
+    else 
+    if (this.checked){filters.Romance='no';}
+    else {filters.Romance=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#thr_button').on("change",function()
+    { 
+    if (document.getElementById('thrn_button').checked && this.checked)
+    {filters.Thriller='bs';}
+    else  if (document.getElementById('thrn_button').checked && !this.checked)
+    {filters.Thriller='no';}
+    else 
+    if (this.checked){filters.Thriller='yes';}
+    else {filters.Thriller=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#thrn_button').on("change",function()
+    { if (document.getElementById('thr_button').checked && this.checked)
+    {filters.Thriller='bs';}
+    else  if (document.getElementById('thr_button').checked && !this.checked)
+    {filters.Thriller='yes';}
+    else 
+    if (this.checked){filters.Thriller='no';}
+    else {filters.Thriller=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#sci_button').on("change",function()
+    { 
+    if (document.getElementById('scin_button').checked && this.checked)
+    {filters.SciFi='bs';}
+    else  if (document.getElementById('scin_button').checked && !this.checked)
+    {filters.SciFi='no';}
+    else 
+    if (this.checked){filters.SciFi='yes';}
+    else {filters.SciFi=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#scin_button').on("change",function()
+    { if (document.getElementById('sci_button').checked && this.checked)
+    {filters.SciFi='bs';}
+    else  if (document.getElementById('sci_button').checked && !this.checked)
+    {filters.SciFi='yes';}
+    else 
+    if (this.checked){filters.SciFi='no';}
+    else {filters.SciFi=['yes','no'];}
+    }
+    );
+
+    
+    d3.select('#myst_button').on("change",function()
+    { 
+    if (document.getElementById('mystn_button').checked && this.checked)
+    {filters.Mystery='bs';}
+    else  if (document.getElementById('mystn_button').checked && !this.checked)
+    {filters.Mystery='no';}
+    else 
+    if (this.checked){filters.Mystery='yes';}
+    else {filters.Mystery=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#mystn_button').on("change",function()
+    { if (document.getElementById('myst_button').checked && this.checked)
+    {filters.Mystery='bs';}
+    else  if (document.getElementById('myst_button').checked && !this.checked)
+    {filters.Mystery='yes';}
+    else 
+    if (this.checked){filters.Mystery='no';}
+    else {filters.Mystery=['yes','no'];}
+    }
+    );
+
+    
+    d3.select('#musl_button').on("change",function()
+    { 
+    if (document.getElementById('musln_button').checked && this.checked)
+    {filters.Musical='bs';}
+    else  if (document.getElementById('musln_button').checked && !this.checked)
+    {filters.Musical='no';}
+    else 
+    if (this.checked){filters.Musical='yes';}
+    else {filters.Musical=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#musln_button').on("change",function()
+    { if (document.getElementById('musl_button').checked && this.checked)
+    {filters.Musical='bs';}
+    else  if (document.getElementById('musl_button').checked && !this.checked)
+    {filters.Musical='yes';}
+    else 
+    if (this.checked){filters.Musical='no';}
+    else {filters.Musical=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#War_button').on("change",function()
+    { 
+    if (document.getElementById('Warn_button').checked && this.checked)
+    {filters.War='bs';}
+    else  if (document.getElementById('Warn_button').checked && !this.checked)
+    {filters.War='no';}
+    else 
+    if (this.checked){filters.War='yes';}
+    else {filters.War=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#Warn_button').on("change",function()
+    { if (document.getElementById('War_button').checked && this.checked)
+    {filters.War='bs';}
+    else  if (document.getElementById('War_button').checked && !this.checked)
+    {filters.War='yes';}
+    else 
+    if (this.checked){filters.War='no';}
+    else {filters.War=['yes','no'];}
+    }
+    );
+    
+    d3.select('#bio_button').on("change",function()
+    { 
+    if (document.getElementById('bion_button').checked && this.checked)
+    {filters.Biography='bs';}
+    else  if (document.getElementById('bion_button').checked && !this.checked)
+    {filters.Biography='no';}
+    else 
+    if (this.checked){filters.Biography='yes';}
+    else {filters.Biography=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#bion_button').on("change",function()
+    { if (document.getElementById('bio_button').checked && this.checked)
+    {filters.Biography='bs';}
+    else  if (document.getElementById('bio_button').checked && !this.checked)
+    {filters.Biography='yes';}
+    else 
+    if (this.checked){filters.Biography='no';}
+    else {filters.Biography=['yes','no'];}
+    }
+    );  
+    
+    
+    
+    d3.select('#doc_button').on("change",function()
+    { 
+    if (document.getElementById('docn_button').checked && this.checked)
+    {filters.Documentary='bs';}
+    else  if (document.getElementById('docn_button').checked && !this.checked)
+    {filters.Documentary='no';}
+    else 
+    if (this.checked){filters.Documentary='yes';}
+    else {filters.Documentary=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#docn_button').on("change",function()
+    { if (document.getElementById('doc_button').checked && this.checked)
+    {filters.Documentary='bs';}
+    else  if (document.getElementById('doc_button').checked && !this.checked)
+    {filters.Documentary='yes';}
+    else 
+    if (this.checked){filters.Documentary='no';}
+    else {filters.Documentary=['yes','no'];}
+    }
+    );  
+
+
+    d3.select('#ani_button').on("change",function()
+    { 
+    if (document.getElementById('anin_button').checked && this.checked)
+    {filters.Animation='bs';}
+    else  if (document.getElementById('anin_button').checked && !this.checked)
+    {filters.Animation='no';}
+    else 
+    if (this.checked){filters.Animation='yes';}
+    else {filters.Animation=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#anin_button').on("change",function()
+    { if (document.getElementById('ani_button').checked && this.checked)
+    {filters.Animation='bs';}
+    else  if (document.getElementById('ani_button').checked && !this.checked)
+    {filters.Animation='yes';}
+    else 
+    if (this.checked){filters.Animation='no';}
+    else {filters.Animation=['yes','no'];}
+    }
+    );      
+    
+    d3.select('#west_button').on("change",function()
+    { 
+    if (document.getElementById('westn_button').checked && this.checked)
+    {filters.Western='bs';}
+    else  if (document.getElementById('westn_button').checked && !this.checked)
+    {filters.Western='no';}
+    else 
+    if (this.checked){filters.Western='yes';}
+    else {filters.Western=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#westn_button').on("change",function()
+    { if (document.getElementById('west_button').checked && this.checked)
+    {filters.Western='bs';}
+    else  if (document.getElementById('west_button').checked && !this.checked)
+    {filters.Western='yes';}
+    else 
+    if (this.checked){filters.Western='no';}
+    else {filters.Western=['yes','no'];}
+    }
+    );      
+    
+    d3.select('#Sport_button').on("change",function()
+    { 
+    if (document.getElementById('Sportn_button').checked && this.checked)
+    {filters.Sport='bs';}
+    else  if (document.getElementById('Sportn_button').checked && !this.checked)
+    {filters.Sport='no';}
+    else 
+    if (this.checked){filters.Sport='yes';}
+    else {filters.Sport=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#Sportn_button').on("change",function()
+    { if (document.getElementById('Sport_button').checked && this.checked)
+    {filters.Sport='bs';}
+    else  if (document.getElementById('Sport_button').checked && !this.checked)
+    {filters.Sport='yes';}
+    else 
+    if (this.checked){filters.Sport='no';}
+    else {filters.Sport=['yes','no'];}
+    }
+    );      
+    
+    d3.select('#fanta_button').on("change",function()
+    { 
+    if (document.getElementById('fantan_button').checked && this.checked)
+    {filters.Fantasy='bs';}
+    else  if (document.getElementById('fantan_button').checked && !this.checked)
+    {filters.Fantasy='no';}
+    else 
+    if (this.checked){filters.Fantasy='yes';}
+    else {filters.Fantasy=['yes','no'];}
+    }
+    );
+    
+    
+    d3.select('#fantan_button').on("change",function()
+    { if (document.getElementById('fanta_button').checked && this.checked)
+    {filters.Fantasy='bs';}
+    else  if (document.getElementById('fanta_button').checked && !this.checked)
+    {filters.Fantasy='yes';}
+    else 
+    if (this.checked){filters.Fantasy='no';}
+    else {filters.Fantasy=['yes','no'];}
+    }
+    );      
+    
+
+function logout(){
+
+    alert("You are now logged out"),
+
+      $("body").remove();
+    $.ajax({
+            url: "./logout",
+            //headers: {"authorization":"false"},
+            type: 'POST',
+           // name:"false",
+
+    
+            statusCode: {
+      401: $(document).ajaxStop(function() {
+        window.location.reload();
+
+    })
+
+
+  }})
+
+
+
+
+
+}
+
+
+var rep_data;
+var rep_this;
+var rep_def_filters=filters;
+var rep_cdata;
+var rep_lgdata;
+var rep_percentage;
+var att_rp;
+var rep_filters;
+
+
+            function attribute_report(){
+
+                if(typeof att_rp!="undefined"){
+                 att_rp.close();};
+                 //console.log(filters);
+                att_rp= window.open("../public/attribute_report.html","report","width=750,height=800");
+
+
+    
+                console.log(rep_data)
+
+
+
+
+                att_rp.rep_data=rep_data;
+                att_rp.rep_this=rep_this;
+                att_rp.rep_filters=rep_filters;
+                att_rp.def_filters=rep_def_filters;
+                att_rp.rep_lgdata=rep_lgdata;
+                att_rp.rep_percentage=rep_percentage;
+
+            }
+
+
+
+var act_rp;
+
+                function actor_report(){
+
+                if(typeof act_rp!="undefined"){
+                 act_rp.close();};
+                 //console.log(filters);
+                act_rp= window.open("../public/actor_report.html","report","width=750,height=800");
+
+                console.log(filters.keywords)
+
+                act_rp.rep_data=rep_data;
+                act_rp.rep_this=rep_this;
+                act_rp.rep_filters=rep_filters;
+                act_rp.def_filters=rep_def_filters;
+                act_rp.rep_lgdata=rep_lgdata;
+                act_rp.rep_percentage=rep_percentage;
+
+            }
+
+
+
+var drc_rp;
+
+                function director_report(){
+
+                if(typeof drc_rp!="undefined"){
+                 drc_rp.close();};
+                 //console.log(filters);
+                drc_rp= window.open("../public/director_report.html","report","width=750,height=800");
+
+                
+
+                drc_rp.rep_data=rep_data;
+                drc_rp.rep_this=rep_this;
+                drc_rp.rep_filters=rep_filters;
+                drc_rp.def_filters=rep_def_filters;
+                drc_rp.rep_lgdata=rep_lgdata;
+                drc_rp.rep_percentage=rep_percentage;
+
+            }
+
+
+g_titles=[]
+
+
+function fb(){
+
+
+                    var fb_worker= new Worker("../public/fb_works.js")
+
+
+
+                    fb_worker.onmessage = function(data) {
+
+                        var datapred=JSON.parse(data.data)
+
+                        datapred_send=datapred
+    
+                            
+                        average_ratio=datapred.success['avg_ratio']
+                        average_total=datapred.success['avg_total']
+
+
+                        all_total=0
+                        for (i in average_total){
+                            all_total+=average_total[i]
+                        }
+
+                        avg_ra=[]
+                        for (i in average_total){
+                            avg_ra.push([i,average_total[i]/all_total])
+                        }
+
+                        avg_ra.sort(function(a, b) {return b[1] - a[1]})
+
+
+
+
+
+                       
+                        
+                        d3.select('#datatable').select("thead").selectAll("tr").remove()
+
+                        d3.select('#datatable').select("tbody").selectAll("tr").remove()
+
+
+                        
+
+                        function dataTableRow(ar){
+                            region=ar[0]
+                            ratio=ar[1]
+                            total=average_total[region]
+
+                            var table = document.getElementById("datatable");
+                            var row = table.insertRow(-1);
+
+
+
+                            var cell1 = row.insertCell(0);
+                            var cell2 = row.insertCell(1);
+                            var cell3 = row.insertCell(2);
+
+
+                            function addCommas(nStr) {
+                                                                        nStr += '';
+                                                                        x = nStr.split('.');
+                                                                        x1 = x[0];
+                                                                        x2 = x.length > 1 ? '.' + x[1] : '';
+                                                                        var rgx = /(\d+)(\d{3})/;
+                                                                        while (rgx.test(x1)) {
+                                                                                x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                                                                        }
+                                                                        return x1 + x2;
+                                                                    }
+
+
+                            // Add some text to the new cells:
+                            cell1.innerHTML = region;
+                            cell2.innerHTML = Math.round(ratio*10000)/100+"%";
+                            cell3.innerHTML = "$"+addCommas(Math.round(total));
+
+
+
+                        }
+
+                        for (i in avg_ra){
+                            dataTableRow(avg_ra[i])
+
+
+                        }
+
+                                                    d3.select('#datatable').select("thead").html("<tr><th>Country</th><th>Average Percentage of Foreign Box office</th><th>Average Box Office (in $US)</th></tr>")
+
+                        $(document).ready(function() {
+                            $('#datatable').dataTable();
+                        } );
+
+
+
+                        
+
+
+                 
+
+
+
+
+
+
+
+                        ;
+
+
+
+
+
+                        
+
+
+
+
+
+
+                    }
+
+                    String.prototype.replaceAll = function(search, replacement) {
+                var target = this;
+                return target.replace(new RegExp(search, 'g'), replacement)}
+
+
+                    var send_titles={"titles":g_titles.join('|||').replaceAll("&","xXandXx")}
+
+
+
+
+
+                    fb_worker.postMessage(send_titles)
+                
+
+            }
+
+    
+/////////////////////////////////////////////////////////////////data2
+//updateData();
+    
+/////////////////////////////////////////////////////////////////data2
+function updateData(){
+
+
+    document.getElementsByName('updateButton')[0].style.visibility="hidden"
+
+
+if(typeof att_rp!="undefined"){
+                 att_rp.close();};
+if(typeof act_rp!="undefined"){
+                 act_rp.close();};
+if(typeof drc_rp!="undefined"){
+                 drc_rp.close();};
+
+
+
+
+
+
+
+//console.log(filters)
+
+
+        document.getElementById('attribute_button').style.visibility="hidden";
+        document.getElementById('actor_button').style.visibility="hidden";
+        document.getElementById('director_button').style.visibility="hidden";
+
+
+
+        filters.opu=$("#slider").rangeSlider("values").max;
+        filters.op=$("#slider").rangeSlider("values").min+0.01;
+        
+        
+        filters.kfr_max=$("#slider").rangeSlider("values").max;
+        filters.kfr_min=$("#slider").rangeSlider("values").min-10;
+
+        filters.lxu=$("#xslider").rangeSlider("values").max*1000000;
+        filters.lx=$("#xslider").rangeSlider("values").min*1000000+0.01;
+        
+        filters.lyu=$("#yslider").rangeSlider("values").max;
+        filters.ly=$("#yslider").rangeSlider("values").min;
+    
+            var textarea = $('textarea.example:last');
+            if(typeof textarea.textext()[0]!='undefined'){
+                filters['keywords']=JSON.parse(textarea.textext()[0].hiddenInput().val());
+            }
+
+            else{filters['keywords']=[]}
+
+
+            var advtextarea1 = $('textarea.example_adv1:last'); 
+            if(typeof advtextarea1.textext()[0]!='undefined'){
+                filters['keywordsor1']=JSON.parse(advtextarea1.textext()[0].hiddenInput().val());
+            }
+
+            else{filters['keywordsor1']=[]}
+
+
+            var advtextarea2 = $('textarea.example_adv2:last'); 
+            if(typeof advtextarea2.textext()[0]!='undefined'){
+                filters['keywordsor2']=JSON.parse(advtextarea2.textext()[0].hiddenInput().val());
+            }
+
+            else{filters['keywordsor2']=[]}
+
+
+            var advtextarea3 = $('textarea.example_adv3:last'); 
+            if(typeof advtextarea3.textext()[0]!='undefined'){
+                filters['keywordsor3']=JSON.parse(advtextarea3.textext()[0].hiddenInput().val());
+            }
+
+            else{filters['keywordsor3']=[]}
+                
+            var atextarea = $('textarea.example2:last');
+            filters['actors']=JSON.parse(atextarea.textext()[0].hiddenInput().val());
+
+            var dtextarea = $('textarea.example3:last');
+            filters['techrole']=JSON.parse(dtextarea.textext()[0].hiddenInput().val());
+            //console.log(filters['actors'])
+            //filters['keywords']=textarea.textext()[0].hiddenInput().val();
+                        //console.log(filters['keywordsor3'])
+
+
+
+rep_filters = {
+    //user input
+    'op':filters.op,
+    'opu':filters.opu,
+
+    'Comedy':filters.Comedy,
+    'Family': filters.Family,
+    'Action': filters.Action,
+    'Adventure':filters.Adventure,
+    'Drama':filters.Drama,
+    'Historical':filters.Historical,
+    'Fantasy':filters.Fantasy,
+    'Crime':filters.Crime,
+    'Horror':filters.Horror,
+    'Romance':filters.Romance,
+    'Thriller':filters.Thriller,
+    'SciFi':filters.SciFi,
+    'Mystery':filters.Mystery,
+    'War':filters.War,
+    'Biography':filters.Biography,
+    'Documentary':filters.Documentary,
+    'Music':filters.Music,
+    'Musical':filters.Musical,
+    'Animation':filters.Animation,
+    'Western':filters.Western,
+    'Sport':filters.Sport,
+    'keywords':filters.keywords,
+    'keywordsor1':filters.keywordsor1,
+    'keywordsor2':filters.keywordsor2,
+    'actors':filters.actors,
+    'techrole':filters.techrole,
+    'lx':filters.lx,
+    'lxu':filters.lxu,
+    'ly':filters.ly,
+    'lyu':filters.lyu
+    };
+
+
+/////////////////////////////////display movies
+ ////////////////filter
+
+                                                                            rep_filters=filters
+
+                                                                    var genre = [];
+
+
+                                                                    if (rep_filters.Comedy==='yes'){
+                                                                        genre.push("Comedy")
+
+                                                                    }
+
+                                                                    if (rep_filters.Comedy==='no'){
+                                                                        genre.push("Non-comedy")
+
+                                                                    }
+
+                                                                    if (rep_filters.Family==='yes'){
+                                                                        genre.push("Family")
+
+                                                                    }
+
+                                                                    if (rep_filters.Family==='no'){
+                                                                        genre.push("Non-family")
+
+                                                                    }
+
+                                                                    if (rep_filters.Action==='yes'){
+                                                                        genre.push("Action")
+
+                                                                    }
+
+                                                                    if (rep_filters.Action==='no'){
+                                                                        genre.push("Non-action")
+
+                                                                    }
+
+                                                                    if (rep_filters.Adventure==='yes'){
+                                                                        genre.push("Adventure")
+
+                                                                    }
+
+                                                                    if (rep_filters.Adventure==='no'){
+                                                                        genre.push("Non-adventure")
+
+                                                                    }
+
+
+                                                                    if (rep_filters.Drama==='yes'){
+                                                                        genre.push("Drama")
+
+                                                                    }
+
+                                                                    if (rep_filters.Drama==='no'){
+                                                                        genre.push("Non-drama")
+
+                                                                    }
+
+                                                                    if (rep_filters.Historical==='yes'){
+                                                                        genre.push("Historical")
+
+                                                                    }
+
+                                                                    if (rep_filters.Historical==='no'){
+                                                                        genre.push("Non-historical")
+
+                                                                    }
+
+                                                                    if (rep_filters.Fantasy==='yes'){
+                                                                        genre.push("Fantasy")
+
+                                                                    }
+
+                                                                    if (rep_filters.Fantasy==='no'){
+                                                                        genre.push("Non-fantasy")
+
+                                                                    }
+
+                                                                    if (rep_filters.Crime==='yes'){
+                                                                        genre.push("Crime")
+
+                                                                    }
+
+                                                                    if (rep_filters.Crime==='no'){
+                                                                        genre.push("Non-crime")
+
+                                                                    }
+
+                                                                    if (rep_filters.Horror==='yes'){
+                                                                        genre.push("Horror")
+
+                                                                    }
+
+                                                                    if (rep_filters.Horror==='no'){
+                                                                        genre.push("Non-horror")
+
+                                                                    }
+
+                                                                    if (rep_filters.Romance==='yes'){
+                                                                        genre.push("Romance")
+
+                                                                    }
+
+                                                                    if (rep_filters.Romance==='no'){
+                                                                        genre.push("Non-romance")
+
+                                                                    }
+                                                                    if (rep_filters.Thriller==='yes'){
+                                                                        genre.push("Thriller")
+
+                                                                    }
+
+                                                                    if (rep_filters.Thriller==='no'){
+                                                                        genre.push("Non-thriller")
+
+                                                                    }
+
+                                                                    if (rep_filters.SciFi==='yes'){
+                                                                        genre.push("Scifi")
+
+                                                                    }
+
+                                                                    if (rep_filters.SciFi==='no'){
+                                                                        genre.push("Non-scifi")
+
+                                                                    }
+
+                                                                    if (rep_filters.Mystery==='yes'){
+                                                                        genre.push("Mystery")
+
+                                                                    }
+
+                                                                    if (rep_filters.Mystery==='no'){
+                                                                        genre.push("Non-mystery")
+
+                                                                    }
+
+                                                                    if (rep_filters.War==='yes'){
+                                                                        genre.push("War")
+
+                                                                    }
+
+                                                                    if (rep_filters.War==='no'){
+                                                                        genre.push("Non-war")
+
+                                                                    }
+
+                                                                    if (rep_filters.Biography==='yes'){
+                                                                        genre.push("Biography")
+
+                                                                    }
+
+                                                                    if (rep_filters.Biography==='no'){
+                                                                        genre.push("Non-biography")
+
+                                                                    }
+
+                                                                    if (rep_filters.Documentary==='yes'){
+                                                                        genre.push("Documentary")
+
+                                                                    }
+
+                                                                    if (rep_filters.Documentary==='no'){
+                                                                        genre.push("Non-documentary")
+
+                                                                    }
+
+                                                                    if (rep_filters.Music==='yes'){
+                                                                        genre.push("Music")
+
+                                                                    }
+
+                                                                    if (rep_filters.Music==='no'){
+                                                                        genre.push("Non-music")
+
+                                                                    }
+
+                                                                    if (rep_filters.Musical==='yes'){
+                                                                        genre.push("Musical")
+
+                                                                    }
+
+                                                                    if (rep_filters.Musical==='no'){
+                                                                        genre.push("Non-musical")
+
+                                                                    }
+
+                                                                    if (rep_filters.Animation==='yes'){
+                                                                        genre.push("Animation")
+
+                                                                    }
+
+                                                                    if (rep_filters.Animation==='no'){
+                                                                        genre.push("Non-animation")
+
+                                                                    }
+
+                                                                    if (rep_filters.Western==='yes'){
+                                                                        genre.push("Western")
+
+                                                                    }
+
+                                                                    if (rep_filters.Western==='no'){
+                                                                        genre.push("Non-western")
+
+                                                                    }
+
+                                                                    if (rep_filters.Sport==='yes'){
+                                                                        genre.push("Sport")
+
+                                                                    }
+
+                                                                    if (rep_filters.Sport==='no'){
+                                                                        genre.push("Non-sport")
+
+                                                                    }
+
+
+                                                                    //console.log(genre)
+                                                                    var final_text="</br>";
+
+                                                                    if(rep_filters===rep_def_filters){
+
+                                                                        final_text="Showing all genres in the database </br>"
+                                                                    }
+
+                                                                    //console.log(rep_filters.keywordsor1)
+                                                                    if(genre!=""||rep_filters.keywords!=""||rep_filters.actors!=""||rep_filters.techrole!=""||rep_filters.keywordsor1!=""||rep_filters.keywordsor2!=""){
+                                                                    final_text="Showing movies ";}
+
+                                                                    if(genre!=""){
+                                                                        final_text=final_text+"in genre(s): <b>"+ genre.join(',') +"</b></br>";
+
+                                                                    }
+
+
+
+
+                                                                    
+
+
+                                                                    if(rep_filters.actors!=""){
+                                                                        final_text=final_text+" Starring actor(s): <b>"+rep_filters.actors.join(', ')+"</b></br>"
+
+                                                                    }
+
+                                                                    if(rep_filters.techrole!=""){
+                                                                        final_text=final_text+" Directed by: <b>"+rep_filters.techrole.join(', ')+"</b></br>"
+
+                                                                    }
+
+
+                                                                    if(rep_filters.keywordsor1!=""){
+                                                                        final_text=final_text+" With Plot Attribute: <b>"+rep_filters.keywordsor1.join(', ')+"</b></br>"
+
+                                                                    }
+
+                                                                    if(rep_filters.keywordsor2!=""){
+                                                                        final_text=final_text+" With Plot Attribute: <b>"+rep_filters.keywordsor2.join(', ')+"</b></br>"
+
+                                                                    }
+
+                                                                    if(rep_filters.keywordsor3!=""){
+                                                                        final_text=final_text+" With Plot Attribute: <b>"+rep_filters.keywordsor3.join(', ')+"</b></br>"
+
+                                                                    }
+
+
+                                                                     function addCommas(nStr) {
+                                                                        nStr += '';
+                                                                        x = nStr.split('.');
+                                                                        x1 = x[0];
+                                                                        x2 = x.length > 1 ? '.' + x[1] : '';
+                                                                        var rgx = /(\d+)(\d{3})/;
+                                                                        while (rgx.test(x1)) {
+                                                                                x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                                                                        }
+                                                                        return x1 + x2;
+                                                                    }
+
+
+                                                                    final_text+=" Between Year: <b>" + Math.round(rep_filters.ly) +" </b>and <b>" +Math.round(rep_filters.lyu) +"</b></br>"
+
+                                                                    final_text+=" With Marketing Spent Between: <b> $" + addCommas(Math.round(rep_filters.lx)) +"</b> and <b> $" +addCommas(Math.round(rep_filters.lxu)) +"</b></br>"
+
+                                                                    final_text+=" With Focus Range Between: <b>" + Math.round(rep_filters.op) +"</b> and <b>" +Math.round(rep_filters.opu) +"</b></br>"
+
+
+
+
+                                                                    if(final_text=="</br>"){
+
+                                                                        final_text="All movies in the database"
+                                                                    }
+                                                                            //////////////////filters
+
+                                                                            console.log(rep_filters)
+
+                                                                            d3.select("#movies").html(final_text)
+
+
+
+
+
+
+
+//////////////////////dispaly movies end
+
+
+var serverdata;
+var serverdata1;
+
+
+        d3.select("body").select(".main_graph").select("svg").remove();
+        d3.select("body").selectAll(".wordcloud").remove();
+
+        var root=d3.select("body").select(".main_graph").append("svg")
+                    .attr("width",w)
+                    .attr("height",h)
+                    .attr("transform","translate("+transx+","+transy+")")
+                    
+
+                    root.append("text")
+                    .attr("transform","translate("+(w/2-w/4)+","+h/2+")")
+                    .style("font-size",w/15+"px")
+                    .style("fill","black").text("Loading...")
+
+    var yl = d3.scale.ordinal()
+            .domain(d3.range(50))
+            .rangePoints([0,h*0.8]);
+
+        var yl2 = d3.scale.ordinal()
+            .domain(d3.range(50))
+            .rangePoints([0,h*0.8]);
+
+    var zl = d3.scale.linear()
+    .domain([10, 0])
+    .range(["hsl(104,100%,75%)", "hsl(104,100%,75%)"])
+    .interpolate(d3.interpolateHcl);
+
+    root.selectAll("circle")
+    .data(yl.domain())
+  .enter().append("circle")
+  .attr("transform","translate("+w*0.05+","+h*0.05+")")
+    .attr("r", 17)
+    .attr("cx", 0)
+    .attr("cy", yl)
+    .style("fill", function(d) { return zl(Math.abs(d % 20 - 10)); })
+  .transition()
+    .duration(2000)
+    .delay(function(d) { return d * 40; })
+    .each(slide);
+    
+    
+    function slide() {
+  var circle = d3.select(this);
+  (function repeat() {
+    circle = circle.transition()
+        .attr("cx", w*0.9)
+      .transition()
+        .attr("cx", 0)
+        .each("end", repeat);
+  })();
+}
+
+
+    $.ajax({
+            url: "../lgd",
+            
+            type: 'POST',
+    
+            success: function(odata){
+
+                console.log('lgd_called')
+
+                lgdata=odata.ld
+
+                console.log(lgdata)
+
+                
+
+      if (lgdata.x=="expired"){ 
+            d3.select("body").select(".main_graph").select("svg").remove();
+            d3.select("body").selectAll(".wordcloud").remove();
+
+            var root=d3.select("body").select(".main_graph").append("svg")
+                    .attr("width",w)
+                    .attr("height",h)
+                    .attr("transform","translate("+transx+","+transy+")")
+                    
+
+                    root.append("text")
+                    .attr("transform","translate("+(w/2-w/4)+","+h/2+")")
+                    .attr("text-anchor","middle")
+                    .style("font-size",w/15+"px")
+                    .style("fill","black").text("Your usage limit has been reached")
+
+      }
+
+
+            if (lgdata.x=="notfinish"){ 
+            d3.select("body").select(".main_graph").select("svg").remove();
+            d3.select("body").selectAll(".wordcloud").remove();
+
+            var root=d3.select("body").select(".main_graph").append("svg")
+                    .attr("width",w)
+                    .attr("height",h)
+                    .attr("transform","translate("+transx+","+transy+")")
+                    
+
+                    root.append("text")
+                    .attr("transform","translate("+w/2+","+h/2+")")
+                    .attr("text-anchor","middle")
+                    .style("font-size","50px")
+                    .style("fill","black").html("Your account is being used")
+
+      }
+
+
+      else{
+
+
+var worker= new Worker("../public/works.js")
+
+
+
+            //$.ajax({
+            //url: "./filters",
+            //data: filters,
+            
+            //type: 'POST',
+            //data: filters,
+            //success: function(data){
+ worker.onmessage=function(data){ 
+
+
+    var dataj=JSON.parse(data.data)
+    
+    send_dataj=dataj
+
+                serverdata=dataj.success,
+                serverdata1=dataj.data1,    
+                fkwd=dataj.kword,
+                fkwd1=dataj.kword1,
+                ktpercentage=dataj.ktpercentage,
+                summary=dataj.summ,
+                factd=dataj.actord,
+                factd1=dataj.actord1
+                asummary=dataj.asum,
+                tpercentage=dataj.tpercentage,
+                fdpd=dataj.dpdata,
+                fdpd1=dataj.dpdata1,
+                dpnumpercentage=dataj.dpt,
+                dpsummary=dataj.dsum;
+
+
+                //console.log(ktpercentage)
+
+
+
+                data=serverdata;
+                data1=serverdata1;
+
+for (var i in data){
+    data[i].keywords=fkwd[i];
+
+}
+
+for (var i in data1){
+    data1[i].keywords=fkwd1[i];
+
+}
+
+for (var i in data){
+    data[i].actors=factd[i];
+
+}
+
+for (var i in data1){
+    data1[i].actors=factd1[i];
+
+}
+
+
+for (var i in data){
+    data[i].techrole=fdpd[i];
+
+}
+
+for (var i in data1){
+    data1[i].techrole=fdpd1[i];
+
+}
+
+
+
+          
+
+
+
+
+    
+    
+        d3.select("body").select(".main_graph").select("svg").remove();
+        d3.select("body").selectAll(".wordcloud").remove();
+        
+    
+        
+    var canvas = d3.select(".main_graph").append("svg")
+                    .attr("width",w)
+                    .attr("height",h)
+                    .attr("transform","translate("+transx+","+transy+")")
+    var layer0 = canvas.append('g')
+                    
+                    var borderPath = canvas.attr("border",border)
+                        .append("rect")
+                        .attr("x",0)
+                        .attr("y",0)
+                        .attr("height",h)
+                        .attr("width",w)
+                        .style("stroke", bordercolor)
+                        .style("fill", "none")
+                        .style("stroke-width", border);
+                
+                
+        canvas.append("g").attr("class","x axis")
+        .attr("transform","translate("+wmargin+","+(h-hmargin)+")")
+        .call(xAxis);
+        
+        canvas.append("g").attr("class","y axis")
+        .attr("transform","translate("+wmargin+","+hmargin+")")
+        .call(yAxis);
+        
+        canvas.append("text")      // text label for the x axis
+        .attr("x", w/2-wmargin*2 )
+        .attr("y", h-3 )
+        .style("text-anchor", "middle")
+        .style("font-weight","bold")
+        .attr('font-size',15)
+        .text("Marketing Spending");
+        
+        
+        canvas.append("text")   //text label for the y axis
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0-20+wmargin)
+        .attr("x",0-h/2)
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .style("font-weight","bold")
+        .attr('font-size',15)
+        .text("Domestic Total Box-office Revenue");
+        
+    
+                    
+
+rep_lgdata=lgdata;
+
+        var lineFunc = d3.svg.line()
+            .x(function(d) {
+                return wmargin+xScale(d.x);
+                    })
+            .y(function(d) {
+                return h-hmargin-yScale(d.fy);
+            })
+            .interpolate('linear');
+            
+            layer0.append('svg:path').attr('id','fitted_line').attr('d', lineFunc(lgdata)).attr('stroke', '#A9F5A9').attr('stroke-width', 7).attr('opacity',.8).attr('fill', 'none');
+            
+            
+        layer0.append("text")
+    .attr("dx", 300)
+    .attr("dy", 2)
+  .append("textPath")
+    .attr("class", "textpath")
+    .attr("xlink:href", "#fitted_line")
+    .attr("fill",'#3B240B')
+    .style("font-size","9px")
+    .style("font-weight","bold")
+    .text("Greenlight Essentials......Greenlight Essentials......Greenlight Essentials");
+        
+
+///////filter here
+
+////////
+        
+        rep_data=data;
+            
+                
+        
+////////////////////////////////////////////////////////////////actor manipulation
+//////////////////////////////////////////////end of data manipulation
+                
+            var circles =   canvas.selectAll("circle")
+               .data(data)
+               .enter()
+               .append("circle")
+               .attr("cx", function(d) {
+                    return wmargin+xScale(d.x);
+               })
+               .attr("cy", function(d) {
+                    return h-hmargin-yScale(d.y);
+               })
+               .attr('r', 0.5)
+               .attr("fill","black")
+               .style("opacity",.5)
+               ;
+
+
+
+g_titles=[]
+for (i in data){
+    g_titles.push(data[i]['title'])
+
+}
+
+fb()
+//geo_data()
+//console.log(g_titles)
+
+             
+                circles.on("mouseover", function(){
+                
+                if(lock=="on"){d3.select(this).transition().duration(70).style("opacity",5)
+                .attr('r',11.7)}
+                
+                
+                
+                else {
+                d3.select(this).transition().duration(70).style("opacity",5)
+                .attr('r',11.7),
+                kl=this.__data__.keywords.split(","),
+                tempbool=[],
+                tdata=d3.select(".word_graph").select(".wordcloud").selectAll("text").filter(function (d){return kl.indexOf(d.text)>-1 })
+                ,
+                
+                tdata.transition().duration(10).style("fill","red"),
+                kl=this.__data__.actors.split(","),
+                tempbool=[],
+                tdata=d3.select(".actor_graph").select(".wordcloud").selectAll("text").filter(function (d){return kl.indexOf(d.text)>-1 })
+                ,   
+                tdata.transition().duration(10).style("fill","red")
+                ,
+                kl=this.__data__.techrole.split(","),
+                tempbool=[],
+                tdata=d3.select(".dp_graph").select(".wordcloud").selectAll("text").filter(function (d){return kl.indexOf(d.text)>-1 })
+                ,   
+                tdata.transition().duration(10).style("fill","red")
+
+                }})
+                .on("mouseout", function(){
+                ///////check color
+                //console.log(d3.select(this).style("fill"))
+                
+                if(d3.select(this).style("fill")=="rgb(128, 0, 0)"||d3.select(this).style("fill")=='#800000'){
+                return;
+                }
+                else{
+                if(lock=="on"){d3.select(this).transition().duration(300).style("opacity",.5)
+                .attr('r',5.7);}
+                else{
+                d3.select(".word_graph").select(".wordcloud").selectAll("text").transition().style("fill", function(d) { return color(d.pc);})
+                ,
+                d3.select(".actor_graph").select(".wordcloud").selectAll("text").transition().style("fill", function(d) { return color(d.pc);})
+                ,
+                d3.select(".dp_graph").select(".wordcloud").selectAll("text").transition().style("fill", function(d) { return color(d.pc);})
+                ,
+                d3.select(this).transition().duration(300).style("opacity",.5)
+                .attr('r',5.7);}}})
+               .transition()
+               .duration(777)
+               .attr('r',5.7);
+               
+               
+                
+            // tooltips (using jQuery plugin tipsy)
+        $('svg circle').tipsy({ 
+        gravity: 's', 
+        html: true, 
+        fade: false,
+        title: function() {
+          var d = this.__data__;
+          return d.title; 
+                }});     
+
+
+
+      ////////////////////////////////word list
+            
+            var color = d3.scale.linear()
+            .domain([0,5,30])
+            .range(["black", "#999","#bbb"]);
+               
+               
+
+                     //////////////////////////////////////////
+                     function compare(a,b) {
+                    if (a.percent > b.percent)
+                    return -1;
+                if (a.percent < b.percent)
+                    return 1;
+            return 0;
+                }
+
+
+                     
+                     
+                     ktpercentage.sort(compare);
+                     
+                     var psum=[];
+                     for (var i in ktpercentage){
+                     psum[i]=ktpercentage[i]['keyword']
+                     }
+                
+                    
+                     for (var i in summary){
+                        summary[i]['percent']=ktpercentage[psum.indexOf(summary[i]['text'])]['percent'];
+                        
+                     }
+
+
+
+
+    
+
+    
+
+//console.log(summary)
+
+
+        
+                     //////////////////////////////////////////
+                     
+                                  var  fontScale = d3.scale.linear()
+                     .domain([0, d3.max(summary, function(d) { return d.size; })])
+                     .range([20, 20])
+
+
+
+//console.log(summary)
+                     
+        d3.layout.cloud().size([500, 500])
+            .words(summary)
+            .rotate(0)
+            .fontSize(function(d) { return fontScale(d.size); })
+            .on("end", draw)
+            .start();
+            
+            
+            
+                    var cdata;
+                     var percentage;
+
+                      function compare2(a,b) {
+                    if (a.order < b.order)
+                    return -1;
+                if (a.order > b.order)
+                    return 1;
+            return 0;
+                }
+            //       var cn=[];
+            //  var pn;
+            var lock='off'
+     function draw(words) {
+    
+        
+
+        for (var i in words){
+        words[i].percent=ktpercentage[psum.indexOf(words[i]['text'])]['percent'];
+        }
+        var swords=[];
+        for(var i in words){
+        swords[i]=[];
+        swords[i]['percent']=words[i]['percent'];
+        }
+
+        swords.sort(compare)
+        var swordsl=[];
+        for(var i in swords){
+        swordsl[i]=swords[i]['percent']
+        }
+        
+        
+        for (var i in words){
+        words[i].pc=swordsl.indexOf(words[i]['percent']);
+        }
+
+        var sind=[]
+        for (var i in summary){
+            sind.push(summary[i].text)
+        }
+        
+        for (var i in words){
+        words[i].order=sind.indexOf(words[i]['text']);
+        }
+
+
+
+
+
+    
+
+        //console.log(words)
+
+        words.sort(compare2)
+
+
+        
+        
+        var wgraph = d3.select(".word_graph").append("svg")
+                .attr("width", wwidth)
+                .attr("height", "600px")
+                .attr("class", "wordcloud")
+
+                .append("g")
+                // without the transform, words words would get cutoff to the left and top, they would
+                // appear outside of the SVG area
+                .attr("transform", "translate(0,40)")
+                .selectAll("text")
+                .data(words)
+                .enter().append("text")
+                .style("font-size", function(d) { return   "1px"; })
+                .style("fill", function(d) { console.log(d.pc)
+                    return color(d.pc);})
+                .attr("transform", function(d,i) {
+                    return "translate(" + [0, i*20] + ")rotate(" + d.rotate + ")";
+                })
+             
+                .text(function(d) { return d.text; });
+                
+            
+                
+                
+                wgraph.on({"mouseover": function(){
+
+                d3.select(this).transition().duration(70)
+                .style("font-size",function(d) { return d.size*2 + "px"; 
+                
+                });
+                
+                
+                tkw=d3.select(this).text();
+                
+                //console.log(tkw);
+                cdata=d3.selectAll('circle').filter(function (d){
+                return d.keywords.match(tkw)})
+                
+                rep_cdata=cdata;
+                
+                //cdata.each(function(d){
+                 //cn.push(d.op)
+                //}
+                //)
+                
+                //pn=cn.filter(isBigEnough(50))
+                //percentage=Math.round(pn.length*100/cn.length);
+                
+                //cn=[];
+                var pe;
+                pe=words.filter(function (d){return d.text.match(tkw)});
+                //console.log(pe[0].percent)
+            
+                percentage=pe[0].percent
+                
+                if(lock=="on"){return;}
+                else{
+                cdata.transition().duration(70).style("opacity",5)
+                .attr('r',11.7)}
+                
+                if(d3.select(this).style("fill")=="rgb(255, 0, 0)"||d3.select(this).style("fill")=="#ff0000"||lock=='on'){
+                return ;
+                }
+                else {
+                        layer0.append("text")      
+                        .attr("x", w*0.3 )
+                        .attr("y", h*0.45 )
+                        .attr("class",'percent_sign')
+                        .style("z-index",1)
+                        .style("font-weight","bold")
+                        .style("font-size",80+'px')
+                        .style("fill",'#00FF66')
+                        .style('opacity',0.5)
+                        .text(percentage+"%");
+                        
+                        layer0.append("text")      
+                        .attr("x", w*0.65 )
+                        .attr("y", h*0.85 )
+                        .attr("class",'percent_sign')
+                        .style("z-index",1)
+                        .style("font-weight","bold")
+                        .style("font-size",80+'px')
+                        .style("fill",'red')
+                        .style('opacity',0.5)
+                        .text(100-percentage+"%");
+
+
+        
+
+
+
+
+
+                    }
+
+                
+
+
+
+                    //  rep_percentage=percentage;
+                
+                }
+                ,"mouseout":function(){
+                d3.select(this).transition().duration(300)
+                .style("font-size",function(d) { return d.size*0.9 + "px"; })
+                ;
+                
+                var tkw=d3.select(this).text();
+                //console.log(tkw);
+                ///if its black
+                if(d3.select(this).style("fill")=="rgb(255, 0, 0)"
+                ||d3.select(this).style("fill")=="#ff0000"||lock=='on'){
+                return ;
+                }
+                //if(d3.select(this).)
+                
+                ///
+                else {d3.selectAll('circle').filter(function (d){
+                return d.keywords.match(tkw)})
+                .transition().duration(300).style("opacity",.5).style('fill','black')
+                .attr('r',5.7); 
+                
+                d3.selectAll('.percent_sign').remove();
+                }
+                }
+                ,"click":function(){
+                //console.log(d3.select(this).style("fill"))
+                if((d3.select(this).style("fill")=="rgb(255, 0, 0)"
+                ||d3.select(this).style("fill")=="#ff0000")&& lock=='on'){
+
+
+                    document.getElementById('attribute_button').style.visibility="hidden",
+                
+                    lock='off',
+
+
+
+                d3.select(this).style("fill", function(d) { return color(d.pc);}
+                ),d3.selectAll('circle')
+                .transition().duration(300).style("opacity",.5).style('fill','black')
+                .attr('r',5.7);
+                if(typeof att_rp!="undefined"){
+                return att_rp.close()}
+                }
+                else if((d3.select(this).style("fill")!=="rgb(255, 0, 0)"&& lock=='on')
+                ||(d3.select(this).style("fill")!=="#ff0000"&& lock=='on')){return ;}
+                else{
+                
+                    rep_percentage=percentage,
+                document.getElementById('attribute_button').style.visibility="visible",
+                rep_this=d3.select(this).text(),
+                lock='on',
+
+
+                
+                d3.select(this).style("fill","#ff0000"),
+                cdata.transition().duration(70).style("opacity",1).style('fill','rgb(128,0,0)')
+                .attr('r',11.7);
+
+                cdata.moveToFront();
+
+                }
+                }
+                })
+                
+            
+                
+                
+            //  .on("mouseout", )
+                    /////mouse click test
+                //.on("click", function(){
+                //alert("hello");
+                //})
+                
+                
+                ////mouse click test
+                
+                .transition()
+                .duration(1500)
+                .style("font-size", function(d) { return d.size*0.9 + "px"; });
+                
+                
+                
+              
+                
+    }
+    
+                    
+
+                
+                
+                
+                
+////////////////////////////////////////////////////////////////////////actor cloud
+
+
+
+
+                     //////////////////////////////////////////
+                     function compare(a,b) {
+                    if (a.percent > b.percent)
+                    return -1;
+                if (a.percent < b.percent)
+                    return 1;
+            return 0;
+                }
+
+
+                    
+                     tpercentage.sort(compare);
+                     
+                     var tpsum=[];
+                     for (var i in tpercentage){
+                     tpsum[i]=tpercentage[i]['actor']
+                     }
+                
+                    
+                     for (var i in asummary){
+                        asummary[i]['percent']=tpercentage[tpsum.indexOf(asummary[i]['text'])]['percent'];
+                        
+                     }
+                
+
+
+
+                    
+                     //////////////////////////////////////////
+
+                    
+    
+        
+        var acfontScale = d3.scale.linear()
+                     .domain([0, d3.max(asummary, function(d) { return d.size; })])
+                     .range([20,20])
+
+                     
+                     
+                d3.layout.cloud().size([500, 500])
+            .words(asummary)
+            .rotate(0)
+            .fontSize(function(d) { return acfontScale(d.size); })
+            .on("end", draw2)
+            .start();
+            
+            
+            var acdata;
+                     var apercentage;
+                     var acn=[];
+                var apn;
+        
+            
+            
+            
+    
+    function draw2(words) {
+    
+    
+            for (var i in words){
+        words[i].percent=tpercentage[tpsum.indexOf(words[i]['text'])]['percent'];
+        }
+        var swords=[];
+        for(var i in words){
+        swords[i]=[];
+        swords[i]['percent']=words[i]['percent'];
+        }
+
+        swords.sort(compare)
+        var swordsl=[];
+        for(var i in swords){
+        swordsl[i]=swords[i]['percent']
+        }
+        
+        
+        for (var i in words){
+        words[i].pc=swordsl.indexOf(words[i]['percent']);
+        }
+        
+        var sind=[]
+        for (var i in  asummary){
+            sind.push(asummary[i].text)
+        }
+        
+        for (var i in words){
+        words[i].order=sind.indexOf(words[i]['text']);
+        }
+
+        words.sort(compare2)
+    
+        var awgraph = d3.select(".actor_graph").append("svg")
+                .attr("width", wwidth)
+                .attr("height", 700)
+                .attr("class", "wordcloud")
+                .append("g")
+                // without the transform, words words would get cutoff to the left and top, they would
+                // appear outside of the SVG area
+                .attr("transform", "translate(0,40)")
+                .selectAll("text")
+                .data(words)
+                .enter().append("text")
+                .style("font-size", function(d) { return d.size*.1 + "px"; })
+                .style("fill", function(d) { return color(d.pc); })
+                .attr("transform", function(d,i) {
+                    return "translate(" + [0, i*20] + ")rotate(" + d.rotate + ")";
+                })
+                .text(function(d) { return d.text; });
+                
+                
+                
+                //////////mouse effect
+                awgraph.on({"mouseover": function(){
+                d3.select(this).transition().duration(70)
+                .style("font-size",function(d) { return d.size*2 + "px"; 
+                
+                });
+                
+                
+                atkw=d3.select(this).text();
+                //console.log(tkw);
+                acdata=d3.selectAll('circle').filter(function (d){
+                return d.actors.match(atkw)})
+                
+            
+                //acdata.each(function(d){
+                // acn.push(d.op)
+                //}
+                //)
+                
+                //apn=acn.filter(isBigEnough(50))
+                //apercentage=Math.round(apn.length*100/acn.length);
+                
+                //acn=[];
+                var ape;
+                ape=tpercentage.filter(function (d){return d.actor.match(atkw)});
+                
+                apercentage=ape[0].percent
+                
+                    if(lock=='on'){return }
+                else{
+
+                acdata.transition().duration(70).style("opacity",5)
+                .attr('r',11.7)}
+                
+                if(d3.select(this).style("fill")=="rgb(255, 0, 0)"
+                ||d3.select(this).style("fill")=="#ff0000"||lock=='on'){
+                return ;
+                }
+                else {
+                        layer0.append("text")      
+                        .attr("x", w*0.3 )
+                        .attr("y", h*0.45 )
+                        .attr("class",'percent_sign')
+                        .style("z-index",1)
+                        .style("font-weight","bold")
+                        .style("font-size",80+'px')
+                        .style("fill",'#00FF66')
+                        .style('opacity',0.5)
+                        .text(apercentage+"%");
+                        
+                        layer0.append("text")      
+                        .attr("x", w*0.65 )
+                        .attr("y", h*0.85 )
+                        .attr("class",'percent_sign')
+                        .style("z-index",1)
+                        .style("font-weight","bold")
+                        .style("font-size",80+'px')
+                        .style("fill",'red')
+                        .style('opacity',0.5)
+                        .text(100-apercentage+"%");
+
+                        
+
+
+
+                    }
+
+
+                }
+                ,"mouseout":function(){
+                d3.select(this).transition().duration(300)
+                .style("font-size",function(d) { return d.size *0.9 + "px"; })
+                ;
+                
+                var atkw=d3.select(this).text();
+                //console.log(tkw);
+                ///if its black
+                if(d3.select(this).style("fill")=="rgb(255, 0, 0)"
+                ||d3.select(this).style("fill")=="#ff0000"||lock=='on'){
+                return ;
+                }
+                //if(d3.select(this).)
+                
+                ///
+                else {d3.selectAll('circle').filter(function (d){
+                return d.actors.match(atkw)})
+                .transition().duration(300).style("opacity",.5).style('fill','black')
+                .attr('r',5.7);
+                d3.selectAll('.percent_sign').remove();
+                }
+                }
+                ,"click":function(){
+                //console.log(d3.select(this).style("fill"))
+                if((d3.select(this).style("fill")=="rgb(255, 0, 0)"
+                ||d3.select(this).style("fill")=="#ff0000")&&lock=='on'){
+                    document.getElementById('actor_button').style.visibility="hidden",
+                lock='off',
+                d3.select(this).style("fill", function(d) { return color(d.pc);}
+                ),d3.selectAll('circle')
+                .transition().duration(300).style("opacity",.5).style('fill','black')
+                .attr('r',5.7);
+                if(typeof act_rp!="undefined"){
+                 act_rp.close();};
+                }
+                else if((d3.select(this).style("fill")!=="rgb(255, 0, 0)"&& lock=='on')
+                ||(d3.select(this).style("fill")!=="#ff0000"&& lock=='on')){return ;}
+                
+                else{
+                    rep_percentage=apercentage,
+                    
+                    rep_this=d3.select(this).text(),
+                    document.getElementById('actor_button').style.visibility="visible"
+                    ,aoricol=this['style']['fill'],lock='on',d3.select(this).style("fill","#ff0000"),
+                acdata.transition().duration(70).style("opacity",1).style('fill','rgb(128,0,0)')
+                .attr('r',11.7);
+                acdata.moveToFront();
+                }
+                }
+                
+                
+                })
+                
+                .transition()
+                .duration(1500)
+                .style("font-size", function(d) { return d.size*0.9 + "px"; });
+                
+                
+                }
+        
+
+                ///////////////////////////dpcloud
+      
+               
+
+                     //////////////////////////////////////////
+                     function compare(a,b) {
+                    if (a.percent > b.percent)
+                    return -1;
+                if (a.percent < b.percent)
+                    return 1;
+            return 0;
+                }
+
+
+                    
+                     
+                     dpnumpercentage.sort(compare);
+                     
+                     var psum=[];
+                     for (var i in dpnumpercentage){
+                     psum[i]=dpnumpercentage[i]['techrole']
+                     }
+                
+                    
+                     for (var i in dpsummary){
+                        dpsummary[i]['percent']=dpnumpercentage[psum.indexOf(dpsummary[i]['text'])]['percent'];
+                        
+                     }
+                
+
+
+                
+        
+                     //////////////////////////////////////////
+                     
+                                  var  fontScale = d3.scale.linear()
+                     .domain([0, d3.max(dpsummary, function(d) { return d.size; })])
+                     .range([20, 20])
+                     
+                d3.layout.cloud().size([500, 500])
+            .words(dpsummary)
+            .rotate(0)
+            .fontSize(function(d) { return fontScale(d.size); })
+            .on("end", draw3)
+            .start();
+            
+            
+            
+                    var cdata;
+                     var percentage;
+            //       var cn=[];
+            //  var pn;
+            var lock='off'
+     function draw3(words) {
+    
+        
+        for (var i in words){
+        words[i].percent=dpnumpercentage[psum.indexOf(words[i]['text'])]['percent'];
+        }
+        var swords=[];
+        for(var i in words){
+        swords[i]=[];
+        swords[i]['percent']=words[i]['percent'];
+        }
+
+        swords.sort(compare)
+        var swordsl=[];
+        for(var i in swords){
+        swordsl[i]=swords[i]['percent']
+        }
+        
+        
+        for (var i in words){
+        words[i].pc=swordsl.indexOf(words[i]['percent']);
+        }
+
+        var sind=[]
+        for (var i in dpsummary){
+            sind.push(dpsummary[i].text)
+        }
+        
+        for (var i in words){
+        words[i].order=sind.indexOf(words[i]['text']);
+        }
+
+        words.sort(compare2)
+
+        var wgraph = d3.select(".dp_graph").append("svg")
+                .attr("width", wwidth)
+                .attr("height", "600px")
+                .attr("class", "wordcloud")
+                .append("g")
+                // without the transform, words words would get cutoff to the left and top, they would
+                // appear outside of the SVG area
+                .attr("transform", "translate(0,40)")
+                .selectAll("text")
+                .data(words)
+                .enter().append("text")
+                .style("font-size", function(d) { return d.size*.1 + "px"; })
+                .style("fill", function(d) { return color(d.pc);})
+                .attr("transform", function(d,i) {
+                    return "translate(" + [0, i*20] + ")rotate(" + d.rotate + ")";
+                })
+                .text(function(d) { return d.text; });
+                
+            
+                
+                
+                wgraph.on({"mouseover": function(){
+                d3.select(this).transition().duration(70)
+                .style("font-size",function(d) { return d.size*2 + "px"; 
+                
+                });
+                
+                
+                tkw=d3.select(this).text();
+                //console.log(tkw);
+                cdata=d3.selectAll('circle').filter(function (d){
+                return d.techrole.match(tkw)})
+                
+                
+                
+                //cdata.each(function(d){
+                 //cn.push(d.op)
+                //}
+                //)
+                
+                //pn=cn.filter(isBigEnough(50))
+                //percentage=Math.round(pn.length*100/cn.length);
+                
+                //cn=[];
+                var pe;
+                pe=dpnumpercentage.filter(function (d){return d.techrole.match(tkw)});
+                //console.log(ape[0].percent)
+            
+                percentage=pe[0].percent
+                
+                if(lock=="on"){return;}
+                else{
+                cdata.transition().duration(70).style("opacity",5)
+                .attr('r',11.7)}
+                
+                if(d3.select(this).style("fill")=="rgb(255, 0, 0)"||d3.select(this).style("fill")=="#ff0000"||lock=='on'){
+                return ;
+                }
+                else {
+                        layer0.append("text")      
+                        .attr("x", w*0.3 )
+                        .attr("y", h*0.45 )
+                        .attr("class",'percent_sign')
+                        .style("z-index",1)
+                        .style("font-weight","bold")
+                        .style("font-size",80+'px')
+                        .style("fill",'#00FF66')
+                        .style('opacity',0.5)
+                        .text(percentage+"%");
+                        
+                        layer0.append("text")      
+                        .attr("x", w*0.65 )
+                        .attr("y", h*0.85 )
+                        .attr("class",'percent_sign')
+                        .style("z-index",1)
+                        .style("font-weight","bold")
+                        .style("font-size",80+'px')
+                        .style("fill",'red')
+                        .style('opacity',0.5)
+                        .text(100-percentage+"%");
+
+
+                    }
+                
+                }
+                ,"mouseout":function(){
+                d3.select(this).transition().duration(300)
+                .style("font-size",function(d) { return d.size  *0.9+ "px"; })
+                ;
+                
+                var tkw=d3.select(this).text();
+                //console.log(tkw);
+                ///if its black
+                if(d3.select(this).style("fill")=="rgb(255, 0, 0)"
+                ||d3.select(this).style("fill")=="#ff0000"||lock=='on'){
+                return ;
+                }
+                //if(d3.select(this).)
+                
+                ///
+                else {d3.selectAll('circle').filter(function (d){
+                return d.techrole.match(tkw)})
+                .transition().duration(300).style("opacity",.5).style('fill','black')
+                .attr('r',5.7); 
+                
+                d3.selectAll('.percent_sign').remove();
+                }
+                }
+                ,"click":function(){
+                //console.log(d3.select(this).style("fill"))
+                if((d3.select(this).style("fill")=="rgb(255, 0, 0)"
+                ||d3.select(this).style("fill")=="#ff0000")&&lock=='on'){
+                    document.getElementById('director_button').style.visibility="hidden",
+                
+                lock='off',
+
+                d3.select(this).style("fill", function(d) { return color(d.pc);}
+                ),d3.selectAll('circle')
+                .transition().duration(300).style("opacity",.5).style('fill','black')
+                .attr('r',5.7);
+                if(typeof drc_rp!="undefined"){
+                 drc_rp.close();};
+                }
+                else if((d3.select(this).style("fill")!=="rgb(255, 0, 0)"&& lock=='on')
+                ||(d3.select(this).style("fill")!=="#ff0000"&& lock=='on')){return ;}
+                
+                else{
+
+                document.getElementById('director_button').style.visibility="visible",
+                rep_this=d3.select(this).text(),
+                rep_percentage=percentage,
+                
+                lock='on',
+                
+                d3.select(this).style("fill","#ff0000"),
+                cdata.transition().duration(70).style("opacity",1).style('fill','rgb(128,0,0)')
+                .attr('r',11.7);
+                cdata.moveToFront();
+                }
+                }
+                })
+                
+            
+                
+                
+            //  .on("mouseout", )
+                    /////mouse click test
+                //.on("click", function(){
+                //alert("hello");
+                //})
+                
+                
+                ////mouse click test
+                
+                .transition()
+                .duration(1500)
+                .style("font-size", function(d) { return d.size*0.9 + "px"; });
+                
+                
+                
+
+
+              
+                
+    }
+
+
+
+    
+    
+    
+
+
+    document.getElementsByName('updateButton')[0].style.visibility="visible"    
+            
+    
+    }
+        
+    worker.postMessage(filters);}}})}
+
+
+
+
+        </script>
+    
+
+    </body>
+</html>

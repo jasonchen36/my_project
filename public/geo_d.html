@@ -1,0 +1,1306 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" id="themeCSS" href="jQRangeSlider-5.7.0/css/classic.css"> 
+<script src="d3.min.js"></script>
+
+
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="jQRangeSlider-5.7.0/lib/jquery.mousewheel.min.js"></script>
+		<script src="jQRangeSlider-5.7.0/jQAllRangeSliders-min.js"></script>
+<script src="cloudlayout.js"></script>
+
+    <script type="text/javascript" src="jquery.tipsy.js"></script>
+    <link href="tipsy.css" rel="stylesheet" type="text/css" />
+	 <script src="topojson.v1.min.js"></script>
+
+	
+   
+
+	 		<link rel="stylesheet" href="jquery-textext-master/src/css/textext.core.css" type="text/css" />
+		<link rel="stylesheet" href="jquery-textext-master/src/css/textext.plugin.tags.css" type="text/css" />
+		<link rel="stylesheet" href="jquery-textext-master/src/css/textext.plugin.autocomplete.css" type="text/css" />
+		<link rel="stylesheet" href="jquery-textext-master/src/css/textext.plugin.focus.css" type="text/css" />
+		<link rel="stylesheet" href="jquery-textext-master/src/css/textext.plugin.prompt.css" type="text/css" />
+		<link rel="stylesheet" href="jquery-textext-master/src/css/textext.plugin.arrow.css" type="text/css" />
+		<script src="jquery-textext-master/src/js/textext.core.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery-textext-master/src/js/textext.plugin.tags.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery-textext-master/src/js/textext.plugin.autocomplete.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery-textext-master/src/js/textext.plugin.suggestions.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery-textext-master/src/js/textext.plugin.filter.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery-textext-master/src/js/textext.plugin.focus.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery-textext-master/src/js/textext.plugin.prompt.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery-textext-master/src/js/textext.plugin.ajax.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery-textext-master/src/js/textext.plugin.arrow.js" type="text/javascript" charset="utf-8"></script>
+
+
+		<script type="text/javascript" src="http://d3js.org/d3.hexbin.v0.min.js"></script>	
+	 
+<title> Analytic Terminal </title>
+<style>
+
+
+
+body {
+        font-family:"Lucida Grande","Droid Sans",Arial,Helvetica,sans-serif;
+		margin:0;
+		padding:0;
+
+		
+    }
+
+.myButton {
+	background-color:#d9534f;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:9px 21px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton:hover {
+	background-color:#d43f3a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+    .tipsy { font-size: 14px;}
+    .legend {
+        border: 1px solid #555555;
+        border-radius: 5px 5px 5px 5px;
+        font-size: 1.8em;
+        margin: 0px;
+        padding: 8px;
+    }
+    .bld {
+        font-weight: bold;
+    }
+	
+	.filter_options {
+        
+        border: 1px solid #555555;
+        border-radius:5px;
+        font-size: .9em;
+		color:white;
+        margin: 10px;
+        padding: 10px;
+		width:400px;
+		position:relative;
+		top:0px;
+		left:-2%;
+		z-index:7999;
+		height:-600px;
+		background-color:#2E2E2E;
+		
+    }
+
+	.myButton2 {
+	background-color:#b8b8b8;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:17px;
+	padding:21px 17px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton2:hover {
+	background-color:#949194;
+}
+.myButton2:active {
+	position:relative;
+	top:1px;
+}
+
+
+	p {
+    font-size: 100%;
+	}
+	div {
+    font-size: 90%;
+	}
+	.tabs li {
+				white-space: nowrap;
+				
+			}
+
+			.tabs a {
+				padding:5px 10px;
+				display:inline-block;
+				
+				background:#fff;
+				color:#000;
+				text-decoration:none;
+				z-index:999;
+			
+			}
+
+			.tabs a.active {
+				background:#000000;
+				color:#fff;
+				z-index:999
+			}
+
+.land {
+  fill: #222;
+}
+
+.county-boundary {
+  fill: none;
+  stroke: #fff;
+  stroke-width: .5px;
+}
+
+.state-boundary {
+  fill: none;
+  stroke: #fff;
+}
+
+.hexagons path {
+  stroke: #40B640;
+  stroke-width:3px;
+}
+
+
+.chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+			
+			
+
+</style>
+</head>
+<body  class='pos_right'  style="background-color: #6E6E6E;padding:0px;margin:0px">
+<h1 style="z-index:9999;position:fixed;color:#A9F5A9;width:100%;background-color: #1C1C1C;height:70px;padding:0px;margin:0px">
+
+
+<a href="/" style="color:inherit;
+  text-decoration: none;z-index:99999;">
+  <img src='/everyone/glessentials.png' height='70px'></a>
+
+<div align="center" >
+<div style='text-align:left;width:93%;position:relative;top:25px'>
+
+</div></div>
+<p style="position:relative;width:auto;display:inline-block;float:right;font-size:0.4em;top:-45px;left:-20px;color:#A9F5A9">© 2015 Si Chang Zhang. All Rights Reserved. </p>
+
+</h1>
+
+
+
+<div id="option">
+    <a name="logoutButton" 
+	
+			style="position:relative;left:93%;top:-20px;z-index:999;"
+class="myButton"
+    
+           onclick="logout()" >Logout</a>
+		   </div >
+
+
+
+		   		   <p class="data_summary" style="position:absolute;width:auto;display:inline-block;right:30px;top:70px;font-size:1em;color:#fff"> </p>
+
+<map></map>
+
+
+
+
+		   		   		   <p class="title_summary" style="position:relative;width:auto;display:inline-block;left:20px;float:left;width:1000px;top:px;font-size:1em;color:#fff"> </p>
+
+		   		   		   
+
+<div id="option">
+    <a name="logoutButton" 
+	
+			style="position:relative;left:20%;top:20px;z-index:999;"
+class="myButton"
+    
+           onclick="geo_detail1()" >Show data</a>
+		   </div >
+
+<div>
+<map2 ></map2>
+</div >
+
+
+<div id="option">
+    <a name="logoutButton" 
+	
+			style="position:relative;left:85%;top:50px;z-index:999;"
+class="myButton"
+    
+           onclick="geo_detail2()" >Show Canada data</a>
+		   </div >
+<div style="position:relative;background-color:#3A3A3A;top:100px">
+ <p class="demo_data_summary" style="position:absolute;width:auto;display:inline-block;right:30px;top:10px;font-size:1em;color:#fff"> </p>
+
+<demo style="position:relative;left:10%">
+</demo>
+</div>
+
+
+
+
+<div>
+	<job><h2 style="position:relative;color:white;left:50px;top:200px">Occupation</h2>
+</job>
+
+
+</div>
+
+
+<div style="position:relative;background-color:#3A3A3A;">
+	<income><h2 style="position:relative;color:white;left:50px;top:100px">Household Income</h2>
+</income>
+
+
+</div>
+
+
+<div style="position:relative;background-color:;top:-10px;">
+	<pur><h2 style="position:relative;color:white;left:50px;top:100px">Purchasing Pattern</h2>
+</pur>
+
+
+</div>
+
+
+<div style="position:relative;top:;background-color:black;padding:20px">
+<cpl style="position:relative;left:"><div> <h2 style="display:inline;color:white">Who Do They Like?</h2> <h2 style="position:relative;display:inline;left:200px;color:white">Which TV Channel/Network Do They Like?</h2>
+<h2 style="position:relative;display:inline;left:300px;color:white">Which Brands/Companies Do They Like?</h2>
+</div>
+
+
+</cpl>
+
+</div>
+
+
+
+<div style="position:relative;top:;background-color:black;padding:20px">
+<cpl2 style="position:relative;left:"><div> <h2 style="display:inline;color:white">What Culture/Entertainment Products do they Like?</h2> <h2 style="position:relative;display:inline;left:200px;color:white">What Other Interests Do They Have?</h2>
+
+</div>
+
+
+</cpl2>
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+function percentile(arr, p) {
+    if (arr.length === 0) return 0;
+    if (typeof p !== 'number') throw new TypeError('p must be a number');
+    if (p <= 0) return arr[0];
+    if (p >= 1) return arr[arr.length - 1];
+
+    var index = arr.length * p,
+        lower = Math.floor(index),
+        upper = lower + 1,
+        weight = index % 1;
+
+    if (upper >= arr.length) return arr[lower];
+    return arr[lower] * (1 - weight) + arr[upper] * weight;
+}
+
+
+detail_ca=[]
+
+ww=$(window).width()
+hh=$(window).height()
+
+
+var width = ww,
+    height = hh;
+
+var projection = d3.geo.albersUsa()
+    .scale(1500)
+    .translate([width/2, height/2])
+    .precision(.1);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select("body").select('map').append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+
+
+   
+
+	var svg2 = d3.select("body").select('map2').append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+
+
+
+var svg_demo = d3.select("body").select('demo').append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var svg_people=d3.select("body").select('cpl').append("svg")
+.attr("width", width)
+    .attr("height", height*2);
+
+
+ var svg_people2=d3.select("body").select('cpl2').append("svg")
+.attr("width", width)
+    .attr("height", height*3);
+
+
+ var svg_job=d3.select("body").select('job').append("svg")
+.attr("width", width)
+    .attr("height", height*1.3);
+
+ var svg_income=d3.select("body").select('income').append("svg")
+.attr("width", width)
+    .attr("height", height);
+
+
+     var svg_pur=d3.select("body").select('pur').append("svg")
+.attr("width", width)
+    .attr("height", height);
+
+
+
+var send_titles={"titles":titles}
+//var titles={"titles":['21 Jump Street','22 Jump Street']}
+//var titles={"titles":['The Croods','Brave','Hotel Transylvania']}
+
+//var titles={"titles":['Ray']}
+
+
+detail1=[]
+function geo_detail1(){
+	if(typeof geo_det1!="undefined"){
+				 geo_det1.close();};
+		
+
+
+				geo_det1= window.open("geo_market_share.html","report","width="+$(window).width()/2+",height="+$(window).height()/1.1);
+
+
+	
+			//	console.log(rep_data)
+
+
+
+
+				geo_det1.detail1=detail1
+				
+
+			}
+
+
+
+
+function geo_detail2(){
+	if(typeof geo_det2!="undefined"){
+				 geo_det2.close();};
+		
+
+
+				geo_det2= window.open("geo_market_share.html","report","width="+$(window).width()/2+",height="+$(window).height()/1.1);
+
+
+	
+			//	console.log(rep_data)
+
+
+
+
+				geo_det2.detail1=detail_ca
+				
+
+			}
+
+
+d3.json("us.json", function(error, us) {
+  if (error) throw error;
+
+  svg.insert("path", ".graticule")
+      .datum(topojson.feature(us, us.objects.land))
+      .attr("class", "land")
+      .attr("d", path);
+
+
+  svg.insert("path", ".graticule")
+      .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+      .attr("class", "state-boundary")
+      .attr("d", path);
+
+
+      d3.json("geo_data/total_location.json", function(error, data){
+      //	console.log(data)
+
+/*
+      	location_data={"St_ Charles, Missouri, United States":{"aud_ratio":0.12,"dif_ratio":0.5,"dif":0.06},
+      	"Stanislaus, California, United States":{"aud_ratio":0.01,"dif_ratio":0.20,"dif":0.06},
+      	"Spring Hill, Florida, United States":{"aud_ratio":0.2,"dif_ratio":0.04,"dif":0.06},
+      	"Southfield, Michigan, United States":{"aud_ratio":0.3,"dif_ratio":0.2,"dif":0.06}}
+      	*/
+
+//console.log(titles)
+
+
+
+$.ajax({
+            url: "../location",
+         
+            
+            type: 'POST',
+            data: send_titles,
+            success: function(res_data){
+            	location_data=res_data.success['location_data']
+            	total_aud_data=res_data.success['aud_total']
+            	avg_aud_data=res_data.success['avg_data']
+            	a_title=res_data.success['a_title']
+            	demo_data=res_data.success['demo_data']
+            	people_list=res_data.success['people_list']
+            	cb_list=res_data.success['cb_list']
+            	tv_list=res_data.success['tv_list']
+
+            	ce_list=res_data.success['ce_list']
+            	inter_list=res_data.success['inter_list']
+
+            	pur_data=res_data.success['pur_data']
+
+
+
+            	ot_list=res_data.success['ot_list']
+
+            	ot_inter_list=inter_list.concat(ot_list)
+
+            	job_data=res_data.success['job_data']
+
+
+            	income_data=res_data.success['income_data']
+
+            	//console.log(job_list)
+      	aa=[]
+
+      	detail1=[["City Name","Market Share","Enthusiasm Index"]]
+
+//console.log(data)
+      	aud_list=[]
+      	dif_list=[]
+      	//location_name=Object.keys(location_data)
+        //console.log(data)
+      	for (var i in location_data){
+          //console.log(i)
+      	if (data[i].results[0]["formatted_address"].indexOf('USA') != -1){
+      		a=data[i].results[0].geometry.location.lng
+      		b=data[i].results[0].geometry.location.lat
+      		c=location_data[i]['aud_ratio']
+      		d=location_data[i]['dif_ratio']
+
+      		name=data[i].results[0]['address_components'][0]['short_name']
+
+      		//console.log(data[i].results[0])
+
+      		aud_list.push(c)
+      		dif_list.push(d)
+      		//console.log(i)
+      	//	lname=location_name[i]
+      		aa.push([a,b,c,d,name])
+      		detail1.push([i,Math.round(c*1000000)/10000+"%",Math.round(d*100)/1 ])}
+
+
+      	}
+
+      	detail1.sort(function(a,b){return b[2]-a[2]})
+      	aa.sort(function(a,b){return b[2]-a[2]})
+//console.log(location_data['Kansas City, Missouri, United States'])
+
+
+
+var radius = d3.scale.sqrt()
+    .domain([d3.min(aud_list), d3.max(aud_list)])
+    .range([5, 50]);
+
+
+
+ //     	for (var i in data){
+      		//console.log(data[i])
+ //     	if (data[i].results[0]["formatted_address"].indexOf('USA') != -1){
+ //     		a=data[i].results[0].geometry.location.lng
+  //    		b=data[i].results[0].geometry.location.lat
+      		//console.log(a)
+      		//console.log(b)
+    //  		aa.push([a,b])}
+      //	}
+      //	console.log(aa)
+    //  	aa[0].push(2)
+    //  	aa[1].push(8)
+      //	a=data.results[0].geometry.location.lng
+      //	b=data.results[0].geometry.location.lat
+	//aa = [a,b];
+	//bb = [-122.389809, 37.72728];
+
+
+
+	var secondMax = function (arr){ 
+    var max = Math.max.apply(null, arr), // get the max of the array
+        maxi = arr.indexOf(max);
+    arr[maxi] = -Infinity; // replace max in the array with -infinity
+    var secondMax = Math.max.apply(null, arr); // get the new max 
+
+        maxii=arr.indexOf(secondMax)
+    arr[maxii]=-Infinity
+    var thirdMax=Math.max.apply(null,arr)
+      maxiii=arr.indexOf(thirdMax)
+
+
+    arr[maxi] = max;
+    arr[maxii]=secondMax
+
+    return thirdMax;
+};
+
+
+	lower=d3.min(dif_list)
+	higher=secondMax(dif_list)
+	mid=d3.mean(dif_list)
+
+
+var col_mid=percentile(dif_list,0.99)
+//console.log(higher)
+
+//console.log(col_mid)
+
+
+	var color = d3.scale.linear()
+   .domain([-0.3, 0, higher*0.9,100])
+   .range(["#003300", "#40B640","#eafeea" ,"#fff"])
+   .interpolate(d3.interpolateHcl);
+
+
+
+     var  sizeScale = d3.scale.linear()
+                     .domain([d3.min(aud_list, function(d) { return d; }), d3.max(aud_list, function(d) { return d; })])
+                     .range([10, 50])
+
+  // console.log(color(2))
+   //console.log(color(8))
+  // console.log(aa[96])
+   //console.log(projection([-111.387, 51.726379]))
+/*   
+   bb=[]
+   for (var i in aa){
+   	ab=aa[i].slice(0,2)
+   	//console.log(ab)
+   	p=projection(ab)
+
+   //	console.log(p)
+
+   	var bb_add =[]
+   	bb_add.push(p[0])
+   	bb_add.push(p[1])
+   	bb_add.size=aa[i][2]
+   	bb_add.col=aa[i][3]
+   	bb.push(bb_add)
+   }
+
+   //console.log(hexbin(bb))
+
+   //console.log(radius(bb[1].size))
+
+   hbb=hexbin(bb)
+
+   for (i = 0; i < hbb.length; i++) {
+    hbb[i].size=aa[i][2]
+    hbb[i].col=aa[i][3]
+}
+
+/*
+	svg.append("g")
+	.attr("class","hexagons")
+	.selectAll("path")
+	.data(hbb)
+	.enter()
+	.append("path")
+	.attr("d",function(d) { return hexbin.hexagon(radius(d.size))})
+	.attr("transform",function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+	.style("fill", function(d) { return d3.rgb(color(d.col))})
+		
+*/
+
+
+	svg.selectAll("circle")
+		.data(aa
+			//aa.slice(96,98)
+			).enter()
+		.append("circle")
+		.attr("cx", function (d) {
+			return projection(d)[0]; })
+		.attr("cy", function (d) { return projection(d)[1]; })
+		.attr("r", //"8px")
+			function (d) {return sizeScale(d[2])+"px"})
+		.attr("fill", //"green")
+			function (d) {return d3.rgb(color(d[3]))})  
+		.style("opacity", .95)      // set the element opacity
+    	.style("stroke", "#40B640") 
+    	.style("stroke-width","3px")
+		.append("svg:title")
+		//.text(function(d) {return d[4]})
+
+
+				$('svg circle').tipsy({ 
+        gravity: 's', 
+        html: true, 
+		fade: false,
+        title: function() {
+          var d = this.__data__;
+          return d[4]+"</br>"+"Market Share:" + Math.round(d[2]*100000)/1000 +"%</br> Enthusiasm Index:" +Math.round(d[3]*100)/1; 
+				}});   
+
+
+function addCommas(nStr) {
+    nStr += '';
+    x = nStr.split('.');
+    x1 = x[0];
+    x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+    return x1 + x2;
+}
+
+
+
+
+a_title_text='Title(s) analyzed: '
+for (i in a_title){
+	a_title_text+=a_title[i]+", "
+}
+
+a_title_text=a_title_text.substr(0,a_title_text.length-2)+"."
+
+//console.log(detail1)
+//console.log(a_title_text)
+
+
+$(".data_summary").html(total_aud_data+" title(s) </br>"+addCommas(avg_aud_data) + " samples analyzed")
+
+//$(".title_summary").html(a_title_text)
+
+
+
+
+d3.json("ca.topojson", function(error, ca) {
+  if (error) throw error;
+
+ // console.log(canada)
+  //console.log(us)
+
+  projection = d3.geo.azimuthalEqualArea()
+      .rotate([100, -45])
+      .center([5, 19])
+      .scale(Math.min(width*1.8, height*1.3))
+      .translate([width/2, height/2])
+
+    path = d3.geo.path()
+      .projection(projection)
+
+	svg2.append("g")
+          .attr("class", "land")
+        .selectAll("path")
+          .data(topojson.feature(ca, ca.objects.provinces).features)
+        .enter().append("path")
+          .attr("d", path)
+
+           svg2.append("path")
+          .datum(topojson.mesh(ca, ca.objects.provinces ,function(a, b) { return a !== b; }))
+          .attr("class", "state-boundary")
+          .attr("d", path)
+
+
+aa_ca=[]
+		detail_ca=[]
+      	detail_ca=[["City Name","Market Share","Enthusiasm Index"]]
+
+//console.log(data)
+      	aud_list_ca=[]
+      	dif_list_ca=[]
+      	//location_name=Object.keys(location_data)
+
+      	for (var i in location_data){
+      	if (i.indexOf('Canada') != -1){
+      		a=data[i].results[0].geometry.location.lng
+      		b=data[i].results[0].geometry.location.lat
+      		c=location_data[i]['aud_ratio']
+      		d=location_data[i]['dif_ratio']
+
+      		name=data[i].results[0]['address_components'][0]['short_name']
+
+      		//console.log(data[i].results[0])
+
+      		aud_list_ca.push(c)
+      		dif_list_ca.push(d)
+      		//console.log(i)
+      	//	lname=location_name[i]
+      		aa_ca.push([a,b,c,d,name])
+      		detail_ca.push([i,Math.round(c*1000000)/10000+"%",Math.round(d*100)/1 ])}
+
+
+      	}
+
+      	detail_ca.sort(function(a,b){return b[2]-a[2]})
+      	aa_ca.sort(function(a,b){return b[2]-a[2]})
+
+
+
+            svg2.selectAll("circle")
+		.data(aa_ca
+			//aa.slice(96,98)
+			).enter()
+		.append("circle")
+		.attr("cx", function (d) {
+			return projection(d)[0]; })
+		.attr("cy", function (d) { return projection(d)[1]; })
+		.attr("r", //"8px")
+			function (d) {return sizeScale(d[2])+"px"})
+		.attr("fill", //"green")
+			function (d) {return d3.rgb(color(d[3]))})  
+		.style("opacity", .95)      // set the element opacity
+    	.style("stroke", "#40B640") 
+    	.style("stroke-width","3px")
+		.append("svg:title")
+		//.text(function(d) {return d[4]})
+
+
+				$('svg circle').tipsy({ 
+        gravity: 's', 
+        html: true, 
+		fade: false,
+        title: function() {
+          var d = this.__data__;
+          return d[4]+"</br>"+"Market Share:" + Math.round(d[2]*100000)/1000 +"%</br> Enthusiasm Index:" +Math.round(d[3]*100)/1; 
+				}});   
+
+
+
+
+		//		console.log(demo_data)
+
+				female_total=[demo_data["women_ratio"]]
+				male_total=[demo_data["men_ratio"]]
+
+				demo_total=demo_data["total"]
+
+
+
+//console.log(detail1)
+//console.log(a_title_text)
+
+
+$(".demo_data_summary").html(addCommas( Math.round(demo_total*1)/1)+" demographics samples analyzed")
+
+				d3_female_demo_data=[
+
+				["women 18 to 24",demo_data["women 18 to 24"]],
+               ["women 25 to 34",demo_data["women 25 to 34"]],
+               ["women 35 to 44",demo_data["women 35 to 44"]],
+               ["women 45 to 54",demo_data["women 45 to 54"]],
+               ["women 55 to 64",demo_data["women 55 to 64"]],
+               ["women 65+",demo_data["women 65 and over"]]
+
+
+
+
+				]
+
+
+				d3_male_demo_data=[
+
+				["men 18 to 24",demo_data["men 18 to 24"]],
+               ["men 25 to 34",demo_data["men 25 to 34"]],
+               ["men 35 to 44",demo_data["men 35 to 44"]],
+               ["men 45 to 54",demo_data["men 45 to 54"]],
+               ["men 55 to 64",demo_data["men 55 to 64"]],
+               ["men 65 and over",demo_data["men 65 and over"]]
+				]
+
+				console.log(d3_male_demo_data)
+				console.log(d3_female_demo_data)
+				
+				total_array=[]
+				for (i in d3_male_demo_data){
+					total_array.push(d3_male_demo_data[i][1])
+					total_array.push(d3_female_demo_data[i][1])
+				}
+
+				var min_val = d3.min(total_array, function(d) {
+          return d;
+          });
+
+  var max_val = d3.max(total_array, function(d) {
+          return d;
+          });
+
+  //console.log(d3_male_demo_data)
+
+
+  var margin = {top: 50, right: 20, bottom: 10, left: 65}
+
+
+
+var x = d3.scale.linear()
+    .domain([0, max_val])
+    .range([0, 420]);
+
+
+
+
+  var fbar=svg_demo.selectAll("bar")
+      .data(female_total)
+    .enter()
+
+    fbar.append("rect")
+      .style("fill", "#DE3163")
+      .attr("x", "450px")
+      .attr("width", "100px")
+      .attr("height", function(d) {return d*200+"px"})
+      .attr("y", function(d) {return 200-d*200+"px"})
+
+     fbar.append("text")
+     .attr("x", "470px")
+      .attr("y", function(d) {return 190-d*200+"px"})
+      .style("fill","white")
+      .text(function (d) {return Math.round(d*10000)/100+"%"})
+
+      fbar.append("text")
+     .attr("x", "450px")
+      .attr("y", "220px")
+      .style("fill","white")
+      .text("Female total")
+
+var mbar=svg_demo.selectAll("bar")
+      .data(male_total)
+    .enter()
+
+      mbar.append("rect")
+      .style("fill", "#3878C0")
+      .attr("x", "580px")
+      .attr("width", "100px")
+      .attr("height", function(d) {return d*200+"px"})
+      .attr("y", function(d) {return 200-d*200+"px"})
+
+     mbar.append("text")
+     .attr("x", "600px")
+      .attr("y", function(d) {return 190-d*200+"px"})
+      .style("fill","white")
+      .text(function (d) {return Math.round(d*10000)/100+"%"})
+
+
+      mbar.append("text")
+     .attr("x", "590px")
+      .attr("y", "220px")
+      .style("fill","white")
+      .text("Male total")
+      
+      
+
+
+
+var bar=svg_demo.selectAll("bar")
+      .data(d3_male_demo_data)
+    .enter()
+
+
+    bar.append("rect")
+      .style("fill", "#3878C0")
+      .attr("x", 650+"px")
+      .attr("width", function(d) {return x(d[1])+"px"})
+      .attr("y", function (d,i) {return i*70+270 +"px"})
+      .attr("height", 50 +"px")
+     // .html(function(d) {return "<div>"+String(d[1])+"</div>"})
+
+     bar.append("text")
+     .attr("x", function(d) {return x(d[1])+655+"px"})
+      .attr("y", function (d,i) {return i*70+300 +"px"})
+      .attr("dy", ".25em")
+      .style("fill","white")
+      .text(function (d) {return Math.round(d[1]*10000)/100+"%"})
+
+
+      var bar2=svg_demo.selectAll("bar")
+      .data(d3_female_demo_data)
+    .enter()
+
+//console.log(d3_female_demo_data)
+
+    bar2.append("rect")
+      .style("fill", "#DE3163")
+      .attr("x", function(d) {return 500-x(d[1])+"px"})
+      .attr("width", function(d) {return x(d[1])+"px"})
+      .attr("y", function (d,i) {return i*70+270 +"px"})
+      .attr("height", 50 +"px")
+     // .html(function(d) {return "<div>"+String(d[1])+"</div>"})
+
+     bar2.append("text")
+     .attr("x", function(d) {return 440-x(d[1])+"px"})
+      .attr("y", function (d,i) {return i*70+300 +"px"})
+      .attr("dy", ".25em")
+      .style("fill","white")
+      .text(function (d) {return Math.round(d[1]*10000)/100+"%"})
+
+
+      bar2.append("text")
+     .attr("x", function(d) {return 520+"px"})
+      .attr("y", function (d,i) {return i*70+300 +"px"})
+      .attr("dy", ".25em")
+      .style("fill","white")
+      .text(function (d) {return d[0].replace("women","Age ")})
+      
+
+
+///////////////////////////word cloud part - likes
+
+
+people_list.sort(function(a,b){return b[1]-a[1]})
+
+
+
+  var ppl=svg_people.selectAll("bar")
+      .data(people_list)
+    .enter()
+
+
+    ppl_Min=d3.min(people_list, function(d) { return d[1]; })
+
+
+    ppl_Max=d3.max(people_list, function(d) { return d[1]; })
+
+    var fontcolor = d3.scale.linear()
+   .domain([ppl_Min,ppl_Max])
+   .range(["#696969","#fff"])
+   .interpolate(d3.interpolateHcl);
+
+    	ppl.append("text")
+     .attr("x", function(d) {return "1px"})
+      .attr("y", function (d,i) {return i*20+20 +"px"})
+      .attr("dy", ".25em")
+      .style("fill",function (d) {return fontcolor(d[1])})
+      .text(function (d) {return d[0]+" "+Math.round(d[1]*10000)/100+"%"})
+
+
+
+  var tv=svg_people.selectAll("bar")
+      .data(tv_list.sort(function(a,b){return b[1]-a[1]}))
+    .enter()
+
+
+    tv_Min=d3.min(tv_list, function(d) { return d[1]; })
+
+
+    tv_Max=d3.max(tv_list, function(d) { return d[1]; })
+
+    var tvcolor = d3.scale.linear()
+   .domain([tv_Min,tv_Max])
+   .range(["#696969","#fff"])
+   .interpolate(d3.interpolateHcl);
+
+    	tv.append("text")
+     .attr("x", function(d) {return "450px"})
+      .attr("y", function (d,i) {return i*20+20 +"px"})
+      .attr("dy", ".25em")
+      .style("fill",function (d) {return tvcolor(d[1])})
+      .text(function (d) {return d[0]+" "+Math.round(d[1]*10000)/100+"%"})
+
+
+
+
+      var cb=svg_people.selectAll("bar")
+      .data(cb_list.sort(function(a,b){return b[1]-a[1]}))
+    .enter()
+
+
+    cb_Min=d3.min(cb_list, function(d) { return d[1]; })
+
+
+    cb_Max=d3.max(cb_list, function(d) { return d[1]; })
+
+    var cbcolor = d3.scale.linear()
+   .domain([cb_Min,cb_Max])
+   .range(["#696969","#fff"])
+   .interpolate(d3.interpolateHcl);
+
+    	cb.append("text")
+     .attr("x", function(d) {return "950px"})
+      .attr("y", function (d,i) {return i*20+20 +"px"})
+      .attr("dy", ".25em")
+      .style("fill",function (d) {return cbcolor(d[1])})
+      .text(function (d) {return d[0]+" "+Math.round(d[1]*10000)/100+"%"})
+
+
+
+
+var ce=svg_people2.selectAll("bar")
+      .data(ce_list.sort(function(a,b){return b[1]-a[1]}))
+    .enter()
+
+
+    ce_Min=d3.min(ce_list, function(d) { return d[1]; })
+
+
+   ce_Max=d3.max(ce_list, function(d) { return d[1]; })
+
+    var fontcolor2 = d3.scale.linear()
+   .domain([ce_Min,ce_Max])
+   .range(["#696969","#fff"])
+   .interpolate(d3.interpolateHcl);
+
+    	ce.append("text")
+     .attr("x", function(d) {return "1px"})
+      .attr("y", function (d,i) {return i*20+20 +"px"})
+      .attr("dy", ".25em")
+      .style("fill",function (d) {return fontcolor2(d[1])})
+      .text(function (d) {return d[0]+" "+Math.round(d[1]*10000)/100+"%"})
+
+
+
+  var inter=svg_people2.selectAll("bar")
+      .data(ot_inter_list.sort(function(a,b){return b[1]-a[1]}))
+    .enter()
+
+
+    inter_Min=d3.min(ot_inter_list, function(d) { return d[1]; })
+
+
+    inter_Max=d3.max(ot_inter_list, function(d) { return d[1]; })
+
+    var intercolor = d3.scale.linear()
+   .domain([inter_Min,inter_Max])
+   .range(["#696969","#fff"])
+   .interpolate(d3.interpolateHcl);
+
+    	inter.append("text")
+     .attr("x", function(d) {return "750px"})
+      .attr("y", function (d,i) {return i*20+20 +"px"})
+      .attr("dy", ".25em")
+      .style("fill",function (d) {return intercolor(d[1])})
+      .text(function (d) {return d[0]+" "+Math.round(d[1]*10000)/100+"%"})
+
+
+
+/////////////jobs
+
+var job=svg_job.selectAll("bar")
+      .data(job_data)
+    .enter()
+
+
+  var j_max_val = d3.max(job_data, function(d) {
+          return d[1];
+          });
+
+  //console.log(d3_male_demo_data)
+
+
+  var margin = {top: 50, right: 20, bottom: 10, left: 65}
+
+
+
+var jx = d3.scale.linear()
+    .domain([0, j_max_val])
+    .range([0, 820]);
+
+console.log(job_data)
+
+
+    job.append("rect")
+      .style("fill", "steelblue")
+      .attr("x", 150+"px")
+      .attr("width", function(d) {return jx(d[1])+"px"})
+      .attr("y", function (d,i) {return i*24+270 +"px"})
+      .attr("height", 23 +"px")
+     // .html(function(d) {return "<div>"+String(d[1])+"</div>"})
+
+     job.append("text")
+     .attr("x", function(d) {return jx(d[1])+155+"px"})
+      .attr("y", function (d,i) {return i*24+280 +"px"})
+      .attr("dy", ".25em")
+      .style("fill","white")
+      .text(function (d) {return d[0]+" "+Math.round(d[1]*10000)/100+"%"})
+
+
+
+   ////////////////income
+//console.log(income_data)
+var income_list=[
+["$30,000 - $40,000",income_data["$30,000 - $40,000"]],
+["$40,000 - $50,000",income_data["$40,000 - $50,000"]],
+["$50,000 - $75,000",income_data["$50,000 - $75,000"]],
+["$75,000 - $100,000",income_data["$75,000 - $100,000"]],
+["$75,000 - $100,000",income_data["$100,000 - $125,000"]],
+["$125,000 - $150,000",income_data["$125,000 - $150,000"]],
+["$150,000 - $250,000",income_data["$150,000 - $250,000"]],
+["$250,000 - $350,000",income_data["$250,000 - $350,000"]],
+["$350,000 - $500,000",income_data["$350,000 - $500,000"]],
+["Over $500,000",income_data["Over $500,000"]]]
+
+
+   var income=svg_income.selectAll("bar")
+      .data(income_list)
+    .enter()
+
+
+  var i_max_val = d3.max(income_list, function(d) {
+          return d[1];
+          });
+
+  //console.log(d3_male_demo_data)
+
+
+  var margin = {top: 50, right: 20, bottom: 10, left: 65}
+
+
+
+var ix = d3.scale.linear()
+    .domain([0, i_max_val])
+    .range([0, 820]);
+
+//console.log(iob_data)
+
+
+    income.append("rect")
+      .style("fill", "#99ff99")
+      .attr("x", 150+"px")
+      .attr("width", function(d) {return ix(d[1])+"px"})
+      .attr("y", function (d,i) {return i*44+170 +"px"})
+      .attr("height", 43 +"px")
+     // .html(function(d) {return "<div>"+String(d[1])+"</div>"})
+
+     income.append("text")
+     .attr("x", function(d) {return ix(d[1])+155+"px"})
+      .attr("y", function (d,i) {return i*44+190 +"px"})
+      .attr("dy", ".25em")
+      .style("fill","white")
+      .text(function (d) {return d[0]+" "+Math.round(d[1]*10000)/100+"%"})
+
+
+
+
+
+      ////////////purchase data
+
+
+       var pur=svg_pur.selectAll("bar")
+      .data(pur_data)
+    .enter()
+
+
+  var p_max_val = d3.max(pur_data, function(d) {
+          return d[1];
+          });
+
+  //console.log(d3_male_demo_data)
+
+
+  var margin = {top: 50, right: 20, bottom: 10, left: 65}
+
+
+
+var px = d3.scale.linear()
+    .domain([0, p_max_val])
+    .range([0, 520]);
+
+console.log(pur_data)
+
+
+    pur.append("rect")
+      .style("fill", "black")
+      .attr("y", function(d) {return 600-px(d[1])+"px"})
+      .attr("height", function(d) {return px(d[1])+"px"})
+      .attr("x", function (d,i) {return i*102+170 +"px"})
+      .attr("width", 100 +"px")
+     // .html(function(d) {return "<div>"+String(d[1])+"</div>"})
+
+     pur.append("text")
+     .attr("y", function(d) {return 600-px(d[1])+"px"})
+      .attr("x", function (d,i) {return i*102+170 +"px"})
+      .attr("dy", ".25em")
+      .style("fill","white")
+      .text(function (d) {return d[0]+" "+Math.round(d[1]*10000)/100+"%"})
+
+
+
+    
+
+
+
+
+
+
+
+
+})
+ }})
+
+})
+
+
+
+
+
+
+
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+//$("svg").css({top: 200, left: 200, position:'absolute'});
+
+
+d3.select(self.frameElement).style("height", height + "px");
+</script>
+
+
+
+
+	
+			
+</body>
+</html>

@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+        <meta name="author" content="Coderthemes">
+
+        <link rel="shortcut icon" href="/everyone/small_logo.png">
+
+        <title>Greenlight Essentials</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="public/admin_2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="public/admin_2/css/bootstrap-reset.css" rel="stylesheet">
+
+        <!--Animation css-->
+        <link href="public/admin_2/css/animate.css" rel="stylesheet">
+
+        <!--Icon-fonts css-->
+        <link href="public/admin_2/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href="public/admin_2/assets/ionicon/css/ionicons.min.css" rel="stylesheet" />
+
+        <!--Morris Chart CSS -->
+        <link rel="stylesheet" href="public/admin_2/assets/morris/morris.css">
+
+        <!-- sweet alerts -->
+        <link href="public/admin_2/assets/sweet-alert/sweet-alert.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="public/admin_2/css/style.css" rel="stylesheet">
+        <link href="public/admin_2/css/helper.css" rel="stylesheet">
+
+
+        <link rel="stylesheet" id="themeCSS" href="public/jQRangeSlider-5.7.0/css/classic.css"> 
+        <script src="/public/d3.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script src="public/jQRangeSlider-5.7.0/lib/jquery.mousewheel.min.js"></script>
+        <script src="public/jQRangeSlider-5.7.0/jQAllRangeSliders-min.js"></script>
+        <script src="public/cloudlayout.js"></script>
+
+        <script type="text/javascript" src="public/jquery.tipsy.js"></script>
+        <link href="public/tipsy.css" rel="stylesheet" type="text/css" />
+     
+
+        <link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.core.css" type="text/css" />
+        <link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.tags.css" type="text/css" />
+        <link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.autocomplete.css" type="text/css" />
+        <link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.focus.css" type="text/css" />
+        <link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.prompt.css" type="text/css" />
+        <link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.arrow.css" type="text/css" />
+        <script src="public/jquery-textext-master/src/js/textext.core.js" type="text/javascript" charset="utf-8"></script>
+        <script src="public/jquery-textext-master/src/js/textext.plugin.tags.js" type="text/javascript" charset="utf-8"></script>
+        <script src="public/jquery-textext-master/src/js/textext.plugin.autocomplete.js" type="text/javascript" charset="utf-8"></script>
+        <script src="public/jquery-textext-master/src/js/textext.plugin.suggestions.js" type="text/javascript" charset="utf-8"></script>
+        <script src="public/jquery-textext-master/src/js/textext.plugin.filter.js" type="text/javascript" charset="utf-8"></script>
+        <script src="public/jquery-textext-master/src/js/textext.plugin.focus.js" type="text/javascript" charset="utf-8"></script>
+        <script src="public/jquery-textext-master/src/js/textext.plugin.prompt.js" type="text/javascript" charset="utf-8"></script>
+        <script src="public/jquery-textext-master/src/js/textext.plugin.ajax.js" type="text/javascript" charset="utf-8"></script>
+        <script src="public/jquery-textext-master/src/js/textext.plugin.arrow.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        
+
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+        <!--[if lt IE 9]>
+          <script src="js/html5shiv.js"></script>
+          <script src="js/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+
+
+    <body>
+
+        <!-- Aside Start-->
+        <aside class="left-panel">
+
+            <!-- brand -->
+            <div class="logo">
+                <a href="/" class="logo-expanded">
+                    <img src='/everyone/small_logo.png' height='70px'>
+                    <span class="nav-label" style="font-weight:300"> <p style="color:#A9F5A9">Greenlight</p> <p style="position:relative;top:-15px">Essentials</p></span>
+                </a>
+            </div>
+            <!-- / brand -->
+        
+            <!-- Navbar Start -->
+            <nav class="navigation">
+                <ul class="list-unstyled">
+                    
+
+                   
+                    <li class="has-submenu"><a href="#"><i class="ion-person-stalker"></i> <span class="nav-label">My Profile</span></a>
+                        <ul class="list-unstyled">
+                            <li><a style="margin-left:20px;margin-right:20px">
+                                                            
+                            
+                                </a></li></ul>
+                    </li>
+
+
+                     <li class="has-submenu"><a href="/myprojs"><i class="ion-film-marker"></i> <span class="nav-label">My Projects</span></a>
+                                                                        
+                                 </li>
+                    
+                    <li class="has-submenu"><a href="/welcome"><i class="ion-grid"></i> <span class="nav-label">Analytics Terminal</span></a>
+                        
+                    </li>
+                   
+
+                     
+
+                    <li class="" >
+
+                                
+                    
+                                      
+                    </li>
+
+
+                    
+                    <li >
+                        
+                    </li>
+                </ul>
+            </nav>
+                
+        </aside>
+        <!-- Aside Ends-->
+
+
+        <!--Main Content Start -->
+        <section class="content">
+            
+            <!-- Header -->
+            <header class="top-head container-fluid">
+                <button type="button" class="navbar-toggle pull-left">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+                <!-- Search -->
+               
+                
+                <!-- Right navbar -->
+                <ul class="list-inline navbar-right top-menu top-right-menu">  
+                    <!-- mesages -->  
+                  
+                        
+                       
+                    <!-- /Notification -->
+
+                    <!-- user login dropdown start-->
+                    <li class="dropdown text-center">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+
+                            <span class="username"> </span> <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu extended pro-menu fadeInUp animated" tabindex="5003" style="overflow: hidden; outline: none;">
+ 
+                            <li><a onclick="logout()"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->       
+                </ul>
+                <!-- End right navbar -->
+
+            </header>
+            <!-- Header Ends -->
+
+
+            <!-- Page Content Start -->
+            <!-- ================== -->
+
+            <div class="wraper container-fluid">
+                <div class="page-title"> 
+                    <h3 class="title">Welcome !</h3> 
+                </div>
+
+
+
+
+               
+
+
+
+                <div class="row" id="projs">
+                    
+
+             
+                    
+
+                     <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                <h4 class="modal-title" id="myModalLabel"></h4>
+                                            </div>
+                                            <div class="panel-body" id="myModalBody">
+                                                
+                                                
+                                              
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal" id="close_proj">Close</button>
+
+                                                 <button type="button" class="btn btn-danger pull-left" id="delete_Proj"> <i class="ion-close"></i> Delete Project</button>
+
+                                                
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div>
+
+
+                           <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                <h4 class="modal-title" id="mySmallModalLabel"></h4>
+                                            </div>
+                                            <div class="modal-body" id="smallmodalbody">
+                                              
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div>
+
+
+                         <div id="new_proj_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            
+                                            <div class="modal-body">
+                                            <form>
+                                                  New Project name:<br>
+                                                  <input type="text" id="new_proj_name" ><br>
+                                                  
+                                                </form>
+                                                
+                                              
+                                            </div>
+                                           
+                                                <button type="button" class="btn btn-default" data-dismiss="modal" id="confirm_close">Close</button>
+                                                <button type="button" class="btn btn-primary" onclick="create_new_proj()">Confirm Name</button>
+                               
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div>
+                   
+
+
+
+                
+
+
+                                                                                                                    
+
+
+
+
+            </div>
+            <!-- Page Content Ends -->
+            <!-- ================== -->
+
+          
+
+            <!-- Footer Start -->
+            <footer class="footer">
+                2016 © Greenlight Essentials
+            </footer>
+            <!-- Footer Ends -->
+
+
+
+        </section>
+        <!-- Main Content Ends -->
+        
+
+
+        <!-- js placed at the end of the document so the pages load faster -->
+        <script src="public/admin_2/js/jquery.js"></script>
+        <script src="public/admin_2/js/bootstrap.min.js"></script>
+        <script src="public/admin_2/js/modernizr.min.js"></script>
+        <script src="public/admin_2/js/pace.min.js"></script>
+        <script src="public/admin_2/js/wow.min.js"></script>
+        <script src="public/admin_2/js/jquery.scrollTo.min.js"></script>
+        <script src="public/admin_2/js/jquery.nicescroll.js" type="text/javascript"></script>
+        <script src="public/admin_2/assets/chat/moment-2.2.1.js"></script>
+
+        <!-- Counter-up -->
+        <script src="public/admin_2/js/waypoints.min.js" type="text/javascript"></script>
+        <script src="public/admin_2/js/jquery.counterup.min.js" type="text/javascript"></script>
+
+        <!-- EASY PIE CHART JS -->
+        <script src="public/admin_2/assets/easypie-chart/easypiechart.min.js"></script>
+        <script src="public/admin_2/assets/easypie-chart/jquery.easypiechart.min.js"></script>
+        <script src="public/admin_2/assets/easypie-chart/example.js"></script>
+
+
+        <!--C3 Chart-->
+        <script src="public/admin_2/assets/c3-chart/d3.v3.min.js"></script>
+        <script src="public/admin_2/assets/c3-chart/c3.js"></script>
+
+        <!--Morris Chart-->
+        <script src="public/admin_2/assets/morris/morris.min.js"></script>
+        <script src="public/admin_2/assets/morris/raphael.min.js"></script>
+
+        <!-- sparkline --> 
+        <script src="public/admin_2/assets/sparkline-chart/jquery.sparkline.min.js" type="text/javascript"></script>
+        <script src="public/admin_2/assets/sparkline-chart/chart-sparkline.js" type="text/javascript"></script> 
+
+        <!-- sweet alerts -->
+        <script src="public/admin_2/assets/sweet-alert/sweet-alert.min.js"></script>
+        <script src="public/admin_2/assets/sweet-alert/sweet-alert.init.js"></script>
+
+        <script src="public/admin_2/js/jquery.app.js"></script>
+        <!-- Chat -->
+        <script src="public/admin_2/js/jquery.chat.js"></script>
+        <!-- Dashboard -->
+        <script src="public/admin_2/js/jquery.dashboard.js"></script>
+
+        <!-- Todo -->
+        <script src="public/admin_2/js/jquery.todo.js"></script>
+
+        <link rel="stylesheet" id="themeCSS" href="public/jQRangeSlider-5.7.0/css/classic.css"> 
+
+
+        <script src="/public/d3.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script src="public/jQRangeSlider-5.7.0/lib/jquery.mousewheel.min.js"></script>
+        <script src="public/jQRangeSlider-5.7.0/jQAllRangeSliders-min.js"></script>
+        <script src="public/cloudlayout.js"></script>
+
+        <script type="text/javascript" src="public/jquery.tipsy.js"></script>
+        <link href="public/tipsy.css" rel="stylesheet" type="text/css" />
+     
+
+        <link rel="stylesheet" id="themeCSS" href="public/jQRangeSlider-5.7.0/css/classic.css"> 
+<script src="/public/d3.min.js"></script>
+
+
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="public/jQRangeSlider-5.7.0/lib/jquery.mousewheel.min.js"></script>
+        <script src="public/jQRangeSlider-5.7.0/jQAllRangeSliders-min.js"></script>
+<script src="public/cloudlayout.js"></script>
+
+    <script type="text/javascript" src="public/jquery.tipsy.js"></script>
+    <link href="public/tipsy.css" rel="stylesheet" type="text/css" />
+     
+
+            <link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.core.css" type="text/css" />
+        <link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.tags.css" type="text/css" />
+        <link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.autocomplete.css" type="text/css" />
+        <link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.focus.css" type="text/css" />
+        <link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.prompt.css" type="text/css" />
+        <link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.arrow.css" type="text/css" />
+        <script src="public/jquery-textext-master/src/js/textext.core.js" type="text/javascript" charset="utf-8"></script>
+        <script src="public/jquery-textext-master/src/js/textext.plugin.tags.js" type="text/javascript" charset="utf-8"></script>
+        <script src="public/jquery-textext-master/src/js/textext.plugin.autocomplete.js" type="text/javascript" charset="utf-8"></script>
+        <script src="public/jquery-textext-master/src/js/textext.plugin.suggestions.js" type="text/javascript" charset="utf-8"></script>
+        <script src="public/jquery-textext-master/src/js/textext.plugin.filter.js" type="text/javascript" charset="utf-8"></script>
+        <script src="public/jquery-textext-master/src/js/textext.plugin.focus.js" type="text/javascript" charset="utf-8"></script>
+        <script src="public/jquery-textext-master/src/js/textext.plugin.prompt.js" type="text/javascript" charset="utf-8"></script>
+        <script src="public/jquery-textext-master/src/js/textext.plugin.ajax.js" type="text/javascript" charset="utf-8"></script>
+        <script src="public/jquery-textext-master/src/js/textext.plugin.arrow.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+
+
+            function logout(){
+
+    alert("You are now logged out"),
+
+      $("body").remove();
+    $.ajax({
+            url: "./logout",
+            //headers: {"authorization":"false"},
+            type: 'POST',
+           // name:"false",
+
+    
+            statusCode: {
+      401: $(document).ajaxStop(function() {
+        window.location.reload();
+
+    })
+
+
+  }})
+
+
+
+
+
+}
+    
+  //  proj_title="Untitled Horror2"
+  //  report_num=5
+
+    function append_proj(proj_title,report_num){
+    $("#projs").append(
+                '<div class="col-md-6 col-sm-6" data-toggle="modal" data-target="#myModal"  onclick="get_proj(\''+String(proj_title)+'\')"><div class="widget-panel widget-style-1 bg-info"><i class="fa fa-folder-open"></i><h2 class="m-0 counter text-white">'+proj_title+'</h2>'+'<div class="text-white">'+report_num+' Reports</div></div></div>')
+    
+    }
+
+
+
+    $.ajax({
+            url: "./header_data",
+            type: 'POST',
+    
+            success: function(header_data){
+
+                header=header_data.success
+                //console.log(header_data)
+
+                
+          
+
+
+
+
+        var report_url=""
+
+        file_list=header['file_list']
+
+        proj_list=header['proj_list']
+
+        url_list=header['url_list']
+
+        reverse_url_list={}
+
+        for (i in url_list){
+           files=url_list[i]
+           for (j in files){
+            reverse_url_list[files[j][1]]=files[j][0]
+           }
+        }
+
+        for (i in file_list){
+
+            if(file_list[i].length==1 && file_list[i][0]==null){
+
+                file_list[i]=[]
+
+                append_proj(i,file_list[i].length)
+
+            }
+
+            else{
+
+            for (j in file_list[i]){
+                if(file_list[i][j]==null){
+                    file_list[i].splice(j,1)
+                }
+            }
+            append_proj(i,file_list[i].length)}
+
+        }
+  //  append_proj(proj_title,report_num)
+
+        $("#projs").append(
+                '<div class="col-md-6 col-sm-6"  data-toggle="modal" data-target="#new_proj_modal"><div class="widget-panel widget-style-1 bg-success"><i class="fa fa-plus"></i><h2 class="m-0 counter text-white">Create New Project</h2>'+'</div></div>')
+
+    }})
+
+    function create_new_proj(){
+
+        var new_proj_name=$("#new_proj_name").val()
+
+        if (proj_list.indexOf(new_proj_name)>-1){
+            swal("Project Name Already Exist!")
+        }
+
+        //console.log("hahha")
+
+        else{
+        $.ajax({
+            url: "./manage_data",
+            data:{'proj_name':new_proj_name,'action':"create_new_proj"},
+            type: 'POST',
+    
+            success: function(){
+
+
+
+                swal({   
+                    title: "Created "+ new_proj_name ,   
+         //   text: "You will not be able to recover this imaginary file!",   
+                    type: "success",   
+                   // confirmButtonColor: "#DD6B55",   
+                    confirmButtonText: "OK",   
+         
+                    closeOnConfirm: false,   
+                    closeOnCancel: false 
+            }, function(isConfirm){   
+            if (isConfirm) { location.reload()}} );  
+            }
+
+
+
+        })
+    }
+
+
+
+    }
+
+    reports=''
+    $("#myModalBody").append("<div id='moModelBody2'></div>")
+
+
+
+
+
+    function get_proj(title){
+       // console.log(title)
+
+       // console.log(url_list[title])
+        //swal(url_list[title][0])
+
+        $("#myModalLabel").html("<h2><i  class='fa fa-folder-open-o'></i> "+title+"</h2>")
+        if (reports != '') {reports.remove()
+        $("#myModalBody").append("<div id='moModelBody2'></div>")}
+
+
+        reports=$("#moModelBody2")
+
+        for (i in url_list[title]){
+           // console.log(url_list[title][i])
+           if (url_list[title].length==1 && url_list[title][i][0]==null){
+            //url_list[title][i]=[[],[]]
+           }
+
+     
+
+           else{
+
+            if (url_list[title][i][0]==null){
+            url_list[title].splice(i,1)
+
+           }
+
+           input_list=url_list[title][i][1]
+            reports.append('<span style="display:inline;position:relative;width:100%"> <h4 class="btn-default" data-toggle="modal" data-target=".bs-example-modal-sm" onclick="popup_report(\''+input_list+'\')"> <i class="fa fa-file-text"></i> '+url_list[title][i][0]+'</h4> </span>')
+        }
+        }
+
+        $("#delete_Proj").unbind('click');
+
+        $('#delete_Proj').on("click",function(){
+            send_proj_query={'proj':title,
+                            'action':"delete_proj"}
+            swal({   
+                title: "Are you sure?",   
+                text: "You will not be able to recover this project!",   
+                type: "warning",   
+                showCancelButton: true,   
+                confirmButtonColor: "#DD6B55",   
+                confirmButtonText: "Yes, delete it!",   
+                cancelButtonText: "No, cancel!",   
+                closeOnConfirm: false,   
+                closeOnCancel: false 
+            }, function(isConfirm){   
+                if (isConfirm) {     
+                        $.ajax({
+                url: "./manage_data",
+                data:send_proj_query,
+                type: 'POST',
+
+    
+                success: function(delete_data){
+
+                del=delete_data.success
+
+             //   console.log(del)
+                swal({   
+                    title: "Deleted!",   
+         //   text: "You will not be able to recover this imaginary file!",   
+                    type: "success",   
+                   // confirmButtonColor: "#DD6B55",   
+                    confirmButtonText: "OK",   
+         
+                    closeOnConfirm: false,   
+                    closeOnCancel: false 
+            }, function(isConfirm){   
+            if (isConfirm) { location.reload()}} );   
+                //location.reload();
+
+
+            }})
+                
+            } else {     
+                swal("Cancelled", "Your project is safe :)", "error");   
+            } 
+        });
+        })
+
+
+    }
+
+    $('#smallmodalbody').append("<div id='moModelBody3'></div>")
+    choices=''
+
+   function popup_report(url){
+        console.log(url)
+        console.log(reverse_url_list[url])
+
+        $('#mySmallModalLabel').html('<i class="fa fa-file-text"></i> '+reverse_url_list[url])
+         if (choices != '') {choices.remove()
+        $("#smallmodalbody").append("<div id='moModelBody3'></div>")}
+        choices=$("#moModelBody3")
+        choices.html('<div > <div><div class="btn btn-purple sm-b-2 " onclick="view_report(\''+url+'\')"> <i class="fa  fa-eye"></i> <span>View</span> </div> <div class="btn btn-success sm-b-2 " onclick="edit_report(\''+url+'\')"> <i class="fa  fa-paint-brush"></i> <span>Edit</span> </div> <div class="btn btn-info sm-b-2 " onclick="share_report(\''+url+'\')"> <i class="ion-ios7-people"></i> <span>Share</span> </div> <div class="btn btn-danger sm-b-2" id="sa-param" onclick="delete_report(\''+url+'\')" > <i class="ion-close"></i> <span>Delete</span> </div></div> </div>')
+
+    }
+
+    function edit_report(url){
+        //console.log(url)
+        console.log(url)
+        var w =window.open("/edit/"+url,"_self")
+       // w.url=url
+    }
+
+    function share_report(url){
+        console.log(url)
+    }
+    function delete_report(url){
+        //console.log(url)
+
+        send_query={url:url,
+                action:'delete_report'}
+
+        //console.log(send_query)
+
+         swal({   
+            title: "Are you sure?",   
+            text: "You will not be able to recover this report!",   
+            type: "warning",   
+            showCancelButton: true,   
+            confirmButtonColor: "#DD6B55",   
+            confirmButtonText: "Yes, delete it!",   
+            cancelButtonText: "No, cancel plx!",   
+            closeOnConfirm: false,   
+            closeOnCancel: false 
+        }, function(isConfirm){   
+            if (isConfirm) {     
+                    $.ajax({
+            url: "./manage_data",
+            data:send_query,
+            type: 'POST',
+
+    
+            success: function(delete_data){
+
+                del=delete_data.success
+
+             //   console.log(del)
+                swal({   
+            title: "Deleted!",   
+         //   text: "You will not be able to recover this imaginary file!",   
+            type: "success",   
+           // confirmButtonColor: "#DD6B55",   
+            confirmButtonText: "OK",   
+ 
+            closeOnConfirm: false,   
+            closeOnCancel: false 
+        }, function(isConfirm){   
+            if (isConfirm) { location.reload()}} );   
+                //location.reload();
+
+
+            }})
+                
+            } else {     
+                swal("Cancelled", "Your report is safe :)", "error");   
+            } 
+        });
+
+
+
+    }
+
+
+    function view_report(url){
+        console.log(url)
+        var w =window.open("/view/"+url,"_self")
+        //w.url=url
+
+    }
+
+
+/*
+ <div class="btn btn-purple sm-b-5 " onclick="view_report(\''+url_list[title][i][1]+'\')"> <i class="fa  fa-eye"></i> <span>View</span> </div> <div class="btn btn-success sm-b-5 " onclick="edit_report(\''+url_list[title][i][1]+'\')"> <i class="fa  fa-paint-brush"></i> <span>Edit</span> </div> <div class="btn btn-info sm-b-5 " onclick="share_report(\''+url_list[title][i][1]+'\')"> <i class="ion-ios7-people"></i> <span>Share</span> </div> <div class="btn btn-danger sm-b-5 "  onclick="delete_report(\''+url_list[title][i][1]+'\')" > <i class="ion-close"></i> <span>Delete</span> </div>
+*/
+        </script>
+    
+
+    </body>
+</html>

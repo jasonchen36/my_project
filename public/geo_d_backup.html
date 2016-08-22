@@ -1,0 +1,417 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" id="themeCSS" href="public/jQRangeSlider-5.7.0/css/classic.css"> 
+<script src="/public/d3.min.js"></script>
+
+
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="public/jQRangeSlider-5.7.0/lib/jquery.mousewheel.min.js"></script>
+		<script src="public/jQRangeSlider-5.7.0/jQAllRangeSliders-min.js"></script>
+<script src="public/cloudlayout.js"></script>
+
+    <script type="text/javascript" src="public/jquery.tipsy.js"></script>
+    <link href="public/tipsy.css" rel="stylesheet" type="text/css" />
+	 <script src="public/topojson.v1.min.js"></script>
+
+	 		<link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.core.css" type="text/css" />
+		<link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.tags.css" type="text/css" />
+		<link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.autocomplete.css" type="text/css" />
+		<link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.focus.css" type="text/css" />
+		<link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.prompt.css" type="text/css" />
+		<link rel="stylesheet" href="public/jquery-textext-master/src/css/textext.plugin.arrow.css" type="text/css" />
+		<script src="public/jquery-textext-master/src/js/textext.core.js" type="text/javascript" charset="utf-8"></script>
+		<script src="public/jquery-textext-master/src/js/textext.plugin.tags.js" type="text/javascript" charset="utf-8"></script>
+		<script src="public/jquery-textext-master/src/js/textext.plugin.autocomplete.js" type="text/javascript" charset="utf-8"></script>
+		<script src="public/jquery-textext-master/src/js/textext.plugin.suggestions.js" type="text/javascript" charset="utf-8"></script>
+		<script src="public/jquery-textext-master/src/js/textext.plugin.filter.js" type="text/javascript" charset="utf-8"></script>
+		<script src="public/jquery-textext-master/src/js/textext.plugin.focus.js" type="text/javascript" charset="utf-8"></script>
+		<script src="public/jquery-textext-master/src/js/textext.plugin.prompt.js" type="text/javascript" charset="utf-8"></script>
+		<script src="public/jquery-textext-master/src/js/textext.plugin.ajax.js" type="text/javascript" charset="utf-8"></script>
+		<script src="public/jquery-textext-master/src/js/textext.plugin.arrow.js" type="text/javascript" charset="utf-8"></script>
+
+
+		<script type="text/javascript" src="http://d3js.org/d3.hexbin.v0.min.js"></script>	
+	 
+<title> Analytic Terminal </title>
+<style>
+
+
+
+body {
+        font-family:"Lucida Grande","Droid Sans",Arial,Helvetica,sans-serif;
+		margin:0;
+		padding:0;
+
+		
+    }
+
+.myButton {
+	background-color:#d9534f;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:9px 21px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton:hover {
+	background-color:#d43f3a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+    .tipsy { font-size: 14px;}
+    .legend {
+        border: 1px solid #555555;
+        border-radius: 5px 5px 5px 5px;
+        font-size: 1.8em;
+        margin: 0px;
+        padding: 8px;
+    }
+    .bld {
+        font-weight: bold;
+    }
+	
+	.filter_options {
+        
+        border: 1px solid #555555;
+        border-radius:5px;
+        font-size: .9em;
+		color:white;
+        margin: 10px;
+        padding: 10px;
+		width:400px;
+		position:relative;
+		top:0px;
+		left:-2%;
+		z-index:7999;
+		height:-600px;
+		background-color:#2E2E2E;
+		
+    }
+
+	.myButton2 {
+	background-color:#b8b8b8;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:17px;
+	padding:21px 17px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton2:hover {
+	background-color:#949194;
+}
+.myButton2:active {
+	position:relative;
+	top:1px;
+}
+
+
+	p {
+    font-size: 100%;
+	}
+	div {
+    font-size: 90%;
+	}
+	.tabs li {
+				white-space: nowrap;
+				
+			}
+
+			.tabs a {
+				padding:5px 10px;
+				display:inline-block;
+				
+				background:#fff;
+				color:#000;
+				text-decoration:none;
+				z-index:999;
+			
+			}
+
+			.tabs a.active {
+				background:#000000;
+				color:#fff;
+				z-index:999
+			}
+
+.land {
+  fill: #222;
+}
+
+.county-boundary {
+  fill: none;
+  stroke: #fff;
+  stroke-width: .5px;
+}
+
+.state-boundary {
+  fill: none;
+  stroke: #fff;
+}
+
+.hexagons path {
+  stroke: #fff;
+}
+			
+			
+
+</style>
+</head>
+<body  class='pos_right'  style="background-color: #6E6E6E;padding:0px;margin:0px">
+<h1 style="z-index:9999;position:fixed;color:#A9F5A9;width:100%;background-color: #1C1C1C;height:70px;padding:0px;margin:0px">
+
+
+<a href="/" style="color:inherit;
+  text-decoration: none;z-index:99999;">
+  <img src='/everyone/glessentials.png' height='70px'></a>
+
+<div align="center" >
+<div style='text-align:left;width:93%;position:relative;top:25px'>
+
+</div></div>
+<p style="position:relative;width:auto;display:inline-block;float:right;font-size:0.4em;top:-45px;left:-20px;color:#A9F5A9">© 2015 Si Chang Zhang. All Rights Reserved. </p>
+
+</h1>
+
+
+
+<div id="option">
+    <a name="logoutButton" 
+	
+			style="position:relative;left:93%;top:-20px;z-index:999;"
+class="myButton"
+    
+           onclick="logout()" >Logout</a>
+		   </div >
+</h2>
+
+<script>
+
+ww=$(window).width()
+hh=$(window).height()
+
+
+var width = ww,
+    height = hh;
+
+var projection = d3.geo.albersUsa()
+    .scale(1500)
+    .translate([width/2, height/2])
+    .precision(.1);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var hexbin = d3.hexbin()
+    .size([width, height])
+    .radius(8);
+
+
+
+d3.json("public/us.json", function(error, us) {
+  if (error) throw error;
+
+  svg.insert("path", ".graticule")
+      .datum(topojson.feature(us, us.objects.land))
+      .attr("class", "land")
+      .attr("d", path);
+
+
+  svg.insert("path", ".graticule")
+      .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+      .attr("class", "state-boundary")
+      .attr("d", path);
+
+
+      d3.json("public/geo_data/total_location.json", function(error, data){
+      	console.log(data)
+
+
+      	location_data={"St_ Charles, Missouri, United States":{"aud_ratio":0.12,"dif_ratio":0.5,"dif":0.06},
+      	"Stanislaus, California, United States":{"aud_ratio":0.01,"dif_ratio":0.20,"dif":0.06},
+      	"Spring Hill, Florida, United States":{"aud_ratio":0.2,"dif_ratio":0.04,"dif":0.06},
+      	"Southfield, Michigan, United States":{"aud_ratio":0.3,"dif_ratio":0.2,"dif":0.06}}
+
+      	aa=[]
+
+      	aud_list=[]
+      	dif_list=[]
+
+      	for (var i in location_data){
+      	if (data[i].results[0]["formatted_address"].indexOf('USA') != -1){
+      		a=data[i].results[0].geometry.location.lng
+      		b=data[i].results[0].geometry.location.lat
+      		c=location_data[i]['aud_ratio']
+      		d=location_data[i]['dif_ratio']
+
+      		aud_list.push(c)
+      		dif_list.push(d)
+
+      		aa.push([a,b,c,d])}
+
+
+      	}
+      	aa.sort(function(a,b){return a[2]-b[2]})
+console.log(aa)
+
+
+
+var radius = d3.scale.sqrt()
+    .domain([d3.min(aud_list), d3.max(aud_list)])
+    .range([8, 30]);
+
+
+
+ //     	for (var i in data){
+      		//console.log(data[i])
+ //     	if (data[i].results[0]["formatted_address"].indexOf('USA') != -1){
+ //     		a=data[i].results[0].geometry.location.lng
+  //    		b=data[i].results[0].geometry.location.lat
+      		//console.log(a)
+      		//console.log(b)
+    //  		aa.push([a,b])}
+      //	}
+      //	console.log(aa)
+    //  	aa[0].push(2)
+    //  	aa[1].push(8)
+      //	a=data.results[0].geometry.location.lng
+      //	b=data.results[0].geometry.location.lat
+	//aa = [a,b];
+	//bb = [-122.389809, 37.72728];
+	lower=d3.min(dif_list)
+	higher=d3.max(dif_list)
+	mid=d3.mean(dif_list)
+
+	var color = d3.scale.linear()
+   .domain([-1, 0, higher])
+   .range(["#003300", "#40B640", "#94D994"])
+   .interpolate(d3.interpolateHcl);
+
+
+
+     var  sizeScale = d3.scale.linear()
+                     .domain([d3.min(aud_list, function(d) { return d; }), d3.max(aud_list, function(d) { return d; })])
+                     .range([3, 20])
+
+  // console.log(color(2))
+   //console.log(color(8))
+  // console.log(aa[96])
+   //console.log(projection([-111.387, 51.726379]))
+   
+   bb=[]
+   for (var i in aa){
+   	ab=aa[i].slice(0,2)
+   	console.log(ab)
+   	p=projection(ab)
+
+   //	console.log(p)
+
+   	var bb_add =[]
+   	bb_add.push(p[0])
+   	bb_add.push(p[1])
+   	bb_add.size=aa[i][2]
+   	bb_add.col=aa[i][3]
+   	bb.push(bb_add)
+   }
+
+   console.log(hexbin(bb))
+
+   console.log(radius(bb[1].size))
+
+   hbb=hexbin(bb)
+
+   for (i = 0; i < hbb.length; i++) {
+    hbb[i].size=aa[i][2]
+    hbb[i].col=aa[i][3]
+}
+
+
+	svg.append("g")
+	.attr("class","hexagons")
+	.selectAll("path")
+	.data(hbb)
+	.enter()
+	.append("path")
+	.attr("d",function(d) { return hexbin.hexagon(radius(d.size))})
+	.attr("transform",function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+	.style("fill", function(d) { return d3.rgb(color(d.col))})
+		
+
+
+/*
+	.selectAll("circle")
+		.data(aa
+			//aa.slice(96,98)
+			).enter()
+		.append("circle")
+		.attr("cx", function (d) {
+			return projection(d)[0]; })
+		.attr("cy", function (d) { return projection(d)[1]; })
+		.attr("r", //"8px")
+			function (d) {return sizeScale(d[2])+"px"})
+		.attr("fill", //"green")
+			function (d) {return d3.rgb(color(d[3]))})  
+
+*/
+
+
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+//$("svg").css({top: 200, left: 200, position:'absolute'});
+
+
+d3.select(self.frameElement).style("height", height + "px");
+</script>
+
+
+
+
+	
+			
+</body>
+</html>
