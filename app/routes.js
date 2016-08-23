@@ -1,5 +1,5 @@
 // app/routes.js
-module.exports = function(app, passport,l_data,interl_data,qubl_data,User,Query,chl_data,Proj,saved_filters) {
+module.exports = function(app, passport,l_data,User,Query,chl_data,Proj,saved_filters) {
 
 	// =====================================
 	// HOME PAGE (with login links) ========
@@ -2237,7 +2237,7 @@ if(user.local.notfinish==true){
     return done(null, user);
   });
  // usr_current_tries[current_usr]++
-  res.json({ ld: interl_data });}
+    }
 //}
 })
 })
@@ -2607,7 +2607,7 @@ if(user.local.notfinish==true){
     return done(null, user);
   });
  // usr_current_tries[current_usr]++
-  res.json({ ld: qubl_data });}
+}
 //}
 })
 })

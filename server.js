@@ -108,8 +108,8 @@ var Query       		= require('./app/models/query');
 
 ////internatioanl
 //var interstream = fs.createReadStream(__dirname+"/visualinternational.csv");
-var interstream2 = fs.createReadStream(__dirname+"/visual2international.csv");
-var csv = require("fast-csv");
+// var interstream2 = fs.createReadStream(__dirname+"/visual2.csv");
+// var csv = require("fast-csv");
 
 /*
 var interfull_data=[];
@@ -122,21 +122,21 @@ csv
      console.log("done loading inter data1");
  });
 */
-var interl_data=[];
-csv
- .fromStream(interstream2, {headers : true})
- .on("data", function(data){
-     interl_data.push(data);
- })
- .on("end", function(){
-     console.log("done loading inter data2");
- });
+// var interl_data=[];
+// csv
+//  .fromStream(interstream2, {headers : true})
+//  .on("data", function(data){
+//      interl_data.push(data);
+//  })
+//  .on("end", function(){
+//      console.log("done loading inter data2");
+//  });
 
 ///////
 
 //////qubec files
 //var qubstream = fs.createReadStream(__dirname+"/quebecvisual.csv");
-var qubstream2 = fs.createReadStream(__dirname+"/quebecvisual2.csv");
+// var qubstream2 = fs.createReadStream(__dirname+"/quebecvisual2.csv");
 
 /*
 var qubfull_data=[];
@@ -150,15 +150,15 @@ csv
  });
 */
 
-var qubl_data=[];
-csv
- .fromStream(qubstream2, {headers : true})
- .on("data", function(data){
-     qubl_data.push(data);
- })
- .on("end", function(){
-     console.log("done loading qub data2");
- });
+// var qubl_data=[];
+// csv
+//  .fromStream(qubstream2, {headers : true})
+//  .on("data", function(data){
+//      qubl_data.push(data);
+//  })
+//  .on("end", function(){
+//      console.log("done loading qub data2");
+//  });
 
 var Proj                 = require('./app/models/proj');
 
@@ -166,7 +166,7 @@ var Proj                 = require('./app/models/proj');
 
 
 // routes ======================================================================
-require('./app/routes.js')(app, passport,l_data,interl_data,qubl_data,User,Query,chl_data,Proj); // load our routes and pass in our app and fully configured passport
+require('./app/routes.js')(app, passport,l_data,User,Query,chl_data,Proj); // load our routes and pass in our app and fully configured passport
 
 
 
