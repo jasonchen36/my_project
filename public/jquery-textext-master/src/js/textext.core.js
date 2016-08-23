@@ -597,7 +597,7 @@
 	 */
 	p.itemContains = function(item, needle)
 	{
-	if(needle.length>=1){
+	if(needle.length>=4){
 		return this.itemToString(item).toLowerCase().indexOf(needle.toLowerCase()) == 0;}
 	};
 

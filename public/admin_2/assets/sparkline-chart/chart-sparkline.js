@@ -81,11 +81,12 @@
             $('.sparkpie-big').sparkline([3, 4, 1, 2], {
                 type: 'pie',
                 width: '100%',
-                height: '50',
+                height: '70',
                 sliceColors: ['#1a2942', '#f13c6e', '#6e8cd7', '#dcdcdc'],
                 offset: 0,
                 borderWidth: 0,
                 borderColor: '#00007f'
+
             });
 
 

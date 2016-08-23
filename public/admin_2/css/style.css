@@ -1401,20 +1401,20 @@ table.focus-on tbody tr.focused th, table.focus-on tbody tr.focused td {
   margin: 40px auto;
   position: relative;
 }
-#datatable-editable .actions a {
+table[id^="datatable"] .actions a {
   padding: 5px;
 }
-#datatable-editable .form-control {
+table[id^="datatable"] .form-control {
   background-color: #ffffff;
   width: 100%;
 }
-#datatable-editable .fa-trash-o ,#datatable-editable .fa-times{
+table[id^="datatable"] .fa-trash-o ,#datatable-editable .fa-times{
   color: #ef5350;
 }
-#datatable-editable .fa-pencil {
+table[id^="datatable"] .fa-pencil {
   color: #29b6f6;
 }
-#datatable-editable .fa-save {
+table[id^="datatable"] .fa-save {
   color: #33b86c;
 }
 

@@ -118,6 +118,8 @@
         $.plot($(selector), data, options);
     },
 
+
+
     //returns some random data
     FlotChart.prototype.randomData = function() {
         var totalPoints = 300;
@@ -299,7 +301,7 @@
           this.createPlotGraph("#website-stats", uploads, downloads, plabels, pcolors, borderColor, bgColor);
 
           //Pie graph data
-          var pielabels = ["Series 1","Series 2","Series 3"];
+          var pielabels = ["Equity","Pre-sales","Senior Debt"];
           var datas = [20,30, 15];
           var colors = ["#1a2942", "#6e8cd7", "#1ca8dd"];
           this.createPieGraph("#pie-chart #pie-chart-container", pielabels , datas, colors);

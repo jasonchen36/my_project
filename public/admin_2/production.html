@@ -31,6 +31,17 @@
         <!-- Custom styles for this template -->
         <link href="css/style.css" rel="stylesheet">
         <link href="css/helper.css" rel="stylesheet">
+
+        <link type="text/css" href="assets/bootstrap3-editable/bootstrap-editable.css" rel="stylesheet">
+
+
+                <link href="assets/toggles/toggles.css" rel="stylesheet" />
+
+                <!-- Plugins css -->
+        <link href="assets/owl-carousel/owl.carousel.css" rel="stylesheet" />
+
+
+
         
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
@@ -163,10 +174,293 @@
                     <h3 class="title">Production Financing</h3> 
                 </div>
 
-                
+
+                <div class="row">
+
+                 <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"> 
+                                <h3 class="panel-title">Budget</h3> 
+                            </div> 
+                            <div class="panel-body"> 
+                               <form action="#" class="form-horizontal">
+                                <div >
+                                    <label class="col-sm-6 control-label">Production Budget</label>
+                                    <div class="col-sm-6">
+                                        <a href="#" id="inline-username" data-type="text" data-pk="1" data-title="Enter username" class="editable editable-click editable-unsaved editable-empty" style="display: inline-block; background-color: rgba(0, 0, 0, 0);">$2,000,000</a>
+                                    </div>
+                                </div>
+                                
+                            </form>
+                            </div> 
+                        </div>
+                        </div>
+                        </div>
+
+                        <div class="row">
+
+                        <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><h3 class="panel-title">Relevant Currencies  -  To be modified</h3></div>
+                            <div class="panel-body">
+
+                            USD 0.7614 USD = 1.00 CAD
+                            </br>
+                            AED 2.7969 AED = 1.00 CAD
+                            </br>
+                            CNY 1.00 CAD = 0.20 CAD
+                            </br>
+                            USD 0.7614 USD = 1.00 CAD
+                            </br>
+                            AED 2.7969 AED = 1.00 CAD
+                            </br>
+                            CNY 1.00 CAD = 0.20 CAD
+                            </br>
+                            USD 0.7614 USD = 1.00 CAD
+                            </br>
+                            AED 2.7969 AED = 1.00 CAD
+                            </br>
+                            CNY 1.00 CAD = 0.20 CAD
+                            
+                                
+                            
+                            </div> <!-- panel-body -->
+                        </div> <!-- panel -->
+                    </div> <!-- col -->
 
 
+
+                   
+
+
+                    <div class="col-lg-6" style="display:none">
+                        <div class="portlet"><!-- /primary heading -->
+                            <div class="portlet-heading">
+                                <h3 class="portlet-title text-dark text-uppercase">
+                                    Multiple Statistics
+                                </h3>
+                                <div class="portlet-widgets">
+                                    <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                                    <span class="divider"></span>
+                                    <a data-toggle="collapse" data-parent="#accordion1" href="#portlet1"><i class="ion-minus-round"></i></a>
+                                    <span class="divider"></span>
+                                    <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="portlet1" class="panel-collapse collapse in">
+                                <div class="portlet-body">
+                                    <div id="website-stats" style="height: 320px;" class="flot-chart"></div>
+                                </div>
+                            </div>
+                        </div> <!-- /Portlet -->
+                    </div> <!-- end col -->
+
+
+                   <div class="col-lg-6">
+                        <div class="portlet"><!-- /primary heading -->
+                            <div class="portlet-heading">
+                                <h3 class="portlet-title text-dark text-uppercase">
+                                    Budget Overview
+                                </h3>
+                                <div class="portlet-widgets">
+                                    <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                                    <span class="divider"></span>
+                                    <a data-toggle="collapse" data-parent="#accordion1" href="#portlet4"><i class="ion-minus-round"></i></a>
+                                    <span class="divider"></span>
+                                    <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="portlet4" class="panel-collapse collapse in">
+                                <div class="portlet-body">
+                                    <div id="pie-chart">
+                                        <div id="pie-chart-container" class="flot-chart" style="height: 320px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- /Portlet -->
+                    </div> <!-- end col -->
+                    </div>
+
+
+                   
+
+                  
+
+
+                    <div class="row">
+
+                    
+                    
+                   
+                     <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><h3 class="panel-title">Type of Finance</h3></div>
+                            <div class="panel-body">
+                            
+                                <form class="form-horizontal" role="form">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="col-sm-6 control-label">Pre-sales</label>
+                                                <div class="col-sm-6 control-label">
+                                                    <div class="toggle toggle-default" id="option1" value="on"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="col-sm-6 control-label">Direct Territory Sales</label>
+                                                <div class="col-sm-6 control-label">
+                                                    <div class="toggle toggle-primary"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="col-sm-6 control-label">Grants & Tax Breaks</label>
+                                                <div class="col-sm-6 control-label">
+                                                    <div class="toggle toggle-success"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="col-sm-6 control-label">Non-recouping Production Capital</label>
+                                                <div class="col-sm-6 control-label">
+                                                    <div class="toggle toggle-warning"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                    <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="col-sm-6 control-label">Senior Debt/GAP Loans</label>
+                                                <div class="col-sm-6 control-label">
+                                                    <div class="toggle toggle-success"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="col-sm-6 control-label">Prefered Equity</label>
+                                                <div class="col-sm-6 control-label">
+                                                    <div class="toggle toggle-danger"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                           </div> 
+
+                                      
+                                        <div class="row">
+
+                                     
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="col-sm-6 control-label">Corridor Equity</label>
+                                                <div class="col-sm-6 control-label">
+                                                    <div class="toggle toggle-danger"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                   
+
+                                                                             <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="col-sm-6 control-label">General Equity</label>
+                                                <div class="col-sm-6 control-label">
+                                                    <div class="toggle toggle-danger" id="option_equity"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>  
+
+                                                
+                                </form>
+                            
+                            </div> <!-- panel-body -->
+                        </div> <!-- panel -->
+                    </div> <!-- col -->
+
+
+
+                    <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Financiers & Structures Summary</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Company</th>
+                                                    <th>Amount</th>
+                                                    <th>Type of Financing</th>
+                                                    <th>Comment</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="success" id="senior_debt">
+                                                    <td>Productivity Media</td>
+                                                    <td>$1,000,000</td>
+                                                    <td>Senior Debt</td>
+                                                    <td>15% Interest</td>
+                                                </tr>
+                                                <tr class="danger" id="equity1">
+                                                    <td>Investor A</td>
+                                                    <td>$500,000</td>
+                                                    <td>Equity</td>
+                                                    <td>50% equity</td>
+                                                </tr>
+                                                <tr class="danger" id="equity2">
+                                                    <td>Investor B</td>
+                                                    <td>$300,000</td>
+                                                    <td>Equity</td>
+                                                    <td>30% equity</td>
+                                                </tr>
+                                                <tr class="default" id="pre-sale-num">
+                                                    <td>Concorse Media</td>
+                                                    <td>$200,000</td>
+                                                    <td>Pre-sales</td>
+                                                    <td>20% equity</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+
+                     
+               
+
+
+
+                <div class="row">
+                 <div class="col-md-12" id="equity_table">
                 <div class="panel">
+                 <div class="panel-heading"><h3 class="panel-title">Equity</h3></div>
                             
                     <div class="panel-body">
                         <div class="row">
@@ -230,7 +524,7 @@
                                 </tr>
 
                                  <tr class="gradeX">
-                                    <td>Investor C</td>
+                                    <td>Foreign Pre-sales</td>
                                     <td>$200,000</td>
                                     <td>Equity</td>
                                     <td>20% equity</td>
@@ -252,9 +546,136 @@
 
                       
 
-                        </br>
+                     
 
                         <h3><b>Total Budget: $2,000,000</b></h3>
+
+                    </div>
+                    <!-- end: page -->
+
+                </div> <!-- end Panel -->
+                </div>
+                </div>
+
+                <div class="row">
+                <div class="col-sm-12" id="pre-sale_chart">
+                <div class="panel" >
+                 <div class="panel-heading"><h3 class="panel-title">Pre-sales</h3></div>
+                            
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="m-b-30">
+                                    <button id="addToTable2" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-bordered table-striped" id="datatable-editable2">
+                            <thead>
+                                <tr>
+                                    <th>Country</th>
+                                    <th>Ask</th>
+                                    <th>Take</th>
+                                    <th>Actual</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="gradeX">
+                                    <td>United Kingdom</td>
+                                    <td>$100,000</td>
+                                    <td>$40,000</td>
+                                    <td>$80,000</td>
+                                    
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+
+                                 <tr class="gradeX">
+                                    <td>France</td>
+                                    <td>$80,000</td>
+                                    <td>$30,000</td>
+                                    <td>$40,000</td>
+                                    
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+
+                                 <tr class="gradeX">
+                                    <td>Italy</td>
+                                    <td>$20,000</td>
+                                    <td>$6,000</td>
+                                    <td>Not Yet Sold</td>
+                                    
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+
+                                 <tr class="gradeX">
+                                    <td>South Korea</td>
+                                    <td>$90,000</td>
+                                    <td>$50,000</td>
+                                    <td>$80,000</td>
+                                    
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+
+                                 <tr class="gradeX">
+                                    <td>Australia</td>
+                                    <td>$70,000</td>
+                                    <td>$20,000</td>
+                                    <td>Not Yet Sold</td>
+                                    
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+
+                                 <tr class="gradeX">
+                                    <td>Mexico</td>
+                                    <td>$40,000</td>
+                                    <td>$20,000</td>
+                                    <td>Waiting For Producer Approval</td>
+                                    
+                                    <td class="actions">
+                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+                              
+                               
+                               
+                            </tbody>
+                        </table>
+
+                        <h4><b>Total Ask: $400,000</b></h4>
+                        <h4><b>Total Take: $146,000</b></h4>
+
+                      
+
+                        <h3><b>Total Actual: $200,000</b></h3>
                     </div>
                     <!-- end: page -->
 
@@ -262,6 +683,7 @@
 
 
             </div>
+             </div>
             <!-- Page Content Ends -->
             <!-- ================== -->
 
@@ -301,6 +723,12 @@
             </section>
         </div>
 
+
+
+
+
+
+
         
 
 
@@ -321,6 +749,103 @@
         <script src="assets/jquery-datatables-editable/jquery.dataTables.js"></script> 
         <script src="assets/datatables/dataTables.bootstrap.js"></script>
         <script src="assets/jquery-datatables-editable/datatables.editable.init.js"></script>
+
+         <!-- XEditable Plugin -->
+        <script type="text/javascript" src="assets/bootstrap3-editable/moment.min.js"></script>    
+        <script type="text/javascript" src="assets/bootstrap3-editable/bootstrap-editable.js"></script>
+        <script type="text/javascript" src="assets/bootstrap3-editable/demo-xeditable.js"></script>
+
+         <script src="assets/tagsinput/jquery.tagsinput.min.js"></script>
+        <script src="assets/toggles/toggles.min.js"></script>
+        <script src="assets/timepicker/bootstrap-timepicker.min.js"></script>
+        <script src="assets/timepicker/bootstrap-datepicker.js"></script>
+        <script type="text/javascript" src="assets/colorpicker/bootstrap-colorpicker.js"></script>
+        <script type="text/javascript" src="assets/jquery-multi-select/jquery.multi-select.js"></script>
+        <script type="text/javascript" src="assets/jquery-multi-select/jquery.quicksearch.js"></script>
+        <script src="assets/bootstrap-inputmask/bootstrap-inputmask.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="assets/spinner/spinner.min.js"></script>
+        <script src="assets/select2/select2.min.js" type="text/javascript"></script>
+        <!-- Counter-up -->
+        <script src="js/waypoints.min.js" type="text/javascript"></script>
+        <script src="js/jquery.counterup.min.js" type="text/javascript"></script>
+
+        <!-- skycons -->
+        <script src="js/skycons.min.js" type="text/javascript"></script>
+
+        <!-- EASY PIE CHART JS -->
+        
+        <!-- sparkline --> 
+        <script src="assets/sparkline-chart/jquery.sparkline.min.js" type="text/javascript"></script>
+        <script src="assets/sparkline-chart/chart-sparkline.js" type="text/javascript"></script> 
+
+        <script src="assets/flot-chart/jquery.flot.js"></script>
+       
+        <script src="assets/flot-chart/jquery.flot.tooltip.min.js"></script>
+        <script src="assets/flot-chart/jquery.flot.resize.js"></script>
+        <script src="assets/flot-chart/jquery.flot.pie.js"></script>
+        <script src="assets/flot-chart/jquery.flot.selection.js"></script>
+        <script src="assets/flot-chart/jquery.flot.stack.js"></script>
+        <script src="assets/flot-chart/jquery.flot.crosshair.js"></script>
+        <script src="assets/flot-chart/jquery.flot.init.js"></script>
+
+
+
+        <!-- sparkline --> 
+
+         <script>
+
+        jQuery('.toggle').toggles({on: false});
+
+        jQuery('#option1').toggles({on: true});
+
+         jQuery('#option_equity').toggles({on: true});
+
+
+    
+
+$('#option1').on('toggle', function(e, active) {
+  if (active) {
+    console.log('Toggle is now ON!');
+    $("#pre-sale_chart").css("display","")
+    $("#pre-sale-num").css("display","")
+  } else {
+    console.log('Toggle is now OFF!');
+
+    $("#pre-sale_chart").css("display","none")
+    $("#pre-sale-num").css("display","none")
+  }
+});
+
+
+
+$('#option_equity').on('toggle', function(e, active) {
+  if (active) {
+    console.log('Toggle is now ON!');
+    $("#equity_table").css("display","")
+    $("#equity1").css("display","")
+    $("#equity2").css("display","")
+  } 
+
+
+  else {
+    console.log('Toggle is now OFF!');
+
+    $("#equity_table").css("display","none")
+    $("#equity1").css("display","none")
+        $("#equity2").css("display","none")
+
+
+
+  }
+});
+
+
+
+
+        </script>
+
+
+
 
     
 
