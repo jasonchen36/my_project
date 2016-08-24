@@ -443,7 +443,7 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="m-b-30">
-                                                <button  class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></button>
+                                                <button  class="btn btn-primary waves-effect waves-light" id="add-to-senior-debt-table">Add <i class="fa fa-plus"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -452,13 +452,32 @@
                                         <tr>
                                           <th>Company</th>
                                           <th>Amount</th>
-                                          <th>Profit Participant?</th>
+                                          <th>Equity Percentage</th>
                                           <th>Equity Type</th>
                                           <th>Financing Source</th>
                                           <th>Interest Rate</th>
                                           <th>Loan Type</th>
+                                          <th>Actions</th>
                                         </tr>
                                       </thead>
+                                      <tbody>
+                                        <tr class="gradeX">
+                                            <td>Productivity Media</td>
+                                            <td>$1,000,000</td>
+                                            <td>10%</td>
+                                            <td>Gross Equity</td>
+                                            <td>Revenue</td>
+                                            <td>15% Interest</td>
+                                            <td>Simple</td>
+
+                                            <td class="actions">
+                                                <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                                <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                                <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                                <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                      </tbody>
                                     </table>
                                 </div>
                                 <!-- end: page -->
