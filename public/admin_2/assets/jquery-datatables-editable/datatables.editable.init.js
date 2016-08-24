@@ -521,10 +521,10 @@ var senior_debt_table = {
 				null,
 				null,
 				null,
+				{ className: "equity-type"},
+				{ className: "financing-source"},
 				null,
-				null,
-				null,
-				null,
+				{ className: "loan-type"},
 
 				{ "bSortable": false }
 			]
@@ -659,7 +659,16 @@ var senior_debt_table = {
 
 			if ( $this.hasClass('actions') ) {
 				_self.rowSetActionsEditing( $row );
-			} else {
+			} else if ( $this.hasClass('equity-type')){
+			  $this.html( '<select class="form-control"><option value="gross">Gross</option><option value="net">Net</option>'+
+				'</select>');
+			}else if ( $this.hasClass('loan-type')){
+				$this.html( '<select class="form-control"><option value="simple">Simple</option><option value="semi-annual">Semi-Annual</option><option value="annual">Annual</option>'+
+				'</select>');
+			}else if ( $this.hasClass('financing-source')){
+				$this.html( '<select class="form-control"><option value="revenue">Revenue</option><option value="budget">Budget</option>'+
+				'</select>');
+			}else {
 				$this.html( '<input type="text" class="form-control input-block" value="' + data[i] + '"/>' );
 			}
 		});
