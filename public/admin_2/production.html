@@ -434,6 +434,51 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-md-12" id="non_recouping_table">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Non Recouping Production Capital</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="m-b-30">
+                                                <button  class="btn btn-primary waves-effect waves-light" id="add-to-non-recouping-table">Add <i class="fa fa-plus"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <table class="table table-bordered table-striped" id="datatable-non-recouping-table">
+                                      <thead>
+                                        <tr>
+                                          <th>Company</th>
+                                          <th>Amount</th>
+                                          <th>Form</th>
+                                          <th>Comment</th>
+                                          <th>Actions</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr class="gradeX">
+                                            <td>Productivity Media</td>
+                                            <td>$1,000,000</td>
+                                            <td>Equity</td>
+                                            <td>50% Equity</td>
+
+                                            <td class="actions">
+                                                <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                                <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                                <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                                <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                </div>
+                                <!-- end: page -->
+                            </div> <!-- end Panel -->
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-12" id="senior_debt_table">
                             <div class="panel">
                                 <div class="panel-heading">
@@ -842,6 +887,7 @@
             jQuery('#option_equity').toggles({on: true});
             jQuery('#senior_debt_table').hide();
             jQuery('#preferred_equity_table').hide();
+            jQuery('#non_recouping_table').hide();
 
             $('#option_presales').on('click', function() {
                 $("#pre-sale_chart").toggle();
@@ -860,6 +906,10 @@
 
             $('#option_preferred-equity').on('click', function() {
                 $("#preferred_equity_table").toggle();
+            });
+
+            $('#option_non_recouping_production_capital').on('click', function() {
+                $("#non_recouping_table").toggle();
             });
 
         </script>
