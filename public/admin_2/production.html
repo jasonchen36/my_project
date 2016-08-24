@@ -312,7 +312,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-6 control-label">Grants & Tax Breaks</label>
                                             <div class="col-sm-6 control-label">
-                                                <div class="toggle toggle-success"></div>
+                                                <div class="toggle toggle-success" id="grants_and_tax_breaks"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -321,7 +321,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-6 control-label">Non-recouping Production Capital</label>
                                             <div class="col-sm-6 control-label">
-                                                <div class="toggle toggle-warning"></div>
+                                                <div class="toggle toggle-warning" id="option_non_recouping_production_capital"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -342,7 +342,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-6 control-label">Prefered Equity</label>
                                             <div class="col-sm-6 control-label">
-                                                <div class="toggle toggle-danger"></div>
+                                                <div class="toggle toggle-danger" id="option_preferred-equity"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -841,6 +841,7 @@
             jQuery('#option_presales').toggles({on: true});
             jQuery('#option_equity').toggles({on: true});
             jQuery('#senior_debt_table').hide();
+            jQuery('#preferred_equity_table').hide();
 
             $('#option_presales').on('click', function() {
                 $("#pre-sale_chart").toggle();
@@ -855,6 +856,10 @@
 
             $('#option_senior_debt').on('click', function() {
                 $("#senior_debt_table").toggle();
+            });
+
+            $('#option_preferred-equity').on('click', function() {
+                $("#preferred_equity_table").toggle();
             });
 
         </script>
