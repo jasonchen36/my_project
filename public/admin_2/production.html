@@ -292,7 +292,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-6 control-label">Pre-sales</label>
                                             <div class="col-sm-6 control-label">
-                                                <div class="toggle toggle-default" id="option1" value="on"></div>
+                                                <div class="toggle toggle-default" id="option_presales" value="on"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -332,7 +332,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-6 control-label">Senior Debt/GAP Loans</label>
                                             <div class="col-sm-6 control-label">
-                                                <div class="toggle toggle-success"></div>
+                                                <div class="toggle toggle-success" id="option_senior_debt"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -431,6 +431,25 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" id="senior_debt_table">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Senior Debt/Gap Loans</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="m-b-30">
+                                                <button  class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end: page -->
+                            </div> <!-- end Panel -->
                         </div>
                     </div>
                     <div class="row">
@@ -740,52 +759,26 @@
 
         <!-- sparkline --> 
 
-         <script>
+        <script>
+            jQuery('.toggle').toggles({on: false});
+            jQuery('#option_presales').toggles({on: true});
+            jQuery('#option_equity').toggles({on: true});
+            jQuery('#senior_debt_table').hide();
 
-        jQuery('.toggle').toggles({on: false});
+            $('#option_presales').on('click', function() {
+                $("#pre-sale_chart").toggle();
+                $("#pre-sale-num").toggle();
+            });
 
-        jQuery('#option1').toggles({on: true});
+            $('#option_equity').on('click', function() {
+                $("#equity_table").toggle();
+                $("#equity1").toggle();
+                $("#equity2").toggle();
+            });
 
-         jQuery('#option_equity').toggles({on: true});
-
-
-    
-
-$('#option1').on('toggle', function(e, active) {
-  if (active) {
-    console.log('Toggle is now ON!');
-    $("#pre-sale_chart").css("display","")
-    $("#pre-sale-num").css("display","")
-  } else {
-    console.log('Toggle is now OFF!');
-
-    $("#pre-sale_chart").css("display","none")
-    $("#pre-sale-num").css("display","none")
-  }
-});
-
-
-
-$('#option_equity').on('toggle', function(e, active) {
-  if (active) {
-    console.log('Toggle is now ON!');
-    $("#equity_table").css("display","")
-    $("#equity1").css("display","")
-    $("#equity2").css("display","")
-  } 
-
-
-  else {
-    console.log('Toggle is now OFF!');
-
-    $("#equity_table").css("display","none")
-    $("#equity1").css("display","none")
-        $("#equity2").css("display","none")
-
-
-
-  }
-});
+            $('#option_senior_debt').on('click', function() {
+                $("#senior_debt_table").toggle();
+            });
 
         </script>
 
