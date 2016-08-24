@@ -660,14 +660,23 @@ var senior_debt_table = {
 			if ( $this.hasClass('actions') ) {
 				_self.rowSetActionsEditing( $row );
 			} else if ( $this.hasClass('equity-type')){
-			  $this.html( '<select class="form-control"><option value="gross">Gross</option><option value="net">Net</option>'+
+			  $this.html( '<select class="form-control" id="equity-type-dropdown"><option value="Gross Equity">Gross</option><option value="Net Equity">Net</option>'+
 				'</select>');
+				if (data[i].length > 0){
+				  $('#equity-type-dropdown').val(data[i]);
+				}
 			}else if ( $this.hasClass('loan-type')){
-				$this.html( '<select class="form-control"><option value="simple">Simple</option><option value="semi-annual">Semi-Annual</option><option value="annual">Annual</option>'+
+				$this.html( '<select class="form-control" id="loan-type-dropdown"><option value="Simple">Simple</option><option value="Semi-Annual">Semi-Annual</option><option value="Annual">Annual</option>'+
 				'</select>');
+				if (data[i].length > 0){
+				  $('#loan-type-dropdown').val(data[i]);
+				}
 			}else if ( $this.hasClass('financing-source')){
-				$this.html( '<select class="form-control"><option value="revenue">Revenue</option><option value="budget">Budget</option>'+
+				$this.html( '<select class="form-control" id="financing-source-dropdown"><option value="Revenue">Revenue</option><option value="Budget">Budget</option>'+
 				'</select>');
+				if (data[i].length > 0){
+				  $('#financing-source-dropdown').val(data[i]);
+				}
 			}else {
 				$this.html( '<input type="text" class="form-control input-block" value="' + data[i] + '"/>' );
 			}
@@ -690,7 +699,13 @@ var senior_debt_table = {
 			if ( $this.hasClass('actions') ) {
 				_self.rowSetActionsDefault( $row );
 				return _self.datatable.cell( this ).data();
-			} else {
+			} else if ( $this.hasClass('equity-type')){
+			  return $.trim( $this.find('select').val() );
+			}else if ( $this.hasClass('loan-type')){
+				return $.trim( $this.find('select').val() );
+			}else if ( $this.hasClass('financing-source')){
+				return $.trim( $this.find('select').val() );
+			}else {
 				return $.trim( $this.find('input').val() );
 			}
 		});
