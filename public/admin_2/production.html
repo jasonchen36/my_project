@@ -312,7 +312,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-6 control-label">Grants & Tax Breaks</label>
                                             <div class="col-sm-6 control-label">
-                                                <div class="toggle toggle-success" id="grants_and_tax_breaks"></div>
+                                                <div class="toggle toggle-success" id="option_grants_and_tax_breaks"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -398,7 +398,6 @@
                                                         <th>Type of Financing</th>
                                                         <th>Equity %</th>
                                                         <th>Comment</th>
-
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -423,6 +422,20 @@
                                                         <td>30%</td>
                                                         <td></td>
                                                     </tr>
+                                                    <tr class="default" id="tax-grant-num">
+                                                        <td>BC Government</td>
+                                                        <td>$2,000,000</td>
+                                                        <td>Grant - Loan</td>
+                                                        <td>0%</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr class="default" id="tax-grant-num-2">
+                                                        <td>Government of Canada</td>
+                                                        <td>$80,000</td>
+                                                        <td>Tax Break - Discount</td>
+                                                        <td>0%</td>
+                                                        <td>Estimated Value - $100,000</td>
+                                                    </tr>
                                                     <tr class="default" id="pre-sale-num">
                                                         <td>Concourse Media</td>
                                                         <td>$200,000</td>
@@ -438,6 +451,88 @@
                             </div>
                         </div>
                     </div>
+					<div class="row">
+						<div class="col-md-12" id="tax_grant_table">
+							<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title">Grants & Tax Breaks - Loans</h3>
+								</div>
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="m-b-30">
+												<button  class="btn btn-primary waves-effect waves-light" id="add-to-tax-table-loan">Add <i class="fa fa-plus"></i></button>
+											</div>
+										</div>
+									</div>
+									<table class="table table-bordered table-striped" id="datatable-tax-table-loan">
+										<thead>
+										<tr>
+											<th>Company</th>
+											<th>Amount</th>
+											<th>Interest Rate</th>
+											<th>Loan Type</th>
+											<th>Actions</th>
+										</tr>
+										</thead>
+										<tbody>
+										<tr class="gradeX">
+											<td>BC Government</td>
+											<td>$2,000,000</td>
+											<td>20%</td>
+											<td>Semi-Annual</td>
+
+											<td class="actions">
+												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+											</td>
+										</tr>
+										</tbody>
+									</table>
+								</div>
+								<br/>
+								<div class="panel-heading">
+									<h3 class="panel-title">Grants & Tax Breaks - Discounts</h3>
+								</div>
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="m-b-30">
+												<button  class="btn btn-primary waves-effect waves-light" id="add-to-tax-table-discount">Add <i class="fa fa-plus"></i></button>
+											</div>
+										</div>
+									</div>
+									<table class="table table-bordered table-striped" id="datatable-tax-table-discount">
+										<thead>
+										<tr>
+											<th>Company</th>
+											<th>Estimated Amount</th>
+											<th>Net Advance</th>
+											<th>Actions</th>
+										</tr>
+										</thead>
+										<tbody>
+										<tr class="gradeX">
+											<td>Government of Canada</td>
+											<td>$100,000</td>
+											<td>$80,000</td>
+
+											<td class="actions">
+												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+											</td>
+										</tr>
+										</tbody>
+									</table>
+								</div>
+								<!-- end: page -->
+							</div> <!-- end Panel -->
+						</div>
+					</div>
                     <div class="row">
                         <div class="col-md-12" id="non_recouping_table">
                             <div class="panel">
@@ -1009,6 +1104,9 @@
             $('#non_recouping_table').hide();
             $('#corridor_equity_table').hide();
             $('#direct_territory_sales_table').hide();
+			$('#tax_grant_table').hide();
+			$('#tax-grant-num').hide();
+			$('#tax-grant-num-2').hide();
 
             $('#option_presales').on('click', function() {
                 $("#pre-sale_chart").toggle();
@@ -1033,9 +1131,15 @@
                 $("#non_recouping_table").toggle();
             });
 
-            $('#option_corridor_equity').on('click', function() {
-                $("#corridor_equity_table").toggle();
-            });
+			$('#option_corridor_equity').on('click', function() {
+				$("#corridor_equity_table").toggle();
+			});
+
+            $('#option_grants_and_tax_breaks').on('click', function() {
+                $('#tax_grant_table').toggle();
+                $('#tax-grant-num').toggle();
+                $('#tax-grant-num-2').toggle();
+            })
 
             $('#option_direct_territory_sales').on('click', function() {
                 $("#direct_territory_sales_table").toggle();
