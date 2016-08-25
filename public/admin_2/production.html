@@ -364,7 +364,7 @@
 
 
 
-                                                                         <div class="col-sm-6">
+                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label class="col-sm-6 control-label">General Equity</label>
                                             <div class="col-sm-6 control-label">
@@ -396,34 +396,39 @@
                                                         <th>Company</th>
                                                         <th>Amount</th>
                                                         <th>Type of Financing</th>
+                                                        <th>Equity %</th>
                                                         <th>Comment</th>
 
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr class="success" id="senior_debt">
+                                                    <tr class="success" id="summary-senior-debt">
                                                         <td>Productivity Media</td>
                                                         <td>$1,000,000</td>
                                                         <td>Senior Debt</td>
+                                                        <td>10%</td>
                                                         <td>15% Interest</td>
                                                     </tr>
                                                     <tr class="danger" id="equity1">
                                                         <td>Investor A</td>
                                                         <td>$500,000</td>
-                                                        <td>Equity</td>
-                                                        <td>50% equity</td>
+                                                        <td>General Equity</td>
+                                                        <td>50%</td>
+                                                        <td></td>
                                                     </tr>
                                                     <tr class="danger" id="equity2">
                                                         <td>Investor B</td>
                                                         <td>$300,000</td>
-                                                        <td>Equity</td>
-                                                        <td>30% equity</td>
+                                                        <td>General Equity</td>
+                                                        <td>30%</td>
+                                                        <td></td>
                                                     </tr>
                                                     <tr class="default" id="pre-sale-num">
-                                                        <td>Concorse Media</td>
+                                                        <td>Concourse Media</td>
                                                         <td>$200,000</td>
                                                         <td>Pre-sales</td>
-                                                        <td>20% equity</td>
+                                                        <td>20%</td>
+                                                        <td></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -578,7 +583,7 @@
                         <div class="col-md-12" id="equity_table">
                             <div class="panel">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Equity</h3>
+                                    <h3 class="panel-title">General Equity</h3>
                                 </div>
                                 <div class="panel-body">
                                     <div class="row">
@@ -594,30 +599,16 @@
                                             <th>Company</th>
                                             <th>Amount</th>
                                             <th>Form</th>
-                                            <th>Comment</th>
+                                            <th>Equity Percentage</th>
                                             <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr class="gradeX">
-                                                <td>Productivity Media</td>
-                                                <td>$1,000,000</td>
-                                                <td>Senior Debt</td>
-                                                <td>15% Interest</td>
-
-                                                <td class="actions">
-                                                    <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                                    <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                                    <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                                    <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                                                </td>
-                                            </tr>
-
-                                            <tr class="gradeX">
                                                 <td>Investor A</td>
                                                 <td>$500,000</td>
                                                 <td>Equity</td>
-                                                <td>50% equity</td>
+                                                <td>50%</td>
 
                                                 <td class="actions">
                                                     <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
@@ -631,7 +622,7 @@
                                                 <td>Investor B</td>
                                                 <td>$300,000</td>
                                                 <td>Equity</td>
-                                                <td>30% equity</td>
+                                                <td>30%</td>
 
                                                 <td class="actions">
                                                     <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
@@ -642,10 +633,10 @@
                                             </tr>
 
                                             <tr class="gradeX">
-                                                <td>Foreign Pre-sales</td>
+                                                <td>Concourse Media</td>
                                                 <td>$200,000</td>
                                                 <td>Equity</td>
-                                                <td>20% equity</td>
+                                                <td>20%</td>
 
                                                 <td class="actions">
                                                     <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
@@ -681,6 +672,7 @@
                                     <table class="table table-bordered table-striped" id="datatable-editable2">
                                         <thead>
                                             <tr>
+                                                <th>Company</th>
                                                 <th>Country</th>
                                                 <th>Ask</th>
                                                 <th>Take</th>
@@ -690,6 +682,7 @@
                                         </thead>
                                         <tbody>
                                             <tr class="gradeX">
+                                                <td rowspan="6">Concourse Media</td>
                                                 <td>United Kingdom</td>
                                                 <td>$100,000</td>
                                                 <td>$40,000</td>
@@ -886,6 +879,7 @@
             jQuery('#option_presales').toggles({on: true});
             jQuery('#option_equity').toggles({on: true});
             jQuery('#senior_debt_table').hide();
+            jQuery('#summary-senior-debt').hide();
             jQuery('#preferred_equity_table').hide();
             jQuery('#non_recouping_table').hide();
 
@@ -902,8 +896,8 @@
 
             $('#option_senior_debt').on('click', function() {
                 $("#senior_debt_table").toggle();
+                $("#summary-senior-debt").toggle();
             });
-
             $('#option_preferred-equity').on('click', function() {
                 $("#preferred_equity_table").toggle();
             });
