@@ -784,7 +784,6 @@ var NonRecoupingTable = {
 
 		this.$addButton.on( 'click', function(e) {
 			e.preventDefault();
-
 			_self.rowAdd();
 		});
 
@@ -1332,7 +1331,81 @@ var DirectTerritorySalesTable = {
 			var $this = $( this );
 
 			if ( $this.hasClass('actions') ) {
-				_self.rowSetActionsEditing( $row );
+				rowSetActionsEditing( $row );
+			} else if ( $this.hasClass('territory-type')){
+			  $this.html( '<select class="form-control" id="equity-type-dropdown">'+
+				<option value="Airlines">Airlines</option> +
+				<option value="Argentina">Argentina</option> +
+				<option value="Asia PTV">Asia PTV</option> +
+				<option value="Australia">Australia</option> +
+				<option value="Austria">Austria</option> +
+				<option value="Baltics"><Baltics/option> +
+				<option value="Benelux">Benelux</option> +
+				<option value="Brazil">Brazil</option> +
+				<option value="Bolivia">Bolivia</option> +
+				<option value="Bulgaria">Bulgaria</option> +
+				<option value="Canada">Canada</option> +
+				<option value="Central America">Central America</option> +
+				<option value="Columbia">Columbia</option> +
+				<option value="China">China</option> +
+				<option value="CIS">CIS</option> +
+				<option value="Cyprus">Cyprus</option> +
+				<option value="Croatia">Croatia</option> +
+				<option value="Czech Republic">Czech Republic</option> +
+				<option value="Ecuador">Ecuador</option> +
+				<option value="Former Yugoslavia">Former Yugoslavia</option> +
+				<option value="France">France</option> +
+				<option value="Germany">Germany</option> +
+				<option value="Greece">Greece</option> +
+				<option value="Hong Kong">Hong Kong</option> +
+				<option value="Hungary">Hungary</option> +
+				<option value="Iceland">Iceland</option> +
+				<option value="Ireland">Ireland</option> +
+				<option value="India">India</option> +
+				<option value="Indonesia">Indonesia</option> +
+				<option value="Israel">Israel</option> +
+				<option value="Italy">Italy</option> +
+				<option value="Japan">Japan</option> +
+				<option value="Macao">Macao</option> +
+				<option value="Malaysia">Malaysia</option> +
+				<option value="Mexico">Mexico</option> +
+				<option value="Middle East">Middle East</option> +
+				<option value="New Zealand">New Zealand</option> +
+				<option value="Pakistan">Pakistan</option> +
+				<option value="Paraguay">Paraguay</option> +
+				<option value="Pan Asian Sat TV">Pan Asian Sat TV</option> +
+				<option value="Pan Latin PTV">Pan Latin PTV</option> +
+				<option value="Peru">Peru</option> +
+				<option value="Philippines">Philippines</option> +
+				<option value="Poland">Poland</option> +
+				<option value="Portugal">Portugal</option> +
+				<option value="Romania">Romania</option> +
+				<option value="Russia">Russia</option> +
+				<option value="Scandinavia">Scandinavia</option> +
+				<option value="Serbia">Serbia</option> +
+				<option value="Singapore">Singapore</option> +
+				<option value="Slovakia">Slovakia</option> +
+				<option value="South Africa">South Africa</option> +
+				<option value="South Korea">South Korea</option> +
+				<option value="Spain">Spain</option> +
+				<option value="Sri Lanka">Sri Lanka</option> +
+				<option value="Switzerland">Switzerland</option> +
+				<option value="Taiwan">Taiwan</option> +
+				<option value="Thailand">Thailand</option> +
+				<option value="Turkey">Turkey</option> +
+				<option value="United Kingdom">United Kingdom</option> +
+				<option value="Uruguay">Uruguay</option> +
+				<option value="USA">USA</option> +
+				<option value="Venezuela">Venezuela</option> +
+				
+
+
+
+
+				'</select>');
+				if (data[i].length > 0){
+				  $('#territory-type-dropdown').val(data[i]);
+				}
 			} else {
 				$this.html( '<input type="text" class="form-control input-block" value="' + data[i] + '"/>' );
 			}
