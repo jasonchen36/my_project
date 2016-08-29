@@ -1333,7 +1333,7 @@ var DirectTerritorySalesTable = {
 			if ( $this.hasClass('actions') ) {
 				rowSetActionsEditing( $row );
 			} else if ( $this.hasClass('territory-type')){
-			  $this.html( '<select class="form-control" id="equity-type-dropdown">'+
+			  $this.html( '<select class="form-control" id="territory-type-dropdown">'+
 				<option value="Airlines">Airlines</option> +
 				<option value="Argentina">Argentina</option> +
 				<option value="Asia PTV">Asia PTV</option> +
@@ -1397,7 +1397,7 @@ var DirectTerritorySalesTable = {
 				<option value="Uruguay">Uruguay</option> +
 				<option value="USA">USA</option> +
 				<option value="Venezuela">Venezuela</option> +
-				
+
 
 
 
