@@ -1197,7 +1197,7 @@ var DirectTerritorySalesTable = {
 				null,
 				null,
 				null,
-				null,
+				{ className: "territory-type"},
 
 				{ "bSortable": false }
 			]
@@ -1339,7 +1339,7 @@ var DirectTerritorySalesTable = {
 				'<option value="Asia PTV">Asia PTV</option>' +
 				'<option value="Australia">Australia</option>' +
 				'<option value="Austria">Austria</option>' +
-				'<option value="Baltics"><Baltics/option>' +
+				'<option value="Baltics">Baltics</option>' +
 				'<option value="Benelux">Benelux</option>' +
 				'<option value="Brazil">Brazil</option>' +
 				'<option value="Bolivia">Bolivia</option>' +
@@ -1423,7 +1423,9 @@ var DirectTerritorySalesTable = {
 			if ( $this.hasClass('actions') ) {
 				_self.rowSetActionsDefault( $row );
 				return _self.datatable.cell( this ).data();
-			} else {
+			} else if ( $this.hasClass('territory-type')){
+			  return $.trim( $this.find('select').val() );
+			}else {
 				return $.trim( $this.find('input').val() );
 			}
 		});
