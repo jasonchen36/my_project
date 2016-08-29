@@ -236,14 +236,11 @@
 
 	};
 
-	//////////////table 2
-
-
-	var EditableTable2 = {
+	var PresalesTable = {
 
 		options: {
-			addButton: '#addToTable2',
-			table: '#datatable-editable2',
+			addButton: '#add-to-presales',
+			table: '#datatable-presales',
 			dialog: {
 				wrapper: '#dialog',
 				cancelButton: '#dialogCancel',
@@ -265,6 +262,7 @@
 		build: function() {
 			this.datatable = this.$table.DataTable({
 				aoColumns: [
+					null,
 					null,
 					null,
 					null,
@@ -293,7 +291,7 @@
 			var data,
 				$row;
 
-			data = this.datatable.row.add([ '', '', '','', actions ]);
+			data = this.datatable.row.add([ '', '', '', '', '', actions ]);
 			$row = this.datatable.row( data[0] ).nodes().to$();
 
 			$row
@@ -303,27 +301,6 @@
 
 			this.rowEdit( $row );
 			this.datatable.order([0,'asc']).draw(); // always show fields
-		},
-
-		rowCancel: function( $row ) {
-			var _self = this,
-				$actions,
-				data;
-
-			if ( $row.hasClass('adding') ) {
-				rowRemove( $row, _self );
-			} else {
-
-				data = this.datatable.row( $row.get(0) ).data();
-				this.datatable.row( $row.get(0) ).data( data );
-
-				$actions = $row.find('td.actions');
-				if ( $actions.get(0) ) {
-					rowSetActionsDefault( $row );
-				}
-
-				this.datatable.draw();
-			}
 		},
 
 		rowEdit: function( $row ) {
@@ -1334,7 +1311,7 @@ var DirectTerritorySalesTable = {
 	PreferredEquityTable.initialize();
 	senior_debt_table.initialize();
 	EditableTable.initialize();
-	EditableTable2.initialize();
+	PresalesTable.initialize();
 	DirectTerritorySalesTable.initialize();
 	CorridorEquityTable.initialize();
 	TaxGrantLoanTable.initialize();
