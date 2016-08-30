@@ -433,6 +433,20 @@
                                                         <td>20%</td>
                                                         <td></td>
                                                     </tr>
+													<tr class="default" id="corridor-equity-num">
+														<td>Telefilm</td>
+														<td>$500,000</td>
+														<td>Corridor Equity</td>
+														<td>50%</td>
+														<td>5% Waterfall Corridor</td>
+													</tr>
+													<tr class="default" id="corridor-equity-num-2">
+														<td>NOHFC</td>
+														<td>$200,000</td>
+														<td>Corridor Equity</td>
+														<td>20%</td>
+														<td>5% Presales Corridor</td>
+													</tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -880,18 +894,18 @@
                                             <tr>
                                             <th>Company</th>
                                             <th>Amount</th>
-                                            <th>Form</th>
-                                            <th>Equity Percentage</th>
-                                            <th>Corridor Percentage</th>
+                                            <th>Equity % </th>
+                                            <th>Presales Corridor % </th>
+											<th>Recoupment Corridor %</th>
                                             <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr class="gradeX">
-                                                <td>Investor A</td>
+                                                <td>Telefilm</td>
                                                 <td>$500,000</td>
-                                                <td>Equity</td>
                                                 <td>50%</td>
+												<td>0%</td>
                                                 <td>5%</td>
 
                                                 <td class="actions">
@@ -903,26 +917,11 @@
                                             </tr>
 
                                             <tr class="gradeX">
-                                                <td>Investor B</td>
-                                                <td>$300,000</td>
-                                                <td>Equity</td>
-                                                <td>30%</td>
-                                                <td>5%</td>
-
-                                                <td class="actions">
-                                                    <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                                    <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                                    <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                                    <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                                                </td>
-                                            </tr>
-
-                                            <tr class="gradeX">
-                                                <td>Concourse Media</td>
+                                                <td>NOHFC</td>
                                                 <td>$200,000</td>
-                                                <td>Equity</td>
                                                 <td>20%</td>
                                                 <td>5%</td>
+												<td>0%</td>
 
                                                 <td class="actions">
                                                     <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
@@ -935,7 +934,7 @@
 
                                         </tbody>
                                     </table>
-                                    <h3><b>Total Budget: $2,000,000</b></h3>
+                                    <h3><b>Total Budget: $700,000</b></h3>
                                 </div>
                                 <!-- end: page -->
                             </div> <!-- end Panel -->
@@ -1131,6 +1130,8 @@
 			$('#tax_grant_table').hide();
 			$('#tax-grant-num').hide();
 			$('#tax-grant-num-2').hide();
+			$('#corridor-equity-num').hide();
+			$('#corridor-equity-num-2').hide();
 
             $('#option_presales').on('click', function() {
                 $("#pre-sale_chart").toggle();
@@ -1157,6 +1158,8 @@
 
 			$('#option_corridor_equity').on('click', function() {
 				$("#corridor_equity_table").toggle();
+				$('#corridor-equity-num').toggle();
+				$('#corridor-equity-num-2').toggle();
 			});
 
             $('#option_grants_and_tax_breaks').on('click', function() {
