@@ -267,6 +267,7 @@
 					null,
 					null,
 					null,
+					null,
 					{ "bSortable": false }
 				]
 			});
@@ -291,7 +292,7 @@
 			var data,
 				$row;
 
-			data = this.datatable.row.add([ '', '', '', '', '', actions ]);
+			data = this.datatable.row.add([ '', '', '', '', '', '', actions ]);
 			$row = this.datatable.row( data[0] ).nodes().to$();
 
 			$row
