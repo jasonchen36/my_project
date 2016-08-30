@@ -637,7 +637,6 @@ var PreferredEquityTable = {
 				null,
 				null,
 				null,
-				null,
 				{ "bSortable": false }
 			]
 		});
@@ -661,7 +660,7 @@ var PreferredEquityTable = {
 		var data,
 			$row;
 
-		data = this.datatable.row.add([ '', '', '','', actions ]);
+		data = this.datatable.row.add([ '',  '','', actions ]);
 		$row = this.datatable.row( data[0] ).nodes().to$();
 
 		$row
@@ -989,6 +988,8 @@ var DirectTerritorySalesTable = {
 				{ className: "territory-type"},
 				null,
 				null,
+				null,
+				{ className: "loan-type"},
 				{ "bSortable": false }
 			]
 		});
@@ -1105,6 +1106,12 @@ var DirectTerritorySalesTable = {
 				if (data[i].length > 0){
 				  $('#territory-type-dropdown').val(data[i]);
 				}
+			} else if ( $this.hasClass('loan-type')){
+				$this.html( '<select class="form-control" id="loan-type-dropdown"><option value="Simple">Simple</option><option value="Semi-Annual">Semi-Annual</option><option value="Annual">Annual</option>'+
+					'</select>');
+				if (data[i].length > 0){
+					$('#loan-type-dropdown').val(data[i]);
+				}
 			} else {
 				$this.html( '<input type="text" class="form-control input-block" value="' + data[i] + '"/>' );
 			}
@@ -1129,7 +1136,9 @@ var DirectTerritorySalesTable = {
 				return _self.datatable.cell( this ).data();
 			} else if ( $this.hasClass('territory-type')){
 			  return $.trim( $this.find('select').val() );
-			}else {
+			} else if ( $this.hasClass('loan-type')){
+				return $.trim( $this.find('select').val() );
+			} else {
 				return $.trim( $this.find('input').val() );
 			}
 		});

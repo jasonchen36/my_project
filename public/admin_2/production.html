@@ -408,7 +408,7 @@
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12 col-xs-12">
-                                            <table class="table">
+                                            <table class="table table-striped">
                                                 <thead>
                                                     <tr>
                                                         <th>Company</th>
@@ -424,7 +424,7 @@
                                                         <td>$1,000,000</td>
                                                         <td>Senior Debt</td>
                                                         <td>10%</td>
-                                                        <td>15% Interest</td>
+                                                        <td>15% Interest Simple</td>
                                                     </tr>
                                                     <tr class="default" id="equity1">
                                                         <td>Investor A</td>
@@ -482,6 +482,20 @@
 														<td>5%</td>
 														<td></td>
 													</tr>
+												<tr class="default">
+													<td>Private Equity</td>
+													<td>$350,000</td>
+													<td>Preferred Equity</td>
+													<td>10%</td>
+													<td></td>
+												</tr>
+												<tr class="default">
+													<td>French Distributors</td>
+													<td>$275,000</td>
+													<td>Direct Territory</td>
+													<td>4%</td>
+													<td>15% Interest Semi-Annual</td>
+												</tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -654,13 +668,17 @@
 											<th>Territory</th>
 											<th>Equity %</th>
 											<th>Overages Retained</th>
+											<th>Interest Rate</th>
+											<th>Loan Type</th>
 											<th>Actions</th>
 										</tr>
 										</thead>
 										<tfoot>
 										<tr>
 											<th>Total:</th>
-											<th>$1,000,000</th>
+											<th>$275,000</th>
+											<th></th>
+											<th></th>
 											<th></th>
 											<th></th>
 											<th></th>
@@ -669,11 +687,13 @@
 										</tfoot>
 										<tbody>
 										<tr class="gradeX">
-											<td>Productivity Media</td>
-											<td>$1,000,000</td>
+											<td>French Distributors</td>
+											<td>$275,000</td>
 											<td>France</td>
-											<td>50%</td>
-											<td>100%</td>
+											<td>4%</td>
+											<td>60%</td>
+											<td>15%</td>
+											<td>Semi-Annual</td>
 
 											<td class="actions">
 												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
@@ -888,7 +908,7 @@
                                             <td>10%</td>
                                             <td>Gross Equity</td>
                                             <td>Revenue</td>
-                                            <td>15% Interest</td>
+                                            <td>15%</td>
                                             <td>Simple</td>
 
                                             <td class="actions">
@@ -925,8 +945,7 @@
                                         <tr>
                                           <th>Company</th>
                                           <th>Amount</th>
-                                          <th>Form</th>
-                                          <th>Comment</th>
+                                          <th>Equity %</th>
                                           <th>Actions</th>
                                         </tr>
                                       </thead>
@@ -936,15 +955,13 @@
 												<th>$1,000,000</th>
 												<th></th>
 												<th></th>
-												<th></th>
 											</tr>
 										</tfoot>
                                       <tbody>
                                         <tr class="gradeX">
-                                            <td>Productivity Media</td>
-                                            <td>$1,000,000</td>
-                                            <td>Equity</td>
-                                            <td>50% Equity</td>
+                                            <td>Private Equity</td>
+                                            <td>$350,000</td>
+                                            <td>10%</td>
 
                                             <td class="actions">
                                                 <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
@@ -1206,32 +1223,32 @@
             $('#option_presales').toggles({on: true});
             $('#option_equity').toggles({on: true});
             $('#senior_debt_table').hide();
-            $('#summary-senior-debt').hide();
+//            $('#summary-senior-debt').hide();
             $('#preferred_equity_table').hide();
             $('#non_recouping_table').hide();
             $('#corridor_equity_table').hide();
             $('#direct_territory_sales_table').hide();
 			$('#tax_grant_table').hide();
-			$('#tax-grant-num').hide();
-			$('#tax-grant-num-2').hide();
-			$('#corridor-equity-num').hide();
-			$('#corridor-equity-num-2').hide();
-			$('#non-recouping-num').hide();
+//			$('#tax-grant-num').hide();
+//			$('#tax-grant-num-2').hide();
+//			$('#corridor-equity-num').hide();
+//			$('#corridor-equity-num-2').hide();
+//			$('#non-recouping-num').hide();
 
             $('#option_presales').on('click', function() {
                 $("#pre-sale_chart").toggle();
-                $("#pre-sale-num").toggle();
+//                $("#pre-sale-num").toggle();
             });
 
             $('#option_equity').on('click', function() {
                 $("#equity_table").toggle();
-                $("#equity1").toggle();
-                $("#equity2").toggle();
+//                $("#equity1").toggle();
+//                $("#equity2").toggle();
             });
 
             $('#option_senior_debt').on('click', function() {
                 $("#senior_debt_table").toggle();
-                $("#summary-senior-debt").toggle();
+//                $("#summary-senior-debt").toggle();
             });
             $('#option_preferred-equity').on('click', function() {
                 $("#preferred_equity_table").toggle();
@@ -1239,19 +1256,19 @@
 
             $('#option_non_recouping_production_capital').on('click', function() {
                 $("#non_recouping_table").toggle();
-				$("#non-recouping-num").toggle();
+//				$("#non-recouping-num").toggle();
             });
 
 			$('#option_corridor_equity').on('click', function() {
 				$("#corridor_equity_table").toggle();
-				$('#corridor-equity-num').toggle();
-				$('#corridor-equity-num-2').toggle();
+//				$('#corridor-equity-num').toggle();
+//				$('#corridor-equity-num-2').toggle();
 			});
 
             $('#option_grants_and_tax_breaks').on('click', function() {
                 $('#tax_grant_table').toggle();
-                $('#tax-grant-num').toggle();
-                $('#tax-grant-num-2').toggle();
+//                $('#tax-grant-num').toggle();
+//                $('#tax-grant-num-2').toggle();
             });
 
             $('#option_direct_territory_sales').on('click', function() {
