@@ -199,20 +199,41 @@
                 <div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-heading"><h3 class="panel-title">Relevant Currencies</h3></div>
-                    <div class="panel-body">
 
-                    0.7614 USD = 1.00 CAD
-                    </br>
-                    2.7969 AED = 1.00 CAD
-                    </br>
-                    1.00 CNY = 0.20 CAD
-                    </br>
+                    <div class="panel-body" id="FX">
+
 
                     <form>
-                      <input type="checkbox" name="vehicle" value="Bike" id="Bike"> I have a bike<br>
-                      <input type="checkbox" name="vehicle" value="Car" id="Car"> I have a car<br>
-                      <input type="submit" value="Submit" id="Submit">
+                      <input type="checkbox" id="USD/CAD">USD/CAD<br>
+                      <input type="checkbox" id="AED/CAD">AED/CAD<br>
+                      <input type="checkbox" id="CNY/CAD">CNY/CAD<br>
+                      <input type="submit" id="Submit">
                     </form>
+
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+                    <script>
+                    $("#Submit").on('click', function(e){
+                      e.preventDefault();
+                      if(document.getElementById("USD/CAD").checked && document.getElementById("AED/CAD").checked && document.getElementById("CNY/CAD").checked){
+                        $("#FX").append("0.7614 USD = 1.00 CAD</br>2.7969 AED = 1.00 CAD</br>1.00 CNY = 0.20 CAD</br>");
+                      }else if (document.getElementById("USD/CAD").checked && document.getElementById("AED/CAD").checked){
+                        $("#FX").append("0.7614 USD = 1.00 CAD</br>2.7969 AED = 1.00 CAD</br>");
+                      }else if (document.getElementById("USD/CAD").checked && document.getElementById("CNY/CAD").checked){
+                        $("#FX").append("0.7614 USD = 1.00 CAD</br>1.00 CNY = 0.20 CAD</br>");
+                      }else if (document.getElementById("AED/CAD").checked && document.getElementById("CNY/CAD").checked){
+                        $("#FX").append("2.7969 AED = 1.00 CAD</br>1.00 CNY = 0.20 CAD</br>");
+                      }else if(document.getElementById("USD/CAD").checked){
+                        $("#FX").append("0.7614 USD = 1.00 CAD</br>");
+                      }else if (document.getElementById("AED/CAD").checked) {
+                        $("#FX").append("2.7969 AED = 1.00 CAD</br>");
+                      }else if (document.getElementById("CNY/CAD").checked) {
+                        $("#FX").append("1.00 CNY = 0.20 CAD</br>");
+                      }else {
+                        alert ('Please choose an option.')
+                      };
+                    });
+                    </script>
 
 
 
