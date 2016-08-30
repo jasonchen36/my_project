@@ -873,9 +873,9 @@ var DirectTerritorySalesTable = {
 			aoColumns: [
 				null,
 				null,
-				null,
-				null,
 				{ className: "territory-type"},
+				null,
+				null,
 				{ "bSortable": false }
 			]
 		});
