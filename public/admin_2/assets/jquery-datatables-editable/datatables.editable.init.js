@@ -236,6 +236,119 @@
 
 	};
 
+	var GeneralEquityTable = {
+
+		options: {
+			addButton: '#add-to-general-equity',
+			table: '#datatable-general-equity',
+			dialog: {
+				wrapper: '#dialog',
+				cancelButton: '#dialogCancel',
+				confirmButton: '#dialogConfirm'
+			}
+		},
+
+		initialize: function() {
+			this
+				.setVars()
+				.build()
+				.events();
+		},
+
+		setVars: function() {
+			return setVarsSetup(this);
+		},
+
+		build: function() {
+			this.datatable = this.$table.DataTable({
+				aoColumns: [
+					null,
+					null,
+					null,
+					{ "bSortable": false }
+				]
+			});
+
+			window.dt = this.datatable;
+
+			return this;
+		},
+
+		events: function() {
+			var _self = this;
+
+			return eventSetup(_self);
+		},
+
+		// ==========================================================================================
+		// ROW FUNCTIONS
+		// ==========================================================================================
+		rowAdd: function() {
+			this.$addButton.attr({ 'disabled': 'disabled' });
+
+			var data,
+				$row;
+
+			data = this.datatable.row.add([ '', '','', actions ]);
+			$row = this.datatable.row( data[0] ).nodes().to$();
+
+			$row
+				.addClass( 'adding' )
+				.find( 'td:last' )
+				.addClass( 'actions' );
+
+			this.rowEdit( $row );
+			this.datatable.order([0,'asc']).draw(); // always show fields
+		},
+
+		rowEdit: function( $row ) {
+			var data = this.datatable.row( $row.get(0) ).data();
+
+			$row.children( 'td' ).each(function( i ) {
+				var $this = $( this );
+
+				if ( $this.hasClass('actions') ) {
+					rowSetActionsEditing( $row );
+				} else {
+					$this.html( '<input type="text" class="form-control input-block" value="' + data[i] + '"/>' );
+				}
+			});
+		},
+
+		rowSave: function( $row ) {
+			var _self     = this,
+				$actions,
+				values;
+
+			if ( $row.hasClass( 'adding' ) ) {
+				this.$addButton.removeAttr( 'disabled' );
+				$row.removeClass( 'adding' );
+			}
+
+			values = $row.find('td').map(function() {
+				var $this = $(this);
+
+				if ( $this.hasClass('actions') ) {
+					rowSetActionsDefault( $row );
+					return _self.datatable.cell( this ).data();
+				} else {
+					return $.trim( $this.find('input').val() );
+				}
+			});
+
+			this.datatable.row( $row.get(0) ).data( values );
+
+			$actions = $row.find('td.actions');
+			if ( $actions.get(0) ) {
+				rowSetActionsDefault( $row );
+			}
+
+			this.datatable.draw();
+		}
+
+	};
+
+
 	var PresalesTable = {
 
 		options: {
@@ -353,7 +466,7 @@
 
 //Senior Debt Table
 
-var senior_debt_table = {
+var SeniorDebtTable = {
 
 	options: {
 		addButton: '#add-to-senior-debt-table',
@@ -1309,8 +1422,8 @@ var DirectTerritorySalesTable = {
 	};
 
 	PreferredEquityTable.initialize();
-	senior_debt_table.initialize();
-	EditableTable.initialize();
+	SeniorDebtTable.initialize();
+	GeneralEquityTable.initialize();
 	PresalesTable.initialize();
 	DirectTerritorySalesTable.initialize();
 	CorridorEquityTable.initialize();
