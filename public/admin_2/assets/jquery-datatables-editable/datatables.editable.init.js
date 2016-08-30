@@ -1320,3 +1320,29 @@ var DirectTerritorySalesTable = {
 
 
 }).apply(this, [ jQuery ]);
+
+endpoint = 'live'
+access_key = '48003229809f5fa7043a7c6349575312';
+
+$(function(){
+		$('#Retrieve').on('click', function(eventObject){
+			.alert("it works")
+			eventObject.preventDefault();
+			$.ajax({
+			url: 'http://apilayer.net/api/' + endpoint + '?access_key=' + access_key,
+			dataType: 'jsonp',
+			success: function(json) {
+
+			// exchange rata data is stored in json.quotes
+			alert(json.quotes.USDGBP);
+
+			// source currency is stored in json.source
+			alert(json.source);
+
+			// timestamp can be accessed in json.timestamp
+			alert(json.timestamp);
+
+		  }
+		 })
+		});
+});
