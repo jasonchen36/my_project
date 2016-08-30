@@ -315,7 +315,7 @@
 
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label class="col-sm-6 control-label">Non-recouping Production Capital</label>
+                                            <label class="col-sm-6 control-label">Non-Recouping Production Capital</label>
                                             <div class="col-sm-6 control-label">
                                                 <div class="toggle toggle-warning" id="option_non_recouping_production_capital"></div>
                                             </div>
@@ -398,21 +398,21 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr class="success" id="summary-senior-debt">
+                                                    <tr class="default" id="summary-senior-debt">
                                                         <td>Productivity Media</td>
                                                         <td>$1,000,000</td>
                                                         <td>Senior Debt</td>
                                                         <td>10%</td>
                                                         <td>15% Interest</td>
                                                     </tr>
-                                                    <tr class="danger" id="equity1">
+                                                    <tr class="default" id="equity1">
                                                         <td>Investor A</td>
                                                         <td>$500,000</td>
                                                         <td>General Equity</td>
                                                         <td>50%</td>
                                                         <td></td>
                                                     </tr>
-                                                    <tr class="danger" id="equity2">
+                                                    <tr class="default" id="equity2">
                                                         <td>Investor B</td>
                                                         <td>$300,000</td>
                                                         <td>General Equity</td>
@@ -453,6 +453,13 @@
 														<td>Corridor Equity</td>
 														<td>20%</td>
 														<td>5% Presales Corridor</td>
+													</tr>
+													<tr class="default" id="non-recouping-num">
+														<td>Producer Deferrals</td>
+														<td>$100,000</td>
+														<td>Non-Recouping Capital</td>
+														<td>5%</td>
+														<td></td>
 													</tr>
                                                 </tbody>
                                             </table>
@@ -598,10 +605,6 @@
 										</tr>
 										</tbody>
 									</table>
-
-
-
-
 								</div>
 								<!-- end: page -->
 							</div> <!-- end Panel -->
@@ -743,7 +746,7 @@
                         <div class="col-md-12" id="non_recouping_table">
                             <div class="panel">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Non Recouping Production Capital</h3>
+                                    <h3 class="panel-title">Non-Recouping Production Capital</h3>
                                 </div>
                                 <div class="panel-body">
                                     <div class="row">
@@ -758,17 +761,15 @@
                                         <tr>
                                           <th>Company</th>
                                           <th>Amount</th>
-                                          <th>Form</th>
-                                          <th>Comment</th>
+                                          <th>Equity %</th>
                                           <th>Actions</th>
                                         </tr>
                                       </thead>
                                       <tbody>
                                         <tr class="gradeX">
-                                            <td>Productivity Media</td>
-                                            <td>$1,000,000</td>
-                                            <td>Equity</td>
-                                            <td>50% Equity</td>
+                                            <td>Producer Deferrals</td>
+                                            <td>$100,000</td>
+                                            <td>5%</td>
 
                                             <td class="actions">
                                                 <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
@@ -1140,6 +1141,7 @@
 			$('#tax-grant-num-2').hide();
 			$('#corridor-equity-num').hide();
 			$('#corridor-equity-num-2').hide();
+			$('#non-recouping-num').hide();
 
             $('#option_presales').on('click', function() {
                 $("#pre-sale_chart").toggle();
@@ -1162,6 +1164,7 @@
 
             $('#option_non_recouping_production_capital').on('click', function() {
                 $("#non_recouping_table").toggle();
+				$("#non-recouping-num").toggle();
             });
 
 			$('#option_corridor_equity').on('click', function() {
