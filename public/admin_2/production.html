@@ -405,102 +405,226 @@
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Financiers & Structures Summary</h3>
                                 </div>
-                                <div class="panel-body">
-                                    <div class="row">
+								<div class="panel-body">
+                                    <div class="row" id="pre-sales-summary">
                                         <div class="col-md-12 col-sm-12 col-xs-12">
+											<div class="panel-heading">
+												<h3 class="panel-title">Pre-Sales</h3>
+											</div>
                                             <table class="table table-striped">
                                                 <thead>
                                                     <tr>
-                                                        <th>Company</th>
-                                                        <th>Amount</th>
-                                                        <th>Type of Financing</th>
-                                                        <th>Equity %</th>
-                                                        <th>Comment</th>
+                                                        <th class="col-xs-4">Company</th>
+                                                        <th class="col-xs-2">Amount</th>
+                                                        <th class="col-xs-1">Equity %</th>
+                                                        <th class="col-xs-5">Comment</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr class="default" id="summary-senior-debt">
-                                                        <td>Productivity Media</td>
-                                                        <td>$1,000,000</td>
-                                                        <td>Senior Debt</td>
-                                                        <td>10%</td>
-                                                        <td>15% Interest Simple</td>
-                                                    </tr>
-                                                    <tr class="default" id="equity1">
-                                                        <td>Investor A</td>
-                                                        <td>$500,000</td>
-                                                        <td>General Equity</td>
-                                                        <td>50%</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr class="default" id="equity2">
-                                                        <td>Investor B</td>
-                                                        <td>$300,000</td>
-                                                        <td>General Equity</td>
-                                                        <td>30%</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr class="default" id="tax-grant-num">
-                                                        <td>BC Government</td>
-                                                        <td>$2,000,000</td>
-                                                        <td>Grant - Loan</td>
-                                                        <td>0%</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr class="default" id="tax-grant-num-2">
-                                                        <td>Government of Canada</td>
-                                                        <td>$80,000</td>
-                                                        <td>Tax Break - Discount</td>
-                                                        <td>0%</td>
-                                                        <td>Estimated Value - $100,000</td>
-                                                    </tr>
-                                                    <tr class="default" id="pre-sale-num">
+                                                    <tr class="default">
                                                         <td>Concourse Media</td>
                                                         <td>$200,000</td>
-                                                        <td>Pre-sales</td>
                                                         <td>20%</td>
                                                         <td></td>
                                                     </tr>
-													<tr class="default" id="corridor-equity-num">
-														<td>Telefilm</td>
-														<td>$500,000</td>
-														<td>Corridor Equity</td>
-														<td>50%</td>
-														<td>5% Waterfall Corridor</td>
-													</tr>
-													<tr class="default" id="corridor-equity-num-2">
-														<td>NOHFC</td>
-														<td>$200,000</td>
-														<td>Corridor Equity</td>
-														<td>20%</td>
-														<td>5% Presales Corridor</td>
-													</tr>
-													<tr class="default" id="non-recouping-num">
-														<td>Producer Deferrals</td>
-														<td>$100,000</td>
-														<td>Non-Recouping Capital</td>
-														<td>5%</td>
-														<td></td>
-													</tr>
-												<tr class="default">
-													<td>Private Equity</td>
-													<td>$350,000</td>
-													<td>Preferred Equity</td>
-													<td>10%</td>
-													<td></td>
-												</tr>
-												<tr class="default">
-													<td>French Distributors</td>
-													<td>$275,000</td>
-													<td>Direct Territory</td>
-													<td>4%</td>
-													<td>15% Interest Semi-Annual</td>
-												</tr>
                                                 </tbody>
                                             </table>
                                         </div>
-                                    </div>
-                                </div>
+									</div>
+									<div class="row" id="tax-grants-summary">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<div class="panel-heading">
+												<h3 class="panel-title">Tax Breaks & Grants</h3>
+											</div>
+											<table class="table table-striped">
+												<thead>
+												<tr>
+													<th class="col-xs-4">Company</th>
+													<th class="col-xs-2">Amount</th>
+													<th class="col-xs-1">Equity %</th>
+													<th class="col-xs-5">Comment</th>
+												</tr>
+												</thead>
+												<tbody>
+												<tr class="default" id="tax-grant-num">
+													<td>BC Government</td>
+													<td>$2,000,000</td>
+													<td>0%</td>
+													<td></td>
+												</tr>
+												<tr class="default" id="tax-grant-num-2">
+													<td>Government of Canada</td>
+													<td>$80,000</td>
+													<td>0%</td>
+													<td>Estimated Value - $100,000</td>
+												</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="row" id="non-recouping-summary">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<div class="panel-heading">
+												<h3 class="panel-title">Non-Recouping Production Capital</h3>
+											</div>
+											<table class="table table-striped">
+												<thead>
+												<tr>
+													<th class="col-xs-4">Company</th>
+													<th class="col-xs-2">Amount</th>
+													<th class="col-xs-1">Equity %</th>
+													<th class="col-xs-5">Comment</th>
+												</tr>
+												</thead>
+												<tbody>
+												<tr class="default" id="non-recouping-num">
+													<td>Producer Deferrals</td>
+													<td>$100,000</td>
+													<td>5%</td>
+													<td></td>
+												</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="row" id="direct-territory-summary">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<div class="panel-heading">
+												<h3 class="panel-title">Direct Territory Sales</h3>
+											</div>
+											<table class="table table-striped">
+												<thead>
+												<tr>
+													<th class="col-xs-4">Company</th>
+													<th class="col-xs-2">Amount</th>
+													<th class="col-xs-1">Equity %</th>
+													<th class="col-xs-5">Comment</th>
+												</tr>
+												</thead>
+												<tbody>
+													<tr class="default">
+													<td>French Distributors</td>
+													<td>$275,000</td>
+													<td>4%</td>
+													<td>15% Interest Semi-Annual</td>
+												</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="row" id="general-equity-summary">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<div class="panel-heading">
+												<h3 class="panel-title">General Equity</h3>
+											</div>
+											<table class="table table-striped">
+												<thead>
+												<tr>
+													<th class="col-xs-4">Company</th>
+													<th class="col-xs-2">Amount</th>
+													<th class="col-xs-1">Equity %</th>
+													<th class="col-xs-5">Comment</th>
+												</tr>
+												</thead>
+												<tbody>
+												<tr class="default">
+													<td>Investor A</td>
+													<td>$500,000</td>
+													<td>50%</td>
+													<td></td>
+												</tr>
+												<tr class="default">
+													<td>Investor B</td>
+													<td>$300,000</td>
+													<td>30%</td>
+													<td></td>
+												</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="row" id="senior-debt-summary">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<div class="panel-heading">
+												<h3 class="panel-title">Senior Debt/Gap Loan</h3>
+											</div>
+											<table class="table table-striped">
+												<thead>
+												<tr>
+													<th class="col-xs-4">Company</th>
+													<th class="col-xs-2">Amount</th>
+													<th class="col-xs-1">Equity %</th>
+													<th class="col-xs-5">Comment</th>
+												</tr>
+												</thead>
+												<tbody>
+												<tr class="default" id="summary-senior-debt">
+													<td>Productivity Media</td>
+													<td>$1,000,000</td>
+													<td>10%</td>
+													<td>15% Interest Simple</td>
+												</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="row" id="preferred-equity-summary">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<div class="panel-heading">
+												<h3 class="panel-title">Preferred Equity</h3>
+											</div>
+											<table class="table table-striped">
+												<thead>
+												<tr>
+													<th class="col-xs-4">Company</th>
+													<th class="col-xs-2">Amount</th>
+													<th class="col-xs-1">Equity %</th>
+													<th class="col-xs-5">Comment</th>
+												</tr>
+												</thead>
+												<tbody>
+												<tr class="default">
+													<td>Private Equity</td>
+													<td>$350,000</td>
+													<td>10%</td>
+													<td></td>
+												</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="row" id="corridor-equity-summary">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<div class="panel-heading">
+												<h3 class="panel-title">Corridor Equity</h3>
+											</div>
+											<table class="table table-striped">
+												<thead>
+												<tr>
+													<th class="col-xs-4">Company</th>
+													<th class="col-xs-2">Amount</th>
+													<th class="col-xs-1">Equity %</th>
+													<th class="col-xs-5">Comment</th>
+												</tr>
+												</thead>
+												<tbody>
+												<tr class="default">
+													<td>Telefilm</td>
+													<td>$500,000</td>
+													<td>50%</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>NOHFC</td>
+													<td>$200,000</td>
+													<td>20%</td>
+													<td></td>
+												</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
                             </div>
                         </div>
                     </div>
