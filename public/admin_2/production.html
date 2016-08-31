@@ -204,7 +204,7 @@
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 
-                    <select name="currencies">
+                    <select name="currencies" id="mySelectBox">
                       <option selected value="">Select currency</option>
                       <option value="America (United States) Dollars - USD">America (United States) Dollars – USD</option>
                       <option value="Afghanistan Afghanis - AFN">Afghanistan Afghanis – AFN</option>
@@ -314,16 +314,22 @@
                       <option value="Zambia Kwacha - ZMK">Zambia Kwacha – ZMK</option>
                       </select><button type="button" name="button" id='add-currency'>Add</button>
 
-
+                      <form id='add-here'></form>
 
                     <form id='currency-list'>
-                      <input type="checkbox" id="USD/CAD">USD/CAD<br>
-                      <input type="checkbox" id="AED/CAD">AED/CAD<br>
-                      <input type="checkbox" id="CNY/CAD">CNY/CAD<br>
+                      <input type="checkbox" id="USD/CAD">America (United States) Dollars - USD<br>
+                      <input type="checkbox" id="AED/CAD">United Arab Emirates Dirham - AED<br>
+                      <input type="checkbox" id='CNY/CAD'>China Yuan Renminbi - CNY<br>
                       <input type="submit" id="Submit">
                     </form>
 
-
+                    <script>
+                    $("#add-currency").on('click', function(e){
+                      e.preventDefault();
+                      var selected_option = $('#mySelectBox option').filter(':selected').text();
+                      $("#add-here").append('<input type="checkbox" id=' + selected_option.substr(selected_option.length - 3) + '/CAD>' + selected_option + '<br>')
+                    });
+                    </script>
 
                     <script>
                     $("#Submit").on('click', function(e){
