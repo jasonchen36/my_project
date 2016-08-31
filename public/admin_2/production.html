@@ -408,9 +408,7 @@
 								<div class="panel-body">
                                     <div class="row" id="pre-sales-summary">
                                         <div class="col-md-12 col-sm-12 col-xs-12">
-											<div class="panel-heading">
-												<h3 class="panel-title">Pre-Sales</h3>
-											</div>
+											<h3 class="panel-title">Pre-Sales</h3>
                                             <table class="table table-striped">
                                                 <thead>
                                                     <tr>
@@ -433,9 +431,8 @@
 									</div>
 									<div class="row" id="direct-territory-summary">
 										<div class="col-md-12 col-sm-12 col-xs-12">
-											<div class="panel-heading">
-												<h3 class="panel-title">Direct Territory Sales</h3>
-											</div>
+											<br/>
+											<h3 class="panel-title">Direct Territory Sales</h3>
 											<table class="table table-striped">
 												<thead>
 												<tr>
@@ -458,9 +455,8 @@
 									</div>
 									<div class="row" id="tax-grants-summary">
 										<div class="col-md-12 col-sm-12 col-xs-12">
-											<div class="panel-heading">
-												<h3 class="panel-title">Tax Breaks & Grants</h3>
-											</div>
+											<br/>
+											<h3 class="panel-title">Tax Breaks & Grants</h3>
 											<table class="table table-striped">
 												<thead>
 												<tr>
@@ -489,9 +485,8 @@
 									</div>
 									<div class="row" id="non-recouping-summary">
 										<div class="col-md-12 col-sm-12 col-xs-12">
-											<div class="panel-heading">
-												<h3 class="panel-title">Non-Recouping Production Capital</h3>
-											</div>
+											<br/>
+											<h3 class="panel-title">Non-Recouping Production Capital</h3>
 											<table class="table table-striped">
 												<thead>
 												<tr>
@@ -514,9 +509,8 @@
 									</div>
 									<div class="row" id="senior-debt-summary">
 										<div class="col-md-12 col-sm-12 col-xs-12">
-											<div class="panel-heading">
-												<h3 class="panel-title">Senior Debt/Gap Loan</h3>
-											</div>
+											<br/>
+											<h3 class="panel-title">Senior Debt/Gap Loan</h3>
 											<table class="table table-striped">
 												<thead>
 												<tr>
@@ -539,9 +533,8 @@
 									</div>
 									<div class="row" id="preferred-equity-summary">
 										<div class="col-md-12 col-sm-12 col-xs-12">
-											<div class="panel-heading">
-												<h3 class="panel-title">Preferred Equity</h3>
-											</div>
+											<br/>
+											<h3 class="panel-title">Preferred Equity</h3>
 											<table class="table table-striped">
 												<thead>
 												<tr>
@@ -564,9 +557,8 @@
 									</div>
 									<div class="row" id="corridor-equity-summary">
 										<div class="col-md-12 col-sm-12 col-xs-12">
-											<div class="panel-heading">
-												<h3 class="panel-title">Corridor Equity</h3>
-											</div>
+											<br/>
+											<h3 class="panel-title">Corridor Equity</h3>
 											<table class="table table-striped">
 												<thead>
 												<tr>
@@ -595,9 +587,8 @@
 									</div>
 									<div class="row" id="general-equity-summary">
 										<div class="col-md-12 col-sm-12 col-xs-12">
-											<div class="panel-heading">
-												<h3 class="panel-title">General Equity</h3>
-											</div>
+											<br/>
+											<h3 class="panel-title">General Equity</h3>
 											<table class="table table-striped">
 												<thead>
 												<tr>
@@ -1343,60 +1334,37 @@
         <!-- sparkline -->
 
         <script>
-            $('.toggle').toggles({on: false});
-            $('#option_presales').toggles({on: true});
-            $('#option_equity').toggles({on: true});
-            $('#senior_debt_table').hide();
-//            $('#summary-senior-debt').hide();
-            $('#preferred_equity_table').hide();
-            $('#non_recouping_table').hide();
-            $('#corridor_equity_table').hide();
-            $('#direct_territory_sales_table').hide();
-			$('#tax_grant_table').hide();
-//			$('#tax-grant-num').hide();
-//			$('#tax-grant-num-2').hide();
-//			$('#corridor-equity-num').hide();
-//			$('#corridor-equity-num-2').hide();
-//			$('#non-recouping-num').hide();
+            $('.toggle').toggles({on: true});
 
             $('#option_presales').on('click', function() {
-                $("#pre-sale_chart").toggle();
-//                $("#pre-sale-num").toggle();
+                $("#pre-sales-summary").toggle();
             });
 
             $('#option_equity').on('click', function() {
-                $("#equity_table").toggle();
-//                $("#equity1").toggle();
-//                $("#equity2").toggle();
+                $("#general-equity-summary").toggle();
             });
 
             $('#option_senior_debt').on('click', function() {
-                $("#senior_debt_table").toggle();
-//                $("#summary-senior-debt").toggle();
+                $("#senior-debt-summary").toggle();
             });
             $('#option_preferred-equity').on('click', function() {
-                $("#preferred_equity_table").toggle();
+                $("#preferred-equity-summary").toggle();
             });
 
             $('#option_non_recouping_production_capital').on('click', function() {
-                $("#non_recouping_table").toggle();
-//				$("#non-recouping-num").toggle();
+                $("#non-recouping-summary").toggle();
             });
 
 			$('#option_corridor_equity').on('click', function() {
-				$("#corridor_equity_table").toggle();
-//				$('#corridor-equity-num').toggle();
-//				$('#corridor-equity-num-2').toggle();
+				$("#corridor-equity-summary").toggle();
 			});
 
             $('#option_grants_and_tax_breaks').on('click', function() {
-                $('#tax_grant_table').toggle();
-//                $('#tax-grant-num').toggle();
-//                $('#tax-grant-num-2').toggle();
+                $('#tax-grants-summary').toggle();
             });
 
             $('#option_direct_territory_sales').on('click', function() {
-                $("#direct_territory_sales_table").toggle();
+                $("#direct-territory-summary").toggle();
             });
 
         </script>
