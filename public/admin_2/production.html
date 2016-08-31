@@ -35,7 +35,7 @@
         <link type="text/css" href="assets/bootstrap3-editable/bootstrap-editable.css" rel="stylesheet">
 
 
-                <link href="assets/toggles/toggles.css" rel="stylesheet" />
+		<link href="assets/toggles/toggles.css" rel="stylesheet" />
 
                 <!-- Plugins css -->
         <link href="assets/owl-carousel/owl.carousel.css" rel="stylesheet" />
@@ -407,36 +407,38 @@
                                 </div>
 								<div class="panel-body">
                                     <div class="row" id="pre-sales-summary">
-                                        <div class="col-md-12 col-sm-12 col-xs-12">
+										<div class="col-md-12 col-sm-12 col-xs-12">
 											<h3 class="panel-title">Pre-Sales</h3>
-                                            <table class="table table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="col-xs-4">Company</th>
-                                                        <th class="col-xs-2">Amount</th>
-                                                        <th class="col-xs-1">Equity %</th>
-                                                        <th class="col-xs-5">Comment</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class="default">
-                                                        <td>Concourse Media</td>
-                                                        <td>$200,000</td>
-                                                        <td>20%</td>
-                                                        <td></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
+											<button class="btn btn-icon btn-success" data-toggle="modal" data-target="#pre-sales-add-modal" style="float:right"><i class="fa ion-plus-round"></i></button>
+											<table class="table table-striped">
+													<thead>
+													<tr>
+														<th class="col-xs-4">Investor</th>
+														<th class="col-xs-2">Amount</th>
+														<th class="col-xs-1">Equity %</th>
+														<th class="col-xs-5">Comment</th>
+													</tr>
+													</thead>
+													<tbody>
+													<tr class="default">
+														<td>Concourse Media</td>
+														<td>$200,000</td>
+														<td>20%</td>
+														<td></td>
+													</tr>
+													</tbody>
+												</table>
+										</div>
 									</div>
 									<div class="row" id="direct-territory-summary">
 										<div class="col-md-12 col-sm-12 col-xs-12">
 											<br/>
 											<h3 class="panel-title">Direct Territory Sales</h3>
+											<button id="direct-territory-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
 											<table class="table table-striped">
 												<thead>
 												<tr>
-													<th class="col-xs-4">Company</th>
+													<th class="col-xs-4">Investor</th>
 													<th class="col-xs-2">Amount</th>
 													<th class="col-xs-1">Equity %</th>
 													<th class="col-xs-5">Comment</th>
@@ -457,10 +459,11 @@
 										<div class="col-md-12 col-sm-12 col-xs-12">
 											<br/>
 											<h3 class="panel-title">Tax Breaks & Grants</h3>
+											<button id="tax-grants-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
 											<table class="table table-striped">
 												<thead>
 												<tr>
-													<th class="col-xs-4">Company</th>
+													<th class="col-xs-4">Investor</th>
 													<th class="col-xs-2">Amount</th>
 													<th class="col-xs-1">Equity %</th>
 													<th class="col-xs-5">Comment</th>
@@ -487,6 +490,7 @@
 										<div class="col-md-12 col-sm-12 col-xs-12">
 											<br/>
 											<h3 class="panel-title">Non-Recouping Production Capital</h3>
+											<button id="non-recouping-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
 											<table class="table table-striped">
 												<thead>
 												<tr>
@@ -511,6 +515,7 @@
 										<div class="col-md-12 col-sm-12 col-xs-12">
 											<br/>
 											<h3 class="panel-title">Senior Debt/Gap Loan</h3>
+											<button id="senior-debt-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
 											<table class="table table-striped">
 												<thead>
 												<tr>
@@ -535,6 +540,7 @@
 										<div class="col-md-12 col-sm-12 col-xs-12">
 											<br/>
 											<h3 class="panel-title">Preferred Equity</h3>
+											<button id="preferred-equity-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
 											<table class="table table-striped">
 												<thead>
 												<tr>
@@ -559,6 +565,7 @@
 										<div class="col-md-12 col-sm-12 col-xs-12">
 											<br/>
 											<h3 class="panel-title">Corridor Equity</h3>
+											<button id="corridor-equity-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
 											<table class="table table-striped">
 												<thead>
 												<tr>
@@ -589,6 +596,7 @@
 										<div class="col-md-12 col-sm-12 col-xs-12">
 											<br/>
 											<h3 class="panel-title">General Equity</h3>
+											<button id="general-equity-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
 											<table class="table table-striped">
 												<thead>
 												<tr>
@@ -1248,7 +1256,7 @@
         </section>
         <!-- Main Content Ends -->
 
-        <!-- MODAL -->
+		<!-- MODAL -->
         <div id="dialog" class="modal-block mfp-hide">
             <section class="panel panel-info panel-color">
                 <header class="panel-heading">
@@ -1271,6 +1279,80 @@
 
             </section>
         </div>
+
+		<div id="pre-sales-add-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h4 class="modal-title">Pre-Sales</h4>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="pre-sales-investor" class="control-label">Investor:</label>
+									<input type="text" class="form-control" id="pre-sales-investor" >
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="pre-sales-territory" class="control-label">Territory:</label>
+									<input type="text" class="form-control" id="pre-sales-territory">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="pre-sales-amount" class="control-label">Amount:</label>
+									<input type="number" min="0" class="form-control" id="pre-sales-amount">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label class="col-md-3 control-label">Deposit Held in Escrow?</label>
+									<div class="col-md-9">
+										<div class="custom-controls-stacked">
+											<label class="custom-control custom-radio">
+												<input id="pre-sales-is-escrow-radio1" name="radio-stacked" type="radio" class="custom-control-input">
+												<span class="custom-control-indicator"></span>
+												<span class="custom-control-description">True</span>
+											</label>
+											<br/>
+											<label class="custom-control custom-radio">
+												<input id="pre-sales-is-escrow-radio2" name="radio-stacked" type="radio" class="custom-control-input" checked>
+												<span class="custom-control-indicator"></span>
+												<span class="custom-control-description">False</span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row hidden">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="pre-sales-escrow-amount" class="control-label">Amount:</label>
+									<input type="number" min="0" class="form-control" id="pre-sales-escrow-amount">
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-info">Save changes</button>
+						</div>
+				</div>
+			</div>
+		</div><!-- /.modal -->
+
+
+
+
+
+		</div>
 
 
 
