@@ -25,7 +25,7 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 	});
 
 	$('#option_grants_and_tax_breaks').on('click', function() {
-		$('#tax-grants-summary').toggle();
+		$('#tax-grant-summary').toggle();
 	});
 
 	$('#option_direct_territory_sales').on('click', function() {
