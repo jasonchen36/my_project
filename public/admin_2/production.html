@@ -202,8 +202,7 @@
 
                     <div class="panel-body" id="FX">
 
-
-
+                    Fixed Exchange Rate: <input type="text" id="fixed"><br>
                     <select name="currencies" id="mySelectBox">
                       <option selected value="">Select currency</option>
                       <option value="America (United States) Dollars - USD">America (United States) Dollars – USD</option>
@@ -320,7 +319,6 @@
                       <input type="checkbox" id="USD/CAD">America (United States) Dollars - USD<br>
                       <input type="checkbox" id="AED/CAD">United Arab Emirates Dirham - AED<br>
                       <input type="checkbox" id='CNY/CAD'>China Yuan Renminbi - CNY<br>
-                      Fixed Exchange Rate: <input type="add" id="fixed"><br>
                       <input type="submit" id="Submit">
                     </form>
 
@@ -912,9 +910,15 @@
             $("#FX").append("2.7969 AED = 1.00 CAD</br>");
           }else if (document.getElementById("CNY/CAD").checked) {
             $("#FX").append("1.00 CNY = 0.20 CAD</br>");
+          }
+
+          if (fixed === ''){
+            alert("Please enter an exchange rate.")
           }else {
             $("#FX").append(fixed + " " + selected_option.substr(selected_option.length - 3) + " = 1.00 CAD</br>");
           };
+
+
         });
 
 
