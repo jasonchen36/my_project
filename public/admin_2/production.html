@@ -419,8 +419,8 @@
 														<th class="col-xs-5">Comment</th>
 													</tr>
 													</thead>
-													<tbody>
-													<tr class="default">
+													<tbody id="pre-sales-summary-table">
+													<tr class="default clickable-row" data-toggle="modal" data-target="#pre-sales-1-modal">
 														<td>Concourse Media</td>
 														<td>$200,000</td>
 														<td>20%</td>
@@ -1344,9 +1344,6 @@
 		<script src="js/production.js"></script>
 
         <script>
-
-            $('.toggle').toggles({on: true});
-
             $('#option_presales').on('click', function() {
                 $("#pre-sales-summary").toggle();
             });
