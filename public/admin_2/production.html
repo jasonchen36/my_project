@@ -895,6 +895,7 @@
         <script>
         $("#Submit").on('click', function(e){
           e.preventDefault();
+          var selected_option = $('#mySelectBox option').filter(':selected').text();
           if(document.getElementById("USD/CAD").checked && document.getElementById("AED/CAD").checked && document.getElementById("CNY/CAD").checked){
             $("#FX").append("0.7614 USD = 1.00 CAD</br>2.7969 AED = 1.00 CAD</br>1.00 CNY = 0.20 CAD</br>");
           }else if (document.getElementById("USD/CAD").checked && document.getElementById("AED/CAD").checked){
@@ -910,7 +911,7 @@
           }else if (document.getElementById("CNY/CAD").checked) {
             $("#FX").append("1.00 CNY = 0.20 CAD</br>");
           }else {
-            alert ('Please select an option.')
+            $("#FX").append("1.00 " + selected_option.substr(selected_option.length - 3) + " = 0.20 CAD</br>");
           };
         });
 
