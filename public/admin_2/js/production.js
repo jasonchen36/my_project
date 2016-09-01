@@ -38,8 +38,8 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 
 	//Create modals for presales
 	var presaleModalTemplate = Handlebars.templates['presaleModal'];
-	var presalesAdd = {id: "add", investor: "", amount: "0", currency: "CAD", territory: "", depositAdvances: "true", advProd: "", escrowAmount: "0", equity: "0"};
-	var presalesData1 = {id: "1", investor: "Concourse Media", amount: "100000", currency: "CAD", territory: "United Kingdom", depositAdvances: "", advProd: "true", escrowAmount: "0", equity: "20"};
+	var presalesAdd = {id: "add", investor: "", amount: "0", currency: "CAD", territory: "", distributor: "", depositAdvances: "true", advProd: "", escrowAmount: "0", equity: "0"};
+	var presalesData1 = {id: "1", investor: "Concourse Media", amount: "100000", currency: "CAD", territory: "United Kingdom", distributor: "MGM", depositAdvances: "", advProd: "true", escrowAmount: "0", equity: "20"};
 
 	$("#modalLocation")
 		.append(presaleModalTemplate(presalesAdd))
@@ -100,8 +100,8 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 	var idCount = 1;
 	//Create modals for presales
 	var directTerritoryModalTemplate = Handlebars.templates['directTerritoryModal'];
-	var directTerritoryAdd = {id: "add", investor: "", amount: "0", currency: "CAD", territory: "", equity: "0", overages: "0", hasPremium: "", noPremium: "true", premium: "0", hasArrangement: "", noArrangement: "true", isFront:"", isBack: "true", arrangement: ""};
-	var directTerritoryData1 = {id: "1", investor: "French Distributors", amount: "275000", currency: "CAD", territory: "France", equity: "4", overages: "60", hasPremium: "", noPremium: "true", premium: "0", hasArrangement: "", noArrangement: "true", isFront:"", isBack: "true", arrangement: ""};
+	var directTerritoryAdd = {id: "add", investor: "", amount: "0", currency: "CAD", territory: "", distributor: "", equity: "0", overages: "0", hasPremium: "", noPremium: "true", premium: "0", hasArrangement: "", noArrangement: "true", isFront:"", isBack: "true", arrangement: ""};
+	var directTerritoryData1 = {id: "1", investor: "French Distributors", amount: "275000", currency: "CAD", territory: "France", distributor: "MGM", equity: "4", overages: "60", hasPremium: "", noPremium: "true", premium: "0", hasArrangement: "", noArrangement: "true", isFront:"", isBack: "true", arrangement: ""};
 
 	$("#modalLocation")
 		.append(directTerritoryModalTemplate(directTerritoryAdd))
