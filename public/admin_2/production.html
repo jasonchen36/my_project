@@ -911,11 +911,14 @@
           }else if (document.getElementById("CNY/CAD").checked) {
             $("#FX").append("1.00 CNY = 0.20 CAD</br>");
           }
-
-          if (fixed === ''){
+          if (fixed === '' && !document.getElementById("USD/CAD").checked && !document.getElementById("AED/CAD").checked && !document.getElementById("CNY/CAD").checked){
             alert("Please enter an exchange rate.")
           }else {
-            $("#FX").append(fixed + " " + selected_option.substr(selected_option.length - 3) + " = 1.00 CAD</br>");
+            if (fixed === ''){
+
+            }else {
+              $("#FX").append(fixed + " " + selected_option.substr(selected_option.length - 3) + " = 1.00 CAD</br>");
+            };
           };
 
 
