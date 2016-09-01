@@ -9,6 +9,7 @@
 	var summaryTableRow = Handlebars.templates["summaryTableRow"];
 	var presalesAdd = {id: "add", investor: "", amount: "0", currency: "CAD", territory: "", depositAdvances: "1", escrowAmount: "0", equity: "0"};
 	var presalesData1 = {id: "1", investor: "Concourse Media", amount: "100000", currency: "CAD", territory: "United Kingdom", depositAdvances: "0", escrowAmount: "0", equity: "20"};
+
 	$("#modalLocation")
 		.append(presaleModalTemplate(presalesAdd))
 		.append(presaleModalTemplate(presalesData1));
@@ -22,6 +23,10 @@
 		$(".modal-backdrop").hide();
 	});
 
+	$('#option_presales').on('click', function() {
+		$("#pre-sales-summary").toggle();
+	});
+
 	var addEditListener = function() {
 		var investor = $("#pre-sales-"+idCount+"-investor").val();
 		var territory = $("#pre-sales-"+idCount+"-territory").val();
@@ -33,6 +38,7 @@
 		$("#pre-sales-"+idCount+"-modal").replaceWith(presaleModalTemplate(data));
 		$("#pre-sales-table-row-"+idCount).replaceWith(summaryTableRow(data));
 	};
+
 	$("#pre-sales-add-save").on('click', function() {
 		var investor = $("#pre-sales-add-investor").val();
 		var territory = $("#pre-sales-add-territory").val();
@@ -45,6 +51,7 @@
 		$("#pre-sales-summary-table").append(summaryTableRow(data));
 		addEditListener();
 		idCount+= 1;
-	})
+	});
+	
 })();
 
