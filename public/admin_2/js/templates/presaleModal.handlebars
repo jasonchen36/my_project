@@ -64,19 +64,17 @@
 								</label>
 								<br/>
 								<label class="custom-control custom-radio">
-									<input name="radio-stacked" type="radio" class="custom-control-input" {{#unless depositAdvances}}checked="checked"{{/unless}}>
+									<input name="radio-stacked" type="radio" class="custom-control-input" {{#if advProd}}checked="checked"{{/if}}>
 									<span class="custom-control-indicator"></span>
 									<span class="custom-control-description">Held in Escrow</span>
 								</label>
 							</div>
 						</div>
 					</div>
-					<div class="row {{#if depositAdvances}}hidden{{/if}}">
-						<div class="col-md-12">
-							<div class="form-group">
-								<label for="pre-sales-{{id}}-escrow-amount" class="control-label">Escrow Amount:</label>
-								<input type="number" min="0" class="form-control" id="pre-sales-{{id}}-escrow-amount" value="{{escrow-amount}}">
-							</div>
+					<div class="form-group {{#if depositAdvances}}hidden{{/if}}">
+						<label for="pre-sales-{{id}}-escrow-amount" class="control-label col-xs-2">Escrow Amount:</label>
+						<div class="col-xs-9">
+							<input type="number" min="0" class="form-control" id="pre-sales-{{id}}-escrow-amount" value="{{escrow-amount}}">
 						</div>
 					</div>
 					<div class="modal-footer">

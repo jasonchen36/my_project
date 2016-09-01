@@ -38,8 +38,8 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 
 	//Create modals for presales
 	var presaleModalTemplate = Handlebars.templates['presaleModal'];
-	var presalesAdd = {id: "add", investor: "", amount: "0", currency: "CAD", territory: "", depositAdvances: "1", escrowAmount: "0", equity: "0"};
-	var presalesData1 = {id: "1", investor: "Concourse Media", amount: "100000", currency: "CAD", territory: "United Kingdom", depositAdvances: "0", escrowAmount: "0", equity: "20"};
+	var presalesAdd = {id: "add", investor: "", amount: "0", currency: "CAD", territory: "", depositAdvances: "true", advProd: "", escrowAmount: "0", equity: "0"};
+	var presalesData1 = {id: "1", investor: "Concourse Media", amount: "100000", currency: "CAD", territory: "United Kingdom", depositAdvances: "", advProd: "true", escrowAmount: "0", equity: "20"};
 
 	$("#modalLocation")
 		.append(presaleModalTemplate(presalesAdd))
@@ -100,8 +100,8 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 	var idCount = 1;
 	//Create modals for presales
 	var directTerritoryModalTemplate = Handlebars.templates['directTerritoryModal'];
-	var directTerritoryAdd = {id: "add", investor: "", amount: "0", currency: "CAD", territory: "", equity: "0", overages: "0", hasPremium: "", premium: "0", hasArrangement: "", isFront:"", arrangement: ""};
-	var directTerritoryData1 = {id: "1", investor: "French Distributors", amount: "275000", currency: "CAD", territory: "France", equity: "4", overages: "60", hasPremium: "", premium: "0", hasArrangement: "", isFront:"", arrangement: ""};
+	var directTerritoryAdd = {id: "add", investor: "", amount: "0", currency: "CAD", territory: "", equity: "0", overages: "0", hasPremium: "", noPremium: "true", premium: "0", hasArrangement: "", noArrangement: "true", isFront:"", isBack: "true", arrangement: ""};
+	var directTerritoryData1 = {id: "1", investor: "French Distributors", amount: "275000", currency: "CAD", territory: "France", equity: "4", overages: "60", hasPremium: "", noPremium: "true", premium: "0", hasArrangement: "", noArrangement: "true", isFront:"", isBack: "true", arrangement: ""};
 
 	$("#modalLocation")
 		.append(directTerritoryModalTemplate(directTerritoryAdd))
@@ -152,5 +152,70 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 		$("#direct-territory-add-form").trigger('reset');
 	});
 })();
+
+(function() {
+	var idCount = 2;
+	//Create modals for presales
+	var taxGrantModalTemplate = Handlebars.templates['taxGrantModal'];
+	var taxGrantAdd = {id: "add", investor: "", isDiscount: "true", isLoan: "", estAmount: "0", netAdvance: "0", amount:"0", interestRate:"0", loanType:"Simple", currency: "CAD"};
+	var taxGrantData1 = {id: "1", investor: "BC Government", isDiscount: "", isLoan: "true", estAmount: "", netAdvance: "0", amount:"2000000", interestRate:"15", loanType:"Semi-Annual", currency: "CAD"};
+	var taxGrantData2 = {id: "2", investor: "Government of Canada", isDiscount: "true", isLoan: "", estAmount: "100000", netAdvance: "80000", amount:"", interestRate:"", loanType:"Simple", currency: "CAD"};
+
+	$("#modalLocation")
+		.append(taxGrantModalTemplate(taxGrantAdd))
+		.append(taxGrantModalTemplate(taxGrantData1))
+		.append(taxGrantModalTemplate(taxGrantData2));
+
+	var addEditListener = function() {
+		var id = idCount;
+		$("#tax-grant-"+id+"-edit").on('click', function() {
+			var investor = $("#tax-grant-add-investor").val();
+			var territory = $("#tax-grant-add-territory").val();
+			var currency = $("#tax-grant-add-currency").val();
+			var amount = $("#tax-grant-add-amount").val();
+			var data = {id: idCount, investor: investor, territory: territory, currency: currency, amount: amount, type: "tax-grant" };			// $("#pre-sales-"+id+"-modal").replaceWith(presaleModalTemplate(data));
+			// $("#pre-sales-table-row-"+id).innerHTML = "HIIII";
+			$("#tax-grant-"+id+"-form").trigger('reset');
+		});
+
+		$("#tax-grant-"+id+"-cancel").on('click', function() {
+			$("#tax-grant-"+id+"-form").trigger('reset');
+		});
+
+		$("#tax-grant-"+id+"-close").on('click', function() {
+			$("#tax-grant-"+id+"-form").trigger('reset');
+		});
+
+	};
+
+	addEditListener();
+	idCount+=1;
+	$("#tax-grant-add-save").on('click', function() {
+		var investor = $("#tax-grant-add-investor").val();
+		var currency = $("#tax-grant-add-currency").val();
+		var isDiscount = $("#tax-grant-add-isDiscount");
+		var amount;
+		if (isDiscount.checked) {
+			amount = $("#tax-grant-add-net-advance").val();
+		} else {
+			amount = $("#tax-grant-add-amount").val();
+		}
+		var data = {id: idCount, investor: investor, currency: currency, amount: amount, type: "tax-grant" };
+		$("#modalLocation").append(taxGrantModalTemplate(data));
+		$("#tax-grant-summary-table").append(summaryTableRow(data));
+		addEditListener();
+		idCount+= 1;
+		$("#tax-grant-add-form").trigger('reset');
+	});
+
+	$("#tax-grant-add-cancel").on('click', function () {
+		$("#tax-grant-add-form").trigger('reset');
+	});
+
+	$("#tax-grant-add-close").on('click', function () {
+		$("#tax-grant-add-form").trigger('reset');
+	});
+})();
+
 
 

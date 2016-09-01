@@ -454,7 +454,7 @@
 										<div class="col-md-12 col-sm-12 col-xs-12">
 											<br/>
 											<h3 class="panel-title">Tax Breaks & Grants</h3>
-											<button id="tax-grants-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+											<button  data-toggle="modal" data-target="#tax-grants-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
 											<table class="table table-striped">
 												<thead>
 												<tr>
@@ -464,14 +464,14 @@
 													<th class="col-xs-5">Comment</th>
 												</tr>
 												</thead>
-												<tbody>
-												<tr class="default" id="tax-grant-num">
+												<tbody id="tax-grants-summary-table">
+												<tr class="default clickable-row" data-toggle="modal" data-target="#tax-grant-1-modal" id="tax-grant-table-row-1">
 													<td>BC Government</td>
 													<td>$2,000,000</td>
 													<td>0%</td>
 													<td></td>
 												</tr>
-												<tr class="default" id="tax-grant-num-2">
+												<tr class="default clickable-row" data-toggle="modal" data-target="#tax-grant-2-modal" id="tax-grant-table-row-2">
 													<td>Government of Canada</td>
 													<td>$80,000</td>
 													<td>0%</td>
@@ -622,106 +622,6 @@
                             </div>
                         </div>
                     </div>
-					<!-- Tax Breaks & Grants -->
-					<div class="row">
-						<div class="col-md-12" id="tax_grant_table">
-							<div class="panel">
-								<div class="panel-heading">
-									<h3 class="panel-title">Grants & Tax Breaks - Loans</h3>
-								</div>
-								<div class="panel-body">
-									<div class="row">
-										<div class="col-sm-6">
-											<div class="m-b-30">
-												<button  class="btn btn-primary waves-effect waves-light" id="add-to-tax-table-loan">Add <i class="fa fa-plus"></i></button>
-											</div>
-										</div>
-									</div>
-									<table class="table table-bordered table-striped" id="datatable-tax-table-loan">
-										<thead>
-										<tr>
-											<th>Company</th>
-											<th>Amount</th>
-											<th>Interest Rate</th>
-											<th>Loan Type</th>
-											<th>Actions</th>
-										</tr>
-										</thead>
-										<tfoot>
-										<tr>
-											<th>Total:</th>
-											<th>$2,000,000</th>
-											<th></th>
-											<th></th>
-											<th></th>
-										</tr>
-										</tfoot>
-										<tbody>
-										<tr class="gradeX">
-											<td>BC Government</td>
-											<td>$2,000,000</td>
-											<td>20%</td>
-											<td>Semi-Annual</td>
-
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-										</tbody>
-									</table>
-								</div>
-								<br/>
-								<div class="panel-heading">
-									<h3 class="panel-title">Grants & Tax Breaks - Discounts</h3>
-								</div>
-								<div class="panel-body">
-									<div class="row">
-										<div class="col-sm-6">
-											<div class="m-b-30">
-												<button  class="btn btn-primary waves-effect waves-light" id="add-to-tax-table-discount">Add <i class="fa fa-plus"></i></button>
-											</div>
-										</div>
-									</div>
-									<table class="table table-bordered table-striped" id="datatable-tax-table-discount">
-										<thead>
-										<tr>
-											<th>Company</th>
-											<th>Estimated Amount</th>
-											<th>Net Advance</th>
-											<th>Actions</th>
-										</tr>
-										<tfoot>
-										<tr>
-											<th>Total:</th>
-											<th>$100,000</th>
-											<th>$80,000</th>
-											<th></th>
-										</tr>
-										</tfoot>
-										</thead>
-										<tbody>
-										<tr class="gradeX">
-											<td>Government of Canada</td>
-											<td>$100,000</td>
-											<td>$80,000</td>
-
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-										</tbody>
-									</table>
-								</div>
-								<!-- end: page -->
-							</div> <!-- end Panel -->
-						</div>
-					</div>
 					<!-- Non-Recouping -->
                     <div class="row">
                         <div class="col-md-12" id="non_recouping_table">
