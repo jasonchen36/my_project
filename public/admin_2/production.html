@@ -429,7 +429,7 @@
 										<div class="col-md-12 col-sm-12 col-xs-12">
 											<br/>
 											<h3 class="panel-title">Direct Territory Sales</h3>
-											<button id="direct-territory-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+											<button  class="btn btn-icon btn-success" data-toggle="modal" data-target="#direct-territory-add-modal" style="float:right"> <i class="fa ion-plus-round"></i> </button>
 											<table class="table table-striped">
 												<thead>
 												<tr>
@@ -439,7 +439,7 @@
 													<th class="col-xs-5">Comment</th>
 												</tr>
 												</thead>
-												<tbody>
+												<tbody id="direct-territory-summary-table">
 												<tr class="default">
 													<td>French Distributors</td>
 													<td>$275,000</td>
@@ -1195,37 +1195,8 @@
 		<!-- Handlebars -->
 		<script src="js/handlebars.runtime.js"></script>
 		<script src="js/templates/templates.js"></script>
+
+		<!-- Production JS -->
 		<script src="js/production.js"></script>
-
-        <script>
-            $('#option_equity').on('click', function() {
-                $("#general-equity-summary").toggle();
-            });
-
-            $('#option_senior_debt').on('click', function() {
-                $("#senior-debt-summary").toggle();
-            });
-            $('#option_preferred-equity').on('click', function() {
-                $("#preferred-equity-summary").toggle();
-            });
-
-            $('#option_non_recouping_production_capital').on('click', function() {
-                $("#non-recouping-summary").toggle();
-            });
-
-			$('#option_corridor_equity').on('click', function() {
-				$("#corridor-equity-summary").toggle();
-			});
-
-            $('#option_grants_and_tax_breaks').on('click', function() {
-                $('#tax-grants-summary').toggle();
-            });
-
-            $('#option_direct_territory_sales').on('click', function() {
-                $("#direct-territory-summary").toggle();
-            });
-
-        </script>
-
     </body>
 </html>
