@@ -35,7 +35,7 @@
         <link type="text/css" href="assets/bootstrap3-editable/bootstrap-editable.css" rel="stylesheet">
 
 
-                <link href="assets/toggles/toggles.css" rel="stylesheet" />
+		<link href="assets/toggles/toggles.css" rel="stylesheet" />
 
                 <!-- Plugins css -->
         <link href="assets/owl-carousel/owl.carousel.css" rel="stylesheet" />
@@ -242,11 +242,6 @@
                 </div> <!-- panel -->
             </div> <!-- col -->
 
-
-
-
-
-
             <div class="col-lg-6" style="display:none">
                 <div class="portlet"><!-- /primary heading -->
                     <div class="portlet-heading">
@@ -405,410 +400,190 @@
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Financiers & Structures Summary</h3>
                                 </div>
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12 col-xs-12">
-                                            <table class="table table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Company</th>
-                                                        <th>Amount</th>
-                                                        <th>Type of Financing</th>
-                                                        <th>Equity %</th>
-                                                        <th>Comment</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class="default" id="summary-senior-debt">
-                                                        <td>Productivity Media</td>
-                                                        <td>$1,000,000</td>
-                                                        <td>Senior Debt</td>
-                                                        <td>10%</td>
-                                                        <td>15% Interest Simple</td>
-                                                    </tr>
-                                                    <tr class="default" id="equity1">
-                                                        <td>Investor A</td>
-                                                        <td>$500,000</td>
-                                                        <td>General Equity</td>
-                                                        <td>50%</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr class="default" id="equity2">
-                                                        <td>Investor B</td>
-                                                        <td>$300,000</td>
-                                                        <td>General Equity</td>
-                                                        <td>30%</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr class="default" id="tax-grant-num">
-                                                        <td>BC Government</td>
-                                                        <td>$2,000,000</td>
-                                                        <td>Grant - Loan</td>
-                                                        <td>0%</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr class="default" id="tax-grant-num-2">
-                                                        <td>Government of Canada</td>
-                                                        <td>$80,000</td>
-                                                        <td>Tax Break - Discount</td>
-                                                        <td>0%</td>
-                                                        <td>Estimated Value - $100,000</td>
-                                                    </tr>
-                                                    <tr class="default" id="pre-sale-num">
-                                                        <td>Concourse Media</td>
-                                                        <td>$200,000</td>
-                                                        <td>Pre-sales</td>
-                                                        <td>20%</td>
-                                                        <td></td>
-                                                    </tr>
-													<tr class="default" id="corridor-equity-num">
-														<td>Telefilm</td>
-														<td>$500,000</td>
-														<td>Corridor Equity</td>
-														<td>50%</td>
-														<td>5% Waterfall Corridor</td>
+								<div class="panel-body">
+                                    <div class="row" id="pre-sales-summary">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<h3 class="panel-title">Pre-Sales</h3>
+											<button class="btn btn-icon btn-success" data-toggle="modal" data-target="#pre-sales-add-modal" style="float:right"><i class="fa ion-plus-round"></i></button>
+											<table class="table table-striped">
+													<thead>
+													<tr>
+														<th class="col-xs-4">Investor</th>
+														<th class="col-xs-2">Amount</th>
 													</tr>
-													<tr class="default" id="corridor-equity-num-2">
-														<td>NOHFC</td>
+													</thead>
+													<tbody id="pre-sales-summary-table">
+													<tr class="default clickable-row" data-toggle="modal" data-target="#pre-sales-1-modal"  id="#pre-sales-table-row-1">
+														<td>Concourse Media</td>
 														<td>$200,000</td>
-														<td>Corridor Equity</td>
-														<td>20%</td>
-														<td>5% Presales Corridor</td>
 													</tr>
-													<tr class="default" id="non-recouping-num">
-														<td>Producer Deferrals</td>
-														<td>$100,000</td>
-														<td>Non-Recouping Capital</td>
-														<td>5%</td>
-														<td></td>
-													</tr>
+													</tbody>
+												</table>
+										</div>
+									</div>
+									<div class="row" id="direct-territory-summary">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<br/>
+											<h3 class="panel-title">Direct Territory Sales</h3>
+											<button  class="btn btn-icon btn-success" data-toggle="modal" data-target="#direct-territory-add-modal" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+											<table class="table table-striped">
+												<thead>
+												<tr>
+													<th class="col-xs-4">Investor</th>
+													<th class="col-xs-2">Amount</th>
+												</tr>
+												</thead>
+												<tbody id="direct-territory-summary-table">
+												<tr class="default clickable-row" data-toggle="modal" data-target="#direct-territory-1-modal">
+													<td>French Distributors</td>
+													<td>$275,000</td>
+												</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="row" id="tax-grant-summary">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<br/>
+											<h3 class="panel-title">Tax Incentives & Grants</h3>
+											<button  data-toggle="modal" data-target="#tax-grant-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+											<table class="table table-striped">
+												<thead>
+												<tr>
+													<th class="col-xs-4">Investor</th>
+													<th class="col-xs-2">Amount</th>
+												</tr>
+												</thead>
+												<tbody id="tax-grant-summary-table">
+												<tr class="default clickable-row" data-toggle="modal" data-target="#tax-grant-1-modal" id="tax-grant-table-row-1">
+													<td>BC Government</td>
+													<td>$2,000,000</td>
+												</tr>
+												<tr class="default clickable-row" data-toggle="modal" data-target="#tax-grant-2-modal" id="tax-grant-table-row-2">
+													<td>Government of Canada</td>
+													<td>$80,000</td>
+												</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="row" id="non-recouping-summary">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<br/>
+											<h3 class="panel-title">Non-Recouping Production Capital</h3>
+											<button id="non-recouping-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+											<table class="table table-striped">
+												<thead>
+												<tr>
+													<th class="col-xs-4">Company</th>
+													<th class="col-xs-2">Amount</th>
+												</tr>
+												</thead>
+												<tbody>
+												<tr class="default" id="non-recouping-num">
+													<td>Producer Deferrals</td>
+													<td>$100,000</td>
+												</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="row" id="senior-debt-summary">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<br/>
+											<h3 class="panel-title">Senior Debt/Gap Loan</h3>
+											<button id="senior-debt-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+											<table class="table table-striped">
+												<thead>
+												<tr>
+													<th class="col-xs-4">Company</th>
+													<th class="col-xs-2">Amount</th>
+												</tr>
+												</thead>
+												<tbody>
+												<tr class="default" id="summary-senior-debt">
+													<td>Productivity Media</td>
+													<td>$1,000,000</td>
+												</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="row" id="preferred-equity-summary">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<br/>
+											<h3 class="panel-title">Preferred Equity</h3>
+											<button id="preferred-equity-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+											<table class="table table-striped">
+												<thead>
+												<tr>
+													<th class="col-xs-4">Company</th>
+													<th class="col-xs-2">Amount</th>
+												</tr>
+												</thead>
+												<tbody>
 												<tr class="default">
 													<td>Private Equity</td>
 													<td>$350,000</td>
-													<td>Preferred Equity</td>
-													<td>10%</td>
-													<td></td>
+												</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="row" id="corridor-equity-summary">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<br/>
+											<h3 class="panel-title">Corridor Equity</h3>
+											<button id="corridor-equity-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+											<table class="table table-striped">
+												<thead>
+												<tr>
+													<th class="col-xs-4">Company</th>
+													<th class="col-xs-2">Amount</th>
+												</tr>
+												</thead>
+												<tbody>
+												<tr class="default">
+													<td>Telefilm</td>
+													<td>$500,000</td>
+												</tr>
+												<tr>
+													<td>NOHFC</td>
+													<td>$200,000</td>
+												</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="row" id="general-equity-summary">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<br/>
+											<h3 class="panel-title">General Equity</h3>
+											<button id="general-equity-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+											<table class="table table-striped">
+												<thead>
+												<tr>
+													<th class="col-xs-4">Company</th>
+													<th class="col-xs-2">Amount</th>
+												</tr>
+												</thead>
+												<tbody>
+												<tr class="default">
+													<td>Investor A</td>
+													<td>$500,000</td>
 												</tr>
 												<tr class="default">
-													<td>French Distributors</td>
-													<td>$275,000</td>
-													<td>Direct Territory</td>
-													<td>4%</td>
-													<td>15% Interest Semi-Annual</td>
+													<td>Investor B</td>
+													<td>$300,000</td>
 												</tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
                             </div>
                         </div>
                     </div>
-					<!-- Presales -->
-					<div class="row">
-						<div class="col-sm-12" id="pre-sale_chart">
-							<div class="panel" >
-								<div class="panel-heading">
-									<h3 class="panel-title">Pre-sales</h3>
-								</div>
-								<div class="panel-body">
-									<div class="row">
-										<div class="col-sm-6">
-											<div class="m-b-30">
-												<button id="add-to-presales" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></button>
-											</div>
-										</div>
-									</div>
-									<table class="table table-bordered table-striped" id="datatable-presales">
-										<thead>
-										<tr>
-											<th>Company</th>
-											<th>Country</th>
-											<th>Ask</th>
-											<th>Take</th>
-                      						<th>Percentage Taken</th>
-											<th>Actual</th>
-											<th>Actions</th>
-										</tr>
-										</thead>
-										<tfoot>
-											<tr>
-												<th>Total:</th>
-												<th></th>
-												<th>$400,000</th>
-												<th>$146,000</th>
-												<th>36.5%</th>
-												<th>$200,000</th>
-												<th></th>
-											</tr>
-										</tfoot>
-										<tbody>
-										<tr class="gradeX">
-											<td>Concourse Media</td>
-											<td>United Kingdom</td>
-											<td>$100,000</td>
-											<td>$40,000</td>
-											<td>40%</td>
-                      						<td>$80,000</td>
-
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-
-										<tr class="gradeX">
-											<td>Concourse Media</td>
-											<td>France</td>
-											<td>$80,000</td>
-											<td>$30,000</td>
-                      						<td>37.5%</td>
-											<td>$40,000</td>
-
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-
-										<tr class="gradeX">
-											<td>Concourse Media</td>
-											<td>Italy</td>
-											<td>$20,000</td>
-											<td>$6,000</td>
-                      						<td>30%</td>
-											<td>Not Yet Sold</td>
-
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-
-										<tr class="gradeX">
-											<td>Concourse Media</td>
-											<td>South Korea</td>
-											<td>$90,000</td>
-											<td>$50,000</td>
-                      						<td>55.6%</td>
-											<td>$80,000</td>
-
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-
-										<tr class="gradeX">
-											<td>Concourse Media</td>
-											<td>Australia</td>
-											<td>$70,000</td>
-											<td>$20,000</td>
-											<td>28.6%</td>
-											<td>Not Yet Sold</td>
-
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-
-										<tr class="gradeX">
-											<td>Concourse Media</td>
-											<td>Mexico</td>
-											<td>$40,000</td>
-											<td>$20,000</td>
-                      						<td>50%</td>
-											<td>Waiting For Producer Approval</td>
-
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-										</tbody>
-									</table>
-								</div>
-								<!-- end: page -->
-							</div> <!-- end Panel -->
-						</div>
-					</div>
-					<!-- Direct Territory -->
-					<div class="row">
-						<div class="col-md-12" id="direct_territory_sales_table">
-							<div class="panel">
-								<div class="panel-heading">
-									<h3 class="panel-title">Direct Territory Sales/Assigned Territories</h3>
-								</div>
-								<div class="panel-body">
-									<div class="row">
-										<div class="col-sm-6">
-											<div class="m-b-30">
-												<button  class="btn btn-primary waves-effect waves-light" id="add-to-direct-territory-sales-table">Add <i class="fa fa-plus"></i></button>
-											</div>
-										</div>
-									</div>
-									<table class="table table-bordered table-striped" id="datatable-direct-territory-sales-table">
-										<thead>
-										<tr>
-											<th>Company</th>
-											<th>Amount</th>
-											<th>Territory</th>
-											<th>Equity %</th>
-											<th>Overages Retained</th>
-											<th>Interest Rate</th>
-											<th>Loan Type</th>
-											<th>Actions</th>
-										</tr>
-										</thead>
-										<tfoot>
-										<tr>
-											<th>Total:</th>
-											<th>$275,000</th>
-											<th></th>
-											<th></th>
-											<th></th>
-											<th></th>
-											<th></th>
-											<th></th>
-										</tr>
-										</tfoot>
-										<tbody>
-										<tr class="gradeX">
-											<td>French Distributors</td>
-											<td>$275,000</td>
-											<td>France</td>
-											<td>4%</td>
-											<td>60%</td>
-											<td>15%</td>
-											<td>Semi-Annual</td>
-
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-										</tbody>
-									</table>
-								</div>
-								<!-- end: page -->
-							</div> <!-- end Panel -->
-						</div>
-					</div>
-					<!-- Tax Breaks & Grants -->
-					<div class="row">
-						<div class="col-md-12" id="tax_grant_table">
-							<div class="panel">
-								<div class="panel-heading">
-									<h3 class="panel-title">Grants & Tax Breaks - Loans</h3>
-								</div>
-								<div class="panel-body">
-									<div class="row">
-										<div class="col-sm-6">
-											<div class="m-b-30">
-												<button  class="btn btn-primary waves-effect waves-light" id="add-to-tax-table-loan">Add <i class="fa fa-plus"></i></button>
-											</div>
-										</div>
-									</div>
-									<table class="table table-bordered table-striped" id="datatable-tax-table-loan">
-										<thead>
-										<tr>
-											<th>Company</th>
-											<th>Amount</th>
-											<th>Interest Rate</th>
-											<th>Loan Type</th>
-											<th>Actions</th>
-										</tr>
-										</thead>
-										<tfoot>
-										<tr>
-											<th>Total:</th>
-											<th>$2,000,000</th>
-											<th></th>
-											<th></th>
-											<th></th>
-										</tr>
-										</tfoot>
-										<tbody>
-										<tr class="gradeX">
-											<td>BC Government</td>
-											<td>$2,000,000</td>
-											<td>20%</td>
-											<td>Semi-Annual</td>
-
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-										</tbody>
-									</table>
-								</div>
-								<br/>
-								<div class="panel-heading">
-									<h3 class="panel-title">Grants & Tax Breaks - Discounts</h3>
-								</div>
-								<div class="panel-body">
-									<div class="row">
-										<div class="col-sm-6">
-											<div class="m-b-30">
-												<button  class="btn btn-primary waves-effect waves-light" id="add-to-tax-table-discount">Add <i class="fa fa-plus"></i></button>
-											</div>
-										</div>
-									</div>
-									<table class="table table-bordered table-striped" id="datatable-tax-table-discount">
-										<thead>
-										<tr>
-											<th>Company</th>
-											<th>Estimated Amount</th>
-											<th>Net Advance</th>
-											<th>Actions</th>
-										</tr>
-										<tfoot>
-										<tr>
-											<th>Total:</th>
-											<th>$100,000</th>
-											<th>$80,000</th>
-											<th></th>
-										</tr>
-										</tfoot>
-										</thead>
-										<tbody>
-										<tr class="gradeX">
-											<td>Government of Canada</td>
-											<td>$100,000</td>
-											<td>$80,000</td>
-
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-										</tbody>
-									</table>
-								</div>
-								<!-- end: page -->
-							</div> <!-- end Panel -->
-						</div>
-					</div>
 					<!-- Non-Recouping -->
                     <div class="row">
                         <div class="col-md-12" id="non_recouping_table">
@@ -1133,7 +908,8 @@
         </section>
         <!-- Main Content Ends -->
 
-        <!-- MODAL -->
+		<!-- MODAL -->
+		<div id="modalLocation"></div>
         <div id="dialog" class="modal-block mfp-hide">
             <section class="panel panel-info panel-color">
                 <header class="panel-heading">
@@ -1214,68 +990,11 @@
         <script src="assets/flot-chart/jquery.flot.crosshair.js"></script>
         <script src="assets/flot-chart/jquery.flot.init.js"></script>
 
+		<!-- Handlebars -->
+		<script src="js/handlebars.runtime.js"></script>
+		<script src="js/templates/templates.js"></script>
 
-
-        <!-- sparkline -->
-
-        <script>
-            $('.toggle').toggles({on: false});
-            $('#option_presales').toggles({on: true});
-            $('#option_equity').toggles({on: true});
-            $('#senior_debt_table').hide();
-//            $('#summary-senior-debt').hide();
-            $('#preferred_equity_table').hide();
-            $('#non_recouping_table').hide();
-            $('#corridor_equity_table').hide();
-            $('#direct_territory_sales_table').hide();
-			$('#tax_grant_table').hide();
-//			$('#tax-grant-num').hide();
-//			$('#tax-grant-num-2').hide();
-//			$('#corridor-equity-num').hide();
-//			$('#corridor-equity-num-2').hide();
-//			$('#non-recouping-num').hide();
-
-            $('#option_presales').on('click', function() {
-                $("#pre-sale_chart").toggle();
-//                $("#pre-sale-num").toggle();
-            });
-
-            $('#option_equity').on('click', function() {
-                $("#equity_table").toggle();
-//                $("#equity1").toggle();
-//                $("#equity2").toggle();
-            });
-
-            $('#option_senior_debt').on('click', function() {
-                $("#senior_debt_table").toggle();
-//                $("#summary-senior-debt").toggle();
-            });
-            $('#option_preferred-equity').on('click', function() {
-                $("#preferred_equity_table").toggle();
-            });
-
-            $('#option_non_recouping_production_capital').on('click', function() {
-                $("#non_recouping_table").toggle();
-//				$("#non-recouping-num").toggle();
-            });
-
-			$('#option_corridor_equity').on('click', function() {
-				$("#corridor_equity_table").toggle();
-//				$('#corridor-equity-num').toggle();
-//				$('#corridor-equity-num-2').toggle();
-			});
-
-            $('#option_grants_and_tax_breaks').on('click', function() {
-                $('#tax_grant_table').toggle();
-//                $('#tax-grant-num').toggle();
-//                $('#tax-grant-num-2').toggle();
-            });
-
-            $('#option_direct_territory_sales').on('click', function() {
-                $("#direct_territory_sales_table").toggle();
-            });
-
-        </script>
-
+		<!-- Production JS -->
+		<script src="js/production.js"></script>
     </body>
 </html>

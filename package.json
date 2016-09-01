@@ -23,6 +23,7 @@
     "fast-csv": "2.1.0",
     "webworker-threads": "0.7.8",
     "ejs": "2.5.1",
-    "mongodb": "2.2.8"
+    "mongodb": "2.2.8",
+    "handlebars": "4.0.5"
   }
 }
