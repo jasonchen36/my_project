@@ -82,10 +82,10 @@
 					<div class="modal-footer">
 						<button id="pre-sales-{{id}}-cancel" type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
 						{{#if investor}}
-							<button type="button" id="pre-sales-{{id}}-edit" class="btn btn-info">Edit</button>
+							<button type="button" id="pre-sales-{{id}}-edit" class="btn btn-info" data-dismiss="modal">Edit</button>
 						{{/if}}
 						{{#unless investor}}
-							<button id="pre-sales-{{id}}-save" type="button" class="btn btn-info">Save</button>
+							<button id="pre-sales-{{id}}-save" type="button" class="btn btn-info" data-dismiss="modal">Save</button>
 						{{/unless}}
 					</div>
 				</form>
