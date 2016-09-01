@@ -2,7 +2,11 @@
 
 	//Turn toggles into on state
 	$('.toggle').toggles({on: true});
-	var idCount = 2;
+	$('#option_presales').on('click', function() {
+		$("#pre-sales-summary").toggle();
+	});
+
+	var idCount = 1;
 
 	//Create modals for presales
 	var presaleModalTemplate = Handlebars.templates['presaleModal'];
@@ -14,32 +18,37 @@
 		.append(presaleModalTemplate(presalesAdd))
 		.append(presaleModalTemplate(presalesData1));
 
+	var addEditListener = function() {
+		$("#pre-sales-"+idCount+"-edit").on('click', function() {
+			var investor = $("#pre-sales-"+idCount+"-investor").val();
+			var territory = $("#pre-sales-"+idCount+"-territory").val();
+			var currency = $("#pre-sales-"+idCount+"-currency").val();
+			var amount = $("#pre-sales-"+idCount+"-amount").val();
+			var depositAdvances = $("#pre-sales-"+idCount+"-depositAdvances").val();
+			var escrowAmount = $("#pre-sales-"+idCount+"-escrow-amount").val();
+			var data = {id: idCount, investor: investor, territory: territory, currency: currency, amount: amount, depositAdvances: depositAdvances, escrowAmount: escrowAmount };
+			$("#pre-sales-"+idCount+"-modal").replaceWith(presaleModalTemplate(data));
+			$("#pre-sales-table-row-"+idCount).replaceWith(summaryTableRow(data));
+			$("#pre-sales-"+idCount+"-modal").hide();
+			$(".modal-backdrop").hide();
+			$("#pre-sales-"+idCount+"-form").trigger('reset');
+		});
+
+		$("#pre-sales-"+idCount+"-cancel").on('click', function() {
+			$("#pre-sales-"+idCount+"-form").trigger('reset');
+		});
+
+		$("#pre-sales-"+idCount+"-close").on('click', function() {
+			$("#pre-sales-"+idCount+"-form").trigger('reset');
+		});
+
+	};
+
+	addEditListener();
+	idCount+=1;
 	$("#pre-sales-add-save").on('click', function() {
 		$("#pre-sales-add-modal").hide();
 		$(".modal-backdrop").hide();
-	});
-	$("#pre-sales-1-edit").on('click', function() {
-		$("#pre-sales-1-modal").hide();
-		$(".modal-backdrop").hide();
-	});
-
-	$('#option_presales').on('click', function() {
-		$("#pre-sales-summary").toggle();
-	});
-
-	var addEditListener = function() {
-		var investor = $("#pre-sales-"+idCount+"-investor").val();
-		var territory = $("#pre-sales-"+idCount+"-territory").val();
-		var currency = $("#pre-sales-"+idCount+"-currency").val();
-		var amount = $("#pre-sales-"+idCount+"-amount").val();
-		var depositAdvances = $("#pre-sales-"+idCount+"-depositAdvances").val();
-		var escrowAmount = $("#pre-sales-"+idCount+"-escrow-amount").val();
-		var data = {id: idCount, investor: investor, territory: territory, currency: currency, amount: amount, depositAdvances: depositAdvances, escrowAmount: escrowAmount };
-		$("#pre-sales-"+idCount+"-modal").replaceWith(presaleModalTemplate(data));
-		$("#pre-sales-table-row-"+idCount).replaceWith(summaryTableRow(data));
-	};
-
-	$("#pre-sales-add-save").on('click', function() {
 		var investor = $("#pre-sales-add-investor").val();
 		var territory = $("#pre-sales-add-territory").val();
 		var currency = $("#pre-sales-add-currency").val();
@@ -51,7 +60,17 @@
 		$("#pre-sales-summary-table").append(summaryTableRow(data));
 		addEditListener();
 		idCount+= 1;
+		$("#pre-sales-add-form").trigger('reset');
 	});
-	
+
+	$("#pre-sales-add-cancel").on('click', function () {
+		$("#pre-sales-add-form").trigger('reset');
+	});
+
+	$("#pre-sales-add-close").on('click', function () {
+		$("#pre-sales-add-form").trigger('reset');
+	});
+
+
 })();
 
