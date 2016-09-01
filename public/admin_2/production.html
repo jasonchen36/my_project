@@ -201,7 +201,7 @@
                     <div class="panel-heading"><h3 class="panel-title">Relevant Currencies</h3></div>
 
                     <div class="panel-body" id="FX">
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 
 
                     <select name="currencies" id="mySelectBox">
@@ -323,38 +323,6 @@
                       <input type="submit" id="Submit">
                     </form>
 
-                    <script>
-                    $("#add-currency").on('click', function(e){
-                      e.preventDefault();
-                      var selected_option = $('#mySelectBox option').filter(':selected').text();
-                      $("#add-here").append('<input type="checkbox" id=' + selected_option.substr(selected_option.length - 3) + '/CAD checked>' + selected_option + '<br>')
-                    });
-                    </script>
-
-                    <script>
-                    $("#Submit").on('click', function(e){
-                      e.preventDefault();
-                      if(document.getElementById("USD/CAD").checked && document.getElementById("AED/CAD").checked && document.getElementById("CNY/CAD").checked){
-                        $("#FX").append("0.7614 USD = 1.00 CAD</br>2.7969 AED = 1.00 CAD</br>1.00 CNY = 0.20 CAD</br>");
-                      }else if (document.getElementById("USD/CAD").checked && document.getElementById("AED/CAD").checked){
-                        $("#FX").append("0.7614 USD = 1.00 CAD</br>2.7969 AED = 1.00 CAD</br>");
-                      }else if (document.getElementById("USD/CAD").checked && document.getElementById("CNY/CAD").checked){
-                        $("#FX").append("0.7614 USD = 1.00 CAD</br>1.00 CNY = 0.20 CAD</br>");
-                      }else if (document.getElementById("AED/CAD").checked && document.getElementById("CNY/CAD").checked){
-                        $("#FX").append("2.7969 AED = 1.00 CAD</br>1.00 CNY = 0.20 CAD</br>");
-                      }else if(document.getElementById("USD/CAD").checked){
-                        $("#FX").append("0.7614 USD = 1.00 CAD</br>");
-                      }else if (document.getElementById("AED/CAD").checked) {
-                        $("#FX").append("2.7969 AED = 1.00 CAD</br>");
-                      }else if (document.getElementById("CNY/CAD").checked) {
-                        $("#FX").append("1.00 CNY = 0.20 CAD</br>");
-                      }else {
-                        alert ('Please choose an option.')
-                      };
-                    });
-
-
-                    </script>
 
 
 
@@ -363,6 +331,11 @@
                     </div> <!-- panel-body -->
                 </div> <!-- panel -->
             </div> <!-- col -->
+
+
+
+
+
 
             <div class="col-lg-6" style="display:none">
                 <div class="portlet"><!-- /primary heading -->
@@ -868,8 +841,82 @@
 		<!-- Handlebars -->
 		<script src="js/handlebars.runtime.js"></script>
 		<script src="js/templates/templates.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 		<!-- Production JS -->
 		<script src="js/production.js"></script>
+
+        <!-- sparkline -->
+
+        <script>
+            $('.toggle').toggles({on: true});
+
+            $('#option_presales').on('click', function() {
+                $("#pre-sales-summary").toggle();
+            });
+
+            $('#option_equity').on('click', function() {
+                $("#general-equity-summary").toggle();
+            });
+
+            $('#option_senior_debt').on('click', function() {
+                $("#senior-debt-summary").toggle();
+            });
+            $('#option_preferred-equity').on('click', function() {
+                $("#preferred-equity-summary").toggle();
+            });
+
+            $('#option_non_recouping_production_capital').on('click', function() {
+                $("#non-recouping-summary").toggle();
+            });
+
+			$('#option_corridor_equity').on('click', function() {
+				$("#corridor-equity-summary").toggle();
+			});
+
+            $('#option_grants_and_tax_breaks').on('click', function() {
+                $('#tax-grants-summary').toggle();
+            });
+
+            $('#option_direct_territory_sales').on('click', function() {
+                $("#direct-territory-summary").toggle();
+            });
+
+        </script>
+
+        <script>
+        $("#add-currency").on('click', function(e){
+          e.preventDefault();
+          var selected_option = $('#mySelectBox option').filter(':selected').text();
+          $("#add-here").append('<input type="checkbox" id=' + selected_option.substr(selected_option.length - 3) + '/CAD checked>' + selected_option + '<br>')
+        });
+        </script>
+
+        <script>
+        $("#Submit").on('click', function(e){
+          e.preventDefault();
+          if(document.getElementById("USD/CAD").checked && document.getElementById("AED/CAD").checked && document.getElementById("CNY/CAD").checked){
+            $("#FX").append("0.7614 USD = 1.00 CAD</br>2.7969 AED = 1.00 CAD</br>1.00 CNY = 0.20 CAD</br>");
+          }else if (document.getElementById("USD/CAD").checked && document.getElementById("AED/CAD").checked){
+            $("#FX").append("0.7614 USD = 1.00 CAD</br>2.7969 AED = 1.00 CAD</br>");
+          }else if (document.getElementById("USD/CAD").checked && document.getElementById("CNY/CAD").checked){
+            $("#FX").append("0.7614 USD = 1.00 CAD</br>1.00 CNY = 0.20 CAD</br>");
+          }else if (document.getElementById("AED/CAD").checked && document.getElementById("CNY/CAD").checked){
+            $("#FX").append("2.7969 AED = 1.00 CAD</br>1.00 CNY = 0.20 CAD</br>");
+          }else if(document.getElementById("USD/CAD").checked){
+            $("#FX").append("0.7614 USD = 1.00 CAD</br>");
+          }else if (document.getElementById("AED/CAD").checked) {
+            $("#FX").append("2.7969 AED = 1.00 CAD</br>");
+          }else if (document.getElementById("CNY/CAD").checked) {
+            $("#FX").append("1.00 CNY = 0.20 CAD</br>");
+          }else {
+            alert ('Please select an option.')
+          };
+        });
+
+
+        </script>
+
+
     </body>
 </html>

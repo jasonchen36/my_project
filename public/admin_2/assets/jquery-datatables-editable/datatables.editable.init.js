@@ -1554,8 +1554,6 @@ var DirectTerritorySalesTable = {
 				if ( $this.hasClass('actions') ) {
 					rowSetActionsDefault( $row );
 					return _self.datatable.cell( this ).data();
-				} else if ( $this.hasClass('loan-type')){
-					return $.trim( $this.find('select').val() );
 				} else {
 					return $.trim( $this.find('input').val() );
 				}
