@@ -394,260 +394,194 @@
                     </div> <!-- panel -->
                     </div> <!-- col -->
 					<!-- Financial Summary -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Financiers & Structures Summary</h3>
-                                </div>
-								<div class="panel-body">
-                                    <div class="row" id="pre-sales-summary">
-										<div class="col-md-12 col-sm-12 col-xs-12">
-											<h3 class="panel-title">Pre-Sales</h3>
-											<button class="btn btn-icon btn-success" data-toggle="modal" data-target="#pre-sales-add-modal" style="float:right"><i class="fa ion-plus-round"></i></button>
-											<table class="table table-striped">
-													<thead>
-													<tr>
-														<th class="col-xs-4">Investor</th>
-														<th class="col-xs-2">Amount</th>
-													</tr>
-													</thead>
-													<tbody id="pre-sales-summary-table">
-													<tr class="default clickable-row" data-toggle="modal" data-target="#pre-sales-1-modal"  id="#pre-sales-table-row-1">
-														<td>Concourse Media</td>
-														<td>$200,000</td>
-													</tr>
-													</tbody>
-												</table>
-										</div>
-									</div>
-									<div class="row" id="direct-territory-summary">
-										<div class="col-md-12 col-sm-12 col-xs-12">
-											<br/>
-											<h3 class="panel-title">Direct Territory Sales</h3>
-											<button  class="btn btn-icon btn-success" data-toggle="modal" data-target="#direct-territory-add-modal" style="float:right"> <i class="fa ion-plus-round"></i> </button>
-											<table class="table table-striped">
+					<div class="col-md-12">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">Financiers & Structures Summary</h3>
+							</div>
+							<div class="panel-body">
+								<div class="row" id="pre-sales-summary">
+									<div class="col-md-12 col-sm-12 col-xs-12">
+										<h3 class="panel-title">Pre-Sales</h3>
+										<button class="btn btn-icon btn-success" data-toggle="modal" data-target="#pre-sales-add-modal" style="float:right"><i class="fa ion-plus-round"></i></button>
+										<table class="table table-striped">
 												<thead>
 												<tr>
 													<th class="col-xs-4">Investor</th>
 													<th class="col-xs-2">Amount</th>
 												</tr>
 												</thead>
-												<tbody id="direct-territory-summary-table">
-												<tr class="default clickable-row" data-toggle="modal" data-target="#direct-territory-1-modal">
-													<td>French Distributors</td>
-													<td>$275,000</td>
-												</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-									<div class="row" id="tax-grant-summary">
-										<div class="col-md-12 col-sm-12 col-xs-12">
-											<br/>
-											<h3 class="panel-title">Tax Incentives & Grants</h3>
-											<button  data-toggle="modal" data-target="#tax-grant-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
-											<table class="table table-striped">
-												<thead>
-												<tr>
-													<th class="col-xs-4">Investor</th>
-													<th class="col-xs-2">Amount</th>
-												</tr>
-												</thead>
-												<tbody id="tax-grant-summary-table">
-												<tr class="default clickable-row" data-toggle="modal" data-target="#tax-grant-1-modal" id="tax-grant-table-row-1">
-													<td>BC Government</td>
-													<td>$2,000,000</td>
-												</tr>
-												<tr class="default clickable-row" data-toggle="modal" data-target="#tax-grant-2-modal" id="tax-grant-table-row-2">
-													<td>Government of Canada</td>
-													<td>$80,000</td>
-												</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-									<div class="row" id="non-recouping-summary">
-										<div class="col-md-12 col-sm-12 col-xs-12">
-											<br/>
-											<h3 class="panel-title">Non-Recouping Production Capital</h3>
-											<button data-toggle="modal" data-target="#non-recouping-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
-											<table class="table table-striped">
-												<thead>
-												<tr>
-													<th class="col-xs-4">Company</th>
-													<th class="col-xs-2">Amount</th>
-												</tr>
-												</thead>
-												<tbody id="non-recouping-summary-table">
-												<tr class="default clickable-row" data-toggle="modal" data-target="#non-recouping-1-modal" id="non-recouping-table-row-1">
-													<td>Producer Deferrals</td>
-													<td>$100,000</td>
-												</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-									<div class="row" id="senior-debt-summary">
-										<div class="col-md-12 col-sm-12 col-xs-12">
-											<br/>
-											<h3 class="panel-title">Senior Debt/Gap Loan</h3>
-											<button data-toggle="modal" data-target="#senior-debt-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
-											<table class="table table-striped">
-												<thead>
-												<tr>
-													<th class="col-xs-4">Company</th>
-													<th class="col-xs-2">Amount</th>
-												</tr>
-												</thead>
-												<tbody id="senior-debt-summary-table">
-												<tr class="default clickable-row" id="senior-debt-table-row-1" data-toggle="modal" data-target="#senior-debt-1-modal" >
-													<td>Productivity Media</td>
-													<td>$1,000,000</td>
-												</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-									<div class="row" id="preferred-equity-summary">
-										<div class="col-md-12 col-sm-12 col-xs-12">
-											<br/>
-											<h3 class="panel-title">Preferred Equity</h3>
-											<button data-toggle="modal" data-target="#preferred-equity-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
-											<table class="table table-striped">
-												<thead>
-												<tr>
-													<th class="col-xs-4">Company</th>
-													<th class="col-xs-2">Amount</th>
-												</tr>
-												</thead>
-												<tbody id="preferred-equity-summary-table">
-												<tr class="default clickable-row" data-toggle="modal" data-target="#preferred-equity-1-modal">
-													<td>Private Equity</td>
-													<td>$350,000</td>
-												</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-									<div class="row" id="corridor-equity-summary">
-										<div class="col-md-12 col-sm-12 col-xs-12">
-											<br/>
-											<h3 class="panel-title">Corridor Equity</h3>
-											<button data-toggle="modal" data-target="#corridor-equity-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
-											<table class="table table-striped">
-												<thead>
-												<tr>
-													<th class="col-xs-4">Company</th>
-													<th class="col-xs-2">Amount</th>
-												</tr>
-												</thead>
-												<tbody id="corridor-equity-summary-table">
-												<tr class="default clickable-row" data-toggle="modal" data-target="#corridor-equity-1-modal" id="corridor-equity-table-row-1">
-													<td>Telefilm</td>
-													<td>$500,000</td>
-												</tr>
-												<tr class="default clickable-row" data-toggle="modal" data-target="#corridor-equity-2-modal" id="corridor-equity-table-row-2">
-													<td>NOHFC</td>
+												<tbody id="pre-sales-summary-table">
+												<tr class="default clickable-row" data-toggle="modal" data-target="#pre-sales-1-modal"  id="#pre-sales-table-row-1">
+													<td>Concourse Media</td>
 													<td>$200,000</td>
 												</tr>
 												</tbody>
 											</table>
-										</div>
-									</div>
-									<div class="row" id="general-equity-summary">
-										<div class="col-md-12 col-sm-12 col-xs-12">
-											<br/>
-											<h3 class="panel-title">General Equity</h3>
-											<button data-toggle="modal" data-target="#general-equity-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
-											<table class="table table-striped">
-												<thead>
-												<tr>
-													<th class="col-xs-4">Company</th>
-													<th class="col-xs-2">Amount</th>
-												</tr>
-												</thead>
-												<tbody id="general-equity-summary-table">
-												<tr class="default clickable-row" data-toggle="modal" data-target="#general-equity-1-modal">
-													<td>Investor A</td>
-													<td>$500,000</td>
-												</tr>
-												<tr class="default clickable-row" data-toggle="modal" data-target="#general-equity-2-modal">
-													<td>Investor B</td>
-													<td>$300,000</td>
-												</tr>
-												</tbody>
-											</table>
-										</div>
 									</div>
 								</div>
-                            </div>
-                        </div>
-                    </div>
-					<!-- Senior Debt -->
-                    <div class="row">
-                        <div class="col-md-12" id="senior_debt_table">
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Senior Debt/Gap Loans</h3>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="m-b-30">
-                                                <button  class="btn btn-primary waves-effect waves-light" id="add-to-senior-debt-table">Add <i class="fa fa-plus"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <table class="table table-bordered table-striped" id="datatable-senior-debt-table">
-                                      <thead>
-                                        <tr>
-                                          <th>Company</th>
-                                          <th>Amount</th>
-                                          <th>Equity %</th>
-                                          <th>Equity Type</th>
-                                          <th>Financing Source</th>
-                                          <th>Interest Rate</th>
-                                          <th>Loan Type</th>
-                                          <th>Actions</th>
-                                        </tr>
-                                      </thead>
-										<tfoot>
+								<div class="row" id="direct-territory-summary">
+									<div class="col-md-12 col-sm-12 col-xs-12">
+										<br/>
+										<h3 class="panel-title">Direct Territory Sales</h3>
+										<button  class="btn btn-icon btn-success" data-toggle="modal" data-target="#direct-territory-add-modal" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+										<table class="table table-striped">
+											<thead>
 											<tr>
-												<th>Total: </th>
-												<th>$1,000,000</th>
-												<th></th>
-												<th></th>
-												<th></th>
-												<th></th>
-												<th></th>
-												<th></th>
+												<th class="col-xs-4">Investor</th>
+												<th class="col-xs-2">Amount</th>
 											</tr>
-										</tfoot>
-                                      <tbody>
-                                        <tr class="gradeX">
-                                            <td>Productivity Media</td>
-                                            <td>$1,000,000</td>
-                                            <td>10%</td>
-                                            <td>Gross Equity</td>
-                                            <td>Revenue</td>
-                                            <td>15%</td>
-                                            <td>Simple</td>
-
-                                            <td class="actions">
-                                                <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                                <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                                <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                                <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
-                                </div>
-                                <!-- end: page -->
-                            </div> <!-- end Panel -->
-                        </div>
-                    </div>
+											</thead>
+											<tbody id="direct-territory-summary-table">
+											<tr class="default clickable-row" data-toggle="modal" data-target="#direct-territory-1-modal">
+												<td>French Distributors</td>
+												<td>$275,000</td>
+											</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="row" id="tax-grant-summary">
+									<div class="col-md-12 col-sm-12 col-xs-12">
+										<br/>
+										<h3 class="panel-title">Tax Incentives & Grants</h3>
+										<button  data-toggle="modal" data-target="#tax-grant-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+										<table class="table table-striped">
+											<thead>
+											<tr>
+												<th class="col-xs-4">Investor</th>
+												<th class="col-xs-2">Amount</th>
+											</tr>
+											</thead>
+											<tbody id="tax-grant-summary-table">
+											<tr class="default clickable-row" data-toggle="modal" data-target="#tax-grant-1-modal" id="tax-grant-table-row-1">
+												<td>BC Government</td>
+												<td>$2,000,000</td>
+											</tr>
+											<tr class="default clickable-row" data-toggle="modal" data-target="#tax-grant-2-modal" id="tax-grant-table-row-2">
+												<td>Government of Canada</td>
+												<td>$80,000</td>
+											</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="row" id="non-recouping-summary">
+									<div class="col-md-12 col-sm-12 col-xs-12">
+										<br/>
+										<h3 class="panel-title">Non-Recouping Production Capital</h3>
+										<button data-toggle="modal" data-target="#non-recouping-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+										<table class="table table-striped">
+											<thead>
+											<tr>
+												<th class="col-xs-4">Company</th>
+												<th class="col-xs-2">Amount</th>
+											</tr>
+											</thead>
+											<tbody id="non-recouping-summary-table">
+											<tr class="default clickable-row" data-toggle="modal" data-target="#non-recouping-1-modal" id="non-recouping-table-row-1">
+												<td>Producer Deferrals</td>
+												<td>$100,000</td>
+											</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="row" id="senior-debt-summary">
+									<div class="col-md-12 col-sm-12 col-xs-12">
+										<br/>
+										<h3 class="panel-title">Senior Debt/Gap Loan</h3>
+										<button data-toggle="modal" data-target="#senior-debt-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+										<table class="table table-striped">
+											<thead>
+											<tr>
+												<th class="col-xs-4">Company</th>
+												<th class="col-xs-2">Amount</th>
+											</tr>
+											</thead>
+											<tbody id="senior-debt-summary-table">
+											<tr class="default clickable-row" id="senior-debt-table-row-1" data-toggle="modal" data-target="#senior-debt-1-modal" >
+												<td>Productivity Media</td>
+												<td>$1,000,000</td>
+											</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="row" id="preferred-equity-summary">
+									<div class="col-md-12 col-sm-12 col-xs-12">
+										<br/>
+										<h3 class="panel-title">Preferred Equity</h3>
+										<button data-toggle="modal" data-target="#preferred-equity-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+										<table class="table table-striped">
+											<thead>
+											<tr>
+												<th class="col-xs-4">Company</th>
+												<th class="col-xs-2">Amount</th>
+											</tr>
+											</thead>
+											<tbody id="preferred-equity-summary-table">
+											<tr class="default clickable-row" data-toggle="modal" data-target="#preferred-equity-1-modal">
+												<td>Private Equity</td>
+												<td>$350,000</td>
+											</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="row" id="corridor-equity-summary">
+									<div class="col-md-12 col-sm-12 col-xs-12">
+										<br/>
+										<h3 class="panel-title">Corridor Equity</h3>
+										<button data-toggle="modal" data-target="#corridor-equity-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+										<table class="table table-striped">
+											<thead>
+											<tr>
+												<th class="col-xs-4">Company</th>
+												<th class="col-xs-2">Amount</th>
+											</tr>
+											</thead>
+											<tbody id="corridor-equity-summary-table">
+											<tr class="default clickable-row" data-toggle="modal" data-target="#corridor-equity-1-modal" id="corridor-equity-table-row-1">
+												<td>Telefilm</td>
+												<td>$500,000</td>
+											</tr>
+											<tr class="default clickable-row" data-toggle="modal" data-target="#corridor-equity-2-modal" id="corridor-equity-table-row-2">
+												<td>NOHFC</td>
+												<td>$200,000</td>
+											</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="row" id="general-equity-summary">
+									<div class="col-md-12 col-sm-12 col-xs-12">
+										<br/>
+										<h3 class="panel-title">General Equity</h3>
+										<button data-toggle="modal" data-target="#general-equity-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+										<table class="table table-striped">
+											<thead>
+											<tr>
+												<th class="col-xs-4">Company</th>
+												<th class="col-xs-2">Amount</th>
+											</tr>
+											</thead>
+											<tbody id="general-equity-summary-table">
+											<tr class="default clickable-row" data-toggle="modal" data-target="#general-equity-1-modal">
+												<td>Investor A</td>
+												<td>$500,000</td>
+											</tr>
+											<tr class="default clickable-row" data-toggle="modal" data-target="#general-equity-2-modal">
+												<td>Investor B</td>
+												<td>$300,000</td>
+											</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
                 </div>
             </div>
             <!-- Page Content Ends -->

@@ -473,3 +473,54 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 		$("#corridor-equity-add-form").trigger('reset');
 	});
 })();
+
+(function() {
+	var idCount = 1;
+	//Create modals for presales
+	var template = Handlebars.templates['seniorDebtModal'];
+	var add = {id: "add", investor: "", amount:"0", currency: "CAD", equity: "0", financeSource:"Budget", loanType: "Simple", interest: "0" };
+	var data1 = {id: "1", investor: "Productivity Media", amount:"150000", currency: "CAD", equity:"10", financeSource: "Budget", loanType:"Simple", interest: "15"};
+
+	$("#modalLocation")
+		.append(template(add))
+		.append(template(data1));
+
+	var addEditListener = function() {
+		var id = idCount;
+		$("#senior-debt-"+id+"-edit").on('click', function() {
+			idCount+= 1;
+			$("#senior-debt-"+id+"-form").trigger('reset');
+		});
+
+		$("#senior-debt-"+id+"-cancel").on('click', function() {
+			$("#senior-debt-"+id+"-form").trigger('reset');
+		});
+
+		$("#senior-debt-"+id+"-close").on('click', function() {
+			$("#senior-debt-"+id+"-form").trigger('reset');
+		});
+
+	};
+
+	addEditListener();
+
+	$("#senior-debt-add-save").on('click', function() {
+		var investor = $("#senior-debt-add-investor").val();
+		var currency = $("#senior-debt-add-currency").val();
+		var amount= $("#senior-debt-add-amount").val();
+		var equity = $("#senior-debtadd-equity").val();
+		var data = {id: idCount, investor: investor, currency: currency, amount: amount, type: "senior-debt" };
+		$("#modalLocation").append(template(data));
+		$("#senior-debt-summary-table").append(summaryTableRow(data));
+		addEditListener();
+		$("#senior-debt-add-form").trigger('reset');
+	});
+
+	$("#senior-debt-add-cancel").on('click', function () {
+		$("#senior-debt-add-form").trigger('reset');
+	});
+
+	$("#senior-debt-add-close").on('click', function () {
+		$("#senior-debt-add-form").trigger('reset');
+	});
+})();
