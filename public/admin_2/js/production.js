@@ -244,6 +244,16 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 	$("#tax-grant-add-close").on('click', function () {
 		$("#tax-grant-add-form").trigger('reset');
 	});
+
+	$("#tax-grant-add-isDiscount").on('click', function() {
+		$("#tax-grant-add-is-loan-form").addClass("hidden");
+		$("#tax-grant-add-is-discount-form").removeClass("hidden");
+	});
+
+	$("#tax-grant-add-isNotDiscount").on('click', function() {
+		$("#tax-grant-add-is-loan-form").removeClass("hidden");
+		$("#tax-grant-add-is-discount-form").addClass("hidden");
+	})
 })();
 
 
