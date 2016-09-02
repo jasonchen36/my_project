@@ -212,6 +212,7 @@
             <!-- Page Content Start -->
             <!-- ================== -->
 
+
             <div class="wraper container-fluid">
                 <div class="page-title">
                     <h3 class="title">Foreign Sales</h3>
@@ -221,23 +222,13 @@
                 <div class="panel">
 
                     <div class="panel-body">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="m-b-30">
-                                    <button id="add-to-foreign-sales-table" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <table class="table table-bordered table-striped" id="datatable-foreign-sales-table">
-                            <thead>
-                                <tr>
-                                    <th>Country</th>
-                                    <th>Ask</th>
-                                    <th>Take</th>
-                                    <th>Actual</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
+
+                      <div class="row" id="senior-debt-summary">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <br/>
+                          <h3 class="panel-title">Senior Debt/Gap Loan</h3>
+                          <button data-toggle="modal" data-target="#senior-debt-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+                          <table class="table table-striped">
                             <tfoot>
         										<tr>
         											<th>Total:</th>
@@ -247,113 +238,113 @@
                               <th></th>
         										</tr>
         										</tfoot>
-                            <tbody>
-                                <tr class="gradeX">
-                                    <td>United Kingdom</td>
-                                    <td>$100,000</td>
-                                    <td>$40,000</td>
-                                    <td>$80,000</td>
+                            <thead>
+                            <tr>
+                              <th class="col-xs-4">Country</th>
+                              <th class="col-xs-2">Ask</th>
+                              <th class="col-xs-2">Take</th>
+                              <th class="col-xs-2">Actual</th>
+                              <th class="col-xs-2">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody id="senior-debt-summary-table">
+                            <tr class="default clickable-row" id="senior-debt-table-row-1" data-toggle="modal" data-target="#senior-debt-1-modal" >
+                              <td>Australia</td>
+                              <td>$70,000</td>
+                              <td>$20,000</td>
+                              <td>Not Yet Sold</td>
+                              <td class="actions">
+                                  <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                  <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                  <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                  <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
 
-                                    <td class="actions">
-                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                  <a class="file_upload1"><i class="fa fa-file"></i></a>
 
-                                        <a class="file_upload1"><i class="fa fa-file"></i></a>
+                              </td>
+                            </tr>
+                            <tr class="default clickable-row" id="senior-debt-table-row-1" data-toggle="modal" data-target="#senior-debt-1-modal" >
+                              <td>France</td>
+                              <td>$80,000</td>
+                              <td>$30,000</td>
+                              <td>$50,000</td>
+                              <td class="actions">
+                                  <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                  <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                  <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                  <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
 
-                                    </td>
-                                </tr>
+                                  <a class="file_upload1"><i class="fa fa-file"></i></a>
 
-                                 <tr class="gradeX">
-                                    <td>France</td>
-                                    <td>$80,000</td>
-                                    <td>$30,000</td>
-                                    <td>$50,000</td>
+                              </td>
+                            </tr>
+                            <tr class="default clickable-row" id="senior-debt-table-row-1" data-toggle="modal" data-target="#senior-debt-1-modal" >
+                              <td>Italy</td>
+                              <td>$20,000</td>
+                              <td>$6,000</td>
+                              <td>Not Yet Sold</td>
+                              <td class="actions">
+                                  <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                  <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                  <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                  <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
 
-                                    <td class="actions">
-                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                  <a class="file_upload1"><i class="fa fa-file"></i></a>
 
-                                                                                <a class="file_upload1" style="color:"><i class="fa fa-file"></i></a>
+                              </td>
+                            </tr>
+                            <tr class="default clickable-row" id="senior-debt-table-row-1" data-toggle="modal" data-target="#senior-debt-1-modal" >
+                              <td>Mexico</td>
+                              <td>$40,000</td>
+                              <td>$20,000</td>
+                              <td>Waiting for Producer Approval</td>
+                              <td class="actions">
+                                  <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                  <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                  <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                  <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
 
-                                    </td>
-                                </tr>
+                                  <a class="file_upload1"><i class="fa fa-file"></i></a>
 
-                                 <tr class="gradeX">
-                                    <td>Italy</td>
-                                    <td>$20,000</td>
-                                    <td>$6,000</td>
-                                    <td>Not Yet Sold</td>
+                              </td>
+                            </tr>
+                            <tr class="default clickable-row" id="senior-debt-table-row-1" data-toggle="modal" data-target="#senior-debt-1-modal" >
+                              <td>South Korea</td>
+                              <td>$90,000</td>
+                              <td>$50,000</td>
+                              <td>$30,000</td>
+                              <td class="actions">
+                                  <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                  <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                  <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                  <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
 
-                                    <td class="actions">
-                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                  <a class="file_upload1"><i class="fa fa-file"></i></a>
 
-                                                                                <a class="file_upload" style="color:#A8A8A8"><i class="fa fa-file"></i></a>
+                              </td>
+                            </tr>
+                            <tr class="default clickable-row" id="senior-debt-table-row-1" data-toggle="modal" data-target="#senior-debt-1-modal" >
+                              <td>United Kingdom</td>
+                              <td>$100,000</td>
+                              <td>$40,000</td>
+                              <td>$80,000</td>
+                              <td class="actions">
+                                  <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                  <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                  <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                  <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
 
-                                    </td>
-                                </tr>
+                                  <a class="file_upload1"><i class="fa fa-file"></i></a>
 
-                                 <tr class="gradeX">
-                                    <td>South Korea</td>
-                                    <td>$90,000</td>
-                                    <td>$50,000</td>
-                                    <td>$30,000</td>
-
-                                    <td class="actions">
-                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-
-                                                                                <a class="file_upload1" style="color:"><i class="fa fa-file"></i></a>
-
-                                    </td>
-                                </tr>
-
-                                 <tr class="gradeX">
-                                    <td>Australia</td>
-                                    <td>$70,000</td>
-                                    <td>$20,000</td>
-                                    <td>Not Yet Sold</td>
-
-                                    <td class="actions">
-                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-
-                                                                                <a class="file_upload" style="color:#A8A8A8"><i class="fa fa-file"></i></a>
-
-                                    </td>
-                                </tr>
-
-                                 <tr class="gradeX">
-                                    <td>Mexico</td>
-                                    <td>$40,000</td>
-                                    <td>$20,000</td>
-                                    <td>Waiting For Producer Approval</td>
-
-                                    <td class="actions">
-                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-
-                                                                                <a class="file_upload" style="color:#A8A8A8"><i class="fa fa-file"></i></a>
-
-                                    </td>
-                                </tr>
-
-
+                              </td>
+                            </tr>
 
                             </tbody>
-                        </table>
+                          </table>
+                        </div>
+                      </div>
+
+                      
 
 
                     </div>
