@@ -156,6 +156,31 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 	$("#direct-territory-add-close").on('click', function () {
 		$("#direct-territory-add-form").trigger('reset');
 	});
+
+	$("#direct-territory-add-has-premium").on('click', function() {
+		$("#direct-territory-add-premium-form").removeClass("hidden");
+	});
+
+	$("#direct-territory-add-no-premium").on('click', function() {
+		$("#direct-territory-add-premium-form").addClass("hidden");
+	});
+
+	$("#direct-territory-add-has-arrangement").on('click', function() {
+		$("#direct-territory-add-arrangement-form").removeClass("hidden");
+	});
+
+	$("#direct-territory-add-no-arrangement").on('click', function() {
+		$("#direct-territory-add-arrangement-form").addClass("hidden");
+	});
+
+	$("#direct-territory-add-is-front").on('click', function() {
+		$("#direct-territory-add-withheld-form").removeClass("hidden");
+	});
+
+	$("#direct-territory-add-is-back").on('click', function() {
+		$("#direct-territory-add-withheld-form").addClass("hidden");
+	});
+
 })();
 
 (function() {
