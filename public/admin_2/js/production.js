@@ -38,7 +38,7 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 
 	//Create modals for presales
 	var presaleModalTemplate = Handlebars.templates['presaleModal'];
-	var presalesAdd = {id: "add", investor: "", amount: "0", currency: "CAD", territory: "", distributor: "", depositAdvances: "true", advProd: "", escrowAmount: "0", equity: "0"};
+	var presalesAdd = {id: "add", investor: "", amount: "0", currency: "CAD", territory: "", distributor: "", depositAdvances: "", advProd: "true", escrowAmount: "0", equity: "0"};
 	var presalesData1 = {id: "1", investor: "Concourse Media", amount: "100000", currency: "CAD", territory: "United Kingdom", distributor: "MGM", depositAdvances: "", advProd: "true", escrowAmount: "0", equity: "20"};
 
 	$("#modalLocation")
@@ -55,8 +55,6 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 			var depositAdvances = $("#pre-sales-"+id+"-depositAdvances").val();
 			var escrowAmount = $("#pre-sales-"+id+"-escrow-amount").val();
 			var data = {id: id, investor: investor, territory: territory, currency: currency, amount: amount, depositAdvances: depositAdvances, escrowAmount: escrowAmount, type: "pre-sales" };
-			// $("#pre-sales-"+id+"-modal").replaceWith(presaleModalTemplate(data));
-			// $("#pre-sales-table-row-"+id).innerHTML = "HIIII";
 			$("#pre-sales-"+id+"-form").trigger('reset');
 		});
 
@@ -94,6 +92,14 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 	$("#pre-sales-add-close").on('click', function () {
 		$("#pre-sales-add-form").trigger('reset');
 	});
+
+	$("#pre-sales-add-advancesProd").on('click', function() {
+		$("#pre-sales-add-deposit-form").addClass("hidden")
+	});
+
+	$("#pre-sales-add-depositAdvances").on('click', function() {
+		$("#pre-sales-add-deposit-form").removeClass("hidden")
+	});
 })();
 
 (function() {
@@ -115,7 +121,6 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 			var currency = $("#direct-territory-add-currency").val();
 			var amount = $("#direct-territory-add-amount").val();
 			var data = {id: idCount, investor: investor, territory: territory, currency: currency, amount: amount, type: "direct-territory" };			// $("#pre-sales-"+id+"-modal").replaceWith(presaleModalTemplate(data));
-			// $("#pre-sales-table-row-"+id).innerHTML = "HIIII";
 			$("#direct-territory-"+id+"-form").trigger('reset');
 		});
 
@@ -174,7 +179,6 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 			var currency = $("#tax-grant-add-currency").val();
 			var amount = $("#tax-grant-add-amount").val();
 			var data = {id: idCount, investor: investor, territory: territory, currency: currency, amount: amount, type: "tax-grant" };			// $("#pre-sales-"+id+"-modal").replaceWith(presaleModalTemplate(data));
-			// $("#pre-sales-table-row-"+id).innerHTML = "HIIII";
 			$("#tax-grant-"+id+"-form").trigger('reset');
 		});
 
