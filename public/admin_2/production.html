@@ -492,7 +492,7 @@
 										<div class="col-md-12 col-sm-12 col-xs-12">
 											<br/>
 											<h3 class="panel-title">Senior Debt/Gap Loan</h3>
-											<button id="senior-debt-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+											<button data-toggle="modal" data-target="#senior-debt-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
 											<table class="table table-striped">
 												<thead>
 												<tr>
@@ -500,8 +500,8 @@
 													<th class="col-xs-2">Amount</th>
 												</tr>
 												</thead>
-												<tbody>
-												<tr class="default" id="summary-senior-debt">
+												<tbody id="senior-debt-summary-table">
+												<tr class="default clickable-row" id="senior-debt-table-row-1" data-toggle="modal" data-target="#senior-debt-1-modal" >
 													<td>Productivity Media</td>
 													<td>$1,000,000</td>
 												</tr>
@@ -534,7 +534,7 @@
 										<div class="col-md-12 col-sm-12 col-xs-12">
 											<br/>
 											<h3 class="panel-title">Corridor Equity</h3>
-											<button id="corridor-equity-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+											<button data-toggle="modal" data-target="#corridor-equity-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
 											<table class="table table-striped">
 												<thead>
 												<tr>
@@ -542,12 +542,12 @@
 													<th class="col-xs-2">Amount</th>
 												</tr>
 												</thead>
-												<tbody>
-												<tr class="default">
+												<tbody id="corridor-equity-summary-table">
+												<tr class="default clickable-row" data-toggle="modal" data-target="#corridor-equity-1-modal" id="corridor-equity-table-row-1">
 													<td>Telefilm</td>
 													<td>$500,000</td>
 												</tr>
-												<tr>
+												<tr class="default clickable-row" data-toggle="modal" data-target="#corridor-equity-2-modal" id="corridor-equity-table-row-2">
 													<td>NOHFC</td>
 													<td>$200,000</td>
 												</tr>
@@ -642,82 +642,6 @@
                                             </td>
                                         </tr>
                                       </tbody>
-                                    </table>
-                                </div>
-                                <!-- end: page -->
-                            </div> <!-- end Panel -->
-                        </div>
-                    </div>
-					<!-- Corridor Equity -->
-                    <div class="row">
-                        <div class="col-md-12" id="corridor_equity_table">
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Corridor Equity</h3>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="m-b-30">
-                                                <button class="btn btn-primary waves-effect waves-light" id="add-to-corridor-equity-table">Add <i class="fa fa-plus"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <table class="table table-bordered table-striped" id="datatable-corridor-equity-table">
-                                        <thead>
-                                            <tr>
-                                            <th>Company</th>
-                                            <th>Amount</th>
-                                            <th>Equity % </th>
-                                            <th>Presales Corridor % </th>
-											<th>Recoupment Corridor %</th>
-                                            <th>Actions</th>
-                                            </tr>
-                                        </thead>
-										<tfoot>
-										<tr>
-											<th>Total: </th>
-											<th>$700,000</th>
-											<th></th>
-											<th></th>
-											<th></th>
-											<th></th>
-										</tr>
-
-										</tfoot>
-                                        <tbody>
-                                            <tr class="gradeX">
-                                                <td>Telefilm</td>
-                                                <td>$500,000</td>
-                                                <td>50%</td>
-												<td>0%</td>
-                                                <td>5%</td>
-
-                                                <td class="actions">
-                                                    <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                                    <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                                    <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                                    <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                                                </td>
-                                            </tr>
-
-                                            <tr class="gradeX">
-                                                <td>NOHFC</td>
-                                                <td>$200,000</td>
-                                                <td>20%</td>
-                                                <td>5%</td>
-												<td>0%</td>
-
-                                                <td class="actions">
-                                                    <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                                    <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                                    <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                                    <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                                                </td>
-                                            </tr>
-
-
-                                        </tbody>
                                     </table>
                                 </div>
                                 <!-- end: page -->
