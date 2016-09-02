@@ -559,7 +559,7 @@
 										<div class="col-md-12 col-sm-12 col-xs-12">
 											<br/>
 											<h3 class="panel-title">General Equity</h3>
-											<button id="general-equity-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+											<button data-toggle="modal" data-target="#general-equity-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
 											<table class="table table-striped">
 												<thead>
 												<tr>
@@ -567,12 +567,12 @@
 													<th class="col-xs-2">Amount</th>
 												</tr>
 												</thead>
-												<tbody>
-												<tr class="default">
+												<tbody id="general-equity-summary-table">
+												<tr class="default clickable-row" data-toggle="modal" data-target="#general-equity-1-modal">
 													<td>Investor A</td>
 													<td>$500,000</td>
 												</tr>
-												<tr class="default">
+												<tr class="default clickable-row" data-toggle="modal" data-target="#general-equity-2-modal">
 													<td>Investor B</td>
 													<td>$300,000</td>
 												</tr>
@@ -828,72 +828,6 @@
                             </div> <!-- end Panel -->
                         </div>
                     </div>
-					<!-- General Equity -->
-                    <div class="row">
-                        <div class="col-md-12" id="equity_table">
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">General Equity</h3>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="m-b-30">
-                                                <button id="add-to-general-equity" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <table class="table table-bordered table-striped" id="datatable-general-equity">
-                                        <thead>
-                                            <tr>
-                                            <th>Company</th>
-                                            <th>Amount</th>
-                                            <th>Equity %</th>
-                                            <th>Actions</th>
-                                            </tr>
-                                        </thead>
-										<tfoot>
-											<tr>
-												<th>Total: </th>
-												<th>$800,000</th>
-												<th></th>
-												<th></th>
-											</tr>
-										</tfoot>
-                                        <tbody>
-                                            <tr class="gradeX">
-                                                <td>Investor A</td>
-                                                <td>$500,000</td>
-                                                <td>50%</td>
-
-                                                <td class="actions">
-                                                    <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                                    <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                                    <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                                    <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                                                </td>
-                                            </tr>
-
-                                            <tr class="gradeX">
-                                                <td>Investor B</td>
-                                                <td>$300,000</td>
-                                                <td>30%</td>
-
-                                                <td class="actions">
-                                                    <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                                    <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                                    <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                                    <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- end: page -->
-                            </div> <!-- end Panel -->
-                        </div>
-                    </div>
-
                 </div>
             </div>
             <!-- Page Content Ends -->
@@ -950,7 +884,6 @@
         <script src="assets/magnific-popup/magnific-popup.js"></script>
         <script src="assets/jquery-datatables-editable/jquery.dataTables.js"></script>
         <script src="assets/datatables/dataTables.bootstrap.js"></script>
-        <script src="assets/jquery-datatables-editable/datatables.editable.init.js"></script>
 
          <!-- XEditable Plugin -->
         <script type="text/javascript" src="assets/bootstrap3-editable/moment.min.js"></script>

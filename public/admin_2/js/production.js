@@ -121,6 +121,7 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 			var currency = $("#direct-territory-add-currency").val();
 			var amount = $("#direct-territory-add-amount").val();
 			var data = {id: idCount, investor: investor, territory: territory, currency: currency, amount: amount, type: "direct-territory" };			// $("#pre-sales-"+id+"-modal").replaceWith(presaleModalTemplate(data));
+			idCount+=1;
 			$("#direct-territory-"+id+"-form").trigger('reset');
 		});
 
@@ -135,7 +136,6 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 	};
 
 	addEditListener();
-	idCount+=1;
 	$("#direct-territory-add-save").on('click', function() {
 		var investor = $("#direct-territory-add-investor").val();
 		var territory = $("#direct-territory-add-territory").val();
@@ -145,7 +145,6 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 		$("#modalLocation").append(directTerritoryModalTemplate(data));
 		$("#direct-territory-summary-table").append(summaryTableRow(data));
 		addEditListener();
-		idCount+= 1;
 		$("#direct-territory-add-form").trigger('reset');
 	});
 
@@ -184,7 +183,7 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 })();
 
 (function() {
-	var idCount = 2;
+	var idCount = 1;
 	//Create modals for presales
 	var taxGrantModalTemplate = Handlebars.templates['taxGrantModal'];
 	var taxGrantAdd = {id: "add", investor: "", isDiscount: "true", isLoan: "", estAmount: "0", netAdvance: "0", amount:"0", interestRate:"0", loanType:"Simple", currency: "CAD"};
@@ -204,6 +203,7 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 			var currency = $("#tax-grant-add-currency").val();
 			var amount = $("#tax-grant-add-amount").val();
 			var data = {id: idCount, investor: investor, territory: territory, currency: currency, amount: amount, type: "tax-grant" };			// $("#pre-sales-"+id+"-modal").replaceWith(presaleModalTemplate(data));
+			idCount+=1;
 			$("#tax-grant-"+id+"-form").trigger('reset');
 		});
 
@@ -218,7 +218,7 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 	};
 
 	addEditListener();
-	idCount+=1;
+	addEditListener();
 	$("#tax-grant-add-save").on('click', function() {
 		var investor = $("#tax-grant-add-investor").val();
 		var currency = $("#tax-grant-add-currency").val();
@@ -233,7 +233,6 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 		$("#modalLocation").append(taxGrantModalTemplate(data));
 		$("#tax-grant-summary-table").append(summaryTableRow(data));
 		addEditListener();
-		idCount+= 1;
 		$("#tax-grant-add-form").trigger('reset');
 	});
 
@@ -256,5 +255,60 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 	})
 })();
 
+(function() {
+	var idCount = 1;
+	//Create modals for presales
+	var generalEquityModalTemplate = Handlebars.templates['generalEquityModal'];
+	var generalEquityAdd = {id: "add", investor: "", amount:"0", currency: "CAD", equity: "0" };
+	var generalEquityData1 = {id: "1", investor: "Investor A", amount:"500000", currency: "CAD", equity:"50"};
+	var generalEquityData2 = {id: "2", investor: "Investor B", amount:"300000", currency: "CAD", equity: "30"};
 
+	$("#modalLocation")
+		.append(generalEquityModalTemplate(generalEquityAdd))
+		.append(generalEquityModalTemplate(generalEquityData1))
+		.append(generalEquityModalTemplate(generalEquityData2));
 
+	var addEditListener = function() {
+		var id = idCount;
+		$("#general-equity-"+id+"-edit").on('click', function() {
+			var investor = $("#general-equity-add-investor").val();
+			var currency = $("#general-equity-add-currency").val();
+			var amount = $("#general-equity-add-amount").val();
+			var data = {id: idCount, investor: investor,  currency: currency, amount: amount, type: "general-equity" };
+			idCount+= 1;
+			$("#general-equity-"+id+"-form").trigger('reset');
+		});
+
+		$("#general-equity-"+id+"-cancel").on('click', function() {
+			$("#general-equity-"+id+"-form").trigger('reset');
+		});
+
+		$("#general-equity-"+id+"-close").on('click', function() {
+			$("#general-equity-"+id+"-form").trigger('reset');
+		});
+
+	};
+
+	addEditListener();
+	addEditListener();
+
+	$("#general-equity-add-save").on('click', function() {
+		var investor = $("#general-equity-add-investor").val();
+		var currency = $("#general-equity-add-currency").val();
+		var amount= $("#general-equity-add-amount").val();
+		var equity = $("#general-equity-add-equity").val();
+		var data = {id: idCount, investor: investor, currency: currency, amount: amount, type: "general-equity" };
+		$("#modalLocation").append(generalEquityModalTemplate(data));
+		$("#general-equity-summary-table").append(summaryTableRow(data));
+		addEditListener();
+		$("#general-equity-add-form").trigger('reset');
+	});
+
+	$("#general-equity-add-cancel").on('click', function () {
+		$("#general-equity-add-form").trigger('reset');
+	});
+
+	$("#general-equity-add-close").on('click', function () {
+		$("#general-equity-add-form").trigger('reset');
+	});
+})();
