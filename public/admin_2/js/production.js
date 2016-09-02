@@ -37,13 +37,13 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 	var idCount = 1;
 
 	//Create modals for presales
-	var presaleModalTemplate = Handlebars.templates['presaleModal'];
-	var presalesAdd = {id: "add", investor: "", amount: "0", currency: "CAD", territory: "", distributor: "", depositAdvances: "", advProd: "true", escrowAmount: "0", equity: "0"};
-	var presalesData1 = {id: "1", investor: "Concourse Media", amount: "100000", currency: "CAD", territory: "United Kingdom", distributor: "MGM", depositAdvances: "", advProd: "true", escrowAmount: "0", equity: "20"};
+	var template = Handlebars.templates['presaleModal'];
+	var add = {id: "add", investor: "", amount: "0", currency: "CAD", territory: "", distributor: "", depositAdvances: "", advProd: "true", escrowAmount: "0", equity: "0"};
+	var data1 = {id: "1", investor: "Concourse Media", amount: "100000", currency: "CAD", territory: "United Kingdom", distributor: "MGM", depositAdvances: "", advProd: "true", escrowAmount: "0", equity: "20"};
 
 	$("#modalLocation")
-		.append(presaleModalTemplate(presalesAdd))
-		.append(presaleModalTemplate(presalesData1));
+		.append(template(add))
+		.append(template(data1));
 
 	var addEditListener = function() {
 		var id = idCount;
@@ -55,6 +55,7 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 			var depositAdvances = $("#pre-sales-"+id+"-depositAdvances").val();
 			var escrowAmount = $("#pre-sales-"+id+"-escrow-amount").val();
 			var data = {id: id, investor: investor, territory: territory, currency: currency, amount: amount, depositAdvances: depositAdvances, escrowAmount: escrowAmount, type: "pre-sales" };
+			idCount+=1;
 			$("#pre-sales-"+id+"-form").trigger('reset');
 		});
 
@@ -69,7 +70,6 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 	};
 
 	addEditListener();
-	idCount+=1;
 	$("#pre-sales-add-save").on('click', function() {
 		var investor = $("#pre-sales-add-investor").val();
 		var territory = $("#pre-sales-add-territory").val();
@@ -78,10 +78,9 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 		var depositAdvances = $("#pre-sales-add-depositAdvances").val();
 		var escrowAmount = $("#pre-sales-add-escrow-amount").val();
 		var data = {id: idCount, investor: investor, territory: territory, currency: currency, amount: amount, depositAdvances: depositAdvances, escrowAmount: escrowAmount, type: "pre-sales" };
-		$("#modalLocation").append(presaleModalTemplate(data));
+		$("#modalLocation").append(template(data));
 		$("#pre-sales-summary-table").append(summaryTableRow(data));
 		addEditListener();
-		idCount+= 1;
 		$("#pre-sales-add-form").trigger('reset');
 	});
 
@@ -105,13 +104,13 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 (function() {
 	var idCount = 1;
 	//Create modals for presales
-	var directTerritoryModalTemplate = Handlebars.templates['directTerritoryModal'];
-	var directTerritoryAdd = {id: "add", investor: "", amount: "0", currency: "CAD", territory: "", distributor: "", equity: "0", overages: "0", hasPremium: "", noPremium: "true", premium: "0", hasArrangement: "", noArrangement: "true", isFront:"", isBack: "true", arrangement: ""};
-	var directTerritoryData1 = {id: "1", investor: "French Distributors", amount: "275000", currency: "CAD", territory: "France", distributor: "MGM", equity: "4", overages: "60", hasPremium: "", noPremium: "true", premium: "0", hasArrangement: "", noArrangement: "true", isFront:"", isBack: "true", arrangement: ""};
+	var template = Handlebars.templates['directTerritoryModal'];
+	var add = {id: "add", investor: "", amount: "0", currency: "CAD", territory: "", distributor: "", equity: "0", overages: "0", hasPremium: "", noPremium: "true", premium: "0", hasArrangement: "", noArrangement: "true", isFront:"", isBack: "true", arrangement: ""};
+	var data1 = {id: "1", investor: "French Distributors", amount: "275000", currency: "CAD", territory: "France", distributor: "MGM", equity: "4", overages: "60", hasPremium: "", noPremium: "true", premium: "0", hasArrangement: "", noArrangement: "true", isFront:"", isBack: "true", arrangement: ""};
 
 	$("#modalLocation")
-		.append(directTerritoryModalTemplate(directTerritoryAdd))
-		.append(directTerritoryModalTemplate(directTerritoryData1));
+		.append(template(add))
+		.append(template(data1));
 
 	var addEditListener = function() {
 		var id = idCount;
@@ -142,7 +141,7 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 		var currency = $("#direct-territory-add-currency").val();
 		var amount = $("#direct-territory-add-amount").val();
 		var data = {id: idCount, investor: investor, territory: territory, currency: currency, amount: amount, type: "direct-territory" };
-		$("#modalLocation").append(directTerritoryModalTemplate(data));
+		$("#modalLocation").append(template(data));
 		$("#direct-territory-summary-table").append(summaryTableRow(data));
 		addEditListener();
 		$("#direct-territory-add-form").trigger('reset');
@@ -185,15 +184,15 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 (function() {
 	var idCount = 1;
 	//Create modals for presales
-	var taxGrantModalTemplate = Handlebars.templates['taxGrantModal'];
-	var taxGrantAdd = {id: "add", investor: "", isDiscount: "true", isLoan: "", estAmount: "0", netAdvance: "0", amount:"0", interestRate:"0", loanType:"Simple", currency: "CAD"};
-	var taxGrantData1 = {id: "1", investor: "BC Government", isDiscount: "", isLoan: "true", estAmount: "", netAdvance: "0", amount:"2000000", interestRate:"15", loanType:"Semi-Annual", currency: "CAD"};
-	var taxGrantData2 = {id: "2", investor: "Government of Canada", isDiscount: "true", isLoan: "", estAmount: "100000", netAdvance: "80000", amount:"", interestRate:"", loanType:"Simple", currency: "CAD"};
+	var template = Handlebars.templates['taxGrantModal'];
+	var add = {id: "add", investor: "", isDiscount: "true", isLoan: "", estAmount: "0", netAdvance: "0", amount:"0", interestRate:"0", loanType:"Simple", currency: "CAD"};
+	var data1 = {id: "1", investor: "BC Government", isDiscount: "", isLoan: "true", estAmount: "", netAdvance: "0", amount:"2000000", interestRate:"15", loanType:"Semi-Annual", currency: "CAD"};
+	var data2 = {id: "2", investor: "Government of Canada", isDiscount: "true", isLoan: "", estAmount: "100000", netAdvance: "80000", amount:"", interestRate:"", loanType:"Simple", currency: "CAD"};
 
 	$("#modalLocation")
-		.append(taxGrantModalTemplate(taxGrantAdd))
-		.append(taxGrantModalTemplate(taxGrantData1))
-		.append(taxGrantModalTemplate(taxGrantData2));
+		.append(template(add))
+		.append(template(data1))
+		.append(template(data2));
 
 	var addEditListener = function() {
 		var id = idCount;
@@ -230,7 +229,7 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 			amount = $("#tax-grant-add-amount").val();
 		}
 		var data = {id: idCount, investor: investor, currency: currency, amount: amount, type: "tax-grant" };
-		$("#modalLocation").append(taxGrantModalTemplate(data));
+		$("#modalLocation").append(template(data));
 		$("#tax-grant-summary-table").append(summaryTableRow(data));
 		addEditListener();
 		$("#tax-grant-add-form").trigger('reset');
@@ -258,15 +257,15 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 (function() {
 	var idCount = 1;
 	//Create modals for presales
-	var generalEquityModalTemplate = Handlebars.templates['generalEquityModal'];
-	var generalEquityAdd = {id: "add", investor: "", amount:"0", currency: "CAD", equity: "0" };
-	var generalEquityData1 = {id: "1", investor: "Investor A", amount:"500000", currency: "CAD", equity:"50"};
-	var generalEquityData2 = {id: "2", investor: "Investor B", amount:"300000", currency: "CAD", equity: "30"};
+	var template = Handlebars.templates['generalEquityModal'];
+	var add = {id: "add", investor: "", amount:"0", currency: "CAD", equity: "0" };
+	var data1 = {id: "1", investor: "Investor A", amount:"500000", currency: "CAD", equity:"50"};
+	var data2 = {id: "2", investor: "Investor B", amount:"300000", currency: "CAD", equity: "30"};
 
 	$("#modalLocation")
-		.append(generalEquityModalTemplate(generalEquityAdd))
-		.append(generalEquityModalTemplate(generalEquityData1))
-		.append(generalEquityModalTemplate(generalEquityData2));
+		.append(template(add))
+		.append(template(data1))
+		.append(template(data2));
 
 	var addEditListener = function() {
 		var id = idCount;
@@ -298,7 +297,7 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 		var amount= $("#general-equity-add-amount").val();
 		var equity = $("#general-equity-add-equity").val();
 		var data = {id: idCount, investor: investor, currency: currency, amount: amount, type: "general-equity" };
-		$("#modalLocation").append(generalEquityModalTemplate(data));
+		$("#modalLocation").append(template(data));
 		$("#general-equity-summary-table").append(summaryTableRow(data));
 		addEditListener();
 		$("#general-equity-add-form").trigger('reset');
@@ -316,17 +315,17 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 (function() {
 	var idCount = 1;
 	//Create modals for presales
-	var nonRecoupingModalTemplate = Handlebars.templates['nonRecoupingModal'];
-	var nonRecoupingAdd = {id: "add", investor: "", amount:"0", currency: "CAD", equity: "0" };
-	var nonRecoupingData1 = {id: "1", investor: "Producer Deferrals", amount:"100000", currency: "CAD", equity:"5"};
+	var template = Handlebars.templates['nonRecoupingModal'];
+	var add = {id: "add", investor: "", amount:"0", currency: "CAD", equity: "0" };
+	var data1 = {id: "1", investor: "Producer Deferrals", amount:"100000", currency: "CAD", equity:"5"};
 
 	$("#modalLocation")
-		.append(nonRecoupingModalTemplate(nonRecoupingAdd))
-		.append(nonRecoupingModalTemplate(nonRecoupingData1));
+		.append(template(add))
+		.append(template(data1));
 
 	var addEditListener = function() {
 		var id = idCount;
-		$("#general-equity-"+id+"-edit").on('click', function() {
+		$("#non-recouping-"+id+"-edit").on('click', function() {
 			var investor = $("#non-recouping-add-investor").val();
 			var currency = $("#non-recouping-add-currency").val();
 			var amount = $("#non-recouping-add-amount").val();
@@ -346,7 +345,6 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 	};
 
 	addEditListener();
-	addEditListener();
 
 	$("#non-recouping-add-save").on('click', function() {
 		var investor = $("#non-recouping-add-investor").val();
@@ -354,7 +352,7 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 		var amount= $("#non-recouping-add-amount").val();
 		var equity = $("#non-recouping-add-equity").val();
 		var data = {id: idCount, investor: investor, currency: currency, amount: amount, type: "non-recouping" };
-		$("#modalLocation").append(nonRecoupingModalTemplate(data));
+		$("#modalLocation").append(template(data));
 		$("#non-recouping-summary-table").append(summaryTableRow(data));
 		addEditListener();
 		$("#non-recouping-add-form").trigger('reset');
@@ -366,5 +364,56 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 
 	$("#non-recouping-add-close").on('click', function () {
 		$("#non-recouping-add-form").trigger('reset');
+	});
+})();
+
+(function() {
+	var idCount = 1;
+	//Create modals for presales
+	var template = Handlebars.templates['preferredEquityModal'];
+	var add = {id: "add", investor: "", amount:"0", currency: "CAD", equity: "0" };
+	var data1 = {id: "1", investor: "Private Equity", amount:"350000", currency: "CAD", equity:"10"};
+
+	$("#modalLocation")
+		.append(template(add))
+		.append(template(data1));
+
+	var addEditListener = function() {
+		var id = idCount;
+		$("#preferred-equity-"+id+"-edit").on('click', function() {
+			idCount+= 1;
+			$("#preferred-equity-"+id+"-form").trigger('reset');
+		});
+
+		$("#preferred-equity-"+id+"-cancel").on('click', function() {
+			$("#preferred-equity-"+id+"-form").trigger('reset');
+		});
+
+		$("#preferred-equity-"+id+"-close").on('click', function() {
+			$("#preferred-equity-"+id+"-form").trigger('reset');
+		});
+
+	};
+
+	addEditListener();
+
+	$("#preferred-equity-add-save").on('click', function() {
+		var investor = $("#preferred-equity-add-investor").val();
+		var currency = $("#preferred-equity-add-currency").val();
+		var amount= $("#preferred-equity-add-amount").val();
+		var equity = $("#preferred-equity-add-equity").val();
+		var data = {id: idCount, investor: investor, currency: currency, amount: amount, type: "preferred-equity" };
+		$("#modalLocation").append(template(data));
+		$("#preferred-equity-summary-table").append(summaryTableRow(data));
+		addEditListener();
+		$("#preferred-equity-add-form").trigger('reset');
+	});
+
+	$("#preferred-equity-add-cancel").on('click', function () {
+		$("#preferred-equity-add-form").trigger('reset');
+	});
+
+	$("#preferred-equity-add-close").on('click', function () {
+		$("#preferred-equity-add-form").trigger('reset');
 	});
 })();
