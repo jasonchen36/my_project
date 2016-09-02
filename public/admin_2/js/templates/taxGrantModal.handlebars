@@ -31,7 +31,7 @@
 							</div>
 						</div>
 					</div>
-					{{#if isDiscount}}
+					<div id="tax-grant-{{id}}-is-discount-form" class="{{#if isLoan}}hidden{{/if}}">
 						<div class="form-group">
 							<label for="tax-grant-{{id}}-estimated-amount" class="control-label col-xs-2">Estimated Amount:</label>
 							<div class="col-xs-2">
@@ -100,8 +100,8 @@
 								<input type="number" min="0" class="form-control" id="tax-grant-{{id}}-net-advance" value="{{netAdvance}}">
 							</div>
 						</div>
-					{{/if}}
-					{{#if isLoan}}
+					</div>
+					<div id="tax-grant-{{id}}-is-loan-form" class="{{#if isDiscount}}hidden{{/if}}">
 						<div class="form-group">
 							<label for="tax-grant-{{id}}-amount" class="control-label col-xs-2">Amount:</label>
 							<div class="col-xs-2">
@@ -152,7 +152,7 @@
 								</select>
 							</div>
 						</div>
-					{{/if}}
+					</div>
 					<div class="modal-footer">
 						<button id="tax-grant-{{id}}-cancel" type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
 						{{#if investor}}
