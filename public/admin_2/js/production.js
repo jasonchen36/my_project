@@ -1,5 +1,15 @@
 var summaryTableRow = Handlebars.templates["summaryTableRow"];
 
+var addCloseListeners = function (type, id) {
+	$("#"+type+"-"+id+"-cancel").on('click', function() {
+		$("#"+type+"-"+id+"-form").trigger('reset');
+	});
+
+	$("#"+type+"-"+id+"-close").on('click', function() {
+		$("#"+type+"-"+id+"-form").trigger('reset');
+	});
+};
+
 (function () {
 	$('.toggle').toggles({on: true});
 	$('#option_presales').on('click', function() {
@@ -38,6 +48,7 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 
 	//Create modals for presales
 	var template = Handlebars.templates['presaleModal'];
+	var type = "pre-sales";
 	var add = {id: "add", investor: "", amount: "0", currency: "CAD", territory: "", distributor: "", depositAdvances: "", advProd: "true", escrowAmount: "0", equity: "0"};
 	var data1 = {id: "1", investor: "Concourse Media", amount: "100000", currency: "CAD", territory: "United Kingdom", distributor: "MGM", depositAdvances: "", advProd: "true", escrowAmount: "0", equity: "20"};
 
@@ -45,60 +56,53 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 		.append(template(add))
 		.append(template(data1));
 
-	var addEditListener = function() {
-		var id = idCount;
-		$("#pre-sales-"+id+"-edit").on('click', function() {
-			var investor = $("#pre-sales-"+id+"-investor").val();
-			var territory = $("#pre-sales-"+id+"-territory").val();
-			var currency = $("#pre-sales-"+id+"-currency").val();
-			var amount = $("#pre-sales-"+id+"-amount").val();
-			var depositAdvances = $("#pre-sales-"+id+"-depositAdvances").val();
-			var escrowAmount = $("#pre-sales-"+id+"-escrow-amount").val();
-			var data = {id: id, investor: investor, territory: territory, currency: currency, amount: amount, depositAdvances: depositAdvances, escrowAmount: escrowAmount, type: "pre-sales" };
-			idCount+=1;
-			$("#pre-sales-"+id+"-form").trigger('reset');
+	var addModalListeners = function(id, isAdd) {
+		var typeid = "#"+type+"-"+id;
+		addCloseListeners(type, id);
+
+		$(typeid+"-advancesProd").on('click', function() {
+			$(typeid+"-deposit-form").addClass("hidden")
 		});
 
-		$("#pre-sales-"+id+"-cancel").on('click', function() {
-			$("#pre-sales-"+id+"-form").trigger('reset');
+		$(typeid+"-depositAdvances").on('click', function() {
+			$(typeid+"-deposit-form").removeClass("hidden")
 		});
 
-		$("#pre-sales-"+id+"-close").on('click', function() {
-			$("#pre-sales-"+id+"-form").trigger('reset');
-		});
+		$(typeid+"-save").on('click', function() {
+			var investor = $(typeid+"-investor").val();
+			var territory = $(typeid+"-territory").val();
+			var currency = $(typeid+"-currency").val();
+			var distributor = $(typeid+"-distributor").val();
+			var amount = $(typeid+"-amount").val();
+			var depositAdvances;
+			var advProd;
+			var escrowAmount = $(typeid+"-escrow-amount").val();
+			var radio = $('input[name="pre-sales-'+id+'-radio-stacked"]:checked').val();
+			if (radio === "true") {
+				depositAdvances="";
+				advProd="true"
+			} else {
+				depositAdvances=true;
+				advProd="";
+			}
+			var data = {id: idCount, investor: investor, territory: territory, currency: currency, amount: amount, depositAdvances: depositAdvances, escrowAmount: escrowAmount, distributor: distributor, advProd: advProd, type: type };
+			if (isAdd) {
+				$("#modalLocation").append(template(data));
+				$("#pre-sales-summary-table").append(summaryTableRow(data));
+				$(typeid+"-deposit-form").addClass("hidden");
+				$(typeid+"-advancesProd").prop("checked", true);
+				$(typeid+"-depositAdvances").prop("checked", false);
+				addModalListeners(idCount, 0);
+				idCount++;
+			} else {
 
+			}
+			$(typeid+"-form").trigger('reset');
+		});
 	};
-
-	addEditListener();
-	$("#pre-sales-add-save").on('click', function() {
-		var investor = $("#pre-sales-add-investor").val();
-		var territory = $("#pre-sales-add-territory").val();
-		var currency = $("#pre-sales-add-currency").val();
-		var amount = $("#pre-sales-add-amount").val();
-		var depositAdvances = $("#pre-sales-add-depositAdvances").val();
-		var escrowAmount = $("#pre-sales-add-escrow-amount").val();
-		var data = {id: idCount, investor: investor, territory: territory, currency: currency, amount: amount, depositAdvances: depositAdvances, escrowAmount: escrowAmount, type: "pre-sales" };
-		$("#modalLocation").append(template(data));
-		$("#pre-sales-summary-table").append(summaryTableRow(data));
-		addEditListener();
-		$("#pre-sales-add-form").trigger('reset');
-	});
-
-	$("#pre-sales-add-cancel").on('click', function () {
-		$("#pre-sales-add-form").trigger('reset');
-	});
-
-	$("#pre-sales-add-close").on('click', function () {
-		$("#pre-sales-add-form").trigger('reset');
-	});
-
-	$("#pre-sales-add-advancesProd").on('click', function() {
-		$("#pre-sales-add-deposit-form").addClass("hidden")
-	});
-
-	$("#pre-sales-add-depositAdvances").on('click', function() {
-		$("#pre-sales-add-deposit-form").removeClass("hidden")
-	});
+	addCloseListeners(type, "1");
+	idCount++;
+	addModalListeners("add", 1);
 })();
 
 (function() {

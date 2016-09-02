@@ -62,15 +62,15 @@
 					<div class="form-group">
 						<label class="col-xs-2 control-label">Deposit is:</label>
 						<div class="col-xs-9">
-							<div class="custom-controls-stacked">
+							<div id="pre-sales-{{id}}-deposit-group" class="custom-controls-stacked">
 								<label class="custom-control custom-radio">
-									<input id="pre-sales-{{id}}-advancesProd" name="radio-stacked" type="radio" class="custom-control-input" {{#if advProd}}checked="checked"{{/if}}>
+									<input id=pre-sales-{{id}}-advancesProd" name="pre-sales-{{id}}-radio-stacked" type="radio" value="true" class="" {{#if advProd}}checked="checked"{{/if}}>
 									<span class="custom-control-indicator"></span>
 									<span class="custom-control-description">Advanced to Production</span>
 								</label>
 								<br/>
 								<label class="custom-control custom-radio">
-									<input id="pre-sales-{{id}}-depositAdvances" name="radio-stacked" type="radio" class="custom-control-input" {{#if depositAdvances}}checked="checked"{{/if}}>
+									<input id="pre-sales-{{id}}-depositAdvances" name="pre-sales-{{id}}-radio-stacked" type="radio" value="false" class="" {{#if depositAdvances}}checked="checked"{{/if}}>
 									<span class="custom-control-indicator"></span>
 									<span class="custom-control-description">Held in Escrow</span>
 								</label>
@@ -80,17 +80,15 @@
 					<div id="pre-sales-{{id}}-deposit-form" class="form-group {{#if advProd}}hidden{{/if}}">
 						<label for="pre-sales-{{id}}-escrow-amount" class="control-label col-xs-2">Escrow Amount:</label>
 						<div class="col-xs-9">
-							<input type="number" min="0" class="form-control" id="pre-sales-{{id}}-escrow-amount" value="{{escrow-amount}}">
+							<input type="number" min="0" class="form-control" id="pre-sales-{{id}}-escrow-amount" value="{{escrowAmount}}">
 						</div>
 					</div>
 					<div class="modal-footer">
 						<button id="pre-sales-{{id}}-cancel" type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
-						{{#if investor}}
-							<button  id="pre-sales-{{id}}-edit" class="btn btn-info" data-dismiss="modal">Edit</button>
-						{{/if}}
-						{{#unless investor}}
-							<button id="pre-sales-{{id}}-save" type="button" class="btn btn-info" data-dismiss="modal">Save</button>
-						{{/unless}}
+						<button id="pre-sales-{{id}}-save" type="button" class="btn btn-info" data-dismiss="modal">
+							{{#if investor}}Edit{{/if}}
+							{{#unless investor}}Save{{/unless}}
+						</button>
 					</div>
 				</form>
 			</div>
