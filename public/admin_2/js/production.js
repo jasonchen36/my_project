@@ -312,3 +312,59 @@ var summaryTableRow = Handlebars.templates["summaryTableRow"];
 		$("#general-equity-add-form").trigger('reset');
 	});
 })();
+
+(function() {
+	var idCount = 1;
+	//Create modals for presales
+	var nonRecoupingModalTemplate = Handlebars.templates['nonRecoupingModal'];
+	var nonRecoupingAdd = {id: "add", investor: "", amount:"0", currency: "CAD", equity: "0" };
+	var nonRecoupingData1 = {id: "1", investor: "Producer Deferrals", amount:"100000", currency: "CAD", equity:"5"};
+
+	$("#modalLocation")
+		.append(nonRecoupingModalTemplate(nonRecoupingAdd))
+		.append(nonRecoupingModalTemplate(nonRecoupingData1));
+
+	var addEditListener = function() {
+		var id = idCount;
+		$("#general-equity-"+id+"-edit").on('click', function() {
+			var investor = $("#non-recouping-add-investor").val();
+			var currency = $("#non-recouping-add-currency").val();
+			var amount = $("#non-recouping-add-amount").val();
+			var data = {id: idCount, investor: investor,  currency: currency, amount: amount, type: "non-recouping" };
+			idCount+= 1;
+			$("#non-recouping-"+id+"-form").trigger('reset');
+		});
+
+		$("#non-recouping-"+id+"-cancel").on('click', function() {
+			$("#non-recouping-"+id+"-form").trigger('reset');
+		});
+
+		$("#non-recouping-"+id+"-close").on('click', function() {
+			$("#non-recouping-"+id+"-form").trigger('reset');
+		});
+
+	};
+
+	addEditListener();
+	addEditListener();
+
+	$("#non-recouping-add-save").on('click', function() {
+		var investor = $("#non-recouping-add-investor").val();
+		var currency = $("#non-recouping-add-currency").val();
+		var amount= $("#non-recouping-add-amount").val();
+		var equity = $("#non-recouping-add-equity").val();
+		var data = {id: idCount, investor: investor, currency: currency, amount: amount, type: "non-recouping" };
+		$("#modalLocation").append(nonRecoupingModalTemplate(data));
+		$("#non-recouping-summary-table").append(summaryTableRow(data));
+		addEditListener();
+		$("#non-recouping-add-form").trigger('reset');
+	});
+
+	$("#non-recouping-add-cancel").on('click', function () {
+		$("#non-recouping-add-form").trigger('reset');
+	});
+
+	$("#non-recouping-add-close").on('click', function () {
+		$("#non-recouping-add-form").trigger('reset');
+	});
+})();
