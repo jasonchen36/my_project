@@ -40,6 +40,8 @@
                 <!-- Plugins css -->
         <link href="assets/owl-carousel/owl.carousel.css" rel="stylesheet" />
 
+		<link href="css/production.css" rel="stylesheet" />
+
 
 
 
@@ -400,202 +402,302 @@
 								<h3 class="panel-title">Financiers & Structures Summary</h3>
 							</div>
 							<div class="panel-body">
-								<div class="row" id="pre-sales-summary">
-									<div class="col-md-12 col-sm-12 col-xs-12">
-										<h3 class="panel-title">Pre-Sales</h3>
-										<button class="btn btn-icon btn-success" data-toggle="modal" data-target="#pre-sales-add-modal" style="float:right"><i class="fa ion-plus-round"></i></button>
-										<table class="table table-striped">
+								<div id="pre-sales-summary">
+									<div class="row">
+										<div class="col-md-12 col-sm-12 col-xs-12" >
+											<h3 class="panel-title col-xs-3">
+												Pre-Sales
+												<button class="btn btn-icon btn-success add-btn" data-toggle="modal" data-target="#pre-sales-add-modal"><i class="fa ion-plus-round"></i></button>
+											</h3>
+											<div class="col-xs-9">
+												<table class="table table-striped ">
+													<thead>
+													<tr>
+														<th class="col-xs-4">Investor</th>
+														<th class="col-xs-4">Amount</th>
+														<th class="col-xs-1">Actions</th>
+														<th class="hidden"></th>
+													</tr>
+													</thead>
+													<tbody id="pre-sales-summary-table">
+													<tr class="default"   id="pre-sales-1-table-row">
+														<td>Concourse Media</td>
+														<td>$200,000</td>
+														<td class="actions">
+															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#pre-sales-1-modal" ><i class="fa fa-pencil"></i></button>
+															<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+														</td>
+														<td id="pre-sales-1-table-row-id" class="hidden">1</td>
+													</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<hr/>
+								</div>
+								<div id="direct-territory-summary">
+									<div class="row" >
+										<div class="col-md-12 col-sm-12 col-xs-12">
+										<h3 class="panel-title col-xs-3">
+											Direct Territory Sales
+											<button class="btn btn-icon btn-success add-btn" data-toggle="modal" data-target="#direct-territory-add-modal"> <i class="fa ion-plus-round"></i> </button>
+										</h3>
+										<div class="col-xs-9">
+											<table class="table table-striped">
 												<thead>
 												<tr>
 													<th class="col-xs-4">Investor</th>
-													<th class="col-xs-2">Amount</th>
+													<th class="col-xs-4">Amount</th>
+													<th class="col-xs-1">Actions</th>
 													<th class="hidden"></th>
 												</tr>
 												</thead>
-												<tbody id="pre-sales-summary-table">
-												<tr class="default clickable-row" data-toggle="modal" data-target="#pre-sales-1-modal"  id="pre-sales-1-table-row">
-													<td>Concourse Media</td>
-													<td>$200,000</td>
-													<td id="pre-sales-1-table-row-id" class="hidden">1</td>
+												<tbody id="direct-territory-summary-table">
+												<tr class="default" id="direct-territory-1-table-row">
+													<td>French Distributors</td>
+													<td>$275,000</td>
+													<td class="actions">
+														<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#direct-territory-1-modal" ><i class="fa fa-pencil"></i></button>
+														<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+													</td>
+													<td id="direct-territory-1-table-row-id" class="hidden">1</td>
 												</tr>
 												</tbody>
 											</table>
+										</div>
 									</div>
-								</div>
-								<div class="row" id="direct-territory-summary">
-									<div class="col-md-12 col-sm-12 col-xs-12">
-										<br/>
-										<h3 class="panel-title">Direct Territory Sales</h3>
-										<button  class="btn btn-icon btn-success" data-toggle="modal" data-target="#direct-territory-add-modal" style="float:right"> <i class="fa ion-plus-round"></i> </button>
-										<table class="table table-striped">
-											<thead>
-											<tr>
-												<th class="col-xs-4">Investor</th>
-												<th class="col-xs-2">Amount</th>
-												<th class="hidden"></th>
-											</tr>
-											</thead>
-											<tbody id="direct-territory-summary-table">
-											<tr class="default clickable-row" data-toggle="modal" data-target="#direct-territory-1-modal" id="direct-territory-1-table-row">
-												<td>French Distributors</td>
-												<td>$275,000</td>
-												<td id="direct-territory-1-table-row-id" class="hidden">1</td>
-											</tr>
-											</tbody>
-										</table>
 									</div>
+									<hr/>
 								</div>
-								<div class="row" id="tax-grant-summary">
-									<div class="col-md-12 col-sm-12 col-xs-12">
-										<br/>
-										<h3 class="panel-title">Tax Incentives & Grants</h3>
-										<button  data-toggle="modal" data-target="#tax-grant-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
-										<table class="table table-striped">
-											<thead>
-											<tr>
-												<th class="col-xs-4">Investor</th>
-												<th class="col-xs-2">Amount</th>
-												<th class="hidden"></th>
-											</tr>
-											</thead>
-											<tbody id="tax-grant-summary-table">
-											<tr class="default clickable-row" data-toggle="modal" data-target="#tax-grant-1-modal" id="tax-grant-1-table-row">
-												<td>BC Government</td>
-												<td>$2,000,000</td>
-												<td id="tax-grant-1-table-row-id" class="hidden">1</td>
-											</tr>
-											<tr class="default clickable-row" data-toggle="modal" data-target="#tax-grant-2-modal" id="tax-grant-2-table-row">
-												<td>Government of Canada</td>
-												<td>$80,000</td>
-												<td id="tax-grant-2-table-row-id" class="hidden">2</td>
-											</tr>
-											</tbody>
-										</table>
+								<div id="tax-grant-summary">
+									<div class="row">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<h3 class="panel-title col-xs-3">
+												Tax Incentives & Grants
+												<button  data-toggle="modal" data-target="#tax-grant-add-modal" class="btn btn-icon btn-success add-btn" > <i class="fa ion-plus-round"></i> </button>
+											</h3>
+											<div class="col-xs-9">
+												<table class="table table-striped">
+													<thead>
+													<tr>
+														<th class="col-xs-4">Investor</th>
+														<th class="col-xs-4">Amount</th>
+														<th class="col-xs-1">Actions</th>
+														<th class="hidden"></th>
+													</tr>
+													</thead>
+													<tbody id="tax-grant-summary-table">
+													<tr class="default" id="tax-grant-1-table-row">
+														<td>BC Government</td>
+														<td>$2,000,000</td>
+														<td class="actions">
+															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#tax-grant-1-modal" ><i class="fa fa-pencil"></i></button>
+															<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+														</td>
+														<td id="tax-grant-1-table-row-id" class="hidden">1</td>
+													</tr>
+													<tr class="default" id="tax-grant-2-table-row">
+														<td>Government of Canada</td>
+														<td>$80,000</td>
+														<td class="actions">
+															<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#tax-grant-2-modal" ><i class="fa fa-pencil"></i></button>
+														</td>
+														<td id="tax-grant-2-table-row-id" class="hidden">2</td>
+													</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
 									</div>
+									<hr/>
 								</div>
-								<div class="row" id="non-recouping-summary">
-									<div class="col-md-12 col-sm-12 col-xs-12">
-										<br/>
-										<h3 class="panel-title">Non-Recouping Production Capital</h3>
-										<button data-toggle="modal" data-target="#non-recouping-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
-										<table class="table table-striped">
-											<thead>
-											<tr>
-												<th class="col-xs-4">Company</th>
-												<th class="col-xs-2">Amount</th>
-												<th class="hidden"></th>
-											</tr>
-											</thead>
-											<tbody id="non-recouping-summary-table">
-											<tr class="default clickable-row" data-toggle="modal" data-target="#non-recouping-1-modal" id="non-recouping-1-table-row">
-												<td>Producer Deferrals</td>
-												<td>$100,000</td>
-												<td id="non-recouping-1-table-row-id" class="hidden">1</td>
-											</tr>
-											</tbody>
-										</table>
+								<div id="non-recouping-summary">
+									<div class="row" >
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<h3 class="panel-title col-xs-3">
+												Non-Recouping Production Capital
+												<button data-toggle="modal" data-target="#non-recouping-add-modal" class="btn btn-icon btn-success add-btn"> <i class="fa ion-plus-round"></i> </button>
+											</h3>
+											<div class="col-xs-9">
+												<table class="table table-striped">
+													<thead>
+													<tr>
+														<th class="col-xs-4">Investor</th>
+														<th class="col-xs-4">Amount</th>
+														<th class="col-xs-1">Actions</th>
+														<th class="hidden"></th>
+													</tr>
+													</thead>
+													<tbody id="non-recouping-summary-table">
+													<tr class="default " id="non-recouping-1-table-row">
+														<td>Producer Deferrals</td>
+														<td>$100,000</td>
+														<td class="actions">
+															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#non-recouping-1-modal" ><i class="fa fa-pencil"></i></button>
+															<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+														</td>
+														<td id="non-recouping-1-table-row-id" class="hidden">1</td>
+													</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
 									</div>
+									<hr/>
 								</div>
-								<div class="row" id="senior-debt-summary">
-									<div class="col-md-12 col-sm-12 col-xs-12">
-										<br/>
-										<h3 class="panel-title">Senior Debt/Gap Loan</h3>
-										<button data-toggle="modal" data-target="#senior-debt-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
-										<table class="table table-striped">
-											<thead>
-											<tr>
-												<th class="col-xs-4">Company</th>
-												<th class="col-xs-2">Amount</th>
-												<th class="hidden"></th>
-											</tr>
-											</thead>
-											<tbody id="senior-debt-summary-table">
-											<tr class="default clickable-row" id="senior-debt-1-table-row" data-toggle="modal" data-target="#senior-debt-1-modal">
-												<td>Productivity Media</td>
-												<td>$150,000</td>
-												<td id="senior-debt-1-table-row-id" class="hidden">1</td>
-											</tr>
-											</tbody>
-										</table>
+								<div id="senior-debt-summary">
+									<div class="row" >
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<h3 class="panel-title col-xs-3">
+												Senior Debt/Gap Loan
+												<button data-toggle="modal" data-target="#senior-debt-add-modal" class="btn btn-icon btn-success add-btn"> <i class="fa ion-plus-round"></i> </button>
+											</h3>
+											<div class="col-xs-9">
+												<table class="table table-striped">
+													<thead>
+													<tr>
+														<th class="col-xs-4">Investor</th>
+														<th class="col-xs-4">Amount</th>
+														<th class="col-xs-1">Actions</th>
+														<th class="hidden"></th>
+													</tr>
+													</thead>
+													<tbody id="senior-debt-summary-table">
+													<tr class="default" id="senior-debt-1-table-row">
+														<td>Productivity Media</td>
+														<td>$150,000</td>
+														<td class="actions">
+															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#senior-debt-1-modal" ><i class="fa fa-pencil"></i></button>
+															<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+														</td>
+														<td id="senior-debt-1-table-row-id" class="hidden">1</td>
+													</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
 									</div>
+									<hr/>
 								</div>
-								<div class="row" id="preferred-equity-summary">
-									<div class="col-md-12 col-sm-12 col-xs-12">
-										<br/>
-										<h3 class="panel-title">Preferred Equity</h3>
-										<button data-toggle="modal" data-target="#preferred-equity-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
-										<table class="table table-striped">
-											<thead>
-											<tr>
-												<th class="col-xs-4">Company</th>
-												<th class="col-xs-2">Amount</th>
-												<th class="hidden"></th>
-											</tr>
-											</thead>
-											<tbody id="preferred-equity-summary-table">
-											<tr class="default clickable-row" data-toggle="modal" data-target="#preferred-equity-1-modal" id="preferred-equity-1-table-row">
-												<td>Private Equity</td>
-												<td>$350,000</td>
-												<td id="preferred-equity-1-table-row-id" class="hidden">1</td>
-											</tr>
-											</tbody>
-										</table>
+								<div id="preferred-equity-summary">
+									<div class="row">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<h3 class="panel-title col-xs-3">
+												Preferred Equity
+												<button data-toggle="modal" data-target="#preferred-equity-add-modal" class="btn btn-icon btn-success add-btn"> <i class="fa ion-plus-round"></i> </button>
+											</h3>
+											<div class="col-xs-9">
+												<table class="table table-striped">
+													<thead>
+													<tr>
+														<th class="col-xs-4">Investor</th>
+														<th class="col-xs-4">Amount</th>
+														<th class="col-xs-1">Actions</th>
+														<th class="hidden"></th>
+													</tr>
+													</thead>
+													<tbody id="preferred-equity-summary-table">
+													<tr class="default" id="preferred-equity-1-table-row">
+														<td>Private Equity</td>
+														<td>$350,000</td>
+														<td class="actions">
+															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#preferred-equity-1-modal" ><i class="fa fa-pencil"></i></button>
+															<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+														</td>
+														<td id="preferred-equity-1-table-row-id" class="hidden">1</td>
+													</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
 									</div>
+									<hr/>
 								</div>
-								<div class="row" id="corridor-equity-summary">
-									<div class="col-md-12 col-sm-12 col-xs-12">
-										<br/>
-										<h3 class="panel-title">Corridor Equity</h3>
-										<button data-toggle="modal" data-target="#corridor-equity-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
-										<table class="table table-striped">
-											<thead>
-											<tr>
-												<th class="col-xs-4">Company</th>
-												<th class="col-xs-2">Amount</th>
-												<th class="hidden"></th>
-											</tr>
-											</thead>
-											<tbody id="corridor-equity-summary-table">
-											<tr class="default clickable-row" data-toggle="modal" data-target="#corridor-equity-1-modal" id="corridor-equity-1-table-row">
-												<td>Telefilm</td>
-												<td>$500,000</td>
-												<td id="corridor-equity-1-table-row-id" class="hidden">1</td>
-											</tr>
-											<tr class="default clickable-row" data-toggle="modal" data-target="#corridor-equity-2-modal" id="corridor-equity-2-table-row">
-												<td>NOHFC</td>
-												<td>$200,000</td>
-												<td id="corridor-equity-2-table-row-id" class="hidden">2</td>
-											</tr>
-											</tbody>
-										</table>
+								<div id="corridor-equity-summary">
+									<div class="row">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<h3 class="panel-title col-xs-3">
+												Corridor Equity
+												<button data-toggle="modal" data-target="#corridor-equity-add-modal" class="btn btn-icon btn-success add-btn" > <i class="fa ion-plus-round"></i> </button>
+											</h3>
+											<div class="col-xs-9">
+												<table class="table table-striped">
+													<thead>
+													<tr>
+														<th class="col-xs-4">Investor</th>
+														<th class="col-xs-4">Amount</th>
+														<th class="col-xs-1">Actions</th>
+														<th class="hidden"></th>
+													</tr>
+													</thead>
+													<tbody id="corridor-equity-summary-table">
+													<tr class="default" id="corridor-equity-1-table-row">
+														<td>Telefilm</td>
+														<td>$500,000</td>
+														<td class="actions">
+															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#corridor-equity-1-modal" ><i class="fa fa-pencil"></i></button>
+															<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+														</td>
+														<td id="corridor-equity-1-table-row-id" class="hidden">1</td>
+													</tr>
+													<tr class="default" id="corridor-equity-2-table-row">
+														<td>NOHFC</td>
+														<td>$200,000</td>
+														<td class="actions">
+															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#corridor-equity-2-modal" ><i class="fa fa-pencil"></i></button>
+															<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+														</td>
+														<td id="corridor-equity-2-table-row-id" class="hidden">2</td>
+													</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
 									</div>
+									<hr/>
 								</div>
-								<div class="row" id="general-equity-summary">
-									<div class="col-md-12 col-sm-12 col-xs-12">
-										<br/>
-										<h3 class="panel-title">General Equity</h3>
-										<button data-toggle="modal" data-target="#general-equity-add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
-										<table class="table table-striped">
-											<thead>
-											<tr>
-												<th class="col-xs-4">Company</th>
-												<th class="col-xs-2">Amount</th>
-												<th class="hidden"></th>
-											</tr>
-											</thead>
-											<tbody id="general-equity-summary-table">
-											<tr class="default clickable-row" data-toggle="modal" data-target="#general-equity-1-modal" id="general-equity-1-table-row">
-												<td>Investor A</td>
-												<td>$500,000</td>
-												<td id="general-equity-1-table-row-id" class="hidden">1</td>
-											</tr>
-											<tr class="default clickable-row" data-toggle="modal" data-target="#general-equity-2-modal" id="general-equity-2-table-row">
-												<td>Investor B</td>
-												<td>$300,000</td>
-												<td id="general-equity-2-table-row-id" class="hidden">2</td>
-											</tr>
-											</tbody>
-										</table>
+								<div id="general-equity-summary">
+									<div class="row">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<h3 class="panel-title col-xs-3">
+												General Equity
+												<button data-toggle="modal" data-target="#general-equity-add-modal" class="btn btn-icon btn-success add-btn"> <i class="fa ion-plus-round"></i> </button>
+											</h3>
+											<div class="col-xs-9">
+												<table class="table table-striped">
+													<thead>
+													<tr>
+														<th class="col-xs-4">Investor</th>
+														<th class="col-xs-4">Amount</th>
+														<th class="col-xs-1">Actions</th>
+														<th class="hidden"></th>
+													</tr>
+													</thead>
+													<tbody id="general-equity-summary-table">
+													<tr class="default" id="general-equity-1-table-row">
+														<td>Investor A</td>
+														<td>$500,000</td>
+														<td class="actions">
+															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#general-equity-1-modal" ><i class="fa fa-pencil"></i></button>
+															<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+														</td>
+														<td id="general-equity-1-table-row-id" class="hidden">1</td>
+													</tr>
+													<tr class="default"  id="general-equity-2-table-row">
+														<td>Investor B</td>
+														<td>$300,000</td>
+														<td class="actions">
+															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#general-equity-2-modal" ><i class="fa fa-pencil"></i></button>
+															<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+														</td>
+														<td id="general-equity-2-table-row-id" class="hidden">2</td>
+													</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>

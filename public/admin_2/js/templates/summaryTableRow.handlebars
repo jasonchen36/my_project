@@ -1,5 +1,9 @@
-<tr class="default clickable-row" data-toggle="modal" data-target="#{{type}}-{{id}}-modal" id="{{type}}-{{id}}-table-row">
+<tr class="default" id="{{type}}-{{id}}-table-row">
 	<td>{{investor}}</td>
 	<td>${{amount}}</td>
+	<td class="actions">
+		<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#{{type}}-{{id}}-modal" ><i class="fa fa-pencil"></i></button>
+		<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+	</td>
 	<td id="{{type}}-{{id}}-table-row-id" class="hidden">{{id}}</td>
 </tr>
