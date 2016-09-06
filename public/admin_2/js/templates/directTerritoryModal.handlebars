@@ -22,7 +22,7 @@
 					<div class="form-group">
 						<label for="direct-territory-{{id}}-distributor" class="control-label col-xs-2">Distributor:</label>
 						<div class="col-xs-4">
-							<input type="text" class="form-control" id="direct-territory-{{id}}-territory" value="{{distributor}}">
+							<input type="text" class="form-control" id="direct-territory-{{id}}-distributor" value="{{distributor}}">
 						</div>
 					</div>
 					<div class="form-group">
@@ -80,14 +80,14 @@
 								</label>
 								<br/>
 								<label class="custom-control custom-radio">
-									<input id="direct-territory-{{id}}-no-premium" name="direct-territory-{{id}}-premium-radio" type="radio" class="custom-control-input" value="false" {{#if noPremium}}checked="checked"{{/if}}>
+									<input id="direct-territory-{{id}}-no-premium" name="direct-territory-{{id}}-premium-radio" type="radio" class="custom-control-input" value="false" {{#unless hasPremium}}checked="checked"{{/unless}}>
 									<span class="custom-control-indicator"></span>
 									<span class="custom-control-description">No</span>
 								</label>
 							</div>
 						</div>
 					</div>
-					<div id="direct-territory-{{id}}-premium-form" class="form-group {{#if noPremium}}hidden{{/if}}">
+					<div id="direct-territory-{{id}}-premium-form" class="form-group {{#unless hasPremium}}hidden{{/unless}}">
 						<label for="direct-territory-{{id}}-premium" class="control-label col-xs-2">Premium %:</label>
 						<div class="col-xs-3">
 							<input type="number" min="0" max="100" class="form-control" id="direct-territory-{{id}}-premium" value="{{premium}}">
@@ -98,38 +98,38 @@
 						<div class="col-xs-9">
 							<div class="custom-controls-stacked">
 								<label class="custom-control custom-radio">
-									<input id="direct-territory-{{id}}-has-arrangement" name="direct-territory-{{id}}-arrangement-radio" type="radio" class="custom-control-input" {{#if hasArrangement}}checked="checked"{{/if}}>
+									<input id="direct-territory-{{id}}-has-arrangement" name="direct-territory-{{id}}-arrangement-radio" type="radio" class="custom-control-input"  value="true"{{#if hasArrangement}}checked="checked"{{/if}}>
 									<span class="custom-control-indicator"></span>
 									<span class="custom-control-description">Yes</span>
 								</label>
 								<br/>
 								<label class="custom-control custom-radio">
-									<input id="direct-territory-{{id}}-no-arrangement" name="direct-territory-{{id}}-arrangement-radio" type="radio" class="custom-control-input" {{#if noArrangement}}checked="checked"{{/if}}>
+									<input id="direct-territory-{{id}}-no-arrangement" name="direct-territory-{{id}}-arrangement-radio" type="radio" class="custom-control-input" value="false" {{#unless hasArrangement}}checked="checked"{{/unless}}>
 									<span class="custom-control-indicator"></span>
 									<span class="custom-control-description">No</span>
 								</label>
 							</div>
 						</div>
 					</div>
-					<div id="direct-territory-{{id}}-arrangement-form" class="form-group {{#if noArrangement}}hidden{{/if}}">
+					<div id="direct-territory-{{id}}-arrangement-form" class="form-group {{#unless hasArrangement}}hidden{{/unless}}">
 						<label for="direct-territory-{{id}}-frontback" class="control-label col-xs-2">Front or Back?</label>
 						<div class="form-group col-xs-3">
 							<div class="custom-controls-stacked">
 								<label class="custom-control custom-radio">
-									<input id="direct-territory-{{id}}-is-front" name="direct-territory-{{id}}-position-radio" type="radio" class="custom-control-input" {{#if isFront}}checked="checked"{{/if}}>
+									<input id="direct-territory-{{id}}-is-front" name="direct-territory-{{id}}-position-radio" type="radio" class="custom-control-input" value="true" {{#unless isBack}}checked="checked"{{/unless}}>
 									<span class="custom-control-indicator"></span>
 									<span class="custom-control-description">Front</span>
 								</label>
 								<br/>
 								<label class="custom-control custom-radio">
-									<input id="direct-territory-{{id}}-is-back" name="direct-territory-{{id}}-position-radio" type="radio" class="custom-control-input" {{#if isBack}}checked="checked"{{/if}}>
+									<input id="direct-territory-{{id}}-is-back" name="direct-territory-{{id}}-position-radio" type="radio" class="custom-control-input" value="false" {{#if isBack}}checked="checked"{{/if}}>
 									<span class="custom-control-indicator"></span>
 									<span class="custom-control-description">Back</span>
 								</label>
 							</div>
 						</div>
 					</div>
-					<div id="direct-territory-{{id}}-withheld-form" class="form-group {{#if noArrangement}}hidden{{/if}} {{#if isBack}}hidden{{/if}}">
+					<div id="direct-territory-{{id}}-withheld-form" class="form-group {{#unless hasArrangement}}hidden{{/unless}} {{#if isBack}}hidden{{/if}}">
 						<label for="direct-territory-{{id}}-arrangement" class="control-label col-xs-2">Amount Withheld:</label>
 						<div class="col-xs-3">
 							<input type="number" min="0" max="100" class="form-control" id="direct-territory-{{id}}-arrangement" value="{{arrangement}}">
@@ -138,12 +138,10 @@
 
 					<div class="modal-footer">
 						<button id="direct-territory-{{id}}-cancel" type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
-						{{#if investor}}
-							<button id="direct-territory-{{id}}-edit" class="btn btn-info" data-dismiss="modal">Edit</button>
-						{{/if}}
-						{{#unless investor}}
-							<button id="direct-territory-{{id}}-save" type="button" class="btn btn-info" data-dismiss="modal">Save</button>
-						{{/unless}}
+						<button id="direct-territory-{{id}}-save" type="button" class="btn btn-info" data-dismiss="modal">
+							{{#if investor}}Edit{{/if}}
+							{{#unless investor}}Save{{/unless}}
+						</button>
 					</div>
 				</form>
 			</div>

@@ -133,12 +133,12 @@ $(document).ready(function() {
 		var type = "direct-territory";
 		var add = {id: "add", investor: "", amount: "0", currency: "CAD",
 			territory: "", distributor: "", equity: "0", overages: "0",
-			hasPremium: "", noPremium: "true", premium: "0", hasArrangement: "",
-			noArrangement: "true", isFront:"", isBack: "true", arrangement: ""};
+			hasPremium: false, premium: "0", hasArrangement: false, isBack: true,
+			arrangement: ""};
 		var data1 = {id: "1", investor: "French Distributors", amount: "275000", currency: "CAD",
 			territory: "France", distributor: "MGM", equity: "4", overages: "60",
-			hasPremium: "", noPremium: "true", premium: "0", hasArrangement: "",
-			noArrangement: "true", isFront:"", isBack: "true", arrangement: ""};
+			hasPremium: false, premium: "0", hasArrangement: false, isBack: true,
+			arrangement: ""};
 
 		$("#modalLocation")
 			.append(template(add))
@@ -147,14 +147,6 @@ $(document).ready(function() {
 		var addModalListeners = function(id, isAdd) {
 			var typeid = "#"+type+"-"+id;
 			addCloseListeners(type, id);
-
-			$(typeid+"cancel").on('click', function () {
-				$(typeid+"-form").trigger('reset');
-			});
-
-			$(typeid+"-close").on('click', function () {
-				$(typeid+"-form").trigger('reset');
-			});
 
 			$(typeid+"-has-premium").on('click', function() {
 				$(typeid+"-premium-form").removeClass("hidden");
@@ -192,32 +184,32 @@ $(document).ready(function() {
 				var amountWithheld = $(typeid+"-arrangement").val();
 
 				var radioHasPremium = $('input[name="direct-territory-'+id+'-premium-radio"]:checked').val();
-				var radioHasArrangement = $('input[name="direct-territory-'+id+'arrangement-radio"]:checked').val();
-				var radioisFront= $('input[name="direct-territory-'+id+'-position-radio"]:checked').val();
-				var hasPremium, noPremium, hasArrangement, noArrangement, isFront, isBack;
+				var radioHasArrangement = $('input[name="direct-territory-'+id+'-arrangement-radio"]:checked').val();
+				var radioIsFront= $('input[name="direct-territory-'+id+'-position-radio"]:checked').val();
+				var hasPremium, hasArrangement, isBack;
 				if (radioHasPremium === "true") {
 					hasPremium = true;
 				} else {
-					noPremium = true;
+					hasPremium = false;
 				}
 				if (radioHasArrangement === "true") {
 					hasArrangement = true;
 				} else {
-					noArrangement = true;
+					hasArrangement = false;
 				}
-
-				if (isFront === "true") {
-					isFront = true;
+				if (radioIsFront === "true") {
+					isBack = false;
 				} else {
 					isBack = true;
 				}
 
 				var data = {id: idCount, investor: investor, amount: amount, currency: currency,
 					territory: territory, distributor: distributor, equity: equity, overages: overages,
-					hasPremium: hasPremium, noPremium: noPremium, premium: premium, hasArrangement: hasArrangement,
-					noArrangement: noArrangement, isFront:isFront, isBack: isBack, arrangement: amountWithheld};
+					hasPremium: hasPremium, premium: premium, hasArrangement: hasArrangement, isBack: isBack,
+					arrangement: amountWithheld, type: "direct-territory"};
 
 				if (isAdd) {
+					$(typeid+"-form").trigger('reset');
 					$("#modalLocation").append(template(data));
 					$("#direct-territory-summary-table").append(summaryTableRow(data));
 					$(typeid+"-withheld-form").addClass("hidden");
@@ -232,13 +224,52 @@ $(document).ready(function() {
 					addModalListeners(idCount, 0);
 					idCount++;
 				} else {
+					data.id = $(typeid+"-table-row-id").text();
+					$(typeid+"-investor").attr("value",investor);
+					$(typeid+"-territory").attr("value",territory);
+					$(typeid+"-currency").attr("value",currency);
+					$(typeid+"-distributor").attr("value",distributor);
+					$(typeid+"-amount").attr("value", amount);
+					$(typeid+"-equity").attr("value", equity);
+					$(typeid+"-overages").attr("value", overages);
+					$(typeid+"-premium").attr("value", premium);
+					$(typeid+"-arrangement").attr("value", amountWithheld);
 
+					if (hasPremium) {
+						$(typeid+"-has-premium").attr("value", true);
+						$(typeid+"-no-premium").attr("value", false);
+						$(typeid+"-premium-form").removeClass("hidden");
+					} else {
+						$(typeid+"-has-premium").attr("value", false);
+						$(typeid+"-no-premium").attr("value", true);
+						$(typeid+"-premium-form").addClass("hidden");
+					}
+
+					if (hasArrangement) {
+						$(typeid+"-has-arrangement").attr("value", true);
+						$(typeid+"-no-arrangement").attr("value", false);
+						$(typeid+"-arrangement-form").removeClass("hidden");
+					} else {
+						$(typeid+"-has-arrangement").attr("value", false);
+						$(typeid+"-no-arrangement").attr("value", true);
+						$(typeid+"-arrangement-form").addClass("hidden");
+					}
+
+					if (!isBack) {
+						$(typeid+"-is-front").attr("value", true);
+						$(typeid+"-is-back").attr("value", false);
+						$(typeid+"-withheld-form").removeClass("hidden");
+					} else {
+						$(typeid+"-is-front").attr("value", false);
+						$(typeid+"-is-back").attr("value", true);
+						$(typeid+"-withheld-form").addClass("hidden");
+					}
+					$(typeid+"-table-row").replaceWith(summaryTableRow(data));
 				}
-				$(typeid+"-form").trigger('reset');
 			});
 		};
-		addCloseListeners(type, "1");
 		idCount++;
+		addModalListeners("1", 0);
 		addModalListeners("add", 1);
 	})();
 

@@ -432,12 +432,14 @@
 											<tr>
 												<th class="col-xs-4">Investor</th>
 												<th class="col-xs-2">Amount</th>
+												<th class="hidden"></th>
 											</tr>
 											</thead>
 											<tbody id="direct-territory-summary-table">
-											<tr class="default clickable-row" data-toggle="modal" data-target="#direct-territory-1-modal">
+											<tr class="default clickable-row" data-toggle="modal" data-target="#direct-territory-1-modal" id="direct-territory-1-table-row">
 												<td>French Distributors</td>
 												<td>$275,000</td>
+												<td id="direct-territory-1-table-row-id" class="hidden">1</td>
 											</tr>
 											</tbody>
 										</table>
@@ -453,16 +455,19 @@
 											<tr>
 												<th class="col-xs-4">Investor</th>
 												<th class="col-xs-2">Amount</th>
+												<th class="hidden"></th>
 											</tr>
 											</thead>
 											<tbody id="tax-grant-summary-table">
-											<tr class="default clickable-row" data-toggle="modal" data-target="#tax-grant-1-modal" id="tax-grant-table-row-1">
+											<tr class="default clickable-row" data-toggle="modal" data-target="#tax-grant-1-modal" id="tax-grant-1-table-row">
 												<td>BC Government</td>
 												<td>$2,000,000</td>
+												<td id="tax-grant-1-table-row-id" class="hidden">1</td>
 											</tr>
-											<tr class="default clickable-row" data-toggle="modal" data-target="#tax-grant-2-modal" id="tax-grant-table-row-2">
+											<tr class="default clickable-row" data-toggle="modal" data-target="#tax-grant-2-modal" id="tax-grant-2-table-row">
 												<td>Government of Canada</td>
 												<td>$80,000</td>
+												<td id="tax-grant-2-table-row-id" class="hidden">2</td>
 											</tr>
 											</tbody>
 										</table>
@@ -478,12 +483,14 @@
 											<tr>
 												<th class="col-xs-4">Company</th>
 												<th class="col-xs-2">Amount</th>
+												<th class="hidden"></th>
 											</tr>
 											</thead>
 											<tbody id="non-recouping-summary-table">
-											<tr class="default clickable-row" data-toggle="modal" data-target="#non-recouping-1-modal" id="non-recouping-table-row-1">
+											<tr class="default clickable-row" data-toggle="modal" data-target="#non-recouping-1-modal" id="non-recouping-1-table-row">
 												<td>Producer Deferrals</td>
 												<td>$100,000</td>
+												<td id="non-recouping-1-table-row-id" class="hidden">1</td>
 											</tr>
 											</tbody>
 										</table>
@@ -499,12 +506,14 @@
 											<tr>
 												<th class="col-xs-4">Company</th>
 												<th class="col-xs-2">Amount</th>
+												<th class="hidden"></th>
 											</tr>
 											</thead>
 											<tbody id="senior-debt-summary-table">
-											<tr class="default clickable-row" id="senior-debt-table-row-1" data-toggle="modal" data-target="#senior-debt-1-modal" >
+											<tr class="default clickable-row" id="senior-debt-table-row-1" data-toggle="modal" data-target="#senior-debt-1-modal" id="senior-debt-1-table-row">
 												<td>Productivity Media</td>
 												<td>$1,000,000</td>
+												<td id="senior-debt-1-table-row-id" class="hidden">1</td>
 											</tr>
 											</tbody>
 										</table>
@@ -520,12 +529,14 @@
 											<tr>
 												<th class="col-xs-4">Company</th>
 												<th class="col-xs-2">Amount</th>
+												<th class="hidden"></th>
 											</tr>
 											</thead>
 											<tbody id="preferred-equity-summary-table">
-											<tr class="default clickable-row" data-toggle="modal" data-target="#preferred-equity-1-modal">
+											<tr class="default clickable-row" data-toggle="modal" data-target="#preferred-equity-1-modal" id="preferred-equity-1-table-row">
 												<td>Private Equity</td>
 												<td>$350,000</td>
+												<td id="preferred-equity-1-table-row-id" class="hidden">1</td>
 											</tr>
 											</tbody>
 										</table>
@@ -541,16 +552,19 @@
 											<tr>
 												<th class="col-xs-4">Company</th>
 												<th class="col-xs-2">Amount</th>
+												<th class="hidden"></th>
 											</tr>
 											</thead>
 											<tbody id="corridor-equity-summary-table">
-											<tr class="default clickable-row" data-toggle="modal" data-target="#corridor-equity-1-modal" id="corridor-equity-table-row-1">
+											<tr class="default clickable-row" data-toggle="modal" data-target="#corridor-equity-1-modal" id="corridor-equity-1-table-row">
 												<td>Telefilm</td>
 												<td>$500,000</td>
+												<td id="corridor-equity-1-table-row-id" class="hidden">1</td>
 											</tr>
-											<tr class="default clickable-row" data-toggle="modal" data-target="#corridor-equity-2-modal" id="corridor-equity-table-row-2">
+											<tr class="default clickable-row" data-toggle="modal" data-target="#corridor-equity-2-modal" id="corridor-equity-2-table-row">
 												<td>NOHFC</td>
 												<td>$200,000</td>
+												<td id="corridor-equity-2-table-row-id" class="hidden">2</td>
 											</tr>
 											</tbody>
 										</table>
@@ -566,16 +580,19 @@
 											<tr>
 												<th class="col-xs-4">Company</th>
 												<th class="col-xs-2">Amount</th>
+												<th class="hidden"></th>
 											</tr>
 											</thead>
 											<tbody id="general-equity-summary-table">
-											<tr class="default clickable-row" data-toggle="modal" data-target="#general-equity-1-modal">
+											<tr class="default clickable-row" data-toggle="modal" data-target="#general-equity-1-modal" id="general-equity-1-table-row">
 												<td>Investor A</td>
 												<td>$500,000</td>
+												<td id="general-equity-1-table-row-id" class="hidden">1</td>
 											</tr>
-											<tr class="default clickable-row" data-toggle="modal" data-target="#general-equity-2-modal">
+											<tr class="default clickable-row" data-toggle="modal" data-target="#general-equity-2-modal" id="general-equity-2-table-row">
 												<td>Investor B</td>
 												<td>$300,000</td>
+												<td id="general-equity-2-table-row-id" class="hidden">2</td>
 											</tr>
 											</tbody>
 										</table>
