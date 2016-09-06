@@ -500,8 +500,8 @@ $(document).ready(function() {
 
 	(function() {
 		var idCount = 1;
-		//Create modals for presales
 		var template = Handlebars.templates['corridorEquityModal'];
+		var type = "corridor-equity";
 		var add = {id: "add", investor: "", amount:"0", currency: "CAD", equity: "0" , presaleCorridor: "0", recoupmentCorridor: "0"};
 		var data1 = {id: "1", investor: "Telefilm", amount:"500000", currency: "CAD", equity:"50", presaleCorridor:"0", recoupmentCorridor:"5"};
 		var data2 = {id: "2", investor: "NOHFC", amount:"200000", currency: "CAD", equity:"20", presaleCorridor:"5", recoupmentCorridor:"0"};
@@ -511,47 +511,42 @@ $(document).ready(function() {
 			.append(template(data1))
 			.append(template(data2));
 
-		var addEditListener = function() {
-			var id = idCount;
-			$("#corridor-equity-"+id+"-edit").on('click', function() {
-				idCount+= 1;
-				$("#corridor-equity-"+id+"-form").trigger('reset');
-			});
+		var addModalListeners = function(id, isAdd) {
+			var typeid = "#"+type+"-"+id;
+			addCloseListeners(type, id);
 
-			$("#corridor-equity-"+id+"-cancel").on('click', function() {
-				$("#corridor-equity-"+id+"-form").trigger('reset');
+			$(typeid+"-save").on('click', function() {
+				var investor = $(typeid+"-investor").val();
+				var currency = $(typeid+"-currency").val();
+				var amount = $(typeid+"-amount").val();
+				var equity = $(typeid+"-equity").val();
+				var presaleCorridor = $(typeid+"-presale-corridor").val();
+				var recoupmentCorridor = $(typeid+"-recoupment-corridor").val();
+				var data = {id: idCount, investor: investor, amount:amount, currency: currency,
+					equity: equity, presaleCorridor: presaleCorridor, recoupmentCorridor: recoupmentCorridor, type: type };
+				if (isAdd) {
+					$(typeid+"-form").trigger('reset');
+					$("#modalLocation").append(template(data));
+					$("#corridor-equity-summary-table").append(summaryTableRow(data));
+					addModalListeners(idCount, 0);
+					idCount++;
+				} else {
+					data.id = $(typeid+"-table-row-id").text();
+					$(typeid+"-investor").attr("value",investor);
+					$(typeid+"-currency").attr("value",currency);
+					$(typeid+"-amount").attr("value",amount);
+					$(typeid+"-equity").attr("value", equity);
+					$(typeid+"-presale-corridor").attr("value", presaleCorridor);
+					$(typeid+"-recoupment-corridor").attr("value", recoupmentCorridor);
+					$(typeid+"-table-row").replaceWith(summaryTableRow(data));
+				}
 			});
-
-			$("#corridor-equity-"+id+"-close").on('click', function() {
-				$("#corridor-equity-"+id+"-form").trigger('reset');
-			});
-
 		};
-
-		addEditListener();
-		addEditListener();
-
-		$("#corridor-equity-add-save").on('click', function() {
-			var investor = $("#corridor-equity-add-investor").val();
-			var currency = $("#corridor-equity-add-currency").val();
-			var amount= $("#corridor-equity-add-amount").val();
-			var equity = $("#corridor-equity-add-equity").val();
-			var presaleCorridor = $("#corridor-equity-add-presale-corridor").val();
-			var recoupCorridor = $("#corridor-equity-add-recoupment-corridor").val();
-			var data = {id: idCount, investor: investor, currency: currency, amount: amount, presaleCorridor: presaleCorridor, recoupmentCorridor: recoupCorridor, type: "corridor-equity" };
-			$("#modalLocation").append(template(data));
-			$("#corridor-equity-summary-table").append(summaryTableRow(data));
-			addEditListener();
-			$("#corridor-equity-add-form").trigger('reset');
-		});
-
-		$("#corridor-equity-add-cancel").on('click', function () {
-			$("#corridor-equity-add-form").trigger('reset');
-		});
-
-		$("#corridor-equity-add-close").on('click', function () {
-			$("#corridor-equity-add-form").trigger('reset');
-		});
+		idCount++;
+		addModalListeners("1", 0);
+		idCount++;
+		addModalListeners("2", 0);
+		addModalListeners("add", 1);
 	})();
 
 	(function() {
