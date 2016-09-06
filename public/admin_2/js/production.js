@@ -502,9 +502,12 @@ $(document).ready(function() {
 		var idCount = 1;
 		var template = Handlebars.templates['corridorEquityModal'];
 		var type = "corridor-equity";
-		var add = {id: "add", investor: "", amount:"0", currency: "CAD", equity: "0" , presaleCorridor: "0", recoupmentCorridor: "0"};
-		var data1 = {id: "1", investor: "Telefilm", amount:"500000", currency: "CAD", equity:"50", presaleCorridor:"0", recoupmentCorridor:"5"};
-		var data2 = {id: "2", investor: "NOHFC", amount:"200000", currency: "CAD", equity:"20", presaleCorridor:"5", recoupmentCorridor:"0"};
+		var add = {id: "add", investor: "", amount:"0", currency: "CAD",
+			equity: "0" , presaleCorridor: "0", recoupmentCorridor: "0"};
+		var data1 = {id: "1", investor: "Telefilm", amount:"500000", currency: "CAD",
+			equity:"50", presaleCorridor:"0", recoupmentCorridor:"5"};
+		var data2 = {id: "2", investor: "NOHFC", amount:"200000", currency: "CAD",
+			equity:"20", presaleCorridor:"5", recoupmentCorridor:"0"};
 
 		$("#modalLocation")
 			.append(template(add))
@@ -523,7 +526,8 @@ $(document).ready(function() {
 				var presaleCorridor = $(typeid+"-presale-corridor").val();
 				var recoupmentCorridor = $(typeid+"-recoupment-corridor").val();
 				var data = {id: idCount, investor: investor, amount:amount, currency: currency,
-					equity: equity, presaleCorridor: presaleCorridor, recoupmentCorridor: recoupmentCorridor, type: type };
+					equity: equity, presaleCorridor: presaleCorridor, recoupmentCorridor: recoupmentCorridor,
+					type: type };
 				if (isAdd) {
 					$(typeid+"-form").trigger('reset');
 					$("#modalLocation").append(template(data));
@@ -551,53 +555,65 @@ $(document).ready(function() {
 
 	(function() {
 		var idCount = 1;
-		//Create modals for presales
 		var template = Handlebars.templates['seniorDebtModal'];
-		var add = {id: "add", investor: "", amount:"0", currency: "CAD", equity: "0", financeSource:"Budget", loanType: "Simple", interest: "0" };
-		var data1 = {id: "1", investor: "Productivity Media", amount:"150000", currency: "CAD", equity:"10", financeSource: "Budget", loanType:"Simple", interest: "15"};
+		var type="senior-debt";
+		var add = {id: "add", investor: "", amount:"0", currency: "CAD",
+			equity: "0", financeSource:"Budget", loanType: "Simple", interestRate: "0" };
+		var data1 = {id: "1", investor: "Productivity Media", amount:"150000", currency: "CAD",
+			equity:"10", financeSource: "Budget", loanType:"Simple", interestRate: "15"};
 
 		$("#modalLocation")
 			.append(template(add))
 			.append(template(data1));
 
-		var addEditListener = function() {
-			var id = idCount;
-			$("#senior-debt-"+id+"-edit").on('click', function() {
-				idCount+= 1;
-				$("#senior-debt-"+id+"-form").trigger('reset');
+		var addModalListeners = function(id, isAdd) {
+			var typeid = "#"+type+"-"+id;
+			addCloseListeners(type, id);
+
+			$(typeid+"-isDiscount").on('click', function() {
+				$(typeid+"-is-loan-form").addClass("hidden");
+				$(typeid+"-is-discount-form").removeClass("hidden");
 			});
 
-			$("#senior-debt-"+id+"-cancel").on('click', function() {
-				$("#senior-debt-"+id+"-form").trigger('reset');
+			$(typeid+"-isNotDiscount").on('click', function() {
+				$(typeid+"-is-loan-form").removeClass("hidden");
+				$(typeid+"-is-discount-form").addClass("hidden");
 			});
 
-			$("#senior-debt-"+id+"-close").on('click', function() {
-				$("#senior-debt-"+id+"-form").trigger('reset');
-			});
+			$(typeid+"-save").on('click', function() {
+				var investor = $(typeid+"-investor").val();
+				var currency = $(typeid+"-currency").val();
+				var amount = $(typeid+"-amount").val();
+				var equity = $(typeid+"-equity").val();
+				var loanType = $(typeid+"-loan-type").val();
+				var interestRate = $(typeid+"-interest-rate").val();
+				var financeSource = $(typeid+"finance-source").val();
 
+				var data = {id: idCount, investor: investor, amount:amount, equity: equity,
+					interestRate:interestRate, loanType:loanType, currency: currency, financeSource: financeSource,
+					type: type};
+				if (isAdd) {
+					$(typeid+"-form").trigger('reset');
+					$("#modalLocation").append(template(data));
+					$("#senior-debt-summary-table").append(summaryTableRow(data));
+					addModalListeners(idCount, 0);
+					idCount++;
+				} else {
+					data.id = $(typeid+"-table-row-id").text();
+					$(typeid+"-investor").attr("value",investor);
+					$(typeid+"-currency").attr("value",currency);
+					$(typeid+"-amount").attr("value",amount);
+					$(typeid+"-loan-type").attr("value", loanType);
+					$(typeid+"-interest-rate").attr("value", interestRate);
+					$(typeid+"-equity").attr("value", equity);
+					$(typeid+"-finance-source").attr("value", financeSource);
+					$(typeid+"-table-row").replaceWith(summaryTableRow(data));
+				}
+			});
 		};
-
-		addEditListener();
-
-		$("#senior-debt-add-save").on('click', function() {
-			var investor = $("#senior-debt-add-investor").val();
-			var currency = $("#senior-debt-add-currency").val();
-			var amount= $("#senior-debt-add-amount").val();
-			var equity = $("#senior-debtadd-equity").val();
-			var data = {id: idCount, investor: investor, currency: currency, amount: amount, type: "senior-debt" };
-			$("#modalLocation").append(template(data));
-			$("#senior-debt-summary-table").append(summaryTableRow(data));
-			addEditListener();
-			$("#senior-debt-add-form").trigger('reset');
-		});
-
-		$("#senior-debt-add-cancel").on('click', function () {
-			$("#senior-debt-add-form").trigger('reset');
-		});
-
-		$("#senior-debt-add-close").on('click', function () {
-			$("#senior-debt-add-form").trigger('reset');
-		});
+		idCount++;
+		addModalListeners("1", 0);
+		addModalListeners("add", 1);
 	})();
 });
 
