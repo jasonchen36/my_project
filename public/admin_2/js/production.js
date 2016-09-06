@@ -47,7 +47,6 @@ $(document).ready(function() {
 	(function() {
 		var idCount = 1;
 
-		//Create modals for presales
 		var template = Handlebars.templates['presaleModal'];
 		var type = "pre-sales";
 		var add = {id: "add", investor: "", amount: "0", currency: "CAD",
@@ -128,7 +127,6 @@ $(document).ready(function() {
 	(function() {
 
 		var idCount = 1;
-
 		var template = Handlebars.templates['directTerritoryModal'];
 		var type = "direct-territory";
 		var add = {id: "add", investor: "", amount: "0", currency: "CAD",
@@ -274,8 +272,7 @@ $(document).ready(function() {
 	})();
 
 	(function() {
-		var idCount = 2;
-		//Create modals for presales
+		var idCount = 1;
 		var template = Handlebars.templates['taxGrantModal'];
 		var type = "tax-grant";
 		var add = {id: "add", investor: "", isDiscount: "true", isLoan: "",
@@ -361,14 +358,15 @@ $(document).ready(function() {
 		};
 		idCount++;
 		addModalListeners("1", 0);
+		idCount++;
 		addModalListeners("2",0);
 		addModalListeners("add", 1);
 	})();
 
 	(function() {
 		var idCount = 1;
-		//Create modals for presales
 		var template = Handlebars.templates['generalEquityModal'];
+		var type = "general-equity";
 		var add = {id: "add", investor: "", amount:"0", currency: "CAD", equity: "0" };
 		var data1 = {id: "1", investor: "Investor A", amount:"500000", currency: "CAD", equity:"50"};
 		var data2 = {id: "2", investor: "Investor B", amount:"300000", currency: "CAD", equity: "30"};
@@ -378,54 +376,42 @@ $(document).ready(function() {
 			.append(template(data1))
 			.append(template(data2));
 
-		var addEditListener = function() {
-			var id = idCount;
-			$("#general-equity-"+id+"-edit").on('click', function() {
-				var investor = $("#general-equity-add-investor").val();
-				var currency = $("#general-equity-add-currency").val();
-				var amount = $("#general-equity-add-amount").val();
-				var data = {id: idCount, investor: investor,  currency: currency, amount: amount, type: "general-equity" };
-				idCount+= 1;
-				$("#general-equity-"+id+"-form").trigger('reset');
-			});
+		var addModalListeners = function(id, isAdd) {
+			var typeid = "#"+type+"-"+id;
+			addCloseListeners(type, id);
 
-			$("#general-equity-"+id+"-cancel").on('click', function() {
-				$("#general-equity-"+id+"-form").trigger('reset');
+			$(typeid+"-save").on('click', function() {
+				var investor = $(typeid+"-investor").val();
+				var currency = $(typeid+"-currency").val();
+				var amount = $(typeid+"-amount").val();
+				var equity = $(typeid+"-equity").val();
+				var data = {id: idCount, investor: investor, amount:amount, currency: currency,
+					equity: equity, type: type };
+				if (isAdd) {
+					$(typeid+"-form").trigger('reset');
+					$("#modalLocation").append(template(data));
+					$("#general-equity-summary-table").append(summaryTableRow(data));
+					addModalListeners(idCount, 0);
+					idCount++;
+				} else {
+					data.id = $(typeid+"-table-row-id").text();
+					$(typeid+"-investor").attr("value",investor);
+					$(typeid+"-currency").attr("value",currency);
+					$(typeid+"-amount").attr("value",amount);
+					$(typeid+"-equity").attr("value", equity);
+					$(typeid+"-table-row").replaceWith(summaryTableRow(data));
+				}
 			});
-
-			$("#general-equity-"+id+"-close").on('click', function() {
-				$("#general-equity-"+id+"-form").trigger('reset');
-			});
-
 		};
-
-		addEditListener();
-		addEditListener();
-
-		$("#general-equity-add-save").on('click', function() {
-			var investor = $("#general-equity-add-investor").val();
-			var currency = $("#general-equity-add-currency").val();
-			var amount= $("#general-equity-add-amount").val();
-			var equity = $("#general-equity-add-equity").val();
-			var data = {id: idCount, investor: investor, currency: currency, amount: amount, type: "general-equity" };
-			$("#modalLocation").append(template(data));
-			$("#general-equity-summary-table").append(summaryTableRow(data));
-			addEditListener();
-			$("#general-equity-add-form").trigger('reset');
-		});
-
-		$("#general-equity-add-cancel").on('click', function () {
-			$("#general-equity-add-form").trigger('reset');
-		});
-
-		$("#general-equity-add-close").on('click', function () {
-			$("#general-equity-add-form").trigger('reset');
-		});
+		idCount++;
+		addModalListeners("1", 0);
+		idCount++;
+		addModalListeners("2", 0);
+		addModalListeners("add", 1);
 	})();
 
 	(function() {
 		var idCount = 1;
-		//Create modals for presales
 		var template = Handlebars.templates['nonRecoupingModal'];
 		var type = "non-recouping";
 		var add = {id: "add", investor: "", amount:"0", currency: "CAD",
@@ -467,12 +453,10 @@ $(document).ready(function() {
 		idCount++;
 		addModalListeners("1", 0);
 		addModalListeners("add", 1);
-
 	})();
 
 	(function() {
 		var idCount = 1;
-		//Create modals for presales
 		var template = Handlebars.templates['preferredEquityModal'];
 		var type = "preferred-equity";
 		var add = {id: "add", investor: "", amount:"0", currency: "CAD", equity: "0" };
