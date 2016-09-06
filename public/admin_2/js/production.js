@@ -274,76 +274,95 @@ $(document).ready(function() {
 	})();
 
 	(function() {
-		var idCount = 1;
+		var idCount = 2;
 		//Create modals for presales
 		var template = Handlebars.templates['taxGrantModal'];
-		var add = {id: "add", investor: "", isDiscount: "true", isLoan: "", estAmount: "0", netAdvance: "0", amount:"0", interestRate:"0", loanType:"Simple", currency: "CAD"};
-		var data1 = {id: "1", investor: "BC Government", isDiscount: "", isLoan: "true", estAmount: "", netAdvance: "0", amount:"2000000", interestRate:"15", loanType:"Semi-Annual", currency: "CAD"};
-		var data2 = {id: "2", investor: "Government of Canada", isDiscount: "true", isLoan: "", estAmount: "100000", netAdvance: "80000", amount:"", interestRate:"", loanType:"Simple", currency: "CAD"};
+		var type = "tax-grant";
+		var add = {id: "add", investor: "", isDiscount: "true", isLoan: "",
+			estAmount: "0", netAdvance: "0", amount:"0", interestRate:"0",
+			loanType:"Simple", currency: "CAD"};
+		var data1 = {id: "1", investor: "BC Government", isDiscount: "", isLoan: "true",
+			estAmount: "", netAdvance: "0", amount:"2000000", interestRate:"15",
+			loanType:"Semi-Annual", currency: "CAD"};
+		var data2 = {id: "2", investor: "Government of Canada", isDiscount: "true", isLoan: "",
+			estAmount: "100000", netAdvance: "80000", amount:"", interestRate:"",
+			loanType:"Simple", currency: "CAD"};
 
 		$("#modalLocation")
 			.append(template(add))
 			.append(template(data1))
 			.append(template(data2));
 
-		var addEditListener = function() {
-			var id = idCount;
-			$("#tax-grant-"+id+"-edit").on('click', function() {
-				var investor = $("#tax-grant-add-investor").val();
-				var territory = $("#tax-grant-add-territory").val();
-				var currency = $("#tax-grant-add-currency").val();
-				var amount = $("#tax-grant-add-amount").val();
-				var data = {id: idCount, investor: investor, territory: territory, currency: currency, amount: amount, type: "tax-grant" };			// $("#pre-sales-"+id+"-modal").replaceWith(presaleModalTemplate(data));
-				idCount+=1;
-				$("#tax-grant-"+id+"-form").trigger('reset');
+		var addModalListeners = function(id, isAdd) {
+			var typeid = "#"+type+"-"+id;
+			addCloseListeners(type, id);
+
+			$(typeid+"-isDiscount").on('click', function() {
+				$(typeid+"-is-loan-form").addClass("hidden");
+				$(typeid+"-is-discount-form").removeClass("hidden");
 			});
 
-			$("#tax-grant-"+id+"-cancel").on('click', function() {
-				$("#tax-grant-"+id+"-form").trigger('reset');
+			$(typeid+"-isNotDiscount").on('click', function() {
+				$(typeid+"-is-loan-form").removeClass("hidden");
+				$(typeid+"-is-discount-form").addClass("hidden");
 			});
 
-			$("#tax-grant-"+id+"-close").on('click', function() {
-				$("#tax-grant-"+id+"-form").trigger('reset');
-			});
+			$(typeid+"-save").on('click', function() {
+				var investor = $(typeid+"-investor").val();
+				var currency = $(typeid+"-currency").val();
+				var amount = $(typeid+"-amount").val();
+				var estimatedAmount = $(typeid+"-estimated-amount").val();
+				var netAdvance = $(typeid+"-net-advance").val();
+				var loanType = $(typeid+"-loan-type").val();
+				var interestRate = $(typeid+"-interest-rate").val();
+				var radio = $('input[name="tax-grant-'+id+'-radio-stacked"]:checked').val();
+				var isDiscount = radio === "true";
 
+				var data = {id: idCount, investor: investor, isDiscount: isDiscount, estAmount: estimatedAmount,
+					netAdvance: netAdvance, amount:amount, interestRate:interestRate, loanType:loanType,
+					currency: currency, type: type};
+				if (isAdd) {
+					$(typeid+"-form").trigger('reset');
+					$("#modalLocation").append(template(data));
+					if (isDiscount) {
+						data.amount = data.netAdvance;
+					}
+					$("#tax-grant-summary-table").append(summaryTableRow(data));
+					$(typeid+"-is-loan-form").addClass("hidden");
+					$(typeid+"-is-discount-form").removeClass("hidden");
+					$(typeid+"-isDiscount").prop("checked", true);
+					$(typeid+"-isNotDiscount").prop("checked", false);
+					addModalListeners(idCount, 0);
+					idCount++;
+				} else {
+					data.id = $(typeid+"-table-row-id").text();
+					$(typeid+"-investor").attr("value",investor);
+					$(typeid+"-currency").attr("value",currency);
+					$(typeid+"-amount").attr("value",amount);
+					$(typeid+"-estimated-amount").attr("value", estimatedAmount);
+					$(typeid+"-net-advance").attr("value", netAdvance);
+					$(typeid+"-loan-type").attr("value", loanType);
+					$(typeid+"-interest-rate").attr("value", interestRate);
+					if (isDiscount) {
+						$(typeid+"-is-loan-form").addClass("hidden");
+						$(typeid+"-is-discount-form").removeClass("hidden");
+						$(typeid+"-isDiscount").prop("checked", true);
+						$(typeid+"-isNotDiscount").prop("checked", false);
+						data.amount = data.netAdvance;
+					} else {
+						$(typeid+"-is-loan-form").removeClass("hidden");
+						$(typeid+"-is-discount-form").addClass("hidden");
+						$(typeid+"-isDiscount").prop("checked", false);
+						$(typeid+"-isNotDiscount").prop("checked", true);
+					}
+					$(typeid+"-table-row").replaceWith(summaryTableRow(data));
+				}
+			});
 		};
-
-		addEditListener();
-		addEditListener();
-		$("#tax-grant-add-save").on('click', function() {
-			var investor = $("#tax-grant-add-investor").val();
-			var currency = $("#tax-grant-add-currency").val();
-			var isDiscount = $("#tax-grant-add-isDiscount");
-			var amount;
-			if (isDiscount.checked) {
-				amount = $("#tax-grant-add-net-advance").val();
-			} else {
-				amount = $("#tax-grant-add-amount").val();
-			}
-			var data = {id: idCount, investor: investor, currency: currency, amount: amount, type: "tax-grant" };
-			$("#modalLocation").append(template(data));
-			$("#tax-grant-summary-table").append(summaryTableRow(data));
-			addEditListener();
-			$("#tax-grant-add-form").trigger('reset');
-		});
-
-		$("#tax-grant-add-cancel").on('click', function () {
-			$("#tax-grant-add-form").trigger('reset');
-		});
-
-		$("#tax-grant-add-close").on('click', function () {
-			$("#tax-grant-add-form").trigger('reset');
-		});
-
-		$("#tax-grant-add-isDiscount").on('click', function() {
-			$("#tax-grant-add-is-loan-form").addClass("hidden");
-			$("#tax-grant-add-is-discount-form").removeClass("hidden");
-		});
-
-		$("#tax-grant-add-isNotDiscount").on('click', function() {
-			$("#tax-grant-add-is-loan-form").removeClass("hidden");
-			$("#tax-grant-add-is-discount-form").addClass("hidden");
-		})
+		idCount++;
+		addModalListeners("1", 0);
+		addModalListeners("2",0);
+		addModalListeners("add", 1);
 	})();
 
 	(function() {

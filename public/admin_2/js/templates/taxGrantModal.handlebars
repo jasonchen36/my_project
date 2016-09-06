@@ -18,20 +18,20 @@
 						<div class="col-xs-9">
 							<div class="custom-controls-stacked">
 								<label class="custom-control custom-radio">
-									<input id="tax-grant-{{id}}-isDiscount" name="radio-stacked" type="radio" class="custom-control-input" {{#if isDiscount}}checked="checked"{{/if}}>
+									<input id="tax-grant-{{id}}-isDiscount" name="tax-grant-{{id}}-radio-stacked" type="radio" class="custom-control-input" value="true" {{#if isDiscount}}checked="checked"{{/if}}>
 									<span class="custom-control-indicator"></span>
 									<span class="custom-control-description">Discount</span>
 								</label>
 								<br/>
 								<label class="custom-control custom-radio">
-									<input id="tax-grant-{{id}}-isNotDiscount" name="radio-stacked" type="radio" class="custom-control-input" {{#if isLoan}}checked="checked"{{/if}}>
+									<input id="tax-grant-{{id}}-isNotDiscount" name="tax-grant-{{id}}-radio-stacked" type="radio" class="custom-control-input" value="false" {{#unless isDiscount}}checked="checked"{{/unless}}>
 									<span class="custom-control-indicator"></span>
 									<span class="custom-control-description">Loan</span>
 								</label>
 							</div>
 						</div>
 					</div>
-					<div id="tax-grant-{{id}}-is-discount-form" class="{{#if isLoan}}hidden{{/if}}">
+					<div id="tax-grant-{{id}}-is-discount-form" class="{{#unless isDiscount}}hidden{{/unless}}">
 						<div class="form-group">
 							<label for="tax-grant-{{id}}-estimated-amount" class="control-label col-xs-2">Estimated Amount:</label>
 							<div class="col-xs-2">
@@ -155,12 +155,10 @@
 					</div>
 					<div class="modal-footer">
 						<button id="tax-grant-{{id}}-cancel" type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
-						{{#if investor}}
-							<button  id="tax-grant-{{id}}-edit" class="btn btn-info" data-dismiss="modal">Edit</button>
-						{{/if}}
-						{{#unless investor}}
-							<button id="tax-grant-{{id}}-save" type="button" class="btn btn-info" data-dismiss="modal">Save</button>
-						{{/unless}}
+						<button  id="tax-grant-{{id}}-save" type="button" class="btn btn-info" data-dismiss="modal">
+							{{#if investor}}Edit{{/if}}
+							{{#unless investor}}Save{{/unless}}
+						</button>
 					</div>
 				</form>
 			</div>
