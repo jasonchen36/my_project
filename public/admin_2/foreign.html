@@ -372,24 +372,35 @@
           	<div class="row" id="tax-grant-summary">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <br/>
-            <h3 class="panel-title">Tax Incentives & Grants</h3>
+            <h3 class="panel-title">Foreign Sales</h3>
             <button  data-toggle="modal" data-target="#add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
             <table class="table table-striped">
               <thead>
               <tr>
-                <th class="col-xs-4">Investor</th>
-                <th class="col-xs-2">Amount</th>
+                <th class="col-xs-4">Country</th>
+                <th class="col-xs-2">Ask</th>
+                <th class="col-xs-2">Take</th>
+                <th class="col-xs-2">Actual</th>
               </tr>
               </thead>
-              <tbody id="tax-grant-summary-table">
-              <tr class="default clickable-row" data-toggle="modal" data-target="#tax-grant-1-modal" id="tax-grant-table-row-1">
-                <td>BC Government</td>
-                <td>$2,000,000</td>
+              <tbody id="foreign-sales-summary-table">
+
+              <tr class="default clickable-row" id="foreign-sales-table-row-1" data-toggle="modal" data-target="#foreign-sales-1-modal" >
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td class="actions">
+                    <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                    <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                    <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                    <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+
+                    <a class="file_upload1"><i class="fa fa-file"></i></a>
+
+                </td>
               </tr>
-              <tr class="default clickable-row" data-toggle="modal" data-target="#tax-grant-2-modal" id="tax-grant-table-row-2">
-                <td>Government of Canada</td>
-                <td>$80,000</td>
-              </tr>
+
               </tbody>
             </table>
           </div>
