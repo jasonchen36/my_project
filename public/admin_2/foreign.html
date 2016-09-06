@@ -373,36 +373,22 @@
           <div class="col-md-12 col-sm-12 col-xs-12">
             <br/>
             <h3 class="panel-title">Foreign Sales</h3>
-            <button  data-toggle="modal" data-target="#add-modal" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+
             <table class="table table-striped">
-              <thead>
-              <tr>
-                <th class="col-xs-4">Country</th>
-                <th class="col-xs-2">Ask</th>
-                <th class="col-xs-2">Take</th>
-                <th class="col-xs-2">Actual</th>
-              </tr>
-              </thead>
+
               <tbody id="foreign-sales-summary-table">
 
               <tr class="default clickable-row" id="foreign-sales-table-row-1" data-toggle="modal" data-target="#foreign-sales-1-modal" >
-                <td> <input type="text" id="country"><br> </td>
-                <td> <input type="text" id="ask"><br> </td>
-                <td> <input type="text" id="take"><br> </td>
-                <td> <input type="text" id="actual"><br> </td>
-                <td class="actions">
-                    <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                    <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                    <a href="#" data-target="#edit-modal" data-toggle="modal" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                    <a href="#" data-target="#delete-modal" data-toggle="modal" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-
-                    <a class="file_upload1" data-target="#document-modal" data-toggle="modal"><i class="fa fa-file"></i></a>
-
-                </td>
+                <td> Country: <input type="text" id="country"><br> </td>
+                <td> Ask: <input type="text" id="ask"><br> </td>
+                <td> Take: <input type="text" id="take"><br> </td>
+                <td> Actual: <input type="text" id="actual"><br> </td>
               </tr>
 
               </tbody>
             </table>
+            <button type="button" name="button" id="save">Save</button>
+            <button type="button" name="button" id="cancel">Cancel</button>
           </div>
           </section>
         </div>
@@ -566,6 +552,37 @@
                 $('#myModal2').modal('toggle');
         $('#myModal2').modal('show');
             })
+        </script>
+
+        <script type="text/javascript">
+          $("#save").click(function(){
+            var country = document.getElementById("country").value;
+            var ask = document.getElementById("ask").value;
+            var take = document.getElementById("take").value;
+            var actual = document.getElementById("actual").value;
+            $("#foreign-sales-summary-table").append(
+            '<tr class="default clickable-row" id="foreign-sales-table-row-1" data-toggle="modal" data-target="#foreign-sales-1-modal" >'+
+              '<td>'+country+'</td>'+
+              '<td>'+ask+'</td>'+
+              '<td>'+take+'</td>'+
+              '<td>'+actual+'</td>'+
+              '<td class="actions">'+
+                  '<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>'+
+                  '<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>'+
+                  '<a href="#" data-target="#edit-modal" data-toggle="modal" class="on-default edit-row"><i class="fa fa-pencil"></i></a>'+
+                  '<a href="#" data-target="#delete-modal" data-toggle="modal" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>'+
+
+                  '<a class="file_upload1" data-target="#document-modal" data-toggle="modal"><i class="fa fa-file"></i></a>'+
+
+              '</td>'+
+            '</tr>')
+          })
+        </script>
+
+        <script type="text/javascript">
+          $("#cancel").click(function(){
+            $("#add-modal").hide()
+          });
         </script>
 
 
