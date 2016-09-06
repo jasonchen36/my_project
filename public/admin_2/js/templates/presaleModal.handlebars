@@ -62,15 +62,15 @@
 					<div class="form-group">
 						<label class="col-xs-2 control-label">Deposit is:</label>
 						<div class="col-xs-9">
-							<div id="pre-sales-{{id}}-deposit-group" class="custom-controls-stacked">
+							<div class="custom-controls-stacked">
 								<label class="custom-control custom-radio">
-									<input id=pre-sales-{{id}}-advancesProd" name="pre-sales-{{id}}-radio-stacked" type="radio" value="true" class="" {{#if advProd}}checked="checked"{{/if}}>
+									<input id="pre-sales-{{id}}-advancesProd" name="pre-sales-{{id}}-radio-stacked" type="radio" value="true" class="" {{#if advProd}}checked="checked"{{/if}}>
 									<span class="custom-control-indicator"></span>
 									<span class="custom-control-description">Advanced to Production</span>
 								</label>
 								<br/>
 								<label class="custom-control custom-radio">
-									<input id="pre-sales-{{id}}-depositAdvances" name="pre-sales-{{id}}-radio-stacked" type="radio" value="false" class="" {{#if depositAdvances}}checked="checked"{{/if}}>
+									<input id="pre-sales-{{id}}-depositAdvances" name="pre-sales-{{id}}-radio-stacked" type="radio" value="false" class="" {{#unless advProd}}checked="checked"{{/unless}}>
 									<span class="custom-control-indicator"></span>
 									<span class="custom-control-description">Held in Escrow</span>
 								</label>
