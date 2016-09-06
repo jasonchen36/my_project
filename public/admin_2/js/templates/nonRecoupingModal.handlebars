@@ -55,12 +55,10 @@
 					</div>
 					<div class="modal-footer">
 						<button id="non-recouping-{{id}}-cancel" type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
-						{{#if investor}}
-							<button id="non-recouping-{{id}}-edit" class="btn btn-info" data-dismiss="modal">Edit</button>
-						{{/if}}
-						{{#unless investor}}
-							<button id="non-recouping-{{id}}-save" type="button" class="btn btn-info" data-dismiss="modal">Save</button>
-						{{/unless}}
+						<button id="non-recouping-{{id}}-save" type="button" class="btn btn-info" data-dismiss="modal">
+							{{#if investor}}Edit{{/if}}
+							{{#unless investor}}Save{{/unless}}
+						</button>
 					</div>
 				</form>
 			</div>

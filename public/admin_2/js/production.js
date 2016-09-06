@@ -427,61 +427,54 @@ $(document).ready(function() {
 		var idCount = 1;
 		//Create modals for presales
 		var template = Handlebars.templates['nonRecoupingModal'];
-		var add = {id: "add", investor: "", amount:"0", currency: "CAD", equity: "0" };
-		var data1 = {id: "1", investor: "Producer Deferrals", amount:"100000", currency: "CAD", equity:"5"};
+		var type = "non-recouping";
+		var add = {id: "add", investor: "", amount:"0", currency: "CAD",
+			equity: "0" };
+		var data1 = {id: "1", investor: "Producer Deferrals", amount:"100000", currency: "CAD",
+			equity:"5"};
 
 		$("#modalLocation")
 			.append(template(add))
 			.append(template(data1));
 
-		var addEditListener = function() {
-			var id = idCount;
-			$("#non-recouping-"+id+"-edit").on('click', function() {
-				var investor = $("#non-recouping-add-investor").val();
-				var currency = $("#non-recouping-add-currency").val();
-				var amount = $("#non-recouping-add-amount").val();
-				var data = {id: idCount, investor: investor,  currency: currency, amount: amount, type: "non-recouping" };
-				idCount+= 1;
-				$("#non-recouping-"+id+"-form").trigger('reset');
-			});
+		var addModalListeners = function(id, isAdd) {
+			var typeid = "#"+type+"-"+id;
+			addCloseListeners(type, id);
 
-			$("#non-recouping-"+id+"-cancel").on('click', function() {
-				$("#non-recouping-"+id+"-form").trigger('reset');
+			$(typeid+"-save").on('click', function() {
+				var investor = $(typeid+"-investor").val();
+				var currency = $(typeid+"-currency").val();
+				var amount = $(typeid+"-amount").val();
+				var equity = $(typeid+"-equity").val();
+				var data = {id: idCount, investor: investor, amount:amount, currency: currency,
+					equity: equity, type: type };
+				if (isAdd) {
+					$(typeid+"-form").trigger('reset');
+					$("#modalLocation").append(template(data));
+					$("#non-recouping-summary-table").append(summaryTableRow(data));
+					addModalListeners(idCount, 0);
+					idCount++;
+				} else {
+					data.id = $(typeid+"-table-row-id").text();
+					$(typeid+"-investor").attr("value",investor);
+					$(typeid+"-currency").attr("value",currency);
+					$(typeid+"-amount").attr("value",amount);
+					$(typeid+"-equity").attr("value", equity);
+					$(typeid+"-table-row").replaceWith(summaryTableRow(data));
+				}
 			});
-
-			$("#non-recouping-"+id+"-close").on('click', function() {
-				$("#non-recouping-"+id+"-form").trigger('reset');
-			});
-
 		};
+		idCount++;
+		addModalListeners("1", 0);
+		addModalListeners("add", 1);
 
-		addEditListener();
-
-		$("#non-recouping-add-save").on('click', function() {
-			var investor = $("#non-recouping-add-investor").val();
-			var currency = $("#non-recouping-add-currency").val();
-			var amount= $("#non-recouping-add-amount").val();
-			var equity = $("#non-recouping-add-equity").val();
-			var data = {id: idCount, investor: investor, currency: currency, amount: amount, type: "non-recouping" };
-			$("#modalLocation").append(template(data));
-			$("#non-recouping-summary-table").append(summaryTableRow(data));
-			addEditListener();
-			$("#non-recouping-add-form").trigger('reset');
-		});
-
-		$("#non-recouping-add-cancel").on('click', function () {
-			$("#non-recouping-add-form").trigger('reset');
-		});
-
-		$("#non-recouping-add-close").on('click', function () {
-			$("#non-recouping-add-form").trigger('reset');
-		});
 	})();
 
 	(function() {
 		var idCount = 1;
 		//Create modals for presales
 		var template = Handlebars.templates['preferredEquityModal'];
+		var type = "preferred-equity";
 		var add = {id: "add", investor: "", amount:"0", currency: "CAD", equity: "0" };
 		var data1 = {id: "1", investor: "Private Equity", amount:"350000", currency: "CAD", equity:"10"};
 
@@ -489,44 +482,36 @@ $(document).ready(function() {
 			.append(template(add))
 			.append(template(data1));
 
-		var addEditListener = function() {
-			var id = idCount;
-			$("#preferred-equity-"+id+"-edit").on('click', function() {
-				idCount+= 1;
-				$("#preferred-equity-"+id+"-form").trigger('reset');
-			});
+		var addModalListeners = function(id, isAdd) {
+			var typeid = "#"+type+"-"+id;
+			addCloseListeners(type, id);
 
-			$("#preferred-equity-"+id+"-cancel").on('click', function() {
-				$("#preferred-equity-"+id+"-form").trigger('reset');
+			$(typeid+"-save").on('click', function() {
+				var investor = $(typeid+"-investor").val();
+				var currency = $(typeid+"-currency").val();
+				var amount = $(typeid+"-amount").val();
+				var equity = $(typeid+"-equity").val();
+				var data = {id: idCount, investor: investor, amount:amount, currency: currency,
+					equity: equity, type: type };
+				if (isAdd) {
+					$(typeid+"-form").trigger('reset');
+					$("#modalLocation").append(template(data));
+					$("#preferred-equity-summary-table").append(summaryTableRow(data));
+					addModalListeners(idCount, 0);
+					idCount++;
+				} else {
+					data.id = $(typeid+"-table-row-id").text();
+					$(typeid+"-investor").attr("value",investor);
+					$(typeid+"-currency").attr("value",currency);
+					$(typeid+"-amount").attr("value",amount);
+					$(typeid+"-equity").attr("value", equity);
+					$(typeid+"-table-row").replaceWith(summaryTableRow(data));
+				}
 			});
-
-			$("#preferred-equity-"+id+"-close").on('click', function() {
-				$("#preferred-equity-"+id+"-form").trigger('reset');
-			});
-
 		};
-
-		addEditListener();
-
-		$("#preferred-equity-add-save").on('click', function() {
-			var investor = $("#preferred-equity-add-investor").val();
-			var currency = $("#preferred-equity-add-currency").val();
-			var amount= $("#preferred-equity-add-amount").val();
-			var equity = $("#preferred-equity-add-equity").val();
-			var data = {id: idCount, investor: investor, currency: currency, amount: amount, type: "preferred-equity" };
-			$("#modalLocation").append(template(data));
-			$("#preferred-equity-summary-table").append(summaryTableRow(data));
-			addEditListener();
-			$("#preferred-equity-add-form").trigger('reset');
-		});
-
-		$("#preferred-equity-add-cancel").on('click', function () {
-			$("#preferred-equity-add-form").trigger('reset');
-		});
-
-		$("#preferred-equity-add-close").on('click', function () {
-			$("#preferred-equity-add-form").trigger('reset');
-		});
+		idCount++;
+		addModalListeners("1", 0);
+		addModalListeners("add", 1);
 	})();
 
 	(function() {
