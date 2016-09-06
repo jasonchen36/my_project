@@ -417,26 +417,29 @@
         </div>
 
         <div id="edit-modal" class="modal fade">
-            <section class="panel panel-info panel-color">
-                <header class="panel-heading">
-                    <h2 class="panel-title">Are you sure?</h2>
-                </header>
-                <div class="panel-body">
-                    <div class="modal-wrapper">
-                        <div class="modal-text">
-                            <p>Are you sure that you want to edit this row?</p>
-                        </div>
-                    </div>
+          <section class="panel panel-info panel-color">
+            <div class="row" id="tax-grant-summary">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <br/>
+            <h3 class="panel-title">Foreign Sales</h3>
 
-                    <div class="row m-t-20">
-                        <div class="col-md-12 text-right">
-                            <button id="dialogConfirm" class="btn btn-primary">Confirm</button>
-                            <button id="dialogCancel" class="btn btn-default">Cancel</button>
-                        </div>
-                    </div>
-                </div>
+            <table class="table table-striped">
 
-            </section>
+              <tbody id="foreign-sales-summary-table">
+
+              <tr class="default clickable-row" id="foreign-sales-table-row-1" data-toggle="modal" data-target="#foreign-sales-1-modal" >
+                <td> Country: <input type="text" id="country"><br> </td>
+                <td> Ask: <input type="text" id="ask"><br> </td>
+                <td> Take: <input type="text" id="take"><br> </td>
+                <td> Actual: <input type="text" id="actual"><br> </td>
+              </tr>
+
+              </tbody>
+            </table>
+            <button type="button" name="button" id="save">Save</button>
+            <button type="button" name="button" id="cancel">Cancel</button>
+          </div>
+          </section>
         </div>
 
 
@@ -571,9 +574,7 @@
                   '<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>'+
                   '<a href="#" data-target="#edit-modal" data-toggle="modal" class="on-default edit-row"><i class="fa fa-pencil"></i></a>'+
                   '<a href="#" data-target="#delete-modal" data-toggle="modal" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>'+
-
                   '<a class="file_upload1" data-target="#document-modal" data-toggle="modal"><i class="fa fa-file"></i></a>'+
-
               '</td>'+
             '</tr>')
           })
