@@ -101,6 +101,12 @@
 							</div>
 						</div>
 					</div>
+					<div class="form-group">
+						<label for="tax-grant-{{id}}-overages" class="control-label col-xs-2">Overages Retained:</label>
+						<div class="col-xs-3">
+							<input type="number" min="0" max="100" class="form-control" id="tax-grant-{{id}}-equity" value="{{overages}}">
+						</div>
+					</div>
 					<div id="tax-grant-{{id}}-is-loan-form" class="{{#if isDiscount}}hidden{{/if}}">
 						<div class="form-group">
 							<label for="tax-grant-{{id}}-amount" class="control-label col-xs-2">Amount:</label>

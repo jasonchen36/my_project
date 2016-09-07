@@ -291,13 +291,13 @@ $(document).ready(function() {
 		var type = "tax-grant";
 		var add = {id: "add", investor: "", isDiscount: "true", isLoan: "",
 			estAmount: "0", netAdvance: "0", amount:"0", interestRate:"0",
-			loanType:"Simple", currency: "CAD"};
+			loanType:"Simple", currency: "CAD", overages: "0"};
 		var data1 = {id: "1", investor: "BC Government", isDiscount: "", isLoan: "true",
 			estAmount: "", netAdvance: "0", amount:"2000000", interestRate:"15",
-			loanType:"Semi-Annual", currency: "CAD"};
+			loanType:"Semi-Annual", currency: "CAD", overages: "0"};
 		var data2 = {id: "2", investor: "Government of Canada", isDiscount: "true", isLoan: "",
 			estAmount: "100000", netAdvance: "80000", amount:"", interestRate:"",
-			loanType:"Simple", currency: "CAD"};
+			loanType:"Simple", currency: "CAD", overages: "0"};
 
 		$("#modalLocation")
 			.append(template(add))
@@ -326,13 +326,14 @@ $(document).ready(function() {
 				var netAdvance = $(typeid+"-net-advance").val();
 				var loanType = $(typeid+"-loan-type").val();
 				var interestRate = $(typeid+"-interest-rate").val();
+				var overages = $(typeid+"-overages").val();
 				var radio = $('input[name="tax-grant-'+id+'-radio-stacked"]:checked').val();
 				var isDiscount = radio === "true";
 
 				var data = {id: idCount, investor: investor, isDiscount: isDiscount, estAmount: estimatedAmount,
 					netAdvance: netAdvance, amount:amount, interestRate:interestRate, loanType:loanType,
-					currency: currency};
-					var summaryData = {id:idCount, investor: investor, amount: formatMoneyString(isDiscount ? netAdvance : amount), type: type}
+					currency: currency, overages: overages};
+				var summaryData = {id:idCount, investor: investor, amount: formatMoneyString(isDiscount ? netAdvance : amount), type: type}
 				if (isAdd) {
 					$(typeid+"-form").trigger('reset');
 					$("#modalLocation").append(template(data));
@@ -352,6 +353,7 @@ $(document).ready(function() {
 					$(typeid+"-net-advance").attr("value", netAdvance);
 					$(typeid+"-loan-type").attr("value", loanType);
 					$(typeid+"-interest-rate").attr("value", interestRate);
+					$(typeid+"-overages").attr("value", overages);
 					if (isDiscount) {
 						$(typeid+"-is-loan-form").addClass("hidden");
 						$(typeid+"-is-discount-form").removeClass("hidden");
@@ -472,8 +474,12 @@ $(document).ready(function() {
 		var idCount = 1;
 		var template = Handlebars.templates['preferredEquityModal'];
 		var type = "preferred-equity";
-		var add = {id: "add", investor: "", amount:"0", currency: "CAD", equity: "0" };
-		var data1 = {id: "1", investor: "Private Equity", amount:"350000", currency: "CAD", equity:"10"};
+		var add = {id: "add", investor: "", amount:"0", currency: "CAD",
+			equity: "0", hasPremium: false, premium: "0", hasArrangement: false,
+			isBack: true, arrangement: "" };
+		var data1 = {id: "1", investor: "Private Equity", amount:"350000", currency: "CAD",
+			equity:"10", hasPremium: false, premium: "0", hasArrangement: false,
+			isBack: true, arrangement: "" };
 
 		$("#modalLocation")
 			.append(template(add))
@@ -483,18 +489,62 @@ $(document).ready(function() {
 			var typeid = "#"+type+"-"+id;
 			addCloseListeners(type, id);
 
+			$(typeid+"-has-premium").on('click', function() {
+				$(typeid+"-premium-form").removeClass("hidden");
+			});
+
+			$(typeid+"-no-premium").on('click', function() {
+				$(typeid+"-premium-form").addClass("hidden");
+			});
+
+			$(typeid+"-has-arrangement").on('click', function() {
+				$(typeid+"-arrangement-form").removeClass("hidden");
+			});
+
+			$(typeid+"-no-arrangement").on('click', function() {
+				$(typeid+"-arrangement-form").addClass("hidden");
+			});
+
+			$(typeid+"-is-front").on('click', function() {
+				$(typeid+"-withheld-form").removeClass("hidden");
+			});
+
+			$(typeid+"-is-back").on('click', function() {
+				$(typeid+"-withheld-form").addClass("hidden");
+			});
+
 			$(typeid+"-save").on('click', function() {
 				var investor = $(typeid+"-investor").val();
 				var currency = $(typeid+"-currency").val();
 				var amount = $(typeid+"-amount").val();
 				var equity = $(typeid+"-equity").val();
+				var premium = $(typeid+"-premium").val();
+				var amountWithheld = $(typeid+"-arrangement").val();
+
+				var radioHasPremium = $('input[name="preferred-equity-'+id+'-premium-radio"]:checked').val();
+				var radioHasArrangement = $('input[name="preferred-equity-'+id+'-arrangement-radio"]:checked').val();
+				var radioIsFront= $('input[name="preferred-equity-'+id+'-position-radio"]:checked').val();
+				var hasPremium = radioHasPremium === "true";
+				var hasArrangement = radioHasArrangement === "true";
+				var isBack = radioIsFront !== "true";
+
 				var data = {id: idCount, investor: investor, amount:amount, currency: currency,
-					equity: equity};
-				var summaryData = {id: idCount, investor: investor, amount: formatMoneyString(amount), type:type};
+					equity: equity, hasPremium: hasPremium, premium: premium, hasArrangement: hasArrangement,
+					isBack: isBack, arrangement: amountWithheld};
+				var summaryData = {id: idCount, investor: investor, amount: formatMoneyString(amount-amountWithheld), type:type};
 				if (isAdd) {
 					$(typeid+"-form").trigger('reset');
 					$("#modalLocation").append(template(data));
 					$("#preferred-equity-summary-table").append(summaryTableRow(summaryData));
+					$(typeid+"-withheld-form").addClass("hidden");
+					$(typeid+"-arrangement-form").addClass("hidden");
+					$(typeid+"-premium-form").addClass("hidden");
+					$(typeid+"-has-premium").prop("checked", false);
+					$(typeid+"-no-premium").prop('checked', true);
+					$(typeid+"-has-arrangement").prop('checked', false);
+					$(typeid+"-no-arrangement").prop('checked', true);
+					$(typeid+"-is-back").prop('checked', false);
+					$(typeid+"-is-front").prop('checked', true);
 					addModalListeners(idCount, 0);
 					idCount++;
 				} else {
@@ -503,6 +553,38 @@ $(document).ready(function() {
 					$(typeid+"-currency").attr("value",currency);
 					$(typeid+"-amount").attr("value",amount);
 					$(typeid+"-equity").attr("value", equity);
+					$(typeid+"-premium").attr("value", premium);
+					$(typeid+"-arrangement").attr("value", amountWithheld);
+
+					if (hasPremium) {
+						$(typeid+"-has-premium").attr("value", true);
+						$(typeid+"-no-premium").attr("value", false);
+						$(typeid+"-premium-form").removeClass("hidden");
+					} else {
+						$(typeid+"-has-premium").attr("value", false);
+						$(typeid+"-no-premium").attr("value", true);
+						$(typeid+"-premium-form").addClass("hidden");
+					}
+
+					if (hasArrangement) {
+						$(typeid+"-has-arrangement").attr("value", true);
+						$(typeid+"-no-arrangement").attr("value", false);
+						$(typeid+"-arrangement-form").removeClass("hidden");
+					} else {
+						$(typeid+"-has-arrangement").attr("value", false);
+						$(typeid+"-no-arrangement").attr("value", true);
+						$(typeid+"-arrangement-form").addClass("hidden");
+					}
+
+					if (!isBack) {
+						$(typeid+"-is-front").attr("value", true);
+						$(typeid+"-is-back").attr("value", false);
+						$(typeid+"-withheld-form").removeClass("hidden");
+					} else {
+						$(typeid+"-is-front").attr("value", false);
+						$(typeid+"-is-back").attr("value", true);
+						$(typeid+"-withheld-form").addClass("hidden");
+					}
 					$(typeid+"-table-row").replaceWith(summaryTableRow(summaryData));
 				}
 			});
