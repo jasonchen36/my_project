@@ -53,14 +53,79 @@
 							<input type="number" min="0" max="100" class="form-control" id="preferred-equity-{{id}}-equity" value="{{equity}}">
 						</div>
 					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">Is There a Recoupment Premium?:</label>
+						<div class="col-xs-9">
+							<div class="custom-controls-stacked">
+								<label class="custom-control custom-radio">
+									<input id="preferred-equity-{{id}}-has-premium" name="preferred-equity-{{id}}-premium-radio" type="radio" class="custom-control-input" value="true" {{#if hasPremium}}checked="checked"{{/if}}>
+									<span class="custom-control-indicator"></span>
+									<span class="custom-control-description">Yes</span>
+								</label>
+								<br/>
+								<label class="custom-control custom-radio">
+									<input id="preferred-equity-{{id}}-no-premium" name="preferred-equity-{{id}}-premium-radio" type="radio" class="custom-control-input" value="false" {{#unless hasPremium}}checked="checked"{{/unless}}>
+									<span class="custom-control-indicator"></span>
+									<span class="custom-control-description">No</span>
+								</label>
+							</div>
+						</div>
+					</div>
+					<div id="preferred-equity-{{id}}-premium-form" class="form-group {{#unless hasPremium}}hidden{{/unless}}">
+						<label for="preferred-equity-{{id}}-premium" class="control-label col-xs-2">Premium %:</label>
+						<div class="col-xs-3">
+							<input type="number" min="0" max="100" class="form-control" id="preferred-equity-{{id}}-premium" value="{{premium}}">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">Is There An Arrangement Fee?:</label>
+						<div class="col-xs-9">
+							<div class="custom-controls-stacked">
+								<label class="custom-control custom-radio">
+									<input id="preferred-equity-{{id}}-has-arrangement" name="preferred-equity-{{id}}-arrangement-radio" type="radio" class="custom-control-input"  value="true"{{#if hasArrangement}}checked="checked"{{/if}}>
+									<span class="custom-control-indicator"></span>
+									<span class="custom-control-description">Yes</span>
+								</label>
+								<br/>
+								<label class="custom-control custom-radio">
+									<input id="preferred-equity-{{id}}-no-arrangement" name="preferred-equity-{{id}}-arrangement-radio" type="radio" class="custom-control-input" value="false" {{#unless hasArrangement}}checked="checked"{{/unless}}>
+									<span class="custom-control-indicator"></span>
+									<span class="custom-control-description">No</span>
+								</label>
+							</div>
+						</div>
+					</div>
+					<div id="preferred-equity-{{id}}-arrangement-form" class="form-group {{#unless hasArrangement}}hidden{{/unless}}">
+						<label for="preferred-equity-{{id}}-frontback" class="control-label col-xs-2">Front or Back?:</label>
+						<div class="form-group col-xs-3">
+							<div class="custom-controls-stacked">
+								<label class="custom-control custom-radio">
+									<input id="preferred-equity-{{id}}-is-front" name="preferred-equity-{{id}}-position-radio" type="radio" class="custom-control-input" value="true" {{#unless isBack}}checked="checked"{{/unless}}>
+									<span class="custom-control-indicator"></span>
+									<span class="custom-control-description">Front</span>
+								</label>
+								<br/>
+								<label class="custom-control custom-radio">
+									<input id="preferred-equity-{{id}}-is-back" name="preferred-equity-{{id}}-position-radio" type="radio" class="custom-control-input" value="false" {{#if isBack}}checked="checked"{{/if}}>
+									<span class="custom-control-indicator"></span>
+									<span class="custom-control-description">Back</span>
+								</label>
+							</div>
+						</div>
+					</div>
+					<div id="preferred-equity-{{id}}-withheld-form" class="form-group {{#unless hasArrangement}}hidden{{/unless}} {{#if isBack}}hidden{{/if}}">
+						<label for="preferred-equity-{{id}}-arrangement" class="control-label col-xs-2">Amount Withheld:</label>
+						<div class="col-xs-3">
+							<input type="number" min="0" max="100" class="form-control" id="preferred-equity-{{id}}-arrangement" value="{{arrangement}}">
+						</div>
+					</div>
+
 					<div class="modal-footer">
 						<button id="preferred-equity-{{id}}-cancel" type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
-						{{#if investor}}
-							<button id="preferred-equity-{{id}}-edit" class="btn btn-info" data-dismiss="modal">Edit</button>
-						{{/if}}
-						{{#unless investor}}
-							<button id="preferred-equity-{{id}}-save" type="button" class="btn btn-info" data-dismiss="modal">Save</button>
-						{{/unless}}
+						<button id="preferred-equity-{{id}}-save" type="button" class="btn btn-info" data-dismiss="modal">
+							{{#if investor}}Edit{{/if}}
+							{{#unless investor}}Save{{/unless}}
+						</button>
 					</div>
 				</form>
 			</div>
