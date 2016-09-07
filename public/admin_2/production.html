@@ -401,14 +401,16 @@
 							<div class="panel-heading">
 								<h3 class="panel-title">Financiers & Structures Summary</h3>
 							</div>
-							<div class="panel-body">
+							<div id="summary-table" class="panel-body">
 								<div id="pre-sales-summary">
 									<div class="row">
 										<div class="col-md-12 col-sm-12 col-xs-12" >
-											<h3 class="panel-title col-xs-3">
+											<h3 class="panel-title col-xs-2">
 												Pre-Sales
-												<button class="btn btn-icon btn-success add-btn" data-toggle="modal" data-target="#pre-sales-add-modal"><i class="fa ion-plus-round"></i></button>
 											</h3>
+											<div class="col-xs-1">
+												<button class="btn btn-icon btn-success add-btn" data-toggle="modal" data-target="#direct-territory-add-modal"> <i class="fa ion-plus-round"></i> </button>
+											</div>
 											<div class="col-xs-9">
 												<table class="table table-striped ">
 													<thead>
@@ -425,7 +427,7 @@
 														<td>$200,000</td>
 														<td class="actions">
 															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#pre-sales-1-modal" ><i class="fa fa-pencil"></i></button>
-															<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+															<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
 														</td>
 														<td id="pre-sales-1-table-row-id" class="hidden">1</td>
 													</tr>
@@ -439,10 +441,12 @@
 								<div id="direct-territory-summary">
 									<div class="row" >
 										<div class="col-md-12 col-sm-12 col-xs-12">
-										<h3 class="panel-title col-xs-3">
+										<h3 class="panel-title col-xs-2">
 											Direct Territory Sales
-											<button class="btn btn-icon btn-success add-btn" data-toggle="modal" data-target="#direct-territory-add-modal"> <i class="fa ion-plus-round"></i> </button>
 										</h3>
+											<div class="col-xs-1">
+												<button class="btn btn-icon btn-success add-btn" data-toggle="modal" data-target="#direct-territory-add-modal"> <i class="fa ion-plus-round"></i> </button>
+											</div>
 										<div class="col-xs-9">
 											<table class="table table-striped">
 												<thead>
@@ -459,7 +463,7 @@
 													<td>$275,000</td>
 													<td class="actions">
 														<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#direct-territory-1-modal" ><i class="fa fa-pencil"></i></button>
-														<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+														<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
 													</td>
 													<td id="direct-territory-1-table-row-id" class="hidden">1</td>
 												</tr>
@@ -473,10 +477,12 @@
 								<div id="tax-grant-summary">
 									<div class="row">
 										<div class="col-md-12 col-sm-12 col-xs-12">
-											<h3 class="panel-title col-xs-3">
+											<h3 class="panel-title col-xs-2">
 												Tax Incentives & Grants
-												<button  data-toggle="modal" data-target="#tax-grant-add-modal" class="btn btn-icon btn-success add-btn" > <i class="fa ion-plus-round"></i> </button>
 											</h3>
+											<div class="col-xs-1">
+												<button  data-toggle="modal" data-target="#tax-grant-add-modal" class="btn btn-icon btn-success add-btn" > <i class="fa ion-plus-round"></i> </button>
+											</div>
 											<div class="col-xs-9">
 												<table class="table table-striped">
 													<thead>
@@ -493,7 +499,7 @@
 														<td>$2,000,000</td>
 														<td class="actions">
 															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#tax-grant-1-modal" ><i class="fa fa-pencil"></i></button>
-															<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+															<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
 														</td>
 														<td id="tax-grant-1-table-row-id" class="hidden">1</td>
 													</tr>
@@ -501,8 +507,8 @@
 														<td>Government of Canada</td>
 														<td>$80,000</td>
 														<td class="actions">
-															<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
 															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#tax-grant-2-modal" ><i class="fa fa-pencil"></i></button>
+															<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
 														</td>
 														<td id="tax-grant-2-table-row-id" class="hidden">2</td>
 													</tr>
@@ -516,10 +522,12 @@
 								<div id="non-recouping-summary">
 									<div class="row" >
 										<div class="col-md-12 col-sm-12 col-xs-12">
-											<h3 class="panel-title col-xs-3">
+											<h3 class="panel-title col-xs-2">
 												Non-Recouping Production Capital
-												<button data-toggle="modal" data-target="#non-recouping-add-modal" class="btn btn-icon btn-success add-btn"> <i class="fa ion-plus-round"></i> </button>
 											</h3>
+											<div class="col-xs-1">
+												<button data-toggle="modal" data-target="#non-recouping-add-modal" class="btn btn-icon btn-success add-btn"> <i class="fa ion-plus-round"></i> </button>
+											</div>
 											<div class="col-xs-9">
 												<table class="table table-striped">
 													<thead>
@@ -536,7 +544,7 @@
 														<td>$100,000</td>
 														<td class="actions">
 															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#non-recouping-1-modal" ><i class="fa fa-pencil"></i></button>
-															<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+															<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
 														</td>
 														<td id="non-recouping-1-table-row-id" class="hidden">1</td>
 													</tr>
@@ -550,10 +558,12 @@
 								<div id="senior-debt-summary">
 									<div class="row" >
 										<div class="col-md-12 col-sm-12 col-xs-12">
-											<h3 class="panel-title col-xs-3">
+											<h3 class="panel-title col-xs-2">
 												Senior Debt/Gap Loan
-												<button data-toggle="modal" data-target="#senior-debt-add-modal" class="btn btn-icon btn-success add-btn"> <i class="fa ion-plus-round"></i> </button>
 											</h3>
+											<div class="col-xs-1">
+												<button data-toggle="modal" data-target="#senior-debt-add-modal" class="btn btn-icon btn-success add-btn"> <i class="fa ion-plus-round"></i> </button>
+											</div>
 											<div class="col-xs-9">
 												<table class="table table-striped">
 													<thead>
@@ -570,7 +580,7 @@
 														<td>$150,000</td>
 														<td class="actions">
 															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#senior-debt-1-modal" ><i class="fa fa-pencil"></i></button>
-															<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+															<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
 														</td>
 														<td id="senior-debt-1-table-row-id" class="hidden">1</td>
 													</tr>
@@ -584,10 +594,12 @@
 								<div id="preferred-equity-summary">
 									<div class="row">
 										<div class="col-md-12 col-sm-12 col-xs-12">
-											<h3 class="panel-title col-xs-3">
+											<h3 class="panel-title col-xs-2">
 												Preferred Equity
-												<button data-toggle="modal" data-target="#preferred-equity-add-modal" class="btn btn-icon btn-success add-btn"> <i class="fa ion-plus-round"></i> </button>
 											</h3>
+											<div class="col-xs-1">
+												<button data-toggle="modal" data-target="#preferred-equity-add-modal" class="btn btn-icon btn-success add-btn"> <i class="fa ion-plus-round"></i> </button>
+											</div>
 											<div class="col-xs-9">
 												<table class="table table-striped">
 													<thead>
@@ -604,7 +616,7 @@
 														<td>$350,000</td>
 														<td class="actions">
 															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#preferred-equity-1-modal" ><i class="fa fa-pencil"></i></button>
-															<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+															<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
 														</td>
 														<td id="preferred-equity-1-table-row-id" class="hidden">1</td>
 													</tr>
@@ -618,10 +630,12 @@
 								<div id="corridor-equity-summary">
 									<div class="row">
 										<div class="col-md-12 col-sm-12 col-xs-12">
-											<h3 class="panel-title col-xs-3">
+											<h3 class="panel-title col-xs-2">
 												Corridor Equity
-												<button data-toggle="modal" data-target="#corridor-equity-add-modal" class="btn btn-icon btn-success add-btn" > <i class="fa ion-plus-round"></i> </button>
 											</h3>
+											<div class="col-xs-1">
+												<button data-toggle="modal" data-target="#corridor-equity-add-modal" class="btn btn-icon btn-success add-btn" > <i class="fa ion-plus-round"></i> </button>
+											</div>
 											<div class="col-xs-9">
 												<table class="table table-striped">
 													<thead>
@@ -638,7 +652,7 @@
 														<td>$500,000</td>
 														<td class="actions">
 															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#corridor-equity-1-modal" ><i class="fa fa-pencil"></i></button>
-															<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+															<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
 														</td>
 														<td id="corridor-equity-1-table-row-id" class="hidden">1</td>
 													</tr>
@@ -647,7 +661,7 @@
 														<td>$200,000</td>
 														<td class="actions">
 															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#corridor-equity-2-modal" ><i class="fa fa-pencil"></i></button>
-															<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+															<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
 														</td>
 														<td id="corridor-equity-2-table-row-id" class="hidden">2</td>
 													</tr>
@@ -661,10 +675,12 @@
 								<div id="general-equity-summary">
 									<div class="row">
 										<div class="col-md-12 col-sm-12 col-xs-12">
-											<h3 class="panel-title col-xs-3">
+											<h3 class="panel-title col-xs-2">
 												General Equity
-												<button data-toggle="modal" data-target="#general-equity-add-modal" class="btn btn-icon btn-success add-btn"> <i class="fa ion-plus-round"></i> </button>
 											</h3>
+											<div class="col-xs-1">
+												<button data-toggle="modal" data-target="#general-equity-add-modal" class="btn btn-icon btn-success add-btn"> <i class="fa ion-plus-round"></i> </button>
+											</div>
 											<div class="col-xs-9">
 												<table class="table table-striped">
 													<thead>
@@ -681,7 +697,7 @@
 														<td>$500,000</td>
 														<td class="actions">
 															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#general-equity-1-modal" ><i class="fa fa-pencil"></i></button>
-															<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+															<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
 														</td>
 														<td id="general-equity-1-table-row-id" class="hidden">1</td>
 													</tr>
@@ -690,7 +706,7 @@
 														<td>$300,000</td>
 														<td class="actions">
 															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#general-equity-2-modal" ><i class="fa fa-pencil"></i></button>
-															<button class="btn btn-icon btn-danger action-btn"><i class="fa fa-trash-o"></i></button>
+															<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
 														</td>
 														<td id="general-equity-2-table-row-id" class="hidden">2</td>
 													</tr>
@@ -718,7 +734,31 @@
         <!-- Main Content Ends -->
 
 		<!-- MODAL -->
-		<div id="modalLocation"></div>
+		<div id="modalLocation">
+			<div id="delete-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button id="delete-close" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<h4 class="modal-title">Are you sure?</h4>
+						</div>
+						<div class="modal-body">
+							<div class="modal-text">
+								<p>Are you sure that you want to delete this row?</p>
+							</div>
+						</div>
+						<div class="hidden">
+							<div id="delete-modal-id"></div>
+							<div id="delete-modal-type"></div>
+						</div>
+						<div class="modal-footer">
+							<button id="delete-cancel" type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
+							<button id="delete-confirm" type="button" class="btn btn-info" data-dismiss="modal">Confirm</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
         <div id="dialog" class="modal-block mfp-hide">
             <section class="panel panel-info panel-color">
                 <header class="panel-heading">

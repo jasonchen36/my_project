@@ -42,6 +42,28 @@ $(document).ready(function() {
 		$('#option_direct_territory_sales').on('click', function() {
 			$("#direct-territory-summary").toggle();
 		});
+
+	})();
+
+	(function() {
+		var row;
+
+		$("#summary-table").on('click', '.btn-danger', function() {
+			row = this.parentNode.parentNode;
+		});
+
+		$("#delete-confirm").on('click', function() {
+			row.parentNode.removeChild(row);
+			row = [];
+		});
+
+		$("#delete-cancel").on('click', function() {
+			row = [];
+		});
+
+		$("#delete-close").on('click', function () {
+			row = [];
+		})
 	})();
 
 	(function() {
