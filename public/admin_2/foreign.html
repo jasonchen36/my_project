@@ -373,10 +373,10 @@
               <tbody id="foreign-sales-summary-table">
 
               <tr class="default clickable-row" id="foreign-sales-table-row-1" data-toggle="modal" data-target="#foreign-sales-1-modal" >
-                <td> Country: <input type="text" id="country"><br> </td>
-                <td> Ask: <input type="text" id="ask"><br> </td>
-                <td> Take: <input type="text" id="take"><br> </td>
-                <td> Actual: <input type="text" id="actual"><br> </td>
+                <td> Country: <input type="text" id="country"></input><br> </td>
+                <td> Ask: <input type="text" id="ask"></input><br> </td>
+                <td> Take: <input type="text" id="take"></input><br> </td>
+                <td> Actual: <input type="text" id="actual"></input><br> </td>
               </tr>
 
               </tbody>
@@ -430,7 +430,7 @@
 
               </tbody>
             </table>
-            <button type="button" name="button" data-dismiss="modal" id="save">Save</button>
+            <button type="button" name="button" data-dismiss="modal" id="edit-confirm">Save</button>
             <button type="button" name="button" data-dismiss="modal" id="cancel">Cancel</button>
           </div>
           </section>
@@ -585,9 +585,36 @@
           row = this.parentNode.parentNode ;
     		});
 
+        $("#foreign-sales-summary-table").on('click', '.btn-primary', function() {
+          row = this.parentNode.parentNode ;
+    		});
+
     		$("#delete-confirm").on('click', function() {
     			row.parentNode.removeChild(row);
     			row = {};
+    		});
+
+        $("#edit-confirm").on('click', function() {
+    			row.parentNode.removeChild(row);
+    			row = {};
+          var country = document.getElementById("country").value;
+          var ask = document.getElementById("ask").value;
+          var take = document.getElementById("take").value;
+          var actual = document.getElementById("actual").value;
+          $("#foreign-sales-summary-table").append(
+          '<tr class="default clickable-row" data-toggle="modal" data-target="#foreign-sales-1-modal" >'+
+            '<td>'+country+'</td>'+
+            '<td>'+ask+'</td>'+
+            '<td>'+take+'</td>'+
+            '<td>'+actual+'</td>'+
+            '<td class="actions">'+
+                '<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>'+
+                '<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>'+
+                '<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#edit-modal" ><i class="fa ion-eye"></i></button>'+
+                '<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>'+
+                '<button class="btn btn-icon btn-document action-btn" data-toggle="modal" data-target="#document-modal"><i class="fa ion-link"></i></button>'+
+            '</td>'+
+          '</tr>')
     		});
         </script>
 
