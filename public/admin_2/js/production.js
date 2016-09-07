@@ -11,6 +11,10 @@ $(document).ready(function() {
 		});
 	};
 
+	var formatMoneyString = function(number) {
+		return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	};
+
 	(function () {
 		$('.toggle').toggles({on: true});
 		$('#option_presales').on('click', function() {
@@ -54,15 +58,15 @@ $(document).ready(function() {
 
 		$("#delete-confirm").on('click', function() {
 			row.parentNode.removeChild(row);
-			row = [];
+			row = {};
 		});
 
 		$("#delete-cancel").on('click', function() {
-			row = [];
+			row = {};
 		});
 
 		$("#delete-close").on('click', function () {
-			row = [];
+			row = {};
 		})
 	})();
 
@@ -109,19 +113,19 @@ $(document).ready(function() {
 					advProd=false;
 				}
 				var data = {id: idCount, investor: investor, territory: territory, currency: currency,
-					amount: amount, escrowAmount: escrowAmount, distributor: distributor, advProd: advProd,
-					type: type};
+					amount: amount, escrowAmount: escrowAmount, distributor: distributor, advProd: advProd,};
+				var summaryData = {id:idCount, investor: investor, amount: formatMoneyString(amount-escrowAmount), type: type};
 				if (isAdd) {
 					$(typeid+"-form").trigger('reset');
 					$("#modalLocation").append(template(data));
-					$("#pre-sales-summary-table").append(summaryTableRow(data));
+					$("#pre-sales-summary-table").append(summaryTableRow(summaryData));
 					$(typeid+"-deposit-form").addClass("hidden");
 					$(typeid+"-advancesProd").prop("checked", true);
 					$(typeid+"-depositAdvances").prop("checked", false);
 					addModalListeners(idCount, 0);
 					idCount++;
 				} else {
-					data.id = $(typeid+"-table-row-id").text();
+					summaryData.id = $(typeid+"-table-row-id").text();
 					$(typeid+"-investor").attr("value",investor);
 					$(typeid+"-territory").attr("value",territory);
 					$(typeid+"-currency").attr("value",currency);
@@ -137,7 +141,7 @@ $(document).ready(function() {
 						$(typeid+"-depositAdvances").attr("value", true);
 						$(typeid+"-deposit-form").removeClass("hidden");
 					}
-					$(typeid+"-table-row").replaceWith(summaryTableRow(data));
+					$(typeid+"-table-row").replaceWith(summaryTableRow(summaryData));
 				}
 			});
 		};
@@ -206,32 +210,20 @@ $(document).ready(function() {
 				var radioHasPremium = $('input[name="direct-territory-'+id+'-premium-radio"]:checked').val();
 				var radioHasArrangement = $('input[name="direct-territory-'+id+'-arrangement-radio"]:checked').val();
 				var radioIsFront= $('input[name="direct-territory-'+id+'-position-radio"]:checked').val();
-				var hasPremium, hasArrangement, isBack;
-				if (radioHasPremium === "true") {
-					hasPremium = true;
-				} else {
-					hasPremium = false;
-				}
-				if (radioHasArrangement === "true") {
-					hasArrangement = true;
-				} else {
-					hasArrangement = false;
-				}
-				if (radioIsFront === "true") {
-					isBack = false;
-				} else {
-					isBack = true;
-				}
+				var hasPremium = radioHasPremium === "true";
+				var hasArrangement = radioHasArrangement === "true";
+				var isBack = radioIsFront !== "true";
 
 				var data = {id: idCount, investor: investor, amount: amount, currency: currency,
 					territory: territory, distributor: distributor, equity: equity, overages: overages,
 					hasPremium: hasPremium, premium: premium, hasArrangement: hasArrangement, isBack: isBack,
-					arrangement: amountWithheld, type: "direct-territory"};
+					arrangement: amountWithheld};
+				var summaryData = {id:idCount, investor: investor, amount: formatMoneyString(amount-amountWithheld), type: type}
 
 				if (isAdd) {
 					$(typeid+"-form").trigger('reset');
 					$("#modalLocation").append(template(data));
-					$("#direct-territory-summary-table").append(summaryTableRow(data));
+					$("#direct-territory-summary-table").append(summaryTableRow(summaryData));
 					$(typeid+"-withheld-form").addClass("hidden");
 					$(typeid+"-arrangement-form").addClass("hidden");
 					$(typeid+"-premium-form").addClass("hidden");
@@ -244,7 +236,7 @@ $(document).ready(function() {
 					addModalListeners(idCount, 0);
 					idCount++;
 				} else {
-					data.id = $(typeid+"-table-row-id").text();
+					summaryData.id = $(typeid+"-table-row-id").text();
 					$(typeid+"-investor").attr("value",investor);
 					$(typeid+"-territory").attr("value",territory);
 					$(typeid+"-currency").attr("value",currency);
@@ -284,7 +276,7 @@ $(document).ready(function() {
 						$(typeid+"-is-back").attr("value", true);
 						$(typeid+"-withheld-form").addClass("hidden");
 					}
-					$(typeid+"-table-row").replaceWith(summaryTableRow(data));
+					$(typeid+"-table-row").replaceWith(summaryTableRow(summaryData));
 				}
 			});
 		};
@@ -339,14 +331,12 @@ $(document).ready(function() {
 
 				var data = {id: idCount, investor: investor, isDiscount: isDiscount, estAmount: estimatedAmount,
 					netAdvance: netAdvance, amount:amount, interestRate:interestRate, loanType:loanType,
-					currency: currency, type: type};
+					currency: currency};
+					var summaryData = {id:idCount, investor: investor, amount: formatMoneyString(isDiscount ? netAdvance : amount), type: type}
 				if (isAdd) {
 					$(typeid+"-form").trigger('reset');
 					$("#modalLocation").append(template(data));
-					if (isDiscount) {
-						data.amount = data.netAdvance;
-					}
-					$("#tax-grant-summary-table").append(summaryTableRow(data));
+					$("#tax-grant-summary-table").append(summaryTableRow(summaryData));
 					$(typeid+"-is-loan-form").addClass("hidden");
 					$(typeid+"-is-discount-form").removeClass("hidden");
 					$(typeid+"-isDiscount").prop("checked", true);
@@ -354,7 +344,7 @@ $(document).ready(function() {
 					addModalListeners(idCount, 0);
 					idCount++;
 				} else {
-					data.id = $(typeid+"-table-row-id").text();
+					summaryData.id = $(typeid+"-table-row-id").text();
 					$(typeid+"-investor").attr("value",investor);
 					$(typeid+"-currency").attr("value",currency);
 					$(typeid+"-amount").attr("value",amount);
@@ -367,14 +357,13 @@ $(document).ready(function() {
 						$(typeid+"-is-discount-form").removeClass("hidden");
 						$(typeid+"-isDiscount").prop("checked", true);
 						$(typeid+"-isNotDiscount").prop("checked", false);
-						data.amount = data.netAdvance;
 					} else {
 						$(typeid+"-is-loan-form").removeClass("hidden");
 						$(typeid+"-is-discount-form").addClass("hidden");
 						$(typeid+"-isDiscount").prop("checked", false);
 						$(typeid+"-isNotDiscount").prop("checked", true);
 					}
-					$(typeid+"-table-row").replaceWith(summaryTableRow(data));
+					$(typeid+"-table-row").replaceWith(summaryTableRow(summaryData));
 				}
 			});
 		};
@@ -408,20 +397,21 @@ $(document).ready(function() {
 				var amount = $(typeid+"-amount").val();
 				var equity = $(typeid+"-equity").val();
 				var data = {id: idCount, investor: investor, amount:amount, currency: currency,
-					equity: equity, type: type };
+					equity: equity};
+				var summaryData = {id:idCount, investor:investor, amount: formatMoneyString(amount), type:type};
 				if (isAdd) {
 					$(typeid+"-form").trigger('reset');
 					$("#modalLocation").append(template(data));
-					$("#general-equity-summary-table").append(summaryTableRow(data));
+					$("#general-equity-summary-table").append(summaryTableRow(summaryData));
 					addModalListeners(idCount, 0);
 					idCount++;
 				} else {
-					data.id = $(typeid+"-table-row-id").text();
+					summaryData.id = $(typeid+"-table-row-id").text();
 					$(typeid+"-investor").attr("value",investor);
 					$(typeid+"-currency").attr("value",currency);
 					$(typeid+"-amount").attr("value",amount);
 					$(typeid+"-equity").attr("value", equity);
-					$(typeid+"-table-row").replaceWith(summaryTableRow(data));
+					$(typeid+"-table-row").replaceWith(summaryTableRow(summaryData));
 				}
 			});
 		};
@@ -455,20 +445,21 @@ $(document).ready(function() {
 				var amount = $(typeid+"-amount").val();
 				var equity = $(typeid+"-equity").val();
 				var data = {id: idCount, investor: investor, amount:amount, currency: currency,
-					equity: equity, type: type };
+					equity: equity };
+				var summaryData = {id: idCount, investor:investor, amount: formatMoneyString(amount), type:type};
 				if (isAdd) {
 					$(typeid+"-form").trigger('reset');
 					$("#modalLocation").append(template(data));
-					$("#non-recouping-summary-table").append(summaryTableRow(data));
+					$("#non-recouping-summary-table").append(summaryTableRow(summaryData));
 					addModalListeners(idCount, 0);
 					idCount++;
 				} else {
-					data.id = $(typeid+"-table-row-id").text();
+					summaryData.id = $(typeid+"-table-row-id").text();
 					$(typeid+"-investor").attr("value",investor);
 					$(typeid+"-currency").attr("value",currency);
 					$(typeid+"-amount").attr("value",amount);
 					$(typeid+"-equity").attr("value", equity);
-					$(typeid+"-table-row").replaceWith(summaryTableRow(data));
+					$(typeid+"-table-row").replaceWith(summaryTableRow(summaryData));
 				}
 			});
 		};
@@ -498,20 +489,21 @@ $(document).ready(function() {
 				var amount = $(typeid+"-amount").val();
 				var equity = $(typeid+"-equity").val();
 				var data = {id: idCount, investor: investor, amount:amount, currency: currency,
-					equity: equity, type: type };
+					equity: equity};
+				var summaryData = {id: idCount, investor: investor, amount: formatMoneyString(amount), type:type};
 				if (isAdd) {
 					$(typeid+"-form").trigger('reset');
 					$("#modalLocation").append(template(data));
-					$("#preferred-equity-summary-table").append(summaryTableRow(data));
+					$("#preferred-equity-summary-table").append(summaryTableRow(summaryData));
 					addModalListeners(idCount, 0);
 					idCount++;
 				} else {
-					data.id = $(typeid+"-table-row-id").text();
+					summaryData.id = $(typeid+"-table-row-id").text();
 					$(typeid+"-investor").attr("value",investor);
 					$(typeid+"-currency").attr("value",currency);
 					$(typeid+"-amount").attr("value",amount);
 					$(typeid+"-equity").attr("value", equity);
-					$(typeid+"-table-row").replaceWith(summaryTableRow(data));
+					$(typeid+"-table-row").replaceWith(summaryTableRow(summaryData));
 				}
 			});
 		};
@@ -548,23 +540,23 @@ $(document).ready(function() {
 				var presaleCorridor = $(typeid+"-presale-corridor").val();
 				var recoupmentCorridor = $(typeid+"-recoupment-corridor").val();
 				var data = {id: idCount, investor: investor, amount:amount, currency: currency,
-					equity: equity, presaleCorridor: presaleCorridor, recoupmentCorridor: recoupmentCorridor,
-					type: type };
+					equity: equity, presaleCorridor: presaleCorridor, recoupmentCorridor: recoupmentCorridor,};
+				var summaryData = {id: idCount, investor: investor, amount: formatMoneyString(amount), type: type};
 				if (isAdd) {
 					$(typeid+"-form").trigger('reset');
 					$("#modalLocation").append(template(data));
-					$("#corridor-equity-summary-table").append(summaryTableRow(data));
+					$("#corridor-equity-summary-table").append(summaryTableRow(summaryData));
 					addModalListeners(idCount, 0);
 					idCount++;
 				} else {
-					data.id = $(typeid+"-table-row-id").text();
+					summaryData.id = $(typeid+"-table-row-id").text();
 					$(typeid+"-investor").attr("value",investor);
 					$(typeid+"-currency").attr("value",currency);
 					$(typeid+"-amount").attr("value",amount);
 					$(typeid+"-equity").attr("value", equity);
 					$(typeid+"-presale-corridor").attr("value", presaleCorridor);
 					$(typeid+"-recoupment-corridor").attr("value", recoupmentCorridor);
-					$(typeid+"-table-row").replaceWith(summaryTableRow(data));
+					$(typeid+"-table-row").replaceWith(summaryTableRow(summaryData));
 				}
 			});
 		};
@@ -612,16 +604,16 @@ $(document).ready(function() {
 				var financeSource = $(typeid+"finance-source").val();
 
 				var data = {id: idCount, investor: investor, amount:amount, equity: equity,
-					interestRate:interestRate, loanType:loanType, currency: currency, financeSource: financeSource,
-					type: type};
+					interestRate:interestRate, loanType:loanType, currency: currency, financeSource: financeSource,};
+				var summaryData = {id: idCount, investor:investor, amount: formatMoneyString(amount), type:type};
 				if (isAdd) {
 					$(typeid+"-form").trigger('reset');
 					$("#modalLocation").append(template(data));
-					$("#senior-debt-summary-table").append(summaryTableRow(data));
+					$("#senior-debt-summary-table").append(summaryTableRow(summaryData));
 					addModalListeners(idCount, 0);
 					idCount++;
 				} else {
-					data.id = $(typeid+"-table-row-id").text();
+					summaryData.id = $(typeid+"-table-row-id").text();
 					$(typeid+"-investor").attr("value",investor);
 					$(typeid+"-currency").attr("value",currency);
 					$(typeid+"-amount").attr("value",amount);
@@ -629,7 +621,7 @@ $(document).ready(function() {
 					$(typeid+"-interest-rate").attr("value", interestRate);
 					$(typeid+"-equity").attr("value", equity);
 					$(typeid+"-finance-source").attr("value", financeSource);
-					$(typeid+"-table-row").replaceWith(summaryTableRow(data));
+					$(typeid+"-table-row").replaceWith(summaryTableRow(summaryData));
 				}
 			});
 		};
