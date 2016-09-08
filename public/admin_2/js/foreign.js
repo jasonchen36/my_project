@@ -4,6 +4,10 @@ $(document).ready(function() {
 		return "$"+number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	};
 
+	var moneyStringToNumber = function(money) {
+		return money.replace(/\$|,/g, '');
+	};
+
 	var total_ask = 0;
 	var total_take = 0;
 	var total_actual = 0;
