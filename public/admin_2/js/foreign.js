@@ -33,7 +33,11 @@ $(document).ready(function() {
 			var actual = $("#foreign-sales-add-actual").val();
 			total_ask = total_ask + parseInt(ask, 10);
 			total_take = total_take + parseInt(take, 10);
+			if (isNaN(parseInt(actual, 10))){
+			total_actual = total_actual;
+		  }else{
 			total_actual = total_actual + parseInt(actual, 10);
+		  };
 			$('#total').html('')
 			$('#total').append('<th>Total:</th>'+
 			'<th>'+formatMoneyString(total_ask)+'</th>'+
