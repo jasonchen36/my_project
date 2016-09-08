@@ -4,6 +4,17 @@ $(document).ready(function() {
 		return "$"+number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	};
 
+	var total_ask = 400000;
+	var total_take = 166000;
+	var total_actual = 180000;
+	$('#total').append('<th>Total:</th>'+
+	'<th>'+formatMoneyString(total_ask)+'</th>'+
+	'<th>'+formatMoneyString(total_take)+'</th>'+
+	'<th>'+formatMoneyString(total_actual)+'</th>'+
+	'<th></th>');
+
+
+
 	(function() {
 		var row;
 
@@ -20,6 +31,15 @@ $(document).ready(function() {
 			var ask = $("#foreign-sales-add-ask").val();
 			var take = $("#foreign-sales-add-take").val();
 			var actual = $("#foreign-sales-add-actual").val();
+			total_ask += ask;
+			total_take += take;
+			total_actual += actual;
+			$('#total').html('')
+			$('#total').append('<th>Total:</th>'+
+			'<th>'+formatMoneyString(total_ask)+'</th>'+
+			'<th>'+formatMoneyString(total_take)+'</th>'+
+			'<th>'+formatMoneyString(total_actual)+'</th>'+
+			'<th></th>');
 			if (row) {
 				$(row).replaceWith(	'<tr class="default">'+
 					'<td>'+country+'</td>'+
