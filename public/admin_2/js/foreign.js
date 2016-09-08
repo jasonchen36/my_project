@@ -27,9 +27,9 @@ $(document).ready(function() {
 					'<td>'+formatMoneyString(take)+'</td>'+
 					'<td>'+actual+'</td>'+
 					'<td class="actions">'+
-					'<button class="btn btn-icon btn-primary edit-btn action-btn" data-toggle="modal" data-target="#add-modal" ><i class="fa ion-eye"></i></button>'+
-					'<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>'+
-					'<button class="btn btn-icon btn-document action-btn" data-toggle="modal" data-target="#document-modal"><i class="fa ion-link"></i></button>'+
+          '<button class="btn btn-icon btn-primary edit-btn action-btn" data-toggle="modal" data-target="#add-modal" ><i class="fa ion-eye"></i></button>'+ ' '+
+          '<button class="btn btn-icon btn-danger delete-btn action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>'+ ' '+
+          '<button class="btn btn-icon btn-document action-btn" data-toggle="modal" data-target="#document-modal"><i class="fa ion-link"></i></button>'+
 					'</td>'+
 					'</tr>');
 				row = 0;
@@ -42,9 +42,9 @@ $(document).ready(function() {
 					'<td>'+formatMoneyString(take)+'</td>'+
 					'<td>'+actual+'</td>'+
 					'<td class="actions">'+
-					'<button class="btn btn-icon btn-primary edit-btn action-btn" data-toggle="modal" data-target="#add-modal" ><i class="fa ion-eye"></i></button>'+
-					'<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>'+
-					'<button class="btn btn-icon btn-document action-btn" data-toggle="modal" data-target="#document-modal"><i class="fa ion-link"></i></button>'+
+					'<button class="btn btn-icon btn-primary edit-btn action-btn" data-toggle="modal" data-target="#add-modal" ><i class="fa ion-eye"></i></button>'+' '+
+          '<button class="btn btn-icon btn-danger delete-btn action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>'+' '+
+          '<button class="btn btn-icon btn-document action-btn" data-toggle="modal" data-target="#document-modal"><i class="fa ion-link"></i></button>'+
 					'</td>'+
 					'</tr>');
 			}
