@@ -118,15 +118,17 @@ $(document).ready(function() {
 		});
 
 		$("#delete-confirm").on('click', function() {
+			ask = moneyStringToNumber($(row).find('.ask').text());
+			take = moneyStringToNumber($(row).find('.take').text());
+			actual = moneyStringToNumber($(row).find('.actual').text());
 			row.parentNode.removeChild(row);
 			row = 0;
-			console.log(ask)
-			total_ask = total_ask - parseInt(ask, 10);
-			total_take = total_take - parseInt(take, 10);
-			if (isNaN(parseInt(actual, 10))){
+			total_ask = total_ask - ask;
+			total_take = total_take - ask;
+			if (isNaN(actual)){
 				total_actual = total_actual;
 		  } else {
-				total_actual = total_actual - parseInt(actual, 10);
+				total_actual = total_actual - actual;
 		  };
 			$('#total').html('')
 			$('#total').append('<th>Total:</th>'+
