@@ -703,5 +703,46 @@ $(document).ready(function() {
 		addModalListeners("1", 0);
 		addModalListeners("add", 1);
 	})();
-});
 
+	$("#add-currency").on('click', function(e){
+		e.preventDefault();
+		var fixed = document.getElementById("fixed").value
+		var base = $('#base-currency option').filter(':selected').text();
+		var base_currency = base.substr(base.length - 3)
+		var selected_option = $('#mySelectBox option').filter(':selected').text();
+
+		if (fixed === '' && !document.getElementById("USD/CAD").checked && !document.getElementById("AED/CAD").checked && !document.getElementById("CNY/CAD").checked){
+			alert("Please enter an exchange rate.")
+		}else {
+			if (fixed === ''){
+
+			}else {
+				$("#add-here").append('<input type="checkbox" id=' + selected_option.substr(selected_option.length - 3) + '/CAD checked>' + selected_option + '<br>');
+				$("#FX").append(fixed + " " + selected_option.substr(selected_option.length - 3) + " = 1.00 " + base_currency + " Fixed </br>");
+			};
+		};
+
+		if (base_currency === 'ncy'){
+			alert("Please enter a base currency.")
+			return
+		};
+
+		if(document.getElementById("USD/CAD").checked && document.getElementById("AED/CAD").checked && document.getElementById("CNY/CAD").checked){
+			$("#FX").append("0.7614 USD = 1.00 " + base_currency + "</br>2.7969 AED = 1.00 " + base_currency + "</br>1.00 CNY = 0.20 " + base_currency + "</br>");
+		}else if (document.getElementById("USD/CAD").checked && document.getElementById("AED/CAD").checked){
+			$("#FX").append("0.7614 USD = 1.00 " + base_currency + "</br>2.7969 AED = 1.00 " + base_currency + "</br>");
+		}else if (document.getElementById("USD/CAD").checked && document.getElementById("CNY/CAD").checked){
+			$("#FX").append("0.7614 USD = 1.00 " + base_currency + "</br>1.00 CNY = 0.20 " + base_currency + "</br>");
+		}else if (document.getElementById("AED/CAD").checked && document.getElementById("CNY/CAD").checked){
+			$("#FX").append("2.7969 AED = 1.00 " + base_currency + "</br>1.00 CNY = 0.20 " + base_currency + "</br>");
+		}else if(document.getElementById("USD/CAD").checked){
+			$("#FX").append("0.7614 USD = 1.00 " + base_currency + "</br>");
+		}else if (document.getElementById("AED/CAD").checked) {
+			$("#FX").append("2.7969 AED = 1.00 " + base_currency + "</br>");
+		}else if (document.getElementById("CNY/CAD").checked) {
+			$("#FX").append("1.00 CNY = 0.20 " + base_currency + "</br>");
+		}
+	});
+
+
+});
