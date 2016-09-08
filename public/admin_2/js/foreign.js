@@ -4,9 +4,26 @@ $(document).ready(function() {
 		return "$"+number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	};
 
-	var total_ask = 400000;
-	var total_take = 166000;
-	var total_actual = 180000;
+	var total_ask = 0;
+	var total_take = 0;
+	var total_actual = 0;
+
+	$('.ask').each(function(){
+    total_ask += parseFloat($(this).text().substr(1));  // Or this.innerHTML, this.innerText
+	});
+	total_ask = total_ask * 1000
+	$('.take').each(function(){
+    total_take += parseFloat($(this).text().substr(1));  // Or this.innerHTML, this.innerText
+	});
+	total_take = total_take * 1000
+	$('.actual').each(function(){
+		if (isNaN(parseInt($(this).text().substr(1)))){
+			total_actual = total_actual;
+		} else {
+			total_actual += parseFloat($(this).text().substr(1));  // Or this.innerHTML, this.innerText
+		};
+	});
+	total_actual = total_actual * 1000
 	$('#total').append('<th>Total:</th>'+
 	'<th>'+formatMoneyString(total_ask)+'</th>'+
 	'<th>'+formatMoneyString(total_take)+'</th>'+
@@ -88,6 +105,10 @@ $(document).ready(function() {
 
 	(function() {
 		var row;
+		var country = $("#foreign-sales-add-country").val();
+		var ask = $("#foreign-sales-add-ask").val();
+		var take = $("#foreign-sales-add-take").val();
+		var actual = $("#foreign-sales-add-actual").val();
 		$("#foreign-sales-summary-table").on('click', '.delete-btn', function() {
 			row = this.parentNode.parentNode ;
 		});
@@ -95,6 +116,20 @@ $(document).ready(function() {
 		$("#delete-confirm").on('click', function() {
 			row.parentNode.removeChild(row);
 			row = 0;
+			console.log(ask)
+			total_ask = total_ask - parseInt(ask, 10);
+			total_take = total_take - parseInt(take, 10);
+			if (isNaN(parseInt(actual, 10))){
+				total_actual = total_actual;
+		  } else {
+				total_actual = total_actual - parseInt(actual, 10);
+		  };
+			$('#total').html('')
+			$('#total').append('<th>Total:</th>'+
+			'<th>'+formatMoneyString(total_ask)+'</th>'+
+			'<th>'+formatMoneyString(total_take)+'</th>'+
+			'<th>'+formatMoneyString(total_actual)+'</th>'+
+			'<th></th>');
 		});
 
 		$("#delete-cancel").on('click', function() {
