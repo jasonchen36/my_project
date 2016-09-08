@@ -22,18 +22,18 @@ $(document).ready(function() {
 		});
 		$('#option_equity').on('click', function() {
 			$("#general-equity-summary").toggle();
-		});
+		}).click();
 
 		$('#option_senior_debt').on('click', function() {
 			$("#senior-debt-summary").toggle();
 		});
 		$('#option_preferred-equity').on('click', function() {
 			$("#preferred-equity-summary").toggle();
-		});
+		}).click();
 
 		$('#option_non_recouping_production_capital').on('click', function() {
 			$("#non-recouping-summary").toggle();
-		});
+		}).click();
 
 		$('#option_corridor_equity').on('click', function() {
 			$("#corridor-equity-summary").toggle();
@@ -78,7 +78,7 @@ $(document).ready(function() {
 		var add = {id: "add", investor: "", amount: "0", currency: "CAD",
 			territory: "", distributor: "", depositAdvances: "", advProd: "true",
 			escrowAmount: "0", equity: "0"};
-		var data1 = {id: "1", investor: "Concourse Media", amount: "200000", currency: "CAD",
+		var data1 = {id: "1", investor: "eOne", amount: "150000", currency: "CAD",
 			territory: "United Kingdom", distributor: "MGM", depositAdvances: "", advProd: "true",
 			escrowAmount: "0", equity: "20"};
 
@@ -159,8 +159,8 @@ $(document).ready(function() {
 			territory: "", distributor: "", equity: "0", overages: "0",
 			hasPremium: false, premium: "0", hasArrangement: false, isBack: true,
 			arrangement: ""};
-		var data1 = {id: "1", investor: "French Distributors", amount: "275000", currency: "CAD",
-			territory: "France", distributor: "MGM", equity: "4", overages: "60",
+		var data1 = {id: "1", investor: "Jacob Neal", amount: "275000", currency: "CAD",
+			territory: "United Kingdom", distributor: "MGM", equity: "0", overages: "100",
 			hasPremium: false, premium: "0", hasArrangement: false, isBack: true,
 			arrangement: ""};
 
@@ -292,17 +292,21 @@ $(document).ready(function() {
 		var add = {id: "add", investor: "", isDiscount: "true", isLoan: "",
 			estAmount: "0", netAdvance: "0", amount:"0", interestRate:"0",
 			loanType:"Simple", currency: "CAD", overages: "0"};
-		var data1 = {id: "1", investor: "BC Government", isDiscount: "", isLoan: "true",
-			estAmount: "", netAdvance: "0", amount:"2000000", interestRate:"15",
-			loanType:"Semi-Annual", currency: "CAD", overages: "0"};
-		var data2 = {id: "2", investor: "Government of Canada", isDiscount: "true", isLoan: "",
-			estAmount: "100000", netAdvance: "80000", amount:"", interestRate:"",
+		var data1 = {id: "1", investor: "National Bank", isDiscount: "", isLoan: "true",
+			estAmount: "", netAdvance: "0", amount:"1000000", interestRate:"15",
+			loanType:"Simple", currency: "CAD", overages: "0"};
+		var data2 = {id: "2", investor: "NOHFC - Grant", isDiscount: "true", isLoan: "",
+			estAmount: "800000", netAdvance: "800000", amount:"", interestRate:"",
+			loanType:"Simple", currency: "CAD", overages: "0"};
+		var data3 = {id: "3", investor: "UK Tax Credits", isDiscount: "true", isLoan: "",
+			estAmount: "70000", netAdvance: "70000", amount:"", interestRate:"",
 			loanType:"Simple", currency: "CAD", overages: "0"};
 
 		$("#modalLocation")
 			.append(template(add))
 			.append(template(data1))
-			.append(template(data2));
+			.append(template(data2))
+			.append(template(data3));
 
 		var addModalListeners = function(id, isAdd) {
 			var typeid = "#"+type+"-"+id;
@@ -372,7 +376,9 @@ $(document).ready(function() {
 		idCount++;
 		addModalListeners("1", 0);
 		idCount++;
-		addModalListeners("2",0);
+		addModalListeners("2", 0);
+		idCount++;
+		addModalListeners("3", 0);
 		addModalListeners("add", 1);
 	})();
 
@@ -381,13 +387,9 @@ $(document).ready(function() {
 		var template = Handlebars.templates['generalEquityModal'];
 		var type = "general-equity";
 		var add = {id: "add", investor: "", amount:"0", currency: "CAD", equity: "0" };
-		var data1 = {id: "1", investor: "Investor A", amount:"500000", currency: "CAD", equity:"50"};
-		var data2 = {id: "2", investor: "Investor B", amount:"300000", currency: "CAD", equity: "30"};
 
 		$("#modalLocation")
-			.append(template(add))
-			.append(template(data1))
-			.append(template(data2));
+			.append(template(add));
 
 		var addModalListeners = function(id, isAdd) {
 			var typeid = "#"+type+"-"+id;
@@ -417,10 +419,6 @@ $(document).ready(function() {
 				}
 			});
 		};
-		idCount++;
-		addModalListeners("1", 0);
-		idCount++;
-		addModalListeners("2", 0);
 		addModalListeners("add", 1);
 	})();
 
@@ -430,12 +428,9 @@ $(document).ready(function() {
 		var type = "non-recouping";
 		var add = {id: "add", investor: "", amount:"0", currency: "CAD",
 			equity: "0" };
-		var data1 = {id: "1", investor: "Producer Deferrals", amount:"100000", currency: "CAD",
-			equity:"5"};
 
 		$("#modalLocation")
-			.append(template(add))
-			.append(template(data1));
+			.append(template(add));
 
 		var addModalListeners = function(id, isAdd) {
 			var typeid = "#"+type+"-"+id;
@@ -465,8 +460,6 @@ $(document).ready(function() {
 				}
 			});
 		};
-		idCount++;
-		addModalListeners("1", 0);
 		addModalListeners("add", 1);
 	})();
 
@@ -477,13 +470,9 @@ $(document).ready(function() {
 		var add = {id: "add", investor: "", amount:"0", currency: "CAD",
 			equity: "0", hasPremium: false, premium: "0", hasArrangement: false,
 			isBack: true, arrangement: "" };
-		var data1 = {id: "1", investor: "Private Equity", amount:"350000", currency: "CAD",
-			equity:"10", hasPremium: false, premium: "0", hasArrangement: false,
-			isBack: true, arrangement: "" };
 
 		$("#modalLocation")
-			.append(template(add))
-			.append(template(data1));
+			.append(template(add));
 
 		var addModalListeners = function(id, isAdd) {
 			var typeid = "#"+type+"-"+id;
@@ -589,8 +578,6 @@ $(document).ready(function() {
 				}
 			});
 		};
-		idCount++;
-		addModalListeners("1", 0);
 		addModalListeners("add", 1);
 	})();
 
@@ -600,15 +587,18 @@ $(document).ready(function() {
 		var type = "corridor-equity";
 		var add = {id: "add", investor: "", amount:"0", currency: "CAD",
 			equity: "0" , presaleCorridor: "0", recoupmentCorridor: "0"};
-		var data1 = {id: "1", investor: "Telefilm", amount:"500000", currency: "CAD",
-			equity:"50", presaleCorridor:"0", recoupmentCorridor:"5"};
-		var data2 = {id: "2", investor: "NOHFC", amount:"200000", currency: "CAD",
-			equity:"20", presaleCorridor:"5", recoupmentCorridor:"0"};
+		var data1 = {id: "1", investor: "OMDC", amount:"200000", currency: "CAD",
+			equity:"0", presaleCorridor:"0", recoupmentCorridor:"1.5"};
+		var data2 = {id: "2", investor: "NOHFC - Equity", amount:"800000", currency: "CAD",
+			equity:"0", presaleCorridor:"0", recoupmentCorridor:"2.5"};
+		var data3 = {id: "3", investor: "Telefilm", amount:"1000000", currency: "CAD",
+			equity:"0", presaleCorridor:"0", recoupmentCorridor:"7.5"};
 
 		$("#modalLocation")
 			.append(template(add))
 			.append(template(data1))
-			.append(template(data2));
+			.append(template(data2))
+			.append(template(data3));
 
 		var addModalListeners = function(id, isAdd) {
 			var typeid = "#"+type+"-"+id;
@@ -646,6 +636,8 @@ $(document).ready(function() {
 		addModalListeners("1", 0);
 		idCount++;
 		addModalListeners("2", 0);
+		idCount++;
+		addModalListeners("3", 0);
 		addModalListeners("add", 1);
 	})();
 
@@ -655,7 +647,7 @@ $(document).ready(function() {
 		var type="senior-debt";
 		var add = {id: "add", investor: "", amount:"0", currency: "CAD",
 			equity: "0", financeSource:"Budget", loanType: "Simple", interestRate: "0" };
-		var data1 = {id: "1", investor: "Productivity Media", amount:"150000", currency: "CAD",
+		var data1 = {id: "1", investor: "Productivity Media", amount:"1500000", currency: "CAD",
 			equity:"10", financeSource: "Budget", loanType:"Simple", interestRate: "15"};
 
 		$("#modalLocation")
