@@ -47,6 +47,8 @@ $(document).ready(function() {
 			$("#foreign-sales-add-actual").val(row.children[3].textContent.replace(/\$|,/g, ''));
 		});
 
+
+
 		$("#foreign-sales-add-save").click(function(){
 			$('#foreign-sales-add-country').removeAttr('disabled');
 			var country = $("#foreign-sales-add-country").val();
