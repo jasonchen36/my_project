@@ -85,7 +85,7 @@ $(document).ready(function() {
 					'<td>'+country+'</td>'+
 					'<td>'+formatMoneyString(ask)+'</td>'+
 					'<td>'+formatMoneyString(take)+'</td>'+
-					'<td>'+actual+'</td>'+
+					'<td>'+formatMoneyString(actual)+'</td>'+
 					'<td class="actions">'+
 					'<button class="btn btn-icon btn-primary edit-btn action-btn" data-toggle="modal" data-target="#add-modal" ><i class="fa ion-eye"></i></button>'+' '+
           '<button class="btn btn-icon btn-danger delete-btn action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>'+' '+
