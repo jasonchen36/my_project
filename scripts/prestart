@@ -1,0 +1,1 @@
+handlebars -m public/admin_2/js/templates/> public/admin_2/js/templates/templates.js
