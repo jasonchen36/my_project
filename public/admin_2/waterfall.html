@@ -126,15 +126,214 @@
 
 		<div class="wraper container-fluid">
 			<div class="page-title">
-				<h3 class="title">Waterfall Schedule</h3>
+				<h3 class="title">Waterfall</h3>
 			</div>
 
-
+            <div class="row">
+                <div class="col-xs-7">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Sales Agent Commission</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" role="form">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th class="col-xs-6"></th>
+                                        <th class="col-xs-3">Pre-Recoup</th>
+                                        <th class="col-xs-3">Post-Recoup</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th>International</th>
+                                        <td>
+                                            <input type="number" min="0" max="100" class="form-control" id="waterfall-pre-recoup-international" value="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" min="0" max="100" class="form-control" id="waterfall-post-recoup-international" value="0">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Domestic</th>
+                                        <td>
+                                            <input type="number" min="0" max="100" class="form-control" id="waterfall-pre-recoup-domestic" value="0">
+                                        </td>
+                                        <td>
+                                            <input type="number" min="0" max="100" class="form-control" id="waterfall-post-recoup-domestic" value="0">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Average Commission (Forecast Sales)</th>
+                                        <td>12.19%</td>
+                                        <td>12.19%</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Allowable Commission Corridor %</th>
+                                        <td>
+                                            <input type="number" min="0" max="100" class="form-control" id="waterfall-pre-recoup-allowable-corridor" value="0">
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Pre-Sales Commission Corridor %</th>
+                                        <td>
+                                            <input type="number" min="0" max="100" class="form-control" id="waterfall-pre-recoup-pre-sales-corridor" value="0">
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-5">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Guild Residuals</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label for="waterfall-actors-residual" class="control-label col-xs-6">Actors Guild Residual %:</label>
+                                    <div class="col-xs-3">
+                                        <input type="number" min="0" max="100" class="form-control" id="waterfall-actors-residual" value="0">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="waterfall-writers-residual" class="control-label col-xs-6">Writers Guild Residual %:</label>
+                                    <div class="col-xs-3">
+                                        <input type="number" min="0" max="100" class="form-control" id="waterfall-writers-residual" value="0">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="waterfall-directors-residual" class="control-label col-xs-6">Directors Guild Residual %:</label>
+                                    <div class="col-xs-3">
+                                        <input type="number" min="0" max="100" class="form-control" id="waterfall-directors-residual" value="0">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Fees</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label for="waterfall-sales-expenses" class="control-label col-xs-4">Sales Expenses:</label>
+                                    <div class="col-xs-3">
+                                        <select name="currency_code" class="form-control">
+                                            <option value="AUD">AUD</option>
+                                            <option value="BRL">BRL </option>
+                                            <option value="CAD" selected="selected">CAD</option>
+                                            <option value="CZK">CZK</option>
+                                            <option value="DKK">DKK</option>
+                                            <option value="EUR">EUR</option>
+                                            <option value="HKD">HKD</option>
+                                            <option value="HUF">HUF </option>
+                                            <option value="ILS">ILS</option>
+                                            <option value="JPY">JPY</option>
+                                            <option value="MYR">MYR</option>
+                                            <option value="MXN">MXN</option>
+                                            <option value="NOK">NOK</option>
+                                            <option value="NZD">NZD</option>
+                                            <option value="PHP">PHP</option>
+                                            <option value="PLN">PLN</option>
+                                            <option value="GBP">GBP</option>
+                                            <option value="SGD">SGD</option>
+                                            <option value="SEK">SEK</option>
+                                            <option value="CHF">CHF</option>
+                                            <option value="TWD">TWD</option>
+                                            <option value="THB">THB</option>
+                                            <option value="TRY">TRY</option>
+                                            <option value="USD">USD</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-5">
+                                        <input type="number" min="0" class="form-control" id="waterfall-sales-expenses" value="125000">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="waterfall-cam-fees" class="control-label col-xs-4">CAM Fees %:</label>
+                                    <div class="col-xs-3">
+                                        <input type="number" min="0" class="form-control" id="waterfall-cam-fees" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="waterfall-cam-expenses" class="control-label col-xs-4">CAM Expenses:</label>
+                                    <div class="col-xs-3">
+                                        <select name="currency_code" class="form-control">
+                                            <option value="AUD">AUD</option>
+                                            <option value="BRL">BRL </option>
+                                            <option value="CAD" selected="selected">CAD</option>
+                                            <option value="CZK">CZK</option>
+                                            <option value="DKK">DKK</option>
+                                            <option value="EUR">EUR</option>
+                                            <option value="HKD">HKD</option>
+                                            <option value="HUF">HUF </option>
+                                            <option value="ILS">ILS</option>
+                                            <option value="JPY">JPY</option>
+                                            <option value="MYR">MYR</option>
+                                            <option value="MXN">MXN</option>
+                                            <option value="NOK">NOK</option>
+                                            <option value="NZD">NZD</option>
+                                            <option value="PHP">PHP</option>
+                                            <option value="PLN">PLN</option>
+                                            <option value="GBP">GBP</option>
+                                            <option value="SGD">SGD</option>
+                                            <option value="SEK">SEK</option>
+                                            <option value="CHF">CHF</option>
+                                            <option value="TWD">TWD</option>
+                                            <option value="THB">THB</option>
+                                            <option value="TRY">TRY</option>
+                                            <option value="USD">USD</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-5">
+                                        <input type="number" min="0" class="form-control" id="waterfall-cam-expenses" value="5000">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Ownership Split</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label for="waterfall-financiers-split" class="control-label col-xs-4">Financiers %:</label>
+                                    <div class="col-xs-3">
+                                        <input type="number" min="0" max="100" class="form-control" id="waterfall-financiers-split" value="0">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="waterfall-producers-split" class="control-label col-xs-4">Producers %:</label>
+                                    <div class="col-xs-3">
+                                        <input type="number" min="0" max="100" class="form-control" id="waterfall-producers-split" value="100">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">Waterfall Recoupment</h3>
+							<h3 class="panel-title">Recoupment</h3>
 						</div>
 
 
@@ -157,7 +356,7 @@
 												<tbody>
                                                     <tr>
                                                         <td>CAM Expenses</td>
-                                                        <td>$6548</td>
+                                                        <td>$6,548</td>
                                                         <td></td>
                                                     </tr>
 												</tbody>
@@ -360,5 +559,6 @@
 	<script src="js/wow.min.js"></script>
 	<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
 	<script src="js/jquery.app.js"></script>
+    <script src="js/waterfall.js"></script>
 </body>
 </html>
