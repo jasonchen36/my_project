@@ -136,56 +136,54 @@
                             <h3 class="panel-title">Sales Agent Commission</h3>
                         </div>
                         <div class="panel-body">
-                            <form class="form-horizontal" role="form">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th class="col-xs-6"></th>
-                                        <th class="col-xs-3">Pre-Recoup</th>
-                                        <th class="col-xs-3">Post-Recoup</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <th>International</th>
-                                        <td>
-                                            <input type="number" min="0" max="100" class="form-control" id="waterfall-pre-recoup-international" value="0">
-                                        </td>
-                                        <td>
-                                            <input type="number" min="0" max="100" class="form-control" id="waterfall-post-recoup-international" value="0">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Domestic</th>
-                                        <td>
-                                            <input type="number" min="0" max="100" class="form-control" id="waterfall-pre-recoup-domestic" value="0">
-                                        </td>
-                                        <td>
-                                            <input type="number" min="0" max="100" class="form-control" id="waterfall-post-recoup-domestic" value="0">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Average Commission (Forecast Sales)</th>
-                                        <td>12.19%</td>
-                                        <td>12.19%</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Allowable Commission Corridor %</th>
-                                        <td>
-                                            <input type="number" min="0" max="100" class="form-control" id="waterfall-pre-recoup-allowable-corridor" value="0">
-                                        </td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Pre-Sales Commission Corridor %</th>
-                                        <td>
-                                            <input type="number" min="0" max="100" class="form-control" id="waterfall-pre-recoup-pre-sales-corridor" value="0">
-                                        </td>
-                                        <td></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </form>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="col-xs-6"></th>
+                                    <th class="col-xs-3">Pre-Recoup</th>
+                                    <th class="col-xs-3">Post-Recoup</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th>International</th>
+                                    <td>
+                                        <input type="number" min="0" max="100" class="form-control" id="waterfall-pre-recoup-international" value="15">
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" max="100" class="form-control" id="waterfall-post-recoup-international" value="15">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Domestic</th>
+                                    <td>
+                                        <input type="number" min="0" max="100" class="form-control" id="waterfall-pre-recoup-domestic" value="7">
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" max="100" class="form-control" id="waterfall-post-recoup-domestic" value="7">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Average Commission (Forecast Sales)</th>
+                                    <td>12.19%</td>
+                                    <td>12.19%</td>
+                                </tr>
+                                <tr>
+                                    <th>Allowable Commission Corridor %</th>
+                                    <td>
+                                        <input type="number" min="0" max="100" class="form-control" id="waterfall-pre-recoup-allowable-corridor" value="5">
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Pre-Sales Commission Corridor %</th>
+                                    <td>
+                                        <input type="number" min="0" max="100" class="form-control" id="waterfall-pre-recoup-pre-sales-corridor" value="0">
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -199,7 +197,7 @@
                                 <div class="form-group">
                                     <label for="waterfall-actors-residual" class="control-label col-xs-6">Actors Guild Residual %:</label>
                                     <div class="col-xs-3">
-                                        <input type="number" min="0" max="100" class="form-control" id="waterfall-actors-residual" value="0">
+                                        <input type="number" min="0" max="100" class="form-control" id="waterfall-actors-residual" value="6.2">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -233,7 +231,7 @@
                                         <select name="currency_code" class="form-control">
                                             <option value="AUD">AUD</option>
                                             <option value="BRL">BRL </option>
-                                            <option value="CAD" selected="selected">CAD</option>
+                                            <option value="CAD">CAD</option>
                                             <option value="CZK">CZK</option>
                                             <option value="DKK">DKK</option>
                                             <option value="EUR">EUR</option>
@@ -254,7 +252,7 @@
                                             <option value="TWD">TWD</option>
                                             <option value="THB">THB</option>
                                             <option value="TRY">TRY</option>
-                                            <option value="USD">USD</option>
+                                            <option value="USD" selected="selected">USD</option>
                                         </select>
                                     </div>
                                     <div class="col-xs-5">
@@ -273,7 +271,7 @@
                                         <select name="currency_code" class="form-control">
                                             <option value="AUD">AUD</option>
                                             <option value="BRL">BRL </option>
-                                            <option value="CAD" selected="selected">CAD</option>
+                                            <option value="CAD">CAD</option>
                                             <option value="CZK">CZK</option>
                                             <option value="DKK">DKK</option>
                                             <option value="EUR">EUR</option>
@@ -294,7 +292,7 @@
                                             <option value="TWD">TWD</option>
                                             <option value="THB">THB</option>
                                             <option value="TRY">TRY</option>
-                                            <option value="USD">USD</option>
+                                            <option value="USD" selected="selected">USD</option>
                                         </select>
                                     </div>
                                     <div class="col-xs-5">
@@ -315,13 +313,13 @@
                                 <div class="form-group">
                                     <label for="waterfall-financiers-split" class="control-label col-xs-4">Financiers %:</label>
                                     <div class="col-xs-3">
-                                        <input type="number" min="0" max="100" class="form-control" id="waterfall-financiers-split" value="0">
+                                        <input type="number" min="0" max="100" class="form-control" id="waterfall-financiers-split" value="10">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="waterfall-producers-split" class="control-label col-xs-4">Producers %:</label>
                                     <div class="col-xs-3">
-                                        <input type="number" min="0" max="100" class="form-control" id="waterfall-producers-split" value="100">
+                                        <input type="number" min="0" max="100" class="form-control" id="waterfall-producers-split" value="90">
                                     </div>
                                 </div>
                             </form>
@@ -338,7 +336,7 @@
 
 
 						<div class="panel-body" id="waterfall-summary-table">
-							<div id="stage-off-the-top">
+							<div id="stage-otp">
 								<div class="row">
 									<div class="col-md-12 col-sm-12 col-xs-12">
 										<h3 class="panel-title col-xs-3">Off The Top Expenses</h3>
@@ -356,7 +354,7 @@
 												<tbody>
                                                     <tr>
                                                         <td>CAM Expenses</td>
-                                                        <td>$6,548</td>
+                                                        <td id="waterfall-otp-cam-expenses">CAD 6,548</td>
                                                         <td></td>
                                                     </tr>
 												</tbody>
@@ -382,22 +380,22 @@
                                                 <tbody>
                                                 <tr>
                                                     <td>NOHFC - Equity (Commence Corridor)</td>
-                                                    <td>$4,624</td>
+                                                    <td id="waterfall-1-nohfc">CAD 4,624</td>
                                                     <td>2.5%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>OMDC (Commence Corridor)</td>
-                                                    <td>$2,775</td>
+                                                    <td id="waterfall-1-omdc">CAD 2,775</td>
                                                     <td>1.5%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Telefilm (Commence Corridor)</td>
-                                                    <td>$13,873</td>
+                                                    <td id="waterfall-1-telefilm">CAD 13,873</td>
                                                     <td>2.5%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Selling Expenses</td>
-                                                    <td>$163,698</td>
+                                                    <td id="waterfall-1-selling-expense">CAD 163,698</td>
                                                     <td>88.5%</td>
                                                 </tr>
                                                 </tbody>
@@ -428,17 +426,17 @@
                                                 </tr>
                                                 <tr>
                                                     <td>NOHFC - Equity</td>
-                                                    <td>$443</td>
+                                                    <td id="waterfall-2-nohfc">CAD 443</td>
                                                     <td>2.5%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>OMDC</td>
-                                                    <td>$266</td>
+                                                    <td id="waterfall-2-omdc">CAD 266</td>
                                                     <td>1.5%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Telefilm</td>
-                                                    <td>$1,329</td>
+                                                    <td id="waterfall-2-telefilm">CAD 1,329</td>
                                                     <td>7.5%</td>
                                                 </tr>
                                                 </tbody>
@@ -474,17 +472,17 @@
                                                 </tr>
                                                 <tr>
                                                     <td>OMDC</td>
-                                                    <td>$25,339</td>
+                                                    <td id="waterfall-3-omdc">CAD 25,339</td>
                                                     <td>1.5%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>NOHFC - Equity</td>
-                                                    <td>$42,232</td>
+                                                    <td id="waterfall-3-nohfc">CAD 42,232</td>
                                                     <td>2.5%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Telefilm</td>
-                                                    <td>$126,695</td>
+                                                    <td id="waterfall-3-telefilm">CAD 126,695</td>
                                                     <td>7.5%</td>
                                                 </tr>
                                                 </tbody>
@@ -510,22 +508,22 @@
                                                 <tbody>
                                                 <tr>
                                                     <td>NOHFC - Equity (Balance)</td>
-                                                    <td>$452,701</td>
+                                                    <td id="waterfall-4-nohfc">CAD 452,701</td>
                                                     <td>21.43%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>OMDC (Balance)</td>
-                                                    <td>$271,621</td>
+                                                    <td id="waterfall-4-omdc">CAD 271,621</td>
                                                     <td>12.86%</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Telefilm (Balance)</td>
-                                                    <td>$1,358,103</td>
+                                                    <td id="waterfall-4-telefilm">CAD 1,358,103</td>
                                                     <td>64.29%</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Deferred Sales Agent Commision On Pre-Sales</td>
-                                                    <td>$30,000</td>
+                                                    <td>Deferred Sales Agent Commission On Pre-Sales</td>
+                                                    <td>CAD 30,000</td>
                                                     <td>1.42%</td>
                                                 </tr>
                                                 </tbody>
