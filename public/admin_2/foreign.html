@@ -243,8 +243,8 @@
                             <tbody id="foreign-sales-summary-table">
                                 <tr class="default">
                                   <td>UK</td>
-                                  <td class="ask">$0</td>
-                                  <td class="take">$0</td>
+                                  <td class="ask">$400,000</td>
+                                  <td class="take">$400,000</td>
                                   <td class="actual">$400,000</td>
                                   <td class="actions">
                                       <button class="btn btn-icon btn-primary edit-btn action-btn" data-toggle="modal" data-target="#add-modal" ><i class="fa ion-eye"></i></button>
@@ -320,6 +320,54 @@
                                 </tr>-->
                             </tbody>
                           </table>
+                          <div class="row" id="foreign-sales-summary">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                              <br/>
+                              <h3 class="panel-title">Forecast Revenues</h3>
+                              <button data-toggle="modal" data-target="#add-modal2" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+                              <table class="table table-striped">
+                                <tfoot>
+            										<tr id="total2">
+
+            										</tr>
+            										</tfoot>
+                                <thead>
+                                <tr>
+                                  <th class="col-xs-2">Country</th>
+                                  <th class="col-xs-2">Ask</th>
+                                  <th class="col-xs-2">Take</th>
+                                  <th class="col-xs-2">Actual</th>
+                                  <th class="col-xs-2">Commission Rate</th>
+                                  <th class="col-xs-2">Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody id="foreign-sales-summary-table">
+                                    <tr class="default">
+                                      <td>US Domestic</td>
+                                      <td class="ask">$0</td>
+                                      <td class="take">$0</td>
+                                      <td class="actual">$0</td>
+                                      <td>Domestic</td>
+                                      <td class="actions">
+                                          <button class="btn btn-icon btn-primary edit-btn action-btn" data-toggle="modal" data-target="#add-modal" ><i class="fa ion-eye"></i></button>
+                                          <button class="btn btn-icon btn-danger delete-btn action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
+                                          <button class="btn btn-icon btn-document action-btn" data-toggle="modal" data-target="#document-modal"><i class="fa ion-document"></i></button>
+                                      </td>
+                                    </tr>
+                                    <tr class="default">
+                                      <td>International</td>
+                                      <td class="ask">$0</td>
+                                      <td class="take">$0</td>
+                                      <td class="actual">$0</td>
+                                      <td>International</td>
+                                      <td class="actions">
+                                          <button class="btn btn-icon btn-primary edit-btn action-btn" data-toggle="modal" data-target="#add-modal" ><i class="fa ion-eye"></i></button>
+                                          <button class="btn btn-icon btn-danger delete-btn action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
+                                          <button class="btn btn-icon btn-document action-btn" data-toggle="modal" data-target="#document-modal"><i class="fa ion-document"></i></button>
+                                      </td>
+                                    </tr>
+                                  </body>
+                                </table>
                         </div>
                       </div>
 
@@ -379,6 +427,55 @@
                             </div>
                             <div class="form-group">
                                 <label for="foreign-sales-add-actual" class="control-label col-xs-2">Actual:</label>
+                                <div class="col-xs-3">
+                                    <input class="form-control" id="foreign-sales-add-actual">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="foreign-sales-add-cancel" type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
+                                <button id="foreign-sales-add-save" type="button" class="btn btn-info" data-dismiss="modal">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="add-modal2" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button id="foreign-sales-add-close" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Foreign Sales</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="foreign-sales-add-form" class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="foreign-sales-add-country" class="control-label col-xs-2">Country:</label>
+                                <div class="col-xs-9">
+                                    <input type="text" class="form-control" id="foreign-sales-add-country">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="foreign-sales-add-ask" class="control-label col-xs-2">Ask:</label>
+                                <div class="col-xs-3">
+                                    <input type="number" min="0" class="form-control" id="foreign-sales-add-ask">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="foreign-sales-add-take" class="control-label col-xs-2">Take:</label>
+                                <div class="col-xs-3">
+                                    <input type="number" min="0" class="form-control" id="foreign-sales-add-take">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="foreign-sales-add-actual" class="control-label col-xs-2">Actual:</label>
+                                <div class="col-xs-3">
+                                    <input class="form-control" id="foreign-sales-add-actual">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="foreign-sales-add-actual" class="control-label col-xs-2">Commission:</label>
                                 <div class="col-xs-3">
                                     <input class="form-control" id="foreign-sales-add-actual">
                                 </div>
