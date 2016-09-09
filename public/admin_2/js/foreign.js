@@ -38,8 +38,8 @@ $(document).ready(function() {
 
 	(function() {
 		var row;
-
 		$("#foreign-sales-summary-table").on('click', '.edit-btn', function() {
+			$('#foreign-sales-add-country').attr('disabled','disabled');
 			row = this.parentNode.parentNode;
 			$("#foreign-sales-add-country").val(row.children[0].textContent);
 			$("#foreign-sales-add-ask").val(row.children[1].textContent.replace(/\$|,/g, ''));
@@ -48,17 +48,26 @@ $(document).ready(function() {
 		});
 
 		$("#foreign-sales-add-save").click(function(){
+			$('#foreign-sales-add-country').removeAttr('disabled');
 			var country = $("#foreign-sales-add-country").val();
 			var ask = $("#foreign-sales-add-ask").val();
 			var take = $("#foreign-sales-add-take").val();
 			var actual = $("#foreign-sales-add-actual").val();
-			total_ask = total_ask + parseInt(ask, 10);
-			total_take = total_take + parseInt(take, 10);
-			if (isNaN(parseInt(actual, 10))){
-				total_actual = total_actual;
-		  } else {
-				total_actual = total_actual + parseInt(actual, 10);
-		  };
+			if (total_ask = ask){
+				total_ask = total_ask
+			}else if (total_take = take){
+				total_take = total_take
+			}else if (total_actual = actual){
+				total_actual = total_actual
+			}else {
+				total_ask = total_ask + parseInt(ask, 10);
+				total_take = total_take + parseInt(take, 10);
+				if (isNaN(parseInt(actual, 10))){
+					total_actual = total_actual;
+		  	} else {
+					total_actual = total_actual + parseInt(actual, 10);
+		  	};
+			}
 			$('#total').html('')
 			$('#total').append('<th>Total:</th>'+
 			'<th>'+formatMoneyString(total_ask)+'</th>'+
@@ -66,6 +75,7 @@ $(document).ready(function() {
 			'<th>'+formatMoneyString(total_actual)+'</th>'+
 			'<th></th>');
 			if (row) {
+
 				$(row).replaceWith(	'<tr class="default">'+
 					'<td>'+country+'</td>'+
 					'<td>'+formatMoneyString(ask)+'</td>'+
@@ -80,6 +90,7 @@ $(document).ready(function() {
 				row = 0;
 				$("#foreign-sales-add-form").trigger('reset');
 			} else {
+
 				$("#foreign-sales-summary-table").append(
 					'<tr class="default" >'+
 					'<td>'+country+'</td>'+
@@ -97,11 +108,13 @@ $(document).ready(function() {
 		});
 
 		$("#foreign-sales-add-cancel").click(function() {
+			$('#foreign-sales-add-country').removeAttr('disabled');
 			row = 0;
 			$("#foreign-sales-add-form").trigger('reset');
 		});
 
 		$("#foreign-sales-add-close").click(function() {
+			$('#foreign-sales-add-country').removeAttr('disabled');
 			row = 0;
 			$("#foreign-sales-add-form").trigger('reset');
 		})
