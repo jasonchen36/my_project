@@ -78,7 +78,7 @@ $(document).ready(function() {
 		var add = {id: "add", investor: "", amount: "0", currency: "CAD",
 			territory: "", distributor: "", depositAdvances: "", advProd: "true",
 			escrowAmount: "0", equity: "0"};
-		var data1 = {id: "1", investor: "eOne", amount: "150000", currency: "CAD",
+		var data1 = {id: "1", investor: "eOne", amount: "200000", currency: "CAD",
 			territory: "United Kingdom", distributor: "MGM", depositAdvances: "", advProd: "true",
 			escrowAmount: "0", equity: "20"};
 
@@ -113,8 +113,9 @@ $(document).ready(function() {
 					advProd=false;
 				}
 				var data = {id: idCount, investor: investor, territory: territory, currency: currency,
-					amount: amount, escrowAmount: escrowAmount, distributor: distributor, advProd: advProd,};
-				var summaryData = {id:idCount, investor: investor, amount: formatMoneyString(amount-escrowAmount), type: type};
+					amount: amount, escrowAmount: escrowAmount, distributor: distributor, advProd: advProd};
+				var summaryData = {id:idCount, investor: investor, amount: formatMoneyString(amount-escrowAmount),
+					currency: currency, type: type};
 				if (isAdd) {
 					$(typeid+"-form").trigger('reset');
 					$("#modalLocation").append(template(data));
@@ -159,7 +160,7 @@ $(document).ready(function() {
 			territory: "", distributor: "", equity: "0", overages: "0",
 			hasPremium: false, premium: "0", hasArrangement: false, isBack: true,
 			arrangement: ""};
-		var data1 = {id: "1", investor: "Jacob Neal", amount: "275000", currency: "CAD",
+		var data1 = {id: "1", investor: "Jake Seal", amount: "450000", currency: "CAD",
 			territory: "United Kingdom", distributor: "MGM", equity: "0", overages: "100",
 			hasPremium: false, premium: "0", hasArrangement: false, isBack: true,
 			arrangement: ""};
@@ -218,7 +219,8 @@ $(document).ready(function() {
 					territory: territory, distributor: distributor, equity: equity, overages: overages,
 					hasPremium: hasPremium, premium: premium, hasArrangement: hasArrangement, isBack: isBack,
 					arrangement: amountWithheld};
-				var summaryData = {id:idCount, investor: investor, amount: formatMoneyString(amount-amountWithheld), type: type}
+				var summaryData = {id:idCount, investor: investor, amount: formatMoneyString(amount-amountWithheld),
+					currency: currency, type: type};
 
 				if (isAdd) {
 					$(typeid+"-form").trigger('reset');
@@ -293,13 +295,13 @@ $(document).ready(function() {
 			estAmount: "0", netAdvance: "0", amount:"0", interestRate:"0",
 			loanType:"Simple", currency: "CAD", overages: "0"};
 		var data1 = {id: "1", investor: "National Bank", isDiscount: "", isLoan: "true",
-			estAmount: "", netAdvance: "0", amount:"1000000", interestRate:"15",
+			estAmount: "", netAdvance: "0", amount:"1175000", interestRate:"15",
 			loanType:"Simple", currency: "CAD", overages: "0"};
 		var data2 = {id: "2", investor: "NOHFC - Grant", isDiscount: "true", isLoan: "",
-			estAmount: "800000", netAdvance: "800000", amount:"", interestRate:"",
+			estAmount: "800000", netAdvance: "500000", amount:"", interestRate:"",
 			loanType:"Simple", currency: "CAD", overages: "0"};
 		var data3 = {id: "3", investor: "UK Tax Credits", isDiscount: "true", isLoan: "",
-			estAmount: "70000", netAdvance: "70000", amount:"", interestRate:"",
+			estAmount: "70000", netAdvance: "75000", amount:"", interestRate:"",
 			loanType:"Simple", currency: "CAD", overages: "0"};
 
 		$("#modalLocation")
@@ -337,7 +339,8 @@ $(document).ready(function() {
 				var data = {id: idCount, investor: investor, isDiscount: isDiscount, estAmount: estimatedAmount,
 					netAdvance: netAdvance, amount:amount, interestRate:interestRate, loanType:loanType,
 					currency: currency, overages: overages};
-				var summaryData = {id:idCount, investor: investor, amount: formatMoneyString(isDiscount ? netAdvance : amount), type: type}
+				var summaryData = {id:idCount, investor: investor, amount: formatMoneyString(isDiscount ? netAdvance : amount),
+					currency:currency, type: type};
 				if (isAdd) {
 					$(typeid+"-form").trigger('reset');
 					$("#modalLocation").append(template(data));
@@ -402,7 +405,8 @@ $(document).ready(function() {
 				var equity = $(typeid+"-equity").val();
 				var data = {id: idCount, investor: investor, amount:amount, currency: currency,
 					equity: equity};
-				var summaryData = {id:idCount, investor:investor, amount: formatMoneyString(amount), type:type};
+				var summaryData = {id:idCount, investor:investor, amount: formatMoneyString(amount),
+					currency:currency, type:type};
 				if (isAdd) {
 					$(typeid+"-form").trigger('reset');
 					$("#modalLocation").append(template(data));
@@ -443,7 +447,8 @@ $(document).ready(function() {
 				var equity = $(typeid+"-equity").val();
 				var data = {id: idCount, investor: investor, amount:amount, currency: currency,
 					equity: equity };
-				var summaryData = {id: idCount, investor:investor, amount: formatMoneyString(amount), type:type};
+				var summaryData = {id: idCount, investor:investor, amount: formatMoneyString(amount),
+					currency:currency, type:type};
 				if (isAdd) {
 					$(typeid+"-form").trigger('reset');
 					$("#modalLocation").append(template(data));
@@ -520,7 +525,8 @@ $(document).ready(function() {
 				var data = {id: idCount, investor: investor, amount:amount, currency: currency,
 					equity: equity, hasPremium: hasPremium, premium: premium, hasArrangement: hasArrangement,
 					isBack: isBack, arrangement: amountWithheld};
-				var summaryData = {id: idCount, investor: investor, amount: formatMoneyString(amount-amountWithheld), type:type};
+				var summaryData = {id: idCount, investor: investor, amount: formatMoneyString(amount-amountWithheld),
+					currency:currency, type:type};
 				if (isAdd) {
 					$(typeid+"-form").trigger('reset');
 					$("#modalLocation").append(template(data));
@@ -587,11 +593,11 @@ $(document).ready(function() {
 		var type = "corridor-equity";
 		var add = {id: "add", investor: "", amount:"0", currency: "CAD",
 			equity: "0" , presaleCorridor: "0", recoupmentCorridor: "0"};
-		var data1 = {id: "1", investor: "OMDC", amount:"200000", currency: "CAD",
+		var data1 = {id: "1", investor: "OMDC", amount:"300000", currency: "CAD",
 			equity:"0", presaleCorridor:"0", recoupmentCorridor:"1.5"};
-		var data2 = {id: "2", investor: "NOHFC - Equity", amount:"800000", currency: "CAD",
+		var data2 = {id: "2", investor: "NOHFC - Equity", amount:"500000", currency: "CAD",
 			equity:"0", presaleCorridor:"0", recoupmentCorridor:"2.5"};
-		var data3 = {id: "3", investor: "Telefilm", amount:"1000000", currency: "CAD",
+		var data3 = {id: "3", investor: "Telefilm", amount:"1500000", currency: "CAD",
 			equity:"0", presaleCorridor:"0", recoupmentCorridor:"7.5"};
 
 		$("#modalLocation")
@@ -613,7 +619,8 @@ $(document).ready(function() {
 				var recoupmentCorridor = $(typeid+"-recoupment-corridor").val();
 				var data = {id: idCount, investor: investor, amount:amount, currency: currency,
 					equity: equity, presaleCorridor: presaleCorridor, recoupmentCorridor: recoupmentCorridor,};
-				var summaryData = {id: idCount, investor: investor, amount: formatMoneyString(amount), type: type};
+				var summaryData = {id: idCount, investor: investor, amount: formatMoneyString(amount),
+					currency: currency, type: type};
 				if (isAdd) {
 					$(typeid+"-form").trigger('reset');
 					$("#modalLocation").append(template(data));
@@ -647,7 +654,7 @@ $(document).ready(function() {
 		var type="senior-debt";
 		var add = {id: "add", investor: "", amount:"0", currency: "CAD",
 			equity: "0", financeSource:"Budget", loanType: "Simple", interestRate: "0" };
-		var data1 = {id: "1", investor: "Productivity Media", amount:"1500000", currency: "CAD",
+		var data1 = {id: "1", investor: "Productivity Media", amount:"1300000", currency: "CAD",
 			equity:"10", financeSource: "Budget", loanType:"Simple", interestRate: "15"};
 
 		$("#modalLocation")
@@ -679,7 +686,8 @@ $(document).ready(function() {
 
 				var data = {id: idCount, investor: investor, amount:amount, equity: equity,
 					interestRate:interestRate, loanType:loanType, currency: currency, financeSource: financeSource,};
-				var summaryData = {id: idCount, investor:investor, amount: formatMoneyString(amount), type:type};
+				var summaryData = {id: idCount, investor:investor, amount: formatMoneyString(amount),
+					currency: currency, type:type};
 				if (isAdd) {
 					$(typeid+"-form").trigger('reset');
 					$("#modalLocation").append(template(data));
