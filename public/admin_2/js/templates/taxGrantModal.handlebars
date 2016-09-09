@@ -1,0 +1,174 @@
+<div id="tax-grant-{{id}}-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button id="tax-grant-{{id}}-close" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title">Tax Incentives and Grants</h4>
+			</div>
+			<div class="modal-body">
+				<form id="tax-grant-{{id}}-form" class="form-horizontal" role="form">
+					<div class="form-group">
+						<label for="tax-grant-{{id}}-investor" class="control-label col-xs-2">Investor:</label>
+						<div class="col-xs-9">
+							<input type="text" class="form-control" id="tax-grant-{{id}}-investor" value="{{investor}}" >
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">Type:</label>
+						<div class="col-xs-9">
+							<div class="custom-controls-stacked">
+								<label class="custom-control custom-radio">
+									<input id="tax-grant-{{id}}-isDiscount" name="tax-grant-{{id}}-radio-stacked" type="radio" class="custom-control-input" value="true" {{#if isDiscount}}checked="checked"{{/if}}>
+									<span class="custom-control-indicator"></span>
+									<span class="custom-control-description">Discount</span>
+								</label>
+								<br/>
+								<label class="custom-control custom-radio">
+									<input id="tax-grant-{{id}}-isNotDiscount" name="tax-grant-{{id}}-radio-stacked" type="radio" class="custom-control-input" value="false" {{#unless isDiscount}}checked="checked"{{/unless}}>
+									<span class="custom-control-indicator"></span>
+									<span class="custom-control-description">Loan</span>
+								</label>
+							</div>
+						</div>
+					</div>
+					<div id="tax-grant-{{id}}-is-discount-form" class="{{#unless isDiscount}}hidden{{/unless}}">
+						<div class="form-group">
+							<label for="tax-grant-{{id}}-estimated-amount" class="control-label col-xs-2">Estimated Amount:</label>
+							<div class="col-xs-2">
+								<select name="currency_code" id="tax-grant-{{id}}-currency-estimated" class="form-control">
+									<option value="AUD">AUD</option>
+									<option value="BRL">BRL </option>
+									<option value="CAD" selected="selected">CAD</option>
+									<option value="CZK">CZK</option>
+									<option value="DKK">DKK</option>
+									<option value="EUR">EUR</option>
+									<option value="HKD">HKD</option>
+									<option value="HUF">HUF </option>
+									<option value="ILS">ILS</option>
+									<option value="JPY">JPY</option>
+									<option value="MYR">MYR</option>
+									<option value="MXN">MXN</option>
+									<option value="NOK">NOK</option>
+									<option value="NZD">NZD</option>
+									<option value="PHP">PHP</option>
+									<option value="PLN">PLN</option>
+									<option value="GBP">GBP</option>
+									<option value="SGD">SGD</option>
+									<option value="SEK">SEK</option>
+									<option value="CHF">CHF</option>
+									<option value="TWD">TWD</option>
+									<option value="THB">THB</option>
+									<option value="TRY">TRY</option>
+									<option value="USD">USD</option>
+								</select>
+							</div>
+							<div class="col-xs-7">
+								<input type="number" min="0" class="form-control" id="tax-grant-{{id}}-estimated-amount" value="{{estAmount}}">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="tax-grant-{{id}}-net-advance" class="control-label col-xs-2">Net Advance:</label>
+							<div class="col-xs-2">
+								<select name="currency_code" id="tax-grant-{{id}}-currency-net-advance" class="form-control">
+									<option value="AUD">AUD</option>
+									<option value="BRL">BRL </option>
+									<option value="CAD" selected="selected">CAD</option>
+									<option value="CZK">CZK</option>
+									<option value="DKK">DKK</option>
+									<option value="EUR">EUR</option>
+									<option value="HKD">HKD</option>
+									<option value="HUF">HUF </option>
+									<option value="ILS">ILS</option>
+									<option value="JPY">JPY</option>
+									<option value="MYR">MYR</option>
+									<option value="MXN">MXN</option>
+									<option value="NOK">NOK</option>
+									<option value="NZD">NZD</option>
+									<option value="PHP">PHP</option>
+									<option value="PLN">PLN</option>
+									<option value="GBP">GBP</option>
+									<option value="SGD">SGD</option>
+									<option value="SEK">SEK</option>
+									<option value="CHF">CHF</option>
+									<option value="TWD">TWD</option>
+									<option value="THB">THB</option>
+									<option value="TRY">TRY</option>
+									<option value="USD">USD</option>
+								</select>
+							</div>
+							<div class="col-xs-7">
+								<input type="number" min="0" class="form-control" id="tax-grant-{{id}}-net-advance" value="{{netAdvance}}">
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="tax-grant-{{id}}-overages" class="control-label col-xs-2">Overages Retained:</label>
+						<div class="col-xs-3">
+							<input type="number" min="0" max="100" class="form-control" id="tax-grant-{{id}}-equity" value="{{overages}}">
+						</div>
+					</div>
+					<div id="tax-grant-{{id}}-is-loan-form" class="{{#if isDiscount}}hidden{{/if}}">
+						<div class="form-group">
+							<label for="tax-grant-{{id}}-amount" class="control-label col-xs-2">Amount:</label>
+							<div class="col-xs-2">
+								<select name="currency_code" id="tax-grant-{{id}}-currency" class="form-control">
+									<option value="AUD">AUD</option>
+									<option value="BRL">BRL </option>
+									<option value="CAD" selected="selected">CAD</option>
+									<option value="CZK">CZK</option>
+									<option value="DKK">DKK</option>
+									<option value="EUR">EUR</option>
+									<option value="HKD">HKD</option>
+									<option value="HUF">HUF </option>
+									<option value="ILS">ILS</option>
+									<option value="JPY">JPY</option>
+									<option value="MYR">MYR</option>
+									<option value="MXN">MXN</option>
+									<option value="NOK">NOK</option>
+									<option value="NZD">NZD</option>
+									<option value="PHP">PHP</option>
+									<option value="PLN">PLN</option>
+									<option value="GBP">GBP</option>
+									<option value="SGD">SGD</option>
+									<option value="SEK">SEK</option>
+									<option value="CHF">CHF</option>
+									<option value="TWD">TWD</option>
+									<option value="THB">THB</option>
+									<option value="TRY">TRY</option>
+									<option value="USD">USD</option>
+								</select>
+							</div>
+							<div class="col-xs-7">
+								<input type="number" min="0" class="form-control" id="tax-grant-{{id}}-amount" value="{{amount}}">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="tax-grant-{{id}}-interest-rate" class="control-label col-xs-2">Interest Rate:</label>
+							<div class="col-xs-9">
+								<input type="number" min="0" max="100" class="form-control" id="tax-grant-{{id}}-interest-rate" value="{{interestRate}}">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="tax-grant-{{id}}-loan-type" class="control-label col-xs-2">Loan Type:</label>
+							<div class="col-xs-9">
+								<select class="form-control" id="tax-grant-{{id}}-loan-type" value="{{loanType}}">
+									<option value="Simple">Simple</option>
+									<option value="Semi-Annual">Semi-Annual</option>
+									<option value="Annual">Annual</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button id="tax-grant-{{id}}-cancel" type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
+						<button  id="tax-grant-{{id}}-save" type="button" class="btn btn-info" data-dismiss="modal">
+							{{#if investor}}Edit{{/if}}
+							{{#unless investor}}Save{{/unless}}
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+

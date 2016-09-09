@@ -40,6 +40,8 @@
                 <!-- Plugins css -->
         <link href="assets/owl-carousel/owl.carousel.css" rel="stylesheet" />
 
+		<link href="css/production.css" rel="stylesheet" />
+
 
 
 
@@ -74,12 +76,14 @@
 
 
 
-                    <li class="has-submenu"><a href="foreign.html"><i class="ion-film-marker"></i> <span class="nav-label">This Project</span></a>
+                    <li class="has-submenu">
+						<a href="foreign.html">
+							<i class="ion-film-marker"></i> <span class="nav-label">This Project</span></a>
                                                     <ul class="list-unstyled" >
 
 
 
-                                                                           <li class='last' ><a href="foreign.html"><i class="ion-earth"></i> <span class="nav-label">Foreign Sales</span></a>
+                                                                           <li class='last' ><a href="foreign.html"><i class="ion-earth"></i> <span class="nav-label">Forecast Revenues</span></a>
 
                                                          </li>
 
@@ -201,39 +205,237 @@
                     <div class="panel-heading"><h3 class="panel-title">Relevant Currencies</h3></div>
 
                     <div class="panel-body" id="FX">
+                    Base Currency: <select name="currencies" id="base-currency">
+                      <option selected value="">Select currency</option>
+                      <option value="America (United States) Dollars - USD">America (United States) Dollars – USD</option>
+                      <option value="Afghanistan Afghanis - AFN">Afghanistan Afghanis – AFN</option>
+                      <option value="Albania Leke - ALL">Albania Leke – ALL</option>
+                      <option value="Algeria Dinars - DZD">Algeria Dinars – DZD</option>
+                      <option value="Argentina Pesos - ARS">Argentina Pesos – ARS</option>
+                      <option value="Australia Dollars - AUD">Australia Dollars – AUD</option>
+                      <option value="Austria Schillings - ATS">Austria Schillings – ATS</option>
+                      <option value="Bahamas Dollars - BSD">Bahamas Dollars – BSD</option>
+                      <option value="Bahrain Dinars - BHD">Bahrain Dinars – BHD</option>
+                      <option value="Bangladesh Taka - BDT">Bangladesh Taka – BDT</option>
+                      <option value="Barbados Dollars - BBD">Barbados Dollars – BBD</option>
+                      <option value="Belgium Francs - BEF">Belgium Francs – BEF</OPTION>
+                      <option value="Bermuda Dollars - BMD">Bermuda Dollars – BMD</option>
+                      <option value="Brazil Reais - BRL">Brazil Reais – BRL</option>
+                      <option value="Bulgaria Leva - BGN">Bulgaria Leva – BGN</option>
+                      <option value="Canada Dollars - CAD">Canada Dollars – CAD</option>
+                      <option value="CFA BCEAO Francs - XOF">CFA BCEAO Francs – XOF</option>
+                      <option value="CFA BEAC Francs - XAF">CFA BEAC Francs – XAF</option>
+                      <option value="Chile Pesos - CLP">Chile Pesos – CLP</option>
+                      <option value="China Yuan Renminbi - CNY">China Yuan Renminbi – CNY</option>
+                      <option value="RMB (China Yuan Renminbi) - CNY">RMB (China Yuan Renminbi) – CNY</option>
+                      <option value="Colombia Pesos - COP">Colombia Pesos – COP</option>
+                      <option value="CFP Francs - XPF">CFP Francs – XPF</option>
+                      <option value="Costa Rica Colones - CRC">Costa Rica Colones – CRC</option>
+                      <option value="Croatia Kuna - HRK">Croatia Kuna – HRK</option>
+                      <option value="Cyprus Pounds - CYP">Cyprus Pounds – CYP</option>
+                      <option value="Czech Republic Koruny - CZK">Czech Republic Koruny – CZK</option>
+                      <option value="Denmark Kroner - DKK">Denmark Kroner – DKK</option>
+                      <option value="Deutsche (Germany) Marks - DEM">Deutsche (Germany) Marks – DEM</OPTION>
+                      <option value="Dominican Republic Pesos - DOP">Dominican Republic Pesos – DOP</option>
+                      <option value="Dutch (Netherlands) Guilders - NLG">Dutch (Netherlands) Guilders – NLG</OPTION>
+                      <option value="Eastern Caribbean Dollars - XCD">Eastern Caribbean Dollars – XCD</option>
+                      <option value="Egypt Pounds - EGP">Egypt Pounds – EGP</option>
+                      <option value="Estonia Krooni - EEK">Estonia Krooni – EEK</option>
+                      <option value="Euro - EUR">Euro – EUR</option>
+                      <option value="Fiji Dollars - FJD">Fiji Dollars – FJD</option>
+                      <option value="Finland Markkaa - FIM">Finland Markkaa – FIM</OPTION>
+                      <option value="France Francs - FRF*">France Francs – FRF*</OPTION>
+                      <option value="Germany Deutsche Marks - DEM">Germany Deutsche Marks – DEM</OPTION>
+                      <option value="Gold Ounces - XAU">Gold Ounces – XAU</option>
+                      <option value="Greece Drachmae - GRD">Greece Drachmae – GRD</OPTION>
+                      <option value="Guatemalan Quetzal - GTQ">Guatemalan Quetzal – GTQ</OPTION>
+                      <option value="Holland (Netherlands) Guilders - NLG">Holland (Netherlands) Guilders – NLG</OPTION>
+                      <option value="Hong Kong Dollars - HKD">Hong Kong Dollars – HKD</option>
+                      <option value="Hungary Forint - HUF">Hungary Forint – HUF</option>
+                      <option value="Iceland Kronur - ISK">Iceland Kronur – ISK</option>
+                      <option value="IMF Special Drawing Right - XDR">IMF Special Drawing Right – XDR</option>
+                      <option value="India Rupees - INR">India Rupees – INR</option>
+                      <option value="Indonesia Rupiahs - IDR">Indonesia Rupiahs – IDR</option>
+                      <option value="Iran Rials - IRR">Iran Rials – IRR</option>
+                      <option value="Iraq Dinars - IQD">Iraq Dinars – IQD</option>
+                      <option value="Ireland Pounds - IEP*">Ireland Pounds – IEP*</OPTION>
+                      <option value="Israel New Shekels - ILS">Israel New Shekels – ILS</option>
+                      <option value="Italy Lire - ITL*">Italy Lire – ITL*</OPTION>
+                      <option value="Jamaica Dollars - JMD">Jamaica Dollars – JMD</option>
+                      <option value="Japan Yen - JPY">Japan Yen – JPY</option>
+                      <option value="Jordan Dinars - JOD">Jordan Dinars – JOD</option>
+                      <option value="Kenya Shillings - KES">Kenya Shillings – KES</option>
+                      <option value="Korea (South) Won - KRW">Korea (South) Won – KRW</option>
+                      <option value="Kuwait Dinars - KWD">Kuwait Dinars – KWD</option>
+                      <option value="Lebanon Pounds - LBP">Lebanon Pounds – LBP</option>
+                      <option value="Luxembourg Francs - LUF">Luxembourg Francs – LUF</OPTION>
+                      <option value="Malaysia Ringgits - MYR">Malaysia Ringgits – MYR</option>
+                      <option value="Malta Liri - MTL">Malta Liri – MTL</option>
+                      <option value="Mauritius Rupees - MUR">Mauritius Rupees – MUR</option>
+                      <option value="Mexico Pesos - MXN">Mexico Pesos – MXN</option>
+                      <option value="Morocco Dirhams - MAD">Morocco Dirhams – MAD</option>
+                      <option value="Netherlands Guilders - NLG">Netherlands Guilders – NLG</OPTION>
+                      <option value="New Zealand Dollars - NZD">New Zealand Dollars – NZD</option>
+                      <option value="Norway Kroner - NOK">Norway Kroner – NOK</option>
+                      <option value="Oman Rials - OMR">Oman Rials – OMR</option>
+                      <option value="Pakistan Rupees - PKR">Pakistan Rupees – PKR</option>
+                      <option value="Palladium Ounces - XPD">Palladium Ounces – XPD</option>
+                      <option value="Peru Nuevos Soles - PEN">Peru Nuevos Soles – PEN</option>
+                      <option value="Philippines Pesos - PHP">Philippines Pesos – PHP</option>
+                      <option value="Platinum Ounces - XPT">Platinum Ounces – XPT</option>
+                      <option value="Poland Zlotych - PLN">Poland Zlotych – PLN</option>
+                      <option value="Portugal Escudos - PTE">Portugal Escudos – PTE</OPTION>
+                      <option value="Qatar Riyals - QAR">Qatar Riyals – QAR</option>
+                      <option value="Romania New Lei - RON">Romania New Lei – RON</option>
+                      <option value="Romania Lei - ROL">Romania Lei – ROL</option>
+                      <option value="Russia Rubles - RUB">Russia Rubles – RUB</option>
+                      <option value="Saudi Arabia Riyals - SAR">Saudi Arabia Riyals – SAR</option>
+                      <option value="Silver Ounces - XAG">Silver Ounces – XAG</option>
+                      <option value="Singapore Dollars - SGD">Singapore Dollars – SGD</option>
+                      <option value="Slovakia Koruny - SKK">Slovakia Koruny – SKK</option>
+                      <option value="Slovenia Tolars - SIT">Slovenia Tolars – SIT</option>
+                      <option value="South Africa Rand - ZAR">South Africa Rand – ZAR</option>
+                      <option value="South Korea Won - KRW">South Korea Won – KRW</option>
+                      <option value="Spain Pesetas - ESP">Spain Pesetas – ESP</OPTION>
+                      <option value="Special Drawing Rights (IMF) - XDR">Special Drawing Rights (IMF) – XDR</option>
+                      <option value="Sri Lanka Rupees - LKR">Sri Lanka Rupees – LKR</option>
+                      <option value="Sudan Dinars - SDD">Sudan Dinars – SDD</option>
+                      <option value="Sweden Kronor - SEK">Sweden Kronor – SEK</option>
+                      <option value="Switzerland Francs - CHF">Switzerland Francs – CHF</option>
+                      <option value="Taiwan New Dollars - TWD">Taiwan New Dollars – TWD</option>
+                      <option value="Thailand Baht - THB">Thailand Baht – THB</option>
+                      <option value="Trinidad and Tobago Dollars - TTD">Trinidad and Tobago Dollars – TTD</option>
+                      <option value="Tunisia Dinars - TND">Tunisia Dinars – TND</option>
+                      <option value="Turkey New Lira - TRY">Turkey New Lira – TRY</option>
+                      <option value="United Arab Emirates Dirhams - AED">United Arab Emirates Dirhams – AED</option>
+                      <option value="United Kingdom Pounds - GBP">United Kingdom Pounds – GBP</option>
+                      <option value="United States Dollars - USD">United States Dollars – USD</option>
+                      <option value="Venezuela Bolivares - VEB">Venezuela Bolivares – VEB</option>
+                      <option value="Vietnam Dong - VND">Vietnam Dong – VND</option>
+                      <option value="Zambia Kwacha - ZMK">Zambia Kwacha – ZMK</option>
+                      </select><br>
+                    Fixed Exchange Rate: <input type="text" id="fixed"><br>
+                    Select Currency: <select name="currencies" id="mySelectBox">
+                      <option selected value="">Select currency</option>
+                      <option value="America (United States) Dollars - USD">America (United States) Dollars – USD</option>
+                      <option value="Afghanistan Afghanis - AFN">Afghanistan Afghanis – AFN</option>
+                      <option value="Albania Leke - ALL">Albania Leke – ALL</option>
+                      <option value="Algeria Dinars - DZD">Algeria Dinars – DZD</option>
+                      <option value="Argentina Pesos - ARS">Argentina Pesos – ARS</option>
+                      <option value="Australia Dollars - AUD">Australia Dollars – AUD</option>
+                      <option value="Austria Schillings - ATS">Austria Schillings – ATS</option>
+                      <option value="Bahamas Dollars - BSD">Bahamas Dollars – BSD</option>
+                      <option value="Bahrain Dinars - BHD">Bahrain Dinars – BHD</option>
+                      <option value="Bangladesh Taka - BDT">Bangladesh Taka – BDT</option>
+                      <option value="Barbados Dollars - BBD">Barbados Dollars – BBD</option>
+                      <option value="Belgium Francs - BEF">Belgium Francs – BEF</OPTION>
+                      <option value="Bermuda Dollars - BMD">Bermuda Dollars – BMD</option>
+                      <option value="Brazil Reais - BRL">Brazil Reais – BRL</option>
+                      <option value="Bulgaria Leva - BGN">Bulgaria Leva – BGN</option>
+                      <option value="Canada Dollars - CAD">Canada Dollars – CAD</option>
+                      <option value="CFA BCEAO Francs - XOF">CFA BCEAO Francs – XOF</option>
+                      <option value="CFA BEAC Francs - XAF">CFA BEAC Francs – XAF</option>
+                      <option value="Chile Pesos - CLP">Chile Pesos – CLP</option>
+                      <option value="China Yuan Renminbi - CNY">China Yuan Renminbi – CNY</option>
+                      <option value="RMB (China Yuan Renminbi) - CNY">RMB (China Yuan Renminbi) – CNY</option>
+                      <option value="Colombia Pesos - COP">Colombia Pesos – COP</option>
+                      <option value="CFP Francs - XPF">CFP Francs – XPF</option>
+                      <option value="Costa Rica Colones - CRC">Costa Rica Colones – CRC</option>
+                      <option value="Croatia Kuna - HRK">Croatia Kuna – HRK</option>
+                      <option value="Cyprus Pounds - CYP">Cyprus Pounds – CYP</option>
+                      <option value="Czech Republic Koruny - CZK">Czech Republic Koruny – CZK</option>
+                      <option value="Denmark Kroner - DKK">Denmark Kroner – DKK</option>
+                      <option value="Deutsche (Germany) Marks - DEM">Deutsche (Germany) Marks – DEM</OPTION>
+                      <option value="Dominican Republic Pesos - DOP">Dominican Republic Pesos – DOP</option>
+                      <option value="Dutch (Netherlands) Guilders - NLG">Dutch (Netherlands) Guilders – NLG</OPTION>
+                      <option value="Eastern Caribbean Dollars - XCD">Eastern Caribbean Dollars – XCD</option>
+                      <option value="Egypt Pounds - EGP">Egypt Pounds – EGP</option>
+                      <option value="Estonia Krooni - EEK">Estonia Krooni – EEK</option>
+                      <option value="Euro - EUR">Euro – EUR</option>
+                      <option value="Fiji Dollars - FJD">Fiji Dollars – FJD</option>
+                      <option value="Finland Markkaa - FIM">Finland Markkaa – FIM</OPTION>
+                      <option value="France Francs - FRF*">France Francs – FRF*</OPTION>
+                      <option value="Germany Deutsche Marks - DEM">Germany Deutsche Marks – DEM</OPTION>
+                      <option value="Gold Ounces - XAU">Gold Ounces – XAU</option>
+                      <option value="Greece Drachmae - GRD">Greece Drachmae – GRD</OPTION>
+                      <option value="Guatemalan Quetzal - GTQ">Guatemalan Quetzal – GTQ</OPTION>
+                      <option value="Holland (Netherlands) Guilders - NLG">Holland (Netherlands) Guilders – NLG</OPTION>
+                      <option value="Hong Kong Dollars - HKD">Hong Kong Dollars – HKD</option>
+                      <option value="Hungary Forint - HUF">Hungary Forint – HUF</option>
+                      <option value="Iceland Kronur - ISK">Iceland Kronur – ISK</option>
+                      <option value="IMF Special Drawing Right - XDR">IMF Special Drawing Right – XDR</option>
+                      <option value="India Rupees - INR">India Rupees – INR</option>
+                      <option value="Indonesia Rupiahs - IDR">Indonesia Rupiahs – IDR</option>
+                      <option value="Iran Rials - IRR">Iran Rials – IRR</option>
+                      <option value="Iraq Dinars - IQD">Iraq Dinars – IQD</option>
+                      <option value="Ireland Pounds - IEP*">Ireland Pounds – IEP*</OPTION>
+                      <option value="Israel New Shekels - ILS">Israel New Shekels – ILS</option>
+                      <option value="Italy Lire - ITL*">Italy Lire – ITL*</OPTION>
+                      <option value="Jamaica Dollars - JMD">Jamaica Dollars – JMD</option>
+                      <option value="Japan Yen - JPY">Japan Yen – JPY</option>
+                      <option value="Jordan Dinars - JOD">Jordan Dinars – JOD</option>
+                      <option value="Kenya Shillings - KES">Kenya Shillings – KES</option>
+                      <option value="Korea (South) Won - KRW">Korea (South) Won – KRW</option>
+                      <option value="Kuwait Dinars - KWD">Kuwait Dinars – KWD</option>
+                      <option value="Lebanon Pounds - LBP">Lebanon Pounds – LBP</option>
+                      <option value="Luxembourg Francs - LUF">Luxembourg Francs – LUF</OPTION>
+                      <option value="Malaysia Ringgits - MYR">Malaysia Ringgits – MYR</option>
+                      <option value="Malta Liri - MTL">Malta Liri – MTL</option>
+                      <option value="Mauritius Rupees - MUR">Mauritius Rupees – MUR</option>
+                      <option value="Mexico Pesos - MXN">Mexico Pesos – MXN</option>
+                      <option value="Morocco Dirhams - MAD">Morocco Dirhams – MAD</option>
+                      <option value="Netherlands Guilders - NLG">Netherlands Guilders – NLG</OPTION>
+                      <option value="New Zealand Dollars - NZD">New Zealand Dollars – NZD</option>
+                      <option value="Norway Kroner - NOK">Norway Kroner – NOK</option>
+                      <option value="Oman Rials - OMR">Oman Rials – OMR</option>
+                      <option value="Pakistan Rupees - PKR">Pakistan Rupees – PKR</option>
+                      <option value="Palladium Ounces - XPD">Palladium Ounces – XPD</option>
+                      <option value="Peru Nuevos Soles - PEN">Peru Nuevos Soles – PEN</option>
+                      <option value="Philippines Pesos - PHP">Philippines Pesos – PHP</option>
+                      <option value="Platinum Ounces - XPT">Platinum Ounces – XPT</option>
+                      <option value="Poland Zlotych - PLN">Poland Zlotych – PLN</option>
+                      <option value="Portugal Escudos - PTE">Portugal Escudos – PTE</OPTION>
+                      <option value="Qatar Riyals - QAR">Qatar Riyals – QAR</option>
+                      <option value="Romania New Lei - RON">Romania New Lei – RON</option>
+                      <option value="Romania Lei - ROL">Romania Lei – ROL</option>
+                      <option value="Russia Rubles - RUB">Russia Rubles – RUB</option>
+                      <option value="Saudi Arabia Riyals - SAR">Saudi Arabia Riyals – SAR</option>
+                      <option value="Silver Ounces - XAG">Silver Ounces – XAG</option>
+                      <option value="Singapore Dollars - SGD">Singapore Dollars – SGD</option>
+                      <option value="Slovakia Koruny - SKK">Slovakia Koruny – SKK</option>
+                      <option value="Slovenia Tolars - SIT">Slovenia Tolars – SIT</option>
+                      <option value="South Africa Rand - ZAR">South Africa Rand – ZAR</option>
+                      <option value="South Korea Won - KRW">South Korea Won – KRW</option>
+                      <option value="Spain Pesetas - ESP">Spain Pesetas – ESP</OPTION>
+                      <option value="Special Drawing Rights (IMF) - XDR">Special Drawing Rights (IMF) – XDR</option>
+                      <option value="Sri Lanka Rupees - LKR">Sri Lanka Rupees – LKR</option>
+                      <option value="Sudan Dinars - SDD">Sudan Dinars – SDD</option>
+                      <option value="Sweden Kronor - SEK">Sweden Kronor – SEK</option>
+                      <option value="Switzerland Francs - CHF">Switzerland Francs – CHF</option>
+                      <option value="Taiwan New Dollars - TWD">Taiwan New Dollars – TWD</option>
+                      <option value="Thailand Baht - THB">Thailand Baht – THB</option>
+                      <option value="Trinidad and Tobago Dollars - TTD">Trinidad and Tobago Dollars – TTD</option>
+                      <option value="Tunisia Dinars - TND">Tunisia Dinars – TND</option>
+                      <option value="Turkey New Lira - TRY">Turkey New Lira – TRY</option>
+                      <option value="United Arab Emirates Dirhams - AED">United Arab Emirates Dirhams – AED</option>
+                      <option value="United Kingdom Pounds - GBP">United Kingdom Pounds – GBP</option>
+                      <option value="United States Dollars - USD">United States Dollars – USD</option>
+                      <option value="Venezuela Bolivares - VEB">Venezuela Bolivares – VEB</option>
+                      <option value="Vietnam Dong - VND">Vietnam Dong – VND</option>
+                      <option value="Zambia Kwacha - ZMK">Zambia Kwacha – ZMK</option>
+                    </select><button type="button" name="button" id='add-currency'>Display</button><br>
+                      Fixed Rates:
+                      <form id='add-here'></form>
 
-
-                    <form>
-                      <input type="checkbox" id="USD/CAD">USD/CAD<br>
-                      <input type="checkbox" id="AED/CAD">AED/CAD<br>
-                      <input type="checkbox" id="CNY/CAD">CNY/CAD<br>
-                      <input type="submit" id="Submit">
+                    <form id='currency-list'>
+                      <hr>
+                      Floating Rates:<br>
+                      <input type="checkbox" id="USD/CAD">America (United States) Dollars - USD<br>
+                      <input type="checkbox" id="AED/CAD">United Arab Emirates Dirham - AED<br>
+                      <input type="checkbox" id='CNY/CAD'>China Yuan Renminbi - CNY<br>
                     </form>
+                    <hr>
 
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-                    <script>
-                    $("#Submit").on('click', function(e){
-                      e.preventDefault();
-                      if(document.getElementById("USD/CAD").checked && document.getElementById("AED/CAD").checked && document.getElementById("CNY/CAD").checked){
-                        $("#FX").append("0.7614 USD = 1.00 CAD</br>2.7969 AED = 1.00 CAD</br>1.00 CNY = 0.20 CAD</br>");
-                      }else if (document.getElementById("USD/CAD").checked && document.getElementById("AED/CAD").checked){
-                        $("#FX").append("0.7614 USD = 1.00 CAD</br>2.7969 AED = 1.00 CAD</br>");
-                      }else if (document.getElementById("USD/CAD").checked && document.getElementById("CNY/CAD").checked){
-                        $("#FX").append("0.7614 USD = 1.00 CAD</br>1.00 CNY = 0.20 CAD</br>");
-                      }else if (document.getElementById("AED/CAD").checked && document.getElementById("CNY/CAD").checked){
-                        $("#FX").append("2.7969 AED = 1.00 CAD</br>1.00 CNY = 0.20 CAD</br>");
-                      }else if(document.getElementById("USD/CAD").checked){
-                        $("#FX").append("0.7614 USD = 1.00 CAD</br>");
-                      }else if (document.getElementById("AED/CAD").checked) {
-                        $("#FX").append("2.7969 AED = 1.00 CAD</br>");
-                      }else if (document.getElementById("CNY/CAD").checked) {
-                        $("#FX").append("1.00 CNY = 0.20 CAD</br>");
-                      }else {
-                        alert ('Please choose an option.')
-                      };
-                    });
-                    </script>
 
 
 
@@ -241,11 +443,6 @@
                     </div> <!-- panel-body -->
                 </div> <!-- panel -->
             </div> <!-- col -->
-
-
-
-
-
 
             <div class="col-lg-6" style="display:none">
                 <div class="portlet"><!-- /primary heading -->
@@ -309,7 +506,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-6 control-label">Pre-sales</label>
                                             <div class="col-sm-6 control-label">
-                                                <div class="toggle toggle-default" id="option_presales" value="on"></div>
+                                                <div class="toggle toggle-primary" id="option_presales" value="on"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -329,7 +526,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-6 control-label">Grants & Tax Breaks</label>
                                             <div class="col-sm-6 control-label">
-                                                <div class="toggle toggle-success" id="option_grants_and_tax_breaks"></div>
+                                                <div class="toggle toggle-primary" id="option_grants_and_tax_breaks"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -338,7 +535,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-6 control-label">Non-Recouping Production Capital</label>
                                             <div class="col-sm-6 control-label">
-                                                <div class="toggle toggle-warning" id="option_non_recouping_production_capital"></div>
+                                                <div class="toggle toggle-primary" id="option_non_recouping_production_capital"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -349,7 +546,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-6 control-label">Senior Debt/GAP Loans</label>
                                             <div class="col-sm-6 control-label">
-                                                <div class="toggle toggle-success" id="option_senior_debt"></div>
+                                                <div class="toggle toggle-primary" id="option_senior_debt"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -359,7 +556,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-6 control-label">Prefered Equity</label>
                                             <div class="col-sm-6 control-label">
-                                                <div class="toggle toggle-danger" id="option_preferred-equity"></div>
+                                                <div class="toggle toggle-primary" id="option_preferred-equity"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -374,7 +571,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-6 control-label">Corridor Equity</label>
                                             <div class="col-sm-6 control-label">
-                                                <div class="toggle toggle-danger" id="option_corridor_equity"></div>
+                                                <div class="toggle toggle-primary" id="option_corridor_equity"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -385,7 +582,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-6 control-label">General Equity</label>
                                             <div class="col-sm-6 control-label">
-                                                <div class="toggle toggle-danger" id="option_equity"></div>
+                                                <div class="toggle toggle-primary" id="option_equity"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -399,849 +596,311 @@
                     </div> <!-- panel -->
                     </div> <!-- col -->
 					<!-- Financial Summary -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Financiers & Structures Summary</h3>
-                                </div>
-								<div class="panel-body">
-                                    <div class="row" id="pre-sales-summary">
-										<div class="col-md-12 col-sm-12 col-xs-12">
-											<h3 class="panel-title">Pre-Sales</h3>
-											<button class="btn btn-icon btn-success" data-toggle="modal" data-target="#pre-sales-add-modal" style="float:right"><i class="fa ion-plus-round"></i></button>
-											<table class="table table-striped">
+					<div class="col-md-12">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">Financiers & Structures Summary</h3>
+							</div>
+							<div id="summary-table" class="panel-body">
+								<div id="pre-sales-summary">
+									<div class="row">
+										<div class="col-md-12 col-sm-12 col-xs-12" >
+											<h3 class="panel-title col-xs-2">
+												Pre-Sales
+											</h3>
+											<div class="col-xs-1">
+												<button class="btn btn-icon btn-success add-btn" data-toggle="modal" data-target="#pre-sales-add-modal"> <i class="fa ion-plus-round"></i> </button>
+											</div>
+											<div class="col-xs-9">
+												<table class="table table-striped ">
 													<thead>
 													<tr>
 														<th class="col-xs-4">Investor</th>
-														<th class="col-xs-2">Amount</th>
-														<th class="col-xs-1">Equity %</th>
-														<th class="col-xs-5">Comment</th>
+														<th class="col-xs-4">Budget Amount</th>
+														<th class="col-xs-1">Actions</th>
+														<th class="hidden"></th>
 													</tr>
 													</thead>
-													<tbody>
-													<tr class="default">
-														<td>Concourse Media</td>
-														<td>$200,000</td>
-														<td>20%</td>
-														<td></td>
+													<tbody id="pre-sales-summary-table">
+													<tr class="default" id="pre-sales-1-table-row">
+														<td>eOne</td>
+														<td>CAD 200,000</td>
+														<td class="actions">
+															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#pre-sales-1-modal" ><i class="fa ion-eye"></i></button>
+															<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
+														</td>
+														<td id="pre-sales-1-table-row-id" class="hidden">1</td>
 													</tr>
 													</tbody>
 												</table>
+											</div>
 										</div>
 									</div>
-									<div class="row" id="direct-territory-summary">
+									<hr/>
+								</div>
+								<div id="direct-territory-summary">
+									<div class="row" >
 										<div class="col-md-12 col-sm-12 col-xs-12">
-											<br/>
-											<h3 class="panel-title">Direct Territory Sales</h3>
-											<button id="direct-territory-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
+										<h3 class="panel-title col-xs-2">
+											Direct Territory Sales
+										</h3>
+											<div class="col-xs-1">
+												<button class="btn btn-icon btn-success add-btn" data-toggle="modal" data-target="#direct-territory-add-modal"> <i class="fa ion-plus-round"></i> </button>
+											</div>
+										<div class="col-xs-9">
 											<table class="table table-striped">
 												<thead>
 												<tr>
 													<th class="col-xs-4">Investor</th>
-													<th class="col-xs-2">Amount</th>
-													<th class="col-xs-1">Equity %</th>
-													<th class="col-xs-5">Comment</th>
+													<th class="col-xs-4">Budget Amount</th>
+													<th class="col-xs-1">Actions</th>
+													<th class="hidden"></th>
 												</tr>
 												</thead>
-												<tbody>
-												<tr class="default">
-													<td>French Distributors</td>
-													<td>$275,000</td>
-													<td>4%</td>
-													<td>15% Interest Semi-Annual</td>
+												<tbody id="direct-territory-summary-table">
+												<tr class="default" id="direct-territory-1-table-row">
+													<td>Jacob Teal</td>
+													<td>CAD 450,000</td>
+													<td class="actions">
+														<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#direct-territory-1-modal" ><i class="fa ion-eye"></i></button>
+														<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
+													</td>
+													<td id="direct-territory-1-table-row-id" class="hidden">1</td>
 												</tr>
 												</tbody>
 											</table>
 										</div>
 									</div>
-									<div class="row" id="tax-grants-summary">
-										<div class="col-md-12 col-sm-12 col-xs-12">
-											<br/>
-											<h3 class="panel-title">Tax Breaks & Grants</h3>
-											<button id="tax-grants-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
-											<table class="table table-striped">
-												<thead>
-												<tr>
-													<th class="col-xs-4">Investor</th>
-													<th class="col-xs-2">Amount</th>
-													<th class="col-xs-1">Equity %</th>
-													<th class="col-xs-5">Comment</th>
-												</tr>
-												</thead>
-												<tbody>
-												<tr class="default" id="tax-grant-num">
-													<td>BC Government</td>
-													<td>$2,000,000</td>
-													<td>0%</td>
-													<td></td>
-												</tr>
-												<tr class="default" id="tax-grant-num-2">
-													<td>Government of Canada</td>
-													<td>$80,000</td>
-													<td>0%</td>
-													<td>Estimated Value - $100,000</td>
-												</tr>
-												</tbody>
-											</table>
-										</div>
 									</div>
-									<div class="row" id="non-recouping-summary">
-										<div class="col-md-12 col-sm-12 col-xs-12">
-											<br/>
-											<h3 class="panel-title">Non-Recouping Production Capital</h3>
-											<button id="non-recouping-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
-											<table class="table table-striped">
-												<thead>
-												<tr>
-													<th class="col-xs-4">Company</th>
-													<th class="col-xs-2">Amount</th>
-													<th class="col-xs-1">Equity %</th>
-													<th class="col-xs-5">Comment</th>
-												</tr>
-												</thead>
-												<tbody>
-												<tr class="default" id="non-recouping-num">
-													<td>Producer Deferrals</td>
-													<td>$100,000</td>
-													<td>5%</td>
-													<td></td>
-												</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-									<div class="row" id="senior-debt-summary">
-										<div class="col-md-12 col-sm-12 col-xs-12">
-											<br/>
-											<h3 class="panel-title">Senior Debt/Gap Loan</h3>
-											<button id="senior-debt-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
-											<table class="table table-striped">
-												<thead>
-												<tr>
-													<th class="col-xs-4">Company</th>
-													<th class="col-xs-2">Amount</th>
-													<th class="col-xs-1">Equity %</th>
-													<th class="col-xs-5">Comment</th>
-												</tr>
-												</thead>
-												<tbody>
-												<tr class="default" id="summary-senior-debt">
-													<td>Productivity Media</td>
-													<td>$1,000,000</td>
-													<td>10%</td>
-													<td>15% Interest Simple</td>
-												</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-									<div class="row" id="preferred-equity-summary">
-										<div class="col-md-12 col-sm-12 col-xs-12">
-											<br/>
-											<h3 class="panel-title">Preferred Equity</h3>
-											<button id="preferred-equity-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
-											<table class="table table-striped">
-												<thead>
-												<tr>
-													<th class="col-xs-4">Company</th>
-													<th class="col-xs-2">Amount</th>
-													<th class="col-xs-1">Equity %</th>
-													<th class="col-xs-5">Comment</th>
-												</tr>
-												</thead>
-												<tbody>
-												<tr class="default">
-													<td>Private Equity</td>
-													<td>$350,000</td>
-													<td>10%</td>
-													<td></td>
-												</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-									<div class="row" id="corridor-equity-summary">
-										<div class="col-md-12 col-sm-12 col-xs-12">
-											<br/>
-											<h3 class="panel-title">Corridor Equity</h3>
-											<button id="corridor-equity-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
-											<table class="table table-striped">
-												<thead>
-												<tr>
-													<th class="col-xs-4">Company</th>
-													<th class="col-xs-2">Amount</th>
-													<th class="col-xs-1">Equity %</th>
-													<th class="col-xs-5">Comment</th>
-												</tr>
-												</thead>
-												<tbody>
-												<tr class="default">
-													<td>Telefilm</td>
-													<td>$500,000</td>
-													<td>50%</td>
-													<td></td>
-												</tr>
-												<tr>
-													<td>NOHFC</td>
-													<td>$200,000</td>
-													<td>20%</td>
-													<td></td>
-												</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-									<div class="row" id="general-equity-summary">
-										<div class="col-md-12 col-sm-12 col-xs-12">
-											<br/>
-											<h3 class="panel-title">General Equity</h3>
-											<button id="general-equity-add-button" class="btn btn-icon btn-success" style="float:right"> <i class="fa ion-plus-round"></i> </button>
-											<table class="table table-striped">
-												<thead>
-												<tr>
-													<th class="col-xs-4">Company</th>
-													<th class="col-xs-2">Amount</th>
-													<th class="col-xs-1">Equity %</th>
-													<th class="col-xs-5">Comment</th>
-												</tr>
-												</thead>
-												<tbody>
-												<tr class="default">
-													<td>Investor A</td>
-													<td>$500,000</td>
-													<td>50%</td>
-													<td></td>
-												</tr>
-												<tr class="default">
-													<td>Investor B</td>
-													<td>$300,000</td>
-													<td>30%</td>
-													<td></td>
-												</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
+									<hr/>
 								</div>
-                            </div>
-                        </div>
-                    </div>
-					<!-- Presales -->
-					<div class="row">
-						<div class="col-sm-12" id="pre-sale_chart">
-							<div class="panel" >
-								<div class="panel-heading">
-									<h3 class="panel-title">Pre-sales</h3>
-								</div>
-								<div class="panel-body">
+								<div id="tax-grant-summary">
 									<div class="row">
-										<div class="col-sm-6">
-											<div class="m-b-30">
-												<button id="add-to-presales" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></button>
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<h3 class="panel-title col-xs-2">
+												Tax Incentives & Grants
+											</h3>
+											<div class="col-xs-1">
+												<button  data-toggle="modal" data-target="#tax-grant-add-modal" class="btn btn-icon btn-success add-btn" > <i class="fa ion-plus-round"></i> </button>
+											</div>
+											<div class="col-xs-9">
+												<table class="table table-striped">
+													<thead>
+													<tr>
+														<th class="col-xs-4">Investor</th>
+														<th class="col-xs-4">Budget Amount</th>
+														<th class="col-xs-1">Actions</th>
+														<th class="hidden"></th>
+													</tr>
+													</thead>
+													<tbody id="tax-grant-summary-table">
+													<tr class="default" id="tax-grant-1-table-row">
+														<td>National Bank</td>
+														<td>CAD 1,175,000</td>
+														<td class="actions">
+															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#tax-grant-1-modal" ><i class="fa ion-eye"></i></button>
+															<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
+														</td>
+														<td id="tax-grant-1-table-row-id" class="hidden">1</td>
+													</tr>
+													<tr class="default" id="tax-grant-2-table-row">
+														<td>NOHFC - Grant</td>
+														<td>CAD 500,000</td>
+														<td class="actions">
+															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#tax-grant-2-modal" ><i class="fa ion-eye"></i></button>
+															<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
+														</td>
+														<td id="tax-grant-2-table-row-id" class="hidden">2</td>
+													</tr>
+													<tr class="default" id="tax-grant-3-table-row">
+														<td>UK Tax Credits</td>
+														<td>CAD 75,000</td>
+														<td class="actions">
+															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#tax-grant-3-modal" ><i class="fa ion-eye"></i></button>
+															<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
+														</td>
+														<td id="tax-grant-3-table-row-id" class="hidden">3</td>
+													</tr>
+													</tbody>
+												</table>
 											</div>
 										</div>
 									</div>
-									<table class="table table-bordered table-striped" id="datatable-presales">
-										<thead>
-										<tr>
-											<th>Company</th>
-											<th>Country</th>
-											<th>Ask</th>
-											<th>Take</th>
-                      						<th>Percentage Taken</th>
-											<th>Actual</th>
-											<th>Actions</th>
-										</tr>
-										</thead>
-										<tfoot>
-											<tr>
-												<th>Total:</th>
-												<th></th>
-												<th>$400,000</th>
-												<th>$146,000</th>
-												<th>36.5%</th>
-												<th>$200,000</th>
-												<th></th>
-											</tr>
-										</tfoot>
-										<tbody>
-										<tr class="gradeX">
-											<td>Concourse Media</td>
-											<td>United Kingdom</td>
-											<td>$100,000</td>
-											<td>$40,000</td>
-											<td>40%</td>
-                      						<td>$80,000</td>
-
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-
-										<tr class="gradeX">
-											<td>Concourse Media</td>
-											<td>France</td>
-											<td>$80,000</td>
-											<td>$30,000</td>
-                      						<td>37.5%</td>
-											<td>$40,000</td>
-
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-
-										<tr class="gradeX">
-											<td>Concourse Media</td>
-											<td>Italy</td>
-											<td>$20,000</td>
-											<td>$6,000</td>
-                      						<td>30%</td>
-											<td>Not Yet Sold</td>
-
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-
-										<tr class="gradeX">
-											<td>Concourse Media</td>
-											<td>South Korea</td>
-											<td>$90,000</td>
-											<td>$50,000</td>
-                      						<td>55.6%</td>
-											<td>$80,000</td>
-
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-
-										<tr class="gradeX">
-											<td>Concourse Media</td>
-											<td>Australia</td>
-											<td>$70,000</td>
-											<td>$20,000</td>
-											<td>28.6%</td>
-											<td>Not Yet Sold</td>
-
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-
-										<tr class="gradeX">
-											<td>Concourse Media</td>
-											<td>Mexico</td>
-											<td>$40,000</td>
-											<td>$20,000</td>
-                      						<td>50%</td>
-											<td>Waiting For Producer Approval</td>
-
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-										</tbody>
-									</table>
+									<hr/>
 								</div>
-								<!-- end: page -->
-							</div> <!-- end Panel -->
+								<div id="non-recouping-summary">
+									<div class="row" >
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<h3 class="panel-title col-xs-2">
+												Non-Recouping Production Capital
+											</h3>
+											<div class="col-xs-1">
+												<button data-toggle="modal" data-target="#non-recouping-add-modal" class="btn btn-icon btn-success add-btn"> <i class="fa ion-plus-round"></i> </button>
+											</div>
+											<div class="col-xs-9">
+												<table class="table table-striped">
+													<thead>
+													<tr>
+														<th class="col-xs-4">Investor</th>
+														<th class="col-xs-4">Budget Amount</th>
+														<th class="col-xs-1">Actions</th>
+														<th class="hidden"></th>
+													</tr>
+													</thead>
+													<tbody id="non-recouping-summary-table">
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<hr/>
+								</div>
+								<div id="senior-debt-summary">
+									<div class="row" >
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<h3 class="panel-title col-xs-2">
+												Senior Debt/Gap Loan
+											</h3>
+											<div class="col-xs-1">
+												<button data-toggle="modal" data-target="#senior-debt-add-modal" class="btn btn-icon btn-success add-btn"> <i class="fa ion-plus-round"></i> </button>
+											</div>
+											<div class="col-xs-9">
+												<table class="table table-striped">
+													<thead>
+													<tr>
+														<th class="col-xs-4">Investor</th>
+														<th class="col-xs-4">Budget Amount</th>
+														<th class="col-xs-1">Actions</th>
+														<th class="hidden"></th>
+													</tr>
+													</thead>
+													<tbody id="senior-debt-summary-table">
+													<tr class="default" id="senior-debt-1-table-row">
+														<td>Productivity Media</td>
+														<td>CAD 1,300,000</td>
+														<td class="actions">
+															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#senior-debt-1-modal" ><i class="fa ion-eye"></i></button>
+															<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
+														</td>
+														<td id="senior-debt-1-table-row-id" class="hidden">1</td>
+													</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<hr/>
+								</div>
+								<div id="preferred-equity-summary">
+									<div class="row">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<h3 class="panel-title col-xs-2">
+												Preferred Equity
+											</h3>
+											<div class="col-xs-1">
+												<button data-toggle="modal" data-target="#preferred-equity-add-modal" class="btn btn-icon btn-success add-btn"> <i class="fa ion-plus-round"></i> </button>
+											</div>
+											<div class="col-xs-9">
+												<table class="table table-striped">
+													<thead>
+													<tr>
+														<th class="col-xs-4">Investor</th>
+														<th class="col-xs-4">Budget Amount</th>
+														<th class="col-xs-1">Actions</th>
+														<th class="hidden"></th>
+													</tr>
+													</thead>
+													<tbody id="preferred-equity-summary-table">
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<hr/>
+								</div>
+								<div id="corridor-equity-summary">
+									<div class="row">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<h3 class="panel-title col-xs-2">
+												Corridor Equity
+											</h3>
+											<div class="col-xs-1">
+												<button data-toggle="modal" data-target="#corridor-equity-add-modal" class="btn btn-icon btn-success add-btn" > <i class="fa ion-plus-round"></i> </button>
+											</div>
+											<div class="col-xs-9">
+												<table class="table table-striped">
+													<thead>
+													<tr>
+														<th class="col-xs-4">Investor</th>
+														<th class="col-xs-4">Budget Amount</th>
+														<th class="col-xs-1">Actions</th>
+														<th class="hidden"></th>
+													</tr>
+													</thead>
+													<tbody id="corridor-equity-summary-table">
+													<tr class="default" id="corridor-equity-1-table-row">
+														<td>OMDC</td>
+														<td>CAD 300,000</td>
+														<td class="actions">
+															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#corridor-equity-1-modal" ><i class="fa ion-eye"></i></button>
+															<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
+														</td>
+														<td id="corridor-equity-1-table-row-id" class="hidden">1</td>
+													</tr>
+													<tr class="default" id="corridor-equity-2-table-row">
+														<td>NOHFC - Equity</td>
+														<td>CAD 500,000</td>
+														<td class="actions">
+															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#corridor-equity-2-modal" ><i class="fa ion-eye"></i></button>
+															<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
+														</td>
+														<td id="corridor-equity-2-table-row-id" class="hidden">2</td>
+													</tr>
+													<tr class="default" id="corridor-equity-3-table-row">
+														<td>Telefilm</td>
+														<td>CAD 1,500,000</td>
+														<td class="actions">
+															<button class="btn btn-icon btn-primary action-btn" data-toggle="modal" data-target="#corridor-equity-3-modal" ><i class="fa ion-eye"></i></button>
+															<button class="btn btn-icon btn-danger action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
+														</td>
+														<td id="corridor-equity-3-table-row-id" class="hidden">3</td>
+													</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<hr/>
+								</div>
+								<div id="general-equity-summary">
+									<div class="row">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<h3 class="panel-title col-xs-2">
+												General Equity
+											</h3>
+											<div class="col-xs-1">
+												<button data-toggle="modal" data-target="#general-equity-add-modal" class="btn btn-icon btn-success add-btn"> <i class="fa ion-plus-round"></i> </button>
+											</div>
+											<div class="col-xs-9">
+												<table class="table table-striped">
+													<thead>
+													<tr>
+														<th class="col-xs-4">Investor</th>
+														<th class="col-xs-4">Budget Amount</th>
+														<th class="col-xs-1">Actions</th>
+														<th class="hidden"></th>
+													</tr>
+													</thead>
+													<tbody id="general-equity-summary-table">
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
-					<!-- Direct Territory -->
-					<div class="row">
-						<div class="col-md-12" id="direct_territory_sales_table">
-							<div class="panel">
-								<div class="panel-heading">
-									<h3 class="panel-title">Direct Territory Sales/Assigned Territories</h3>
-								</div>
-								<div class="panel-body">
-									<div class="row">
-										<div class="col-sm-6">
-											<div class="m-b-30">
-												<button  class="btn btn-primary waves-effect waves-light" id="add-to-direct-territory-sales-table">Add <i class="fa fa-plus"></i></button>
-											</div>
-										</div>
-									</div>
-									<table class="table table-bordered table-striped" id="datatable-direct-territory-sales-table">
-										<thead>
-										<tr>
-											<th>Company</th>
-											<th>Amount</th>
-											<th>Territory</th>
-											<th>Equity %</th>
-											<th>Overages Retained</th>
-											<th>Interest Rate</th>
-											<th>Loan Type</th>
-											<th>Actions</th>
-										</tr>
-										</thead>
-										<tfoot>
-										<tr>
-											<th>Total:</th>
-											<th>$275,000</th>
-											<th></th>
-											<th></th>
-											<th></th>
-											<th></th>
-											<th></th>
-											<th></th>
-										</tr>
-										</tfoot>
-										<tbody>
-										<tr class="gradeX">
-											<td>French Distributors</td>
-											<td>$275,000</td>
-											<td>France</td>
-											<td>4%</td>
-											<td>60%</td>
-											<td>15%</td>
-											<td>Semi-Annual</td>
-
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-										</tbody>
-									</table>
-								</div>
-								<!-- end: page -->
-							</div> <!-- end Panel -->
-						</div>
-					</div>
-					<!-- Tax Breaks & Grants -->
-					<div class="row">
-						<div class="col-md-12" id="tax_grant_table">
-							<div class="panel">
-								<div class="panel-heading">
-									<h3 class="panel-title">Grants & Tax Breaks - Loans</h3>
-								</div>
-								<div class="panel-body">
-									<div class="row">
-										<div class="col-sm-6">
-											<div class="m-b-30">
-												<button  class="btn btn-primary waves-effect waves-light" id="add-to-tax-table-loan">Add <i class="fa fa-plus"></i></button>
-											</div>
-										</div>
-									</div>
-									<table class="table table-bordered table-striped" id="datatable-tax-table-loan">
-										<thead>
-										<tr>
-											<th>Company</th>
-											<th>Amount</th>
-											<th>Interest Rate</th>
-											<th>Loan Type</th>
-											<th>Actions</th>
-										</tr>
-										</thead>
-										<tfoot>
-										<tr>
-											<th>Total:</th>
-											<th>$2,000,000</th>
-											<th></th>
-											<th></th>
-											<th></th>
-										</tr>
-										</tfoot>
-										<tbody>
-										<tr class="gradeX">
-											<td>BC Government</td>
-											<td>$2,000,000</td>
-											<td>20%</td>
-											<td>Semi-Annual</td>
-
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-										</tbody>
-									</table>
-								</div>
-								<br/>
-								<div class="panel-heading">
-									<h3 class="panel-title">Grants & Tax Breaks - Discounts</h3>
-								</div>
-								<div class="panel-body">
-									<div class="row">
-										<div class="col-sm-6">
-											<div class="m-b-30">
-												<button  class="btn btn-primary waves-effect waves-light" id="add-to-tax-table-discount">Add <i class="fa fa-plus"></i></button>
-											</div>
-										</div>
-									</div>
-									<table class="table table-bordered table-striped" id="datatable-tax-table-discount">
-										<thead>
-										<tr>
-											<th>Company</th>
-											<th>Estimated Amount</th>
-											<th>Net Advance</th>
-											<th>Actions</th>
-										</tr>
-										<tfoot>
-										<tr>
-											<th>Total:</th>
-											<th>$100,000</th>
-											<th>$80,000</th>
-											<th></th>
-										</tr>
-										</tfoot>
-										</thead>
-										<tbody>
-										<tr class="gradeX">
-											<td>Government of Canada</td>
-											<td>$100,000</td>
-											<td>$80,000</td>
-
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-										</tbody>
-									</table>
-								</div>
-								<!-- end: page -->
-							</div> <!-- end Panel -->
-						</div>
-					</div>
-					<!-- Non-Recouping -->
-                    <div class="row">
-                        <div class="col-md-12" id="non_recouping_table">
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Non-Recouping Production Capital</h3>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="m-b-30">
-                                                <button  class="btn btn-primary waves-effect waves-light" id="add-to-non-recouping-table">Add <i class="fa fa-plus"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <table class="table table-bordered table-striped" id="datatable-non-recouping-table">
-                                      <thead>
-                                        <tr>
-                                          <th>Company</th>
-                                          <th>Amount</th>
-                                          <th>Equity %</th>
-                                          <th>Actions</th>
-                                        </tr>
-                                      </thead>
-									  <tfoot>
-										<tr>
-											<th>Total:</th>
-											<th>$1,000,000</th>
-											<th></th>
-											<th></th>
-										</tr>
-										</tfoot>
-                                      <tbody>
-                                        <tr class="gradeX">
-                                            <td>Producer Deferrals</td>
-                                            <td>$100,000</td>
-                                            <td>5%</td>
-
-                                            <td class="actions">
-                                                <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                                <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                                <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                                <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
-                                </div>
-                                <!-- end: page -->
-                            </div> <!-- end Panel -->
-                        </div>
-                    </div>
-					<!-- Senior Debt -->
-                    <div class="row">
-                        <div class="col-md-12" id="senior_debt_table">
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Senior Debt/Gap Loans</h3>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="m-b-30">
-                                                <button  class="btn btn-primary waves-effect waves-light" id="add-to-senior-debt-table">Add <i class="fa fa-plus"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <table class="table table-bordered table-striped" id="datatable-senior-debt-table">
-                                      <thead>
-                                        <tr>
-                                          <th>Company</th>
-                                          <th>Amount</th>
-                                          <th>Equity %</th>
-                                          <th>Equity Type</th>
-                                          <th>Financing Source</th>
-                                          <th>Interest Rate</th>
-                                          <th>Loan Type</th>
-                                          <th>Actions</th>
-                                        </tr>
-                                      </thead>
-										<tfoot>
-											<tr>
-												<th>Total: </th>
-												<th>$1,000,000</th>
-												<th></th>
-												<th></th>
-												<th></th>
-												<th></th>
-												<th></th>
-												<th></th>
-											</tr>
-										</tfoot>
-                                      <tbody>
-                                        <tr class="gradeX">
-                                            <td>Productivity Media</td>
-                                            <td>$1,000,000</td>
-                                            <td>10%</td>
-                                            <td>Gross Equity</td>
-                                            <td>Revenue</td>
-                                            <td>15%</td>
-                                            <td>Simple</td>
-
-                                            <td class="actions">
-                                                <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                                <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                                <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                                <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
-                                </div>
-                                <!-- end: page -->
-                            </div> <!-- end Panel -->
-                        </div>
-                    </div>
-					<!-- Preferred Equity -->
-                    <div class="row">
-                        <div class="col-md-12" id="preferred_equity_table">
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Preferred Equity</h3>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="m-b-30">
-                                                <button  class="btn btn-primary waves-effect waves-light" id="add-to-preferred-equity-table">Add <i class="fa fa-plus"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <table class="table table-bordered table-striped" id="datatable-preferred-equity-table">
-                                      <thead>
-                                        <tr>
-                                          <th>Company</th>
-                                          <th>Amount</th>
-                                          <th>Equity %</th>
-                                          <th>Actions</th>
-                                        </tr>
-                                      </thead>
-										<tfoot>
-											<tr>
-												<th>Total: </th>
-												<th>$1,000,000</th>
-												<th></th>
-												<th></th>
-											</tr>
-										</tfoot>
-                                      <tbody>
-                                        <tr class="gradeX">
-                                            <td>Private Equity</td>
-                                            <td>$350,000</td>
-                                            <td>10%</td>
-
-                                            <td class="actions">
-                                                <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                                <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                                <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                                <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
-                                </div>
-                                <!-- end: page -->
-                            </div> <!-- end Panel -->
-                        </div>
-                    </div>
-					<!-- Corridor Equity -->
-                    <div class="row">
-                        <div class="col-md-12" id="corridor_equity_table">
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Corridor Equity</h3>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="m-b-30">
-                                                <button class="btn btn-primary waves-effect waves-light" id="add-to-corridor-equity-table">Add <i class="fa fa-plus"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <table class="table table-bordered table-striped" id="datatable-corridor-equity-table">
-                                        <thead>
-                                            <tr>
-                                            <th>Company</th>
-                                            <th>Amount</th>
-                                            <th>Equity % </th>
-                                            <th>Presales Corridor % </th>
-											<th>Recoupment Corridor %</th>
-                                            <th>Actions</th>
-                                            </tr>
-                                        </thead>
-										<tfoot>
-										<tr>
-											<th>Total: </th>
-											<th>$700,000</th>
-											<th></th>
-											<th></th>
-											<th></th>
-											<th></th>
-										</tr>
-
-										</tfoot>
-                                        <tbody>
-                                            <tr class="gradeX">
-                                                <td>Telefilm</td>
-                                                <td>$500,000</td>
-                                                <td>50%</td>
-												<td>0%</td>
-                                                <td>5%</td>
-
-                                                <td class="actions">
-                                                    <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                                    <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                                    <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                                    <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                                                </td>
-                                            </tr>
-
-                                            <tr class="gradeX">
-                                                <td>NOHFC</td>
-                                                <td>$200,000</td>
-                                                <td>20%</td>
-                                                <td>5%</td>
-												<td>0%</td>
-
-                                                <td class="actions">
-                                                    <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                                    <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                                    <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                                    <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                                                </td>
-                                            </tr>
-
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- end: page -->
-                            </div> <!-- end Panel -->
-                        </div>
-                    </div>
-					<!-- General Equity -->
-                    <div class="row">
-                        <div class="col-md-12" id="equity_table">
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">General Equity</h3>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="m-b-30">
-                                                <button id="add-to-general-equity" class="btn btn-primary waves-effect waves-light">Add <i class="fa fa-plus"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <table class="table table-bordered table-striped" id="datatable-general-equity">
-                                        <thead>
-                                            <tr>
-                                            <th>Company</th>
-                                            <th>Amount</th>
-                                            <th>Equity %</th>
-                                            <th>Actions</th>
-                                            </tr>
-                                        </thead>
-										<tfoot>
-											<tr>
-												<th>Total: </th>
-												<th>$800,000</th>
-												<th></th>
-												<th></th>
-											</tr>
-										</tfoot>
-                                        <tbody>
-                                            <tr class="gradeX">
-                                                <td>Investor A</td>
-                                                <td>$500,000</td>
-                                                <td>50%</td>
-
-                                                <td class="actions">
-                                                    <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                                    <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                                    <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                                    <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                                                </td>
-                                            </tr>
-
-                                            <tr class="gradeX">
-                                                <td>Investor B</td>
-                                                <td>$300,000</td>
-                                                <td>30%</td>
-
-                                                <td class="actions">
-                                                    <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                                    <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                                    <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                                    <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- end: page -->
-                            </div> <!-- end Panel -->
-                        </div>
-                    </div>
-
                 </div>
             </div>
             <!-- Page Content Ends -->
@@ -1257,33 +916,34 @@
         <!-- Main Content Ends -->
 
 		<!-- MODAL -->
-		<div id="modalLocation"></div>
-        <div id="dialog" class="modal-block mfp-hide">
-            <section class="panel panel-info panel-color">
-                <header class="panel-heading">
-                    <h2 class="panel-title">Are you sure?</h2>
-                </header>
-                <div class="panel-body">
-                    <div class="modal-wrapper">
-                        <div class="modal-text">
-                            <p>Are you sure that you want to delete this row?</p>
-                        </div>
-                    </div>
-
-                    <div class="row m-t-20">
-                        <div class="col-md-12 text-right">
-                            <button id="dialogConfirm" class="btn btn-primary">Confirm</button>
-                            <button id="dialogCancel" class="btn btn-default">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-
-            </section>
-        </div>
-
-
+		<div id="modalLocation">
+			<div id="delete-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button id="delete-close" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<h4 class="modal-title">Are you sure?</h4>
+						</div>
+						<div class="modal-body">
+							<div class="modal-text">
+								<p>Are you sure that you want to delete this row?</p>
+							</div>
+						</div>
+						<div class="hidden">
+							<div id="delete-modal-id"></div>
+							<div id="delete-modal-type"></div>
+						</div>
+						<div class="modal-footer">
+							<button id="delete-cancel" type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
+							<button id="delete-confirm" type="button" class="btn btn-info" data-dismiss="modal">Confirm</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
         <!-- js placed at the end of the document so the pages load faster -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/pace.min.js"></script>
@@ -1298,14 +958,13 @@
         <script src="assets/magnific-popup/magnific-popup.js"></script>
         <script src="assets/jquery-datatables-editable/jquery.dataTables.js"></script>
         <script src="assets/datatables/dataTables.bootstrap.js"></script>
-        <script src="assets/jquery-datatables-editable/datatables.editable.init.js"></script>
 
          <!-- XEditable Plugin -->
         <script type="text/javascript" src="assets/bootstrap3-editable/moment.min.js"></script>
         <script type="text/javascript" src="assets/bootstrap3-editable/bootstrap-editable.js"></script>
         <script type="text/javascript" src="assets/bootstrap3-editable/demo-xeditable.js"></script>
 
-         <script src="assets/tagsinput/jquery.tagsinput.min.js"></script>
+		<script src="assets/tagsinput/jquery.tagsinput.min.js"></script>
         <script src="assets/toggles/toggles.min.js"></script>
         <script src="assets/timepicker/bootstrap-timepicker.min.js"></script>
         <script src="assets/timepicker/bootstrap-datepicker.js"></script>
@@ -1341,44 +1000,13 @@
 		<!-- Handlebars -->
 		<script src="js/handlebars.runtime.js"></script>
 		<script src="js/templates/templates.js"></script>
+
+		<!-- Production JS -->
 		<script src="js/production.js"></script>
 
-        <script>
 
-            $('.toggle').toggles({on: true});
 
-            $('#option_presales').on('click', function() {
-                $("#pre-sales-summary").toggle();
-            });
 
-            $('#option_equity').on('click', function() {
-                $("#general-equity-summary").toggle();
-            });
-
-            $('#option_senior_debt').on('click', function() {
-                $("#senior-debt-summary").toggle();
-            });
-            $('#option_preferred-equity').on('click', function() {
-                $("#preferred-equity-summary").toggle();
-            });
-
-            $('#option_non_recouping_production_capital').on('click', function() {
-                $("#non-recouping-summary").toggle();
-            });
-
-			$('#option_corridor_equity').on('click', function() {
-				$("#corridor-equity-summary").toggle();
-			});
-
-            $('#option_grants_and_tax_breaks').on('click', function() {
-                $('#tax-grants-summary').toggle();
-            });
-
-            $('#option_direct_territory_sales').on('click', function() {
-                $("#direct-territory-summary").toggle();
-            });
-
-        </script>
 
     </body>
 </html>

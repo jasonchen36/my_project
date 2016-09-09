@@ -1,0 +1,92 @@
+<div id="senior-debt-{{id}}-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button id="senior-debt-{{id}}-close" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title">Senior Debt</h4>
+			</div>
+			<div class="modal-body">
+				<form id="senior-debt-{{id}}-form" class="form-horizontal" role="form">
+					<div class="form-group">
+						<label for="senior-debt-{{id}}-investor" class="control-label col-xs-2">Investor:</label>
+						<div class="col-xs-9">
+							<input type="text" class="form-control" id="senior-debt-{{id}}-investor" value="{{investor}}" >
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="senior-debt-{{id}}-amount" class="control-label col-xs-2">Amount:</label>
+						<div class="col-xs-2">
+							<select name="currency_code" id="senior-debt-{{id}}-currency" class="form-control">
+								<option value="AUD">AUD</option>
+								<option value="BRL">BRL </option>
+								<option value="CAD" selected="selected">CAD</option>
+								<option value="CZK">CZK</option>
+								<option value="DKK">DKK</option>
+								<option value="EUR">EUR</option>
+								<option value="HKD">HKD</option>
+								<option value="HUF">HUF </option>
+								<option value="ILS">ILS</option>
+								<option value="JPY">JPY</option>
+								<option value="MYR">MYR</option>
+								<option value="MXN">MXN</option>
+								<option value="NOK">NOK</option>
+								<option value="NZD">NZD</option>
+								<option value="PHP">PHP</option>
+								<option value="PLN">PLN</option>
+								<option value="GBP">GBP</option>
+								<option value="SGD">SGD</option>
+								<option value="SEK">SEK</option>
+								<option value="CHF">CHF</option>
+								<option value="TWD">TWD</option>
+								<option value="THB">THB</option>
+								<option value="TRY">TRY</option>
+								<option value="USD">USD</option>
+							</select>
+						</div>
+						<div class="col-xs-7">
+							<input type="number" min="0" class="form-control" id="senior-debt-{{id}}-amount" value="{{amount}}">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="senior-debt-{{id}}-equity" class="control-label col-xs-2">Equity %:</label>
+						<div class="col-xs-3">
+							<input type="number" min="0" max="100" class="form-control" id="senior-debt-{{id}}-equity" value="{{equity}}">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="senior-debt-{{id}}-finance-source" class="control-label col-xs-2">Financing Source:</label>
+						<div class="col-xs-9">
+							<select class="form-control" id="senior-debt-{{id}}-finance-source" value="{{financeSource}}">
+								<option value="Revenue">Revenue</option>
+								<option value="Budget">Budget</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="senior-debt-{{id}}-interest-rate" class="control-label col-xs-2">Interest Rate:</label>
+						<div class="col-xs-9">
+							<input type="number" min="0" max="100" class="form-control" id="senior-debt-{{id}}-interest-rate" value="{{interestRate}}">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="senior-debt-{{id}}-loan-type" class="control-label col-xs-2">Loan Type:</label>
+						<div class="col-xs-9">
+							<select class="form-control" id="senior-debt-{{id}}-loan-type" value="{{loanType}}">
+								<option value="Simple">Simple</option>
+								<option value="Semi-Annual">Semi-Annual</option>
+								<option value="Annual">Annual</option>
+							</select>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button id="senior-debt-{{id}}-cancel" type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
+						<button id="senior-debt-{{id}}-save" type="button" class="btn btn-info" data-dismiss="modal">
+							{{#if investor}}Edit{{/if}}
+							{{#unless investor}}Save{{/unless}}
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

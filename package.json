@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "uninstall": "./scripts/uninstall",
+    "prestart": "./scripts/prestart",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
