@@ -55,13 +55,14 @@ $(document).ready(function() {
 			var ask = $("#foreign-sales-add-ask").val();
 			var take = $("#foreign-sales-add-take").val();
 			var actual = $("#foreign-sales-add-actual").val();
+			/*
 			if (total_ask = ask){
 				total_ask = total_ask
 			}else if (total_take = take){
 				total_take = total_take
 			}else if (total_actual = actual){
 				total_actual = total_actual
-			}else {
+			}else { */
 				total_ask = total_ask + parseInt(ask, 10);
 				total_take = total_take + parseInt(take, 10);
 				if (isNaN(parseInt(actual, 10))){
@@ -69,7 +70,7 @@ $(document).ready(function() {
 		  	} else {
 					total_actual = total_actual + parseInt(actual, 10);
 		  	};
-			}
+		//	}
 			$('#total').html('')
 			$('#total').append('<th>Total:</th>'+
 			'<th>'+formatMoneyString(total_ask)+'</th>'+

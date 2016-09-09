@@ -51,26 +51,28 @@ $("#foreign-sales-add-save2").click(function(){
   var ask = $("#foreign-sales-add-ask2").val();
   var take = $("#foreign-sales-add-take2").val();
   var actual = $("#foreign-sales-add-actual2").val();
+  var commission = $("#foreign-sales-add-commission").val();
+  /*
   if (total_ask = ask){
     total_ask = total_ask
   }else if (total_take = take){
     total_take = total_take
   }else if (total_actual = actual){
     total_actual = total_actual
-  }else {
-    total_ask = total_ask + parseInt(ask, 10);
-    total_take = total_take + parseInt(take, 10);
+  }else { */
+    total_ask2 = total_ask2 + parseInt(ask, 10);
+    total_take2 = total_take2 + parseInt(take, 10);
     if (isNaN(parseInt(actual, 10))){
-      total_actual = total_actual;
+      total_actual2 = total_actual2;
     } else {
-      total_actual = total_actual + parseInt(actual, 10);
+      total_actual2 = total_actual2 + parseInt(actual, 10);
     };
-  }
+//  }
   $('#total2').html('')
   $('#total2').append('<th>Total:</th>'+
-  '<th>'+formatMoneyString(total_ask)+'</th>'+
-  '<th>'+formatMoneyString(total_take)+'</th>'+
-  '<th>'+formatMoneyString(total_actual)+'</th>'+
+  '<th>'+formatMoneyString(total_ask2)+'</th>'+
+  '<th>'+formatMoneyString(total_take2)+'</th>'+
+  '<th>'+formatMoneyString(total_actual2)+'</th>'+
   '<th></th>');
   if (row) {
 
@@ -79,6 +81,7 @@ $("#foreign-sales-add-save2").click(function(){
       '<td>'+formatMoneyString(ask)+'</td>'+
       '<td>'+formatMoneyString(take)+'</td>'+
       '<td>'+actual+'</td>'+
+      '<td>'+commission+'</td>'+
       '<td class="actions">'+
       '<button class="btn btn-icon btn-primary edit-btn action-btn" data-toggle="modal" data-target="#add-modal" ><i class="fa ion-eye"></i></button>'+ ' '+
       '<button class="btn btn-icon btn-danger delete-btn action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>'+ ' '+
@@ -95,6 +98,7 @@ $("#foreign-sales-add-save2").click(function(){
       '<td>'+formatMoneyString(ask)+'</td>'+
       '<td>'+formatMoneyString(take)+'</td>'+
       '<td>'+formatMoneyString(actual)+'</td>'+
+      '<td>'+commission+'</td>'+
       '<td class="actions">'+
       '<button class="btn btn-icon btn-primary edit-btn action-btn" data-toggle="modal" data-target="#add-modal" ><i class="fa ion-eye"></i></button>'+' '+
       '<button class="btn btn-icon btn-danger delete-btn action-btn" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>'+' '+
@@ -134,12 +138,12 @@ $("#delete-confirm2").on('click', function() {
   actual = moneyStringToNumber($(row).find('.actual').text());
   row.parentNode.removeChild(row);
   row = 0;
-  total_ask = total_ask - ask;
-  total_take = total_take - ask;
+  total_ask2 = total_ask2 - ask;
+  total_take2 = total_take2 - ask;
   if (isNaN(actual)){
-    total_actual = total_actual;
+    total_actual2 = total_actual2;
   } else {
-    total_actual = total_actual - actual;
+    total_actual2 = total_actual2 - actual;
   };
   $('#total2').html('')
   $('#total2').append('<th>Total:</th>'+
